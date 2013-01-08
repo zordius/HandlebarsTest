@@ -1,0 +1,5 @@
+{
+	"tpl": "{{#foo}}{{bar}}{{/foo}}",
+	"data": {"foo": true, "bar": "{{win}}", "win": "FAIL"},
+	"out": "{{win}}"
+}

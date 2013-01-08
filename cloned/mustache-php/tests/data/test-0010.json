@@ -1,0 +1,11 @@
+{
+	"tpl": "Hello {{name}}\nYou have just won ${{value}}!\n{{#in_ca}}\nWell, ${{ taxed_value }}, after taxes.\n{{/in_ca}}",
+	"dataset": [
+		{"name":"Chris", "value": 10000, "in_ca": true, "taxed_value": 6000},
+		{"name":"Chris", "value": 10000, "in_ca": false, "taxed_value": 6000}
+	],
+	"out": [
+		"Hello Chris\nYou have just won $10000!\n\nWell, $6000, after taxes.\n",
+		"Hello Chris\nYou have just won $10000!\n"
+	]
+}

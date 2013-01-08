@@ -1,0 +1,40 @@
+#!/usr/bin/php -dopen_basedir=.
+<?php
+if (count($argv) < 3) {
+    print_help();
+}
+
+$source = $argv[1];
+$target = $argv[2];
+
+if (!is_dir($source)) {
+    die("Can not find input directory: $source!!\n");
+}
+
+$php_file = glob("$source/*.php");
+if (count($php_file) < 1) {
+    die("Can not find php file in directory: $source!!\n");
+}
+
+$tmpl_file = glob("$source/*.mustache");
+if (count($tmpl_file) < 1) {
+    die("Can not find mustache file in directory: $source!!\n");
+}
+
+function print_help() {
+    global $argv;
+
+    print <<<PRINTEND
+
+usage: $argv[0] source target
+
+Example: $argv[0] cloned/mustache.php/test/fixtures/examples/simple 001-simple
+
+    Then data/001-simple.json and template/001-simple.tmpl will be generated.
+
+PRINTEND
+    ;
+    exit(1);
+}
+
+?>

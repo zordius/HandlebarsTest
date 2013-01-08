@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var fs = require('fs'),
+    handlebars = require('handlebars');
+
+fs.readdir('data', function (err, files) {
+    files.forEach(function (file) {
+        var tmpl = file.replace(/-\d+\.json/, '.tmpl');
+        console.log('# ' + file + ' > ' + tmpl);
+        fs.readFile('data/' + file, 'utf8', function (err, data) {
+            var json = JSON.parse(data);
+            fs.readFile('template/' + tmpl, 'utf8', function (err, data) {
+                var html = handlebars.compile(data)(json),
+                    fn = file.replace(/\.json/, '.txt');
+
+                fs.writeFileSync('fixture/' + fn, html);
+                console.log('  ' + fn + ' OK');
+            });
+        });
+    });
+});

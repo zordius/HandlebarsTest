@@ -19,10 +19,8 @@ Testing targets:
 Directories
 -----------
 
-*data* all data files for testing are placed here, in json format.
-
-*templates* all template files for testing are placed here.
-
-*inc* all required php lib files are placed here.
-
-*bin* all testing scripts and commands are placed here.
+* *cloned*: all cloned library files are placed here.
+* *data*: all data files for testing are placed here, in json format.
+* *templates*: all template files for testing are placed here.
+* *inc*: all required php lib files are placed here.
+* *bin*: all testing scripts and commands are placed here.

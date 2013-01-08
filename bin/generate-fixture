@@ -1,19 +1,24 @@
 #!/usr/bin/env node
 
 var fs = require('fs'),
-    handlebars = require('handlebars');
+    handlebars = require('handlebars'),
+    dir = 'fixture/';
 
-fs.readdir('data', function (err, files) {
+fs.readdir(dir, function (err, files) {
     files.forEach(function (file) {
         var tmpl = file.replace(/-\d+\.json/, '.tmpl');
+
+        if (!file.match(/\.json/)) {
+            return;
+        }
         console.log('# ' + file + ' > ' + tmpl);
-        fs.readFile('data/' + file, 'utf8', function (err, data) {
+        fs.readFile(dir + file, 'utf8', function (err, data) {
             var json = JSON.parse(data);
-            fs.readFile('template/' + tmpl, 'utf8', function (err, data) {
+            fs.readFile(dir + tmpl, 'utf8', function (err, data) {
                 var html = handlebars.compile(data)(json),
                     fn = file.replace(/\.json/, '.txt');
 
-                fs.writeFileSync('fixture/' + fn, html);
+                fs.writeFileSync(dir + fn, html);
                 console.log('  ' + fn + ' OK');
             });
         });

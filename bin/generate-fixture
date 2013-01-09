@@ -2,7 +2,9 @@
 
 var fs = require('fs'),
     handlebars = require('handlebars'),
-    dir = 'fixture/';
+    dir = 'fixture/',
+    gen_total = 0,
+    ok_total = 0;
 
 fs.readdir(dir, function (err, files) {
     files.forEach(function (file) {
@@ -11,6 +13,8 @@ fs.readdir(dir, function (err, files) {
         if (!file.match(/\.json/)) {
             return;
         }
+
+        gen_total += 1;
         console.log('# ' + file + ' > ' + tmpl);
         fs.readFile(dir + file, 'utf8', function (err, data) {
             var json = JSON.parse(data);
@@ -19,7 +23,11 @@ fs.readdir(dir, function (err, files) {
                     fn = file.replace(/\.json/, '.txt');
 
                 fs.writeFileSync(dir + fn, html);
+                ok_total += 1;
                 console.log('  ' + fn + ' OK');
+                if (gen_total == ok_total) {
+                    console.log('<< ALL SUCCESSED: ' + gen_total);
+                }
             });
         });
     });

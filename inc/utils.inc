@@ -12,7 +12,20 @@ function prepare_tmpl($name, $file) {
 
     switch ($name) {
     case 'handlebars.php':
+        require_once('cloned/handlebars.php/src/Handlebars/Autoloader.php');
+        Handlebars_Autoloader::register();
+        $m = new Handlebars_Engine;
+        $test_tmpl = $m->loadTemplate($tmpl_txt);
+        $test_method = 'render';
+        break;
     case 'mustache-php':
+        require_once('cloned/mustache-php/src/Renderer.php');
+        require_once('cloned/mustache-php/src/Template.php');
+        $test_tmpl = \Mustache\Renderer::create(
+             \Mustache\Template::fromTemplateString($tmpl_txt)
+        );
+        $test_method = 'render';
+        break;
     case 'mustache.php':
         require_once('cloned/mustache.php/src/Mustache/Autoloader.php');
         Mustache_Autoloader::register();

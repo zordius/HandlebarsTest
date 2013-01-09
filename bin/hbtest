@@ -8,7 +8,7 @@ if (count($argv) < 3) {
 }
 
 $vars = json_decode(file_get_contents($argv[2]), true);
-warn("\n#Input:");
+warn("#Input:");
 warn(print_r($vars, true));
 
 // Prepare template
@@ -16,7 +16,7 @@ prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]));
 
 // Execute template
 $result = $test_tmpl->$test_method($vars);
-warn("\n#Output: $result");
+warn("#Output: $result");
 
 $standard = file_get_contents(preg_replace('/\.json/', '.txt', $argv[2]));
 if ($result !== $standard) {
@@ -24,12 +24,14 @@ if ($result !== $standard) {
 }
 
 $test_times = (count($argv) > 3) ? $argv[3] : 100000;
+warn("#do $test_times loop test");
+
 $start_time = microtime(true);
 for ($i = 1; $i < $test_times;$i++) {
     $test_tmpl->$test_method($vars);
 }
 $duration = microtime(true) - $start_time;
-warn("Render $test_times with $argv[1] lib takes $duration seconds");
+warn("Render $test_times times with $argv[1] lib takes $duration seconds");
 
 function print_help() {
     global $argv;
@@ -38,8 +40,8 @@ function print_help() {
 
 usage: $argv[0] libName testFile [testTimes]
 
-    libName: one of handlebars.php , mustache-php , mustache.php
-    testTimes: default = 100000
+    libName = one of: none , handlebars.php , mustache-php , mustache.php , *
+    testTimes = default is 100000
 
     Example: $argv[0] mustache.php fixture/001-simple-vars-001.json
 

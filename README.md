@@ -6,7 +6,7 @@ Performance tests on Mustache and Handlebars php libs
 Requirements
 ------------
 
-* php 5.3+ with json suppport.
+* php 5.3+ with json and mbstring suppport.
 
 * nodejs04+ and handlebars for fixture generation.
   ( npm install handlebars )

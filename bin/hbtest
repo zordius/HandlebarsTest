@@ -1,0 +1,52 @@
+#!/usr/bin/php -dopen_basedir=.
+<?php
+
+require_once('inc/utils.inc');
+
+if (count($argv) < 3) {
+    print_help();
+}
+
+$vars = json_decode(file_get_contents($argv[2]), true);
+warn("\n#Input:");
+warn(print_r($vars, true));
+
+// Prepare template
+prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]));
+
+// Execute template
+$result = $test_tmpl->$test_method($vars);
+warn("\n#Output: $result");
+
+$standard = file_get_contents(preg_replace('/\.json/', '.txt', $argv[2]));
+if ($result !== $standard) {
+    warn("ERROR: the output is not same with fixture\n$standard");
+}
+
+$test_times = (count($argv) > 3) ? $argv[3] : 100000;
+$start_time = microtime(true);
+for ($i = 1; $i < $test_times;$i++) {
+    $test_tmpl->$test_method($vars);
+}
+$duration = microtime(true) - $start_time;
+warn("Render $test_times with $argv[1] lib takes $duration seconds");
+
+function print_help() {
+    global $argv;
+
+    print <<<PRINTEND
+
+usage: $argv[0] libName testFile [testTimes]
+
+    libName: one of handlebars.php , mustache-php , mustache.php
+    testTimes: default = 100000
+
+    Example: $argv[0] mustache.php fixture/001-simple-vars-001.json
+
+
+PRINTEND
+    ;
+    exit(1);
+}
+
+?>

@@ -18,6 +18,14 @@ function prepare_tmpl($name, $file) {
         $test_tmpl = $m->loadTemplate($tmpl_txt);
         $test_method = 'render';
         break;
+    case 'php':
+        require_once('cloned/mustache-php/src/RendererPHP.php');
+        require_once('cloned/mustache-php/src/Template.php');
+        $test_tmpl = \Mustache\RendererPHP::create(
+             \Mustache\Template::fromTemplateString($tmpl_txt)
+        );
+        $test_method = 'render';
+        break;
     case 'mustache-php':
         require_once('cloned/mustache-php/src/Renderer.php');
         require_once('cloned/mustache-php/src/Template.php');
@@ -33,6 +41,7 @@ function prepare_tmpl($name, $file) {
         $test_tmpl = $m->loadTemplate($tmpl_txt);
         $test_method = 'render';
         break;
+
     default:
         die("ERROR!! Do not support this lib: $name !!\n");
     }

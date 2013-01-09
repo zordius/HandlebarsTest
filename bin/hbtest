@@ -7,6 +7,17 @@ if (count($argv) < 3) {
     print_help();
 }
 
+$test_times = (count($argv) > 3) ? $argv[3] : 100000;
+if ($argv[1] == 'none') {
+    warn("#do $test_times loop test");
+    $start_time = microtime(true);
+    for ($i = 1; $i < $test_times;$i++) {
+    }
+    $duration = microtime(true) - $start_time;
+    warn("Run $test_times times nop takes $duration seconds");
+    exit();
+}
+
 $vars = json_decode(file_get_contents($argv[2]), true);
 warn("#Input:");
 warn(print_r($vars, true));
@@ -19,11 +30,17 @@ $result = $test_tmpl->$test_method($vars);
 warn("#Output: $result");
 
 $standard = file_get_contents(preg_replace('/\.json/', '.txt', $argv[2]));
+$match = 'YES';
 if ($result !== $standard) {
-    warn("ERROR: the output is not same with fixture\n$standard");
+    if (preg_replace('/\r|\n/', '', $result) !== preg_replace('/\r|\n/', '', $standard)) {
+        warn("ERROR: the output is not same with fixture\n$standard");
+        $match = 'NO';
+    } else {
+        warn("ERROR: the output is not exact same with fixture (more or less CR/LF)\n");
+        $match = 'CR/LF';
+    }
 }
 
-$test_times = (count($argv) > 3) ? $argv[3] : 100000;
 warn("#do $test_times loop test");
 
 $start_time = microtime(true);
@@ -32,6 +49,13 @@ for ($i = 1; $i < $test_times;$i++) {
 }
 $duration = microtime(true) - $start_time;
 warn("Render $test_times times with $argv[1] lib takes $duration seconds");
+print json_encode(Array(
+    'lib' => $argv[1],
+    'test' => $argv[2],
+    'loop' => $test_times,
+    'time' => $duration,
+    'match' => $match
+));
 
 function print_help() {
     global $argv;

@@ -33,15 +33,16 @@ file_put_contents("$rn.json", json_encode(Array(
 
 // output twiki report
 ob_start();
-print "*Report $rt*: Test libraries in {$meta['loop']} times, results as N seconds*\n";
+print "*Report $rt*: Test libraries in {$meta['loop']} times, results as N seconds\n";
 print "%TABLE{name=\"hbreport$rt\"}%\n";
 print "| *test case* | *" . join('* | *', $libs) . "* |\n";
 
+$i
 foreach ($reports as $name => $report) {
     $fn = basename($name);
     $tn = preg_replace('/-\d+\.json/', '', $name);
     $sn = preg_replace('/\.json/', '.txt', $name);
-    print "| <a href=\"$base$name\">$fn</a><br/><a href=\"$base$tn.tmpl\">(template)</a><br/><a href=\"$base$sn\">(result)</a>";
+    print "| $i <a href=\"$base$name\">$fn</a><br/><a href=\"$base$tn.tmpl\">(template)</a> <a href=\"$base$sn\">(result)</a> $i";
     foreach ($report as $test) {
         print ' | ' . number_format($test['time'], 3);
     }

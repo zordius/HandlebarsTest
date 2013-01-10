@@ -37,8 +37,9 @@ print "*Report $rt*: Test libraries in {$meta['loop']} times, results as N secon
 print "%TABLE{name=\"hbreport$rt\"}%\n";
 print "| *test case* | *" . join('* | *', $libs) . "* |\n";
 
-$i
+$i = 0;
 foreach ($reports as $name => $report) {
+    $i++;
     $fn = basename($name);
     $tn = preg_replace('/-\d+\.json/', '', $name);
     $sn = preg_replace('/\.json/', '.txt', $name);

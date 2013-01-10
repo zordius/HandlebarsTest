@@ -33,7 +33,8 @@ file_put_contents("$rn.json", json_encode(Array(
 
 // output twiki report
 ob_start();
-print "*Report $rt*: Test libraries in {$meta['loop']} times, results as N seconds\n";
+print "---++ Report $rt\n";
+print "Test libraries in *{$meta['loop']}* times, results as N seconds\n";
 print "%TABLE{name=\"hbreport$rt\"}%\n";
 print "| *test case* | *" . join('* | *', $libs) . "* |\n";
 

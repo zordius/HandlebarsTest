@@ -1,0 +1,48 @@
+#!/usr/bin/php -dopen_basedir=.
+<?php
+$reports = Array();
+$libs = Array();
+$base = 'https://github.com/zordius/HandlebarsTest/blob/master/';
+
+foreach (glob('cloned/*') as $file) {
+    $libs[] = preg_replace('/cloned\//', '', $file);
+}
+
+foreach (glob('fixture/*.json') as $test) {
+  $report = Array();
+  foreach ($libs as $lib) {
+    $result = system("bin/hbtest $lib $test $argv[1]");
+    $report[] = json_decode($result, true);
+  }
+  $reports[$test] = $report;
+}
+$meta = $report[0];
+
+date_default_timezone_set('Asia/Taipei');
+$rn  = 'report/' + date('YmdHis');
+
+// output json report
+file_put_contents("$rn.json", json_encode(Array(
+    'meta' => Array(
+        'loop' => $meta['loop']
+    ),
+    'reports' => $reports,
+)));
+
+// output twiki report
+ob_start();
+print "*Test libraries in {$meta['loop']} times, results as N seconds*\n";
+print "| test case | " . join(' | ', $libs) . " |\n";
+foreach ($reports as $name => $report) {
+    $fn = basename($name);
+    $tn = preg_replace('/-\d+\.json/', '', $name);
+    $sn = preg_replace('/\.json/', '.txt', $name);
+    print "| <a href=\"$base$name\">$fn</a><br/><a href=\"$base$tn.tmpl\">(template)</a><br/><a href=\"$base$sn\">(result)</a>";
+    foreach ($report as $test) {
+        print ' | ' . number_format($test['time'], 3);
+    }
+    print " |\n";
+}
+file_put_contents("$rn.twiki", ob_get_clean());
+
+?>

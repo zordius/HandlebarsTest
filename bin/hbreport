@@ -19,20 +19,24 @@ foreach (glob('fixture/*.json') as $test) {
 $meta = $report[0];
 
 date_default_timezone_set('Asia/Taipei');
-$rn  = 'report/' + date('YmdHis');
+$rt = date('Ymd.His');
+$rn  = "report/$rt";
 
 // output json report
 file_put_contents("$rn.json", json_encode(Array(
     'meta' => Array(
-        'loop' => $meta['loop']
+        'loop' => $meta['loop'],
+        'time' => $rt,
     ),
     'reports' => $reports,
 )));
 
 // output twiki report
 ob_start();
-print "*Test libraries in {$meta['loop']} times, results as N seconds*\n";
-print "| test case | " . join(' | ', $libs) . " |\n";
+print "*Report $rt*: Test libraries in {$meta['loop']} times, results as N seconds*\n";
+print "%TABLE{name=\"hbreport$rt\"}%\n";
+print "| *test case* | *" . join('* | *', $libs) . "* |\n";
+
 foreach ($reports as $name => $report) {
     $fn = basename($name);
     $tn = preg_replace('/-\d+\.json/', '', $name);
@@ -43,6 +47,12 @@ foreach ($reports as $name => $report) {
     }
     print " |\n";
 }
+
+$rnum = count($reports) + 1;
+$lnum = count($libs) + 1;
+
+print "%CHART{type=\"bar\" name=\"hbchart$rt\" table=\"hbreport$rt\"  data=\"R2:C2..R$rnum:C$lnum\" xaxis=\"R2:C1..R$rnum:C1\" legend=\"R1:C2..R1:C$lnum\" ymin=\"0\" yaxis="on" xaxisangle="1" width=\"1000\" }%\n";
+
 file_put_contents("$rn.twiki", ob_get_clean());
 
 ?>

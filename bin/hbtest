@@ -26,7 +26,7 @@ warn(print_r($vars, true));
 prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]));
 
 // Execute template
-$result = $test_tmpl->$test_method($vars);
+@$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
 warn("#Output: $result");
 
 $standard = file_get_contents(preg_replace('/\.json/', '.txt', $argv[2]));
@@ -44,9 +44,16 @@ if ($result !== $standard) {
 warn("#do $test_times loop test");
 
 $start_time = microtime(true);
-for ($i = 1; $i < $test_times;$i++) {
-    $test_tmpl->$test_method($vars);
+if ($test_tmpl) {
+    for ($i = 1; $i < $test_times;$i++) {
+        $test_tmpl->$test_method($vars);
+    }
+} else {
+    for ($i = 1; $i < $test_times;$i++) {
+@        $test_method($vars);
+    }
 }
+
 $duration = microtime(true) - $start_time;
 warn("Render $test_times times with $argv[1] lib takes $duration seconds");
 print json_encode(Array(
@@ -64,7 +71,7 @@ function print_help() {
 
 usage: $argv[0] libName testFile [testTimes]
 
-    libName = one of: none , handlebars.php , mustache-php , mustache.php , *
+    libName = one of: none , lightncandy , handlebars.php , mustache-php , mustache.php , *
     testTimes = default is 100000
 
     Example: $argv[0] mustache.php fixture/001-simple-vars-001.json

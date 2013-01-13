@@ -18,6 +18,13 @@ function prepare_tmpl($name, $file) {
         $test_tmpl = $m->loadTemplate($tmpl_txt);
         $test_method = 'render';
         break;
+    case 'lightncandy':
+        require_once('cloned/lightncandy/src/lightncandy.inc');
+        $php = LightnCandy::compile($tmpl_txt);
+        $inc = preg_replace('/\.tmpl/', '.php', $file);
+        file_put_contents($inc, $php);
+        $test_method = include($inc);
+        break;
     case 'php':
         require_once('cloned/mustache-php/src/RendererPHP.php');
         require_once('cloned/mustache-php/src/Template.php');

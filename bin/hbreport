@@ -63,7 +63,8 @@ $i = 0;
 $Fmap = Array(
     'YES' => '%Y%',
     'NO' => '%X%',
-    'CR/LF' => 'cr/lf'
+    'CR/LF' => 'cr/lf',
+    'QUOTE' => 'quote'
 );
 
 foreach ($reports as $name => $report) {

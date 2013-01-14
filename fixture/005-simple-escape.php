@@ -3,8 +3,8 @@
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
-Hello original '.LightnCandy::raw('name', $cx, $in).' , the value is '.LightnCandy::raw('value', $cx, $in).'
+    return 'Hello '.(($in['name'] === true) ? 'true' : htmlentities($in['name'], ENT_QUOTES)).', you have just won $'.(($in['value'] === true) ? 'true' : htmlentities($in['value'], ENT_QUOTES)).'!
+Hello original '.(($in['name'] === true) ? 'true' : $in['name']).' , the value is '.(($in['value'] === true) ? 'true' : $in['value']).'
 ';
 }
 ?>

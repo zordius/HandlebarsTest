@@ -62,7 +62,7 @@ print "| *test case* | *" . join('* | *', $libs) . "* |\n";
 $i = 0;
 $Fmap = Array(
     'YES' => '%Y%',
-    'NO' => '%N%',
+    'NO' => '%X%',
     'CR/LF' => 'cr/lf'
 );
 

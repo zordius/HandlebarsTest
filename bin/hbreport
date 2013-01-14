@@ -56,6 +56,27 @@ $rnum = count($reports) + 1;
 $lnum = count($libs) + 1;
 
 print "%CHART{type=\"bar\" name=\"hbchart$rt\" table=\"hbreport$rt\"  data=\"R2:C2..R$rnum:C$lnum\" xaxis=\"R2:C1..R$rnum:C1\" legend=\"R1:C2..R1:C$lnum\" ymin=\"0\" yaxis=\"on\" xaxisangle=\"1\" width=\"1000\" }%\n";
+
+print "\nFeature Test:\n";
+print "| *test case* | *" . join('* | *', $libs) . "* |\n";
+$i = 0;
+$Fmap = Array(
+    'YES' => '%Y%',
+    'NO' => '%N%',
+    'CR/LF' => 'cr/lf'
+);
+
+foreach ($reports as $name => $report) {
+    $i++;
+    $fn = basename($name);
+    $tn = preg_replace('/-\d+\.json/', '', $name);
+    $sn = preg_replace('/\.json/', '.txt', $name);
+    print "| $i <a href=\"$base$name\">$fn</a><br/><a href=\"$base$tn.tmpl\">(template)</a> <a href=\"$base$sn\">(result)</a> $i";
+    foreach ($report as $test) {
+        print ' | ' . $Fmap[$test['match']];
+    }
+    print " |\n";
+}
 print "%ENDTWISTY%\n";
 
 file_put_contents("$rn.twiki", ob_get_clean());

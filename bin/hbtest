@@ -59,12 +59,12 @@ if ($match !== 'NO') {
         }
     }
     $duration = microtime(true) - $start_time;
+    warn("Render $test_times times with $argv[1] lib takes $duration seconds");
 } else {
     warn("Skip $test_times times test with $argv[1] lib due to result bad");
     $duration = 0;
 }
 
-warn("Render $test_times times with $argv[1] lib takes $duration seconds");
 print json_encode(Array(
     'lib' => $argv[1],
     'test' => $argv[2],

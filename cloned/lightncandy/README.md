@@ -51,3 +51,22 @@ Rendered PHP code is:
 Welcome John , You win $10000 dollars!!
 Welcome Peter , You win $1000 dollars!!
 </pre>
+
+Detail Feature list
+-------------------
+
+* Exact same CR/LF behavior with handlebars.js
+* {{{value}}} : raw variable
+   * true as 'true'
+   * false as ''
+* {{value}} : html encoded variable
+   * true as 'true'
+   * false as ''
+* {{#value}} : section
+   * false, undefined and null will skip the section
+   * true will run the section with original scope
+   * All others will run the section with new scope (include 0, 1, -1, '', '1', '0', '-1', 'false', Array, ...)
+* {{/value}} : end section
+* {{^value}} : inverted section
+   * false, undefined and null will run the section with original scope
+   * All others will skip the section (include 0, 1, -1, '', '1', '0', '-1', 'false', ...)

@@ -8,7 +8,7 @@ function prepare_tmpl($name, $file) {
     global $test_tmpl, $test_method;
 
     $tmpl_txt = file_get_contents($file);
-    warn("\n# Template: $tmpl_txt\n");
+    warn("\n### Template:\n$tmpl_txt\n");
 
     switch ($name) {
     case 'handlebars.php':

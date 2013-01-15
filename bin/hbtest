@@ -9,7 +9,7 @@ if (count($argv) < 3) {
 
 $test_times = (count($argv) > 3) ? $argv[3] : 100000;
 if ($argv[1] == 'none') {
-    warn("#do $test_times loop test");
+    warn("###do $test_times loop test");
     $start_time = microtime(true);
     for ($i = 1; $i < $test_times;$i++) {
     }
@@ -20,7 +20,7 @@ if ($argv[1] == 'none') {
 
 $input = file_get_contents($argv[2]);
 $vars = json_decode($input, true);
-warn("#Input:\n$input\n as PHP:");
+warn("### Input:\n$input\n### as PHP:");
 warn(print_r($vars, true));
 
 // Prepare template
@@ -28,25 +28,25 @@ prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]));
 
 // Execute template
 @$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
-warn("#Output: $result");
+warn("### Output:\n$result");
 
 $standard = file_get_contents(preg_replace('/\.json/', '.txt', $argv[2]));
 $match = 'YES';
 if ($result !== $standard) {
     if (preg_replace('/\r|\n/', '', $result) === preg_replace('/\r|\n/', '', $standard)) {
-        warn("ERROR: the output is not exact same with fixture (more or less CR/LF)\n");
+        warn("!!!!! ERROR: the output is not exact same with fixture (more or less CR/LF)\n");
         $match = 'CR/LF';
     } else if (preg_replace('/&#039;/', '&#x27;', $result) === $standard) {
-        warn("ERROR: the output is not exact same with fixture (urlencode difference on single quote)\n");
+        warn("!!!!! ERROR: the output is not exact same with fixture (urlencode difference on single quote)\n");
         $match = 'QUOTE';
     } else {
-        warn("ERROR: the output is not same with fixture\n$standard");
+        warn("!!!!! ERROR: the output is not same with fixture\n$standard");
         $match = 'NO';
     }
 }
 
 if ($match !== 'NO') {
-    warn("#do $test_times loop test");
+    warn("###do $test_times loop test");
 
     $start_time = microtime(true);
     if ($test_tmpl) {

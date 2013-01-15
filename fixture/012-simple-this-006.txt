@@ -1,0 +1,2 @@
+Hello John, you have just won $10000!
+Winners: [object Object]testA1,[object Object],[object Object],T1,T2,T3,T4test2

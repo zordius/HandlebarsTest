@@ -1,0 +1,10 @@
+{
+    "name": "John",
+    "value": 10000,
+    "winners": [
+        {"this": "test1"},
+        ["testA1", {"t1": "OK", "t2": "OFF"}, {"t1": "OK", "t2": ["ON", "OFF"]}, ["T1", "T2", ["T3", "T4"]]],
+        "test2",
+        false
+    ]
+}

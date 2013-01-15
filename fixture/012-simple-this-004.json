@@ -1,0 +1,9 @@
+{
+    "name": "John",
+    "value": 10000,
+    "winners": [
+        "test1",
+        "test2",
+        "test3"
+    ]
+}

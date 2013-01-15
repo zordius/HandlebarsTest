@@ -1,0 +1,2 @@
+Hello John,Peter, you have just won $-1!
+This is next line.EMPTY&lt;HTML&gt;

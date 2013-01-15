@@ -1,0 +1,8 @@
+{
+    "name": "John",
+    "value": 10000,
+    "winners": {
+        "this": "test1",
+        "that": "test2"
+    }
+}

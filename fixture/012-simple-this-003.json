@@ -1,0 +1,9 @@
+{
+    "name": "John",
+    "value": 10000,
+    "winners": [
+        {"this": "test1"},
+        "test2",
+        false
+    ]
+}

@@ -3,16 +3,26 @@ class LightnCandy {
     const FLAG_ERROR_LOG = 1;
     const FLAG_ERROR_EXCEPTION = 2;
     const FLAG_STANDALONE = 4;
+    const FLAG_JSTRUE = 8;
+    const FLAG_JSOBJECT = 16;
+    const FLAG_THIS = 32;
+
+    const FLAG_BESTPERFORMANCE = 0;
+    const FLAG_HANDLEBARSJS = 56; // FLAG_JSTRUE + FLAG_JSOBJECT + FLAG_THIS 
+
     const TOKEN_SEARCH = '/(\\{{2,3})(.+?)(\\}{2,3})/';
 
     private static $lastContext;
 
-    public static function compile($template, $flags = 0) {
+    public static function compile($template, $flags = self::FLAG_HANDLEBARSJS) {
         $context = Array(
             'flags' => Array(
                 'errorlog' => $flags & self::FLAG_ERROR_LOG,
                 'exception' => $flags & self::FLAG_ERROR_EXCEPTION,
                 'standalong' => $flags & self::FLAG_STANDALONE,
+                'jstrue' => $flags & self::FLAG_JSTRUE,
+                'jsobj' => $flags & self::FLAG_JSOBJECT,
+                'this' => $flags & self::FLAG_THIS
             ),
             'level' => 0,
             'stack' => Array(),
@@ -48,7 +58,7 @@ class LightnCandy {
             return false;
         }
 
-        if ($context['usedFeature']['sec'] < 1) {
+        if (($context['usedFeature']['sec'] < 1) || !$context['flags']['jsobj']) {
             $context['useVar'] = Array('$in');
         }
 
@@ -56,8 +66,15 @@ class LightnCandy {
             return '\'' . LightnCandy::tokens($matches, $context) . '\'';
         }, $template);
 
+        $flagJStrue = self::_true($context['flags']['jstrue']);
+        $flagJSObj = self::_true($context['flags']['jsobj']);
+
         return "<?php return function (\$in) {
     \$cx = Array(
+        'flags' => Array(
+            'jstrue' => $flagJStrue,
+            'jsobj' => $flagJSObj
+        ),
         'path' => Array(),
         'parents' => Array()
     );
@@ -70,6 +87,10 @@ class LightnCandy {
         return self::$lastContext;
     }
 
+    protected static function _true($v) {
+        return ($v === true) ? 'true' : $v;
+    }
+
     protected static function _scope($scopes) {
         return count($scopes) ? '[' . implode('][', $scopes) . ']' : '';
     }
@@ -79,7 +100,7 @@ class LightnCandy {
     }
 
     protected static function _vn($vn) {
-        return self::_qscope(explode('.', $vn));
+        return $vn ? self::_qscope(explode('.', $vn)) : '';
     }
 
     protected static function scan($token, &$context) {
@@ -186,10 +207,20 @@ class LightnCandy {
         case '!':
             return '.';
         default:
+            if (($token[2] == 'this') || $token[2] == '.') {
+                if ($context['flags']['this']) {
+                    $token[2] = null;
+                } else {
+                }
+            }
             $fn = $raw ? 'raw' : 'enc';
             if ($context['useVar']) {
                 $v = end($context['useVar']) . self::_vn($token[2]);
-                return $raw ? ".(($v === true) ? 'true' : $v)." : ".(($v === true) ? 'true' : htmlentities($v, ENT_QUOTES)).";
+                if ($context['flags']['jstrue']) {
+                    return $raw ? ".(($v === true) ? 'true' : $v)." : ".(($v === true) ? 'true' : htmlentities($v, ENT_QUOTES)).";
+                } else {
+                    return $raw ? ".$v." : ".htmlentities($v, ENT_QUOTES).";
+                }
             } else {
                 return ".{$context['obj']}{$fn}('{$token[2]}', \$cx, \$in).";
             }
@@ -201,16 +232,53 @@ class LightnCandy {
     }
 
     public static function raw($var, $cx, $in) {
-        return ($in[$var] === true) ? 'true' : $in[$var];
+        $v = ($var === '') ? $in : $in[$var];
+        if ($v === true) {
+            if ($cx['flags']['jstrue']) {
+                return 'true';
+            }
+        } elseif (is_array($v)) {
+            if ($cx['flags']['jsobj']) {
+                if (count(array_diff_key($v, array_keys(array_keys($v)))) > 0) {
+                    return '[object Object]';
+                } else {
+                    $ret = Array();
+                    foreach ($v as $k => $vv) {
+                        $ret[] = self::enc($k, $cx, $v);
+                    }
+                    return join(',', $ret);
+                }
+            }
+        }
+        return $v;
     }
 
     public static function enc($var, $cx, $in) {
-        return htmlentities(($in[$var] === true) ? 'true' : $in[$var], ENT_QUOTES);
+        $v = ($var === '') ? $in : $in[$var];
+
+        if ($v === true) {
+            if ($cx['flags']['jstrue']) {
+                return 'true';
+            }
+        } elseif (is_array($v)) {
+            if ($cx['flags']['jsobj']) {
+                if (count(array_diff_key($v, array_keys(array_keys($v)))) > 0) {
+                    return '[object Object]';
+                } else {
+                    $ret = Array();
+                    foreach ($v as $k => $vv) {
+                        $ret[] = self::enc($k, $cx, $v);
+                    }
+                    return join(',', $ret);
+                }
+            }
+        }
+        return htmlentities($v, ENT_QUOTES);
     }
 
     public static function sec($var, &$cx, $in, $each, $cb) {
         if (!$each && is_array($in[$var])) {
-            if (count(array_diff_key($var, array_keys(array_keys($in[$var])))) == 0) {
+            if (count(array_diff_key($in[$var], array_keys(array_keys($in[$var])))) == 0) {
                 $each = true;
             }
         }

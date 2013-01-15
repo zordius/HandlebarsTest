@@ -4,7 +4,7 @@ function warn ($str) {
     file_put_contents('php://stderr', "$str\n");
 }
 
-function prepare_tmpl($name, $file) {
+function prepare_tmpl($name, $file, $flag) {
     global $test_tmpl, $test_method;
 
     $tmpl_txt = file_get_contents($file);
@@ -20,7 +20,7 @@ function prepare_tmpl($name, $file) {
         break;
     case 'lightncandy':
         require_once('cloned/lightncandy/src/lightncandy.inc');
-        $php = LightnCandy::compile($tmpl_txt);
+        $php = LightnCandy::compile($tmpl_txt, $flag);
         $inc = preg_replace('/\.tmpl/', '.php', $file);
         file_put_contents($inc, $php);
         $test_method = include($inc);

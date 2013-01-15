@@ -24,7 +24,12 @@ warn("### Input:\n$input\n### as PHP:");
 warn(print_r($vars, true));
 
 // Prepare template
-prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]));
+$flag = 0;
+if (($argv[3] == 1) && ($argv[1] == 'lightncandy')) {
+    require_once('cloned/lightncandy/src/lightncandy.inc');
+    $flag = LightnCandy::FLAG_HANDLEBARSJS;
+}
+prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), $flag);
 
 // Execute template
 @$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);

@@ -7,8 +7,8 @@
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.(($in['winner']['name'] === true) ? 'true' : htmlentities($in['winner']['name'], ENT_QUOTES)).', you have just won $'.(($in['winner']['value'] === true) ? 'true' : htmlentities($in['winner']['value'], ENT_QUOTES)).'!
-We have $'.(($in['award']['first']['value'] === true) ? 'true' : htmlentities($in['award']['first']['value'], ENT_QUOTES)).' for '.(($in['award']['first']['name'] === true) ? 'true' : htmlentities($in['award']['first']['name'], ENT_QUOTES)).' award!!
+    return 'Hello '.LightnCandy::enc('winner.name', $cx, $in).', you have just won $'.LightnCandy::enc('winner.value', $cx, $in).'!
+We have $'.LightnCandy::enc('award.first.value', $cx, $in).' for '.LightnCandy::enc('award.first.name', $cx, $in).' award!!
 ';
 }
 ?>

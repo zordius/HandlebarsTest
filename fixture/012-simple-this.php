@@ -1,8 +1,8 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => 8,
-            'jsobj' => 16
+            'jstrue' => true,
+            'jsobj' => true
         ),
         'path' => Array(),
         'parents' => Array()

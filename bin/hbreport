@@ -18,6 +18,27 @@ foreach (glob('fixture/*.json') as $test) {
 }
 $meta = $report[0];
 
+$Fmap = Array(
+    'YES' => '%Y%',
+    'NO' => '%X%',
+    'CR/LF' => 'cr/lf',
+    'QUOTE' => 'quote'
+);
+
+// output quick feature report
+if ($argv[1] == 1) {
+    print "\n|\ttest case\t| " . join("\t|\t", $libs) . "\t|\n";
+    foreach ($reports as $name => $report) {
+        $fn = substr(basename($name, '.json'), -20);
+        print "| $fn";
+        foreach ($report as $test) {
+            print "\t|\t" . substr("                ". $test['match'], -13);
+        }
+        print " |\n";
+    }
+    exit;
+}
+
 date_default_timezone_set('Asia/Taipei');
 $rt = date('Ymd.His');
 $rn  = "report/$rt";
@@ -60,12 +81,6 @@ print "%CHART{type=\"bar\" name=\"hbchart$rt\" table=\"hbreport$rt\"  data=\"R2:
 print "\nFeature Test:\n";
 print "| *test case* | *" . join('* | *', $libs) . "* |\n";
 $i = 0;
-$Fmap = Array(
-    'YES' => '%Y%',
-    'NO' => '%X%',
-    'CR/LF' => 'cr/lf',
-    'QUOTE' => 'quote'
-);
 
 foreach ($reports as $name => $report) {
     $i++;

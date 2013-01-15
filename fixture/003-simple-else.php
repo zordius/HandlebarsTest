@@ -1,5 +1,9 @@
 <?php return function ($in) {
     $cx = Array(
+        'flags' => Array(
+            'jstrue' => true,
+            'jsobj' => true
+        ),
         'path' => Array(),
         'parents' => Array()
     );

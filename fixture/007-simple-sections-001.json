@@ -1,0 +1,21 @@
+{
+    "notEmpty": true,
+    "isEmpty": false,
+    "item": [
+        {
+             "name": "Mr. First",
+             "current": true,
+             "url": "#Red"
+        },
+        {
+             "name": "Mrs. Second",
+             "url": false,
+             "gender": "#Green"
+        },
+        {
+             "name": "Mr. Third",
+             "current": false,
+             "url": "#Blue"
+        }
+    ]
+}

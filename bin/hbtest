@@ -18,8 +18,9 @@ if ($argv[1] == 'none') {
     exit();
 }
 
-$vars = json_decode(file_get_contents($argv[2]), true);
-warn("#Input:");
+$input = file_get_contents($argv[2]);
+$vars = json_decode($input, true);
+warn("#Input:\n$input\n as PHP:");
 warn(print_r($vars, true));
 
 // Prepare template

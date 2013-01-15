@@ -1,0 +1,12 @@
+{
+    "winner": {
+        "name": "John",
+        "value": 10000
+    },
+    "award": {
+        "first": {
+            "name": "GOLDEN",
+            "value": 100000
+        }
+    }
+}

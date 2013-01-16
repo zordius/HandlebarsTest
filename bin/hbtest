@@ -25,7 +25,7 @@ warn(print_r($vars, true));
 
 // Prepare template
 $flag = 0;
-if (($argv[3] == 1) && ($argv[1] == 'lightncandy')) {
+if ((($argv[3] % 2) == 1) && ($argv[1] == 'lightncandy')) {
     require_once('cloned/lightncandy/src/lightncandy.inc');
     $flag = LightnCandy::FLAG_HANDLEBARSJS + LightnCandy::FLAG_ERROR_LOG;
 }

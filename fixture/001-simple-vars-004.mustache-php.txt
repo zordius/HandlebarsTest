@@ -1,0 +1,5 @@
+Hello John
+Next Line, you have just won $-1!
+This is next line.EMPTY&lt;HTML&gt;中文
+Test on spacing in mustache: Hee }}, you have just w
+ }}!

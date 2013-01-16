@@ -1,0 +1,14 @@
+Hello John, you have just won $10000!
+<ul>
+ <li>Mr. First is a man</li>
+ <li>Mrs. Second is a woman</li>
+ <li>Mr. Third is a unknown</li>
+ <li>Mr. 4th is a man</li>
+ <li>Mrs. 5th is a woman</li>
+ <li>Mr. 6th is a man</li>
+ <li>Mr. 7th is a man</li>
+ <li>Mr. 8th is a man</li>
+ <li>Mrs. 9th is a woman</li>
+ <li>Mr. 10th is a man</li>
+</ul>
+1

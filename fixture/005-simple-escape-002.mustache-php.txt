@@ -1,0 +1,2 @@
+Hello John中文, you have just won $&lt;10000&gt;!
+Hello original  , the value is }

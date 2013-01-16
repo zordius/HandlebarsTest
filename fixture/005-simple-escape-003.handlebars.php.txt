@@ -1,0 +1,4 @@
+Hello John
+&quot;中文&quot;, you have just won $&lt;'10000'&gt;&amp;?!
+Hello original John
+"中文", the value is <'10000'>&?

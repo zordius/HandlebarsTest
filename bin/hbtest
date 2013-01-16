@@ -41,6 +41,7 @@ try {
 warn("### Output:\n$result");
 
 $standard = file_get_contents(preg_replace('/\.json/', '.txt', $argv[2]));
+file_put_contents(preg_replace('/\.json/', ".$argv[1].txt", $argv[2]), $result);
 $match = 'YES';
 if ($result !== $standard) {
     if (preg_replace('/\r|\n/', '', $result) === preg_replace('/\r|\n/', '', $standard)) {

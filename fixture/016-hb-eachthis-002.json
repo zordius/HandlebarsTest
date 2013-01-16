@@ -1,0 +1,25 @@
+[
+    {
+        "name": "John",
+        "value": 10000
+    },
+    {
+        "people": [
+            {
+                 "name": "Mr. First",
+                 "gender": "man"
+            },
+            {
+                 "name": "Mrs. Second",
+                 "gender": "woman"
+            }
+        ],
+        "value": [
+            10,
+            "test",
+            {"key": "value"}
+        ]
+    },
+    1234,
+    "ABCD"
+]

@@ -1,0 +1,2 @@
+Hello John, you have just won $10000!
+Hello original  , the value is }

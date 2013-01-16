@@ -16,17 +16,22 @@ This is a test, test = '.LightnCandy::enc('test', $cx, $in).'
 Line 2
 ';}).'
 '.(LightnCandy::isec('test', $in) ? ('
-Line 2
+Line 3
 ') : '').'
 '.(LightnCandy::isec('test', $in) ? ('
-Line 2
+Line 4
 ') : '').'
 '.LightnCandy::sec('test', $cx, $in, false, function($cx, $in) {return '
-Line 2
+Line 5
 ';}).'
 '.(LightnCandy::isec('test', $in) ? ('
-Line 2
+Line 6
 ') : '').'
+---- double section ----
+'.LightnCandy::sec('sec', $cx, $in, false, function($cx, $in) {return '
+'.LightnCandy::enc('name', $cx, $in).':'.LightnCandy::enc('value', $cx, $in).'
+'.LightnCandy::sec('sec', $cx, $in, false, function($cx, $in) {return '-- '.LightnCandy::enc('name', $cx, $in).', '.LightnCandy::enc('value', $cx, $in).'--';}).'
+';}).' 
 ';
 }
 ?>

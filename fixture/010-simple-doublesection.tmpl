@@ -7,14 +7,19 @@ This is a test, test = {{test}}
 Line 2
 {{/test}}
 {{^test}}
-Line 2
+Line 3
 {{/test}}
 {{^test}}
-Line 2
+Line 4
 {{/test}}
 {{#test}}
-Line 2
+Line 5
 {{/test}}
 {{^test}}
-Line 2
+Line 6
 {{/test}}
+---- double section ----
+{{#sec}}
+{{name}}:{{value}}
+{{#sec}}-- {{name}}, {{value}}--{{/sec}}
+{{/sec}} 

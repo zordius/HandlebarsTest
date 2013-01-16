@@ -1,0 +1,33 @@
+{
+    "name": "John",
+    "value": 10000,
+    "test": true,
+    "sec": [
+        {
+            "name": "T1",
+            "value": "V1",
+            "sec": true
+        },
+        {
+            "name": "T2",
+            "value": "V2",
+            "sec": [
+                "what?"
+            ]
+        },
+        {
+            "name": "T3",
+            "value": "V3",
+            "sec": [
+                {
+                    "name": "T31",
+                    "value": "V31"
+                },
+                {
+                    "name": "T32",
+                    "value": "V32"
+                }
+            ]
+        }
+    ]
+}

@@ -13,6 +13,7 @@
  <li>'.LightnCandy::enc('name', $cx, $in).' is a '.LightnCandy::enc('gender', $cx, $in).'</li>
 ';}).'
 </ul>
+'.LightnCandy::enc('end', $cx, $in).'
 ';
 }
 ?>

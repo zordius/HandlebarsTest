@@ -1,15 +1,15 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => true,
-            'jsobj' => true
+            'jstrue' => 0,
+            'jsobj' => 0
         ),
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
-This is next line.'.LightnCandy::enc('empty_var', $cx, $in).'
-Test on spacing in mustache: Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
+    return 'Hello '.htmlentities($in['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['value'], ENT_QUOTES).'!
+This is next line.'.htmlentities($in['empty_var'], ENT_QUOTES).'中文
+Test on spacing in mustache: Hello '.htmlentities($in['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['value'], ENT_QUOTES).'! '.htmlentities($in['key with  space'], ENT_QUOTES).' - '.$in['key with  space'].'
 ';
 }
 ?>

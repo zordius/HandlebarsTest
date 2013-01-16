@@ -15,6 +15,18 @@ This is a test, test = '.LightnCandy::enc('test', $cx, $in).'
 '.LightnCandy::sec('test', $cx, $in, false, function($cx, $in) {return '
 Line 2
 ';}).'
+'.(LightnCandy::isec('test', $in) ? ('
+Line 2
+') : '').'
+'.(LightnCandy::isec('test', $in) ? ('
+Line 2
+') : '').'
+'.LightnCandy::sec('test', $cx, $in, false, function($cx, $in) {return '
+Line 2
+';}).'
+'.(LightnCandy::isec('test', $in) ? ('
+Line 2
+') : '').'
 ';
 }
 ?>

@@ -1,2 +1,2 @@
 Hello John, you have just won $10000!
-Winners: [object Object]test2
+Winners: [object Object]([object Object]) = [object Object]([object Object])test2(test2) = test2(test2)() = ()

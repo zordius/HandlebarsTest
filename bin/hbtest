@@ -29,10 +29,15 @@ if (($argv[3] == 1) && ($argv[1] == 'lightncandy')) {
     require_once('cloned/lightncandy/src/lightncandy.inc');
     $flag = LightnCandy::FLAG_HANDLEBARSJS + LightnCandy::FLAG_ERROR_LOG;
 }
-prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), $flag);
+try {
+    prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), $flag);
 
-// Execute template
-@$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
+    // Execute template
+    @$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
+} catch (Excaption $e) {
+    $result = false;
+}
+
 warn("### Output:\n$result");
 
 $standard = file_get_contents(preg_replace('/\.json/', '.txt', $argv[2]));
@@ -47,14 +52,17 @@ if ($result !== $standard) {
     } else if (preg_replace('/&#039;/', '&#x27;', $result) === $standard) {
         warn("!!!!! ERROR: the output is not exact same with fixture (urlencode difference on single quote)\n");
         $match = 'QUOTE';
+    } else if ($result == false) {
+        warn("!!!!! ERROR: the lib do not support this feature\n");
+        $match = 'NO';
     } else {
         warn("!!!!! ERROR: the output is not same with fixture\n");
-        $match = 'NO';
+        $match = 'OUTPUT';
     }
     print "# STANDARD:\n$standard\n";
 }
 
-if ($match !== 'NO') {
+if (($match !== 'NO') && ($match !== 'OUTPUT')) {
     warn("###do $test_times loop test");
 
     $start_time = microtime(true);

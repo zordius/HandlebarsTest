@@ -21,6 +21,7 @@ $meta = $report[0];
 $Fmap = Array(
     'YES' => '%Y%',
     'NO' => '%X%',
+    'OUTPUT' => 'diff',
     'CR/LF' => 'cr/lf',
     'QUOTE' => 'quote',
     'SINGLEQUOTE' => 'squote'
@@ -28,7 +29,8 @@ $Fmap = Array(
 
 $Dict = Array(
     'YES' => 'Exact same behavior with handlebars.js run in nodejs',
-    'NO' => 'Do not support, can not parse the template, or do not output for array value',
+    'NO' => 'Do not support, can not parse the template',
+    'OUTPUT' => 'Do not output for array value, object or true',
     'CR/LF' => 'Output more or less CR/LF (minor issue)',
     'QUOTE' => 'Encode \' to &amp;#039;, not to &amp;#x27; (minor issue)',
     'SINGLEQUOTE' => 'Do not encode \' to &amp;#x27;'
@@ -45,7 +47,7 @@ if ($argv[1] && ($argv[1] < 3)) {
         $fn = substr('                ' . basename($name, '.json'), -20);
         print "| $fn";
         foreach ($report as $test) {
-            print "\t|\t" . substr('                ' . $test['match'], -13);
+            print "\t|\t" . substr('                ' . ((is_array($test) && array_key_exists('match', $test)) ? $test['match'] : 'NO'), -13);
         }
         print " |\n";
     }

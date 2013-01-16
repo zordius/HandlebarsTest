@@ -1,9 +1,0 @@
-{
-	"tpl": [
-		"{{=[[ ]]=}}[[ result ]]",
-		"{{=<< >>=}}<< result >>",
-		"{{=<% %>=}}<% result %>"
-	],
-	"data": {"result":"success"},
-	"out": "success"
-}

@@ -1,0 +1,12 @@
+<?php return function ($in) {
+    $cx = Array(
+        'flags' => Array(
+            'jstrue' => 0,
+            'jsobj' => 0
+        ),
+        'path' => Array(),
+        'parents' => Array()
+    );
+    return '';
+}
+?>

@@ -1,2 +1,0 @@
-Handlebars.php
-==============

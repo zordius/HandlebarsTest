@@ -1,0 +1,13 @@
+{
+    "name": "John",
+    "value": 10000,
+    "people": [
+        {
+             "name": "Mr. First"
+        },
+        {
+             "name": "Mrs. Second"
+        }
+    ],
+    "end": "OK!"
+}

@@ -1,5 +1,0 @@
-{
-	"tpl": "{{! Comments should allow whitespace\n\tof all kinds, including newlines }}",
-	"data": {},
-	"out": ""
-}

@@ -8,8 +8,12 @@
         'parents' => Array()
     );
     return 'Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
-This is next line.'.LightnCandy::enc('empty_var', $cx, $in).'中文
-Test on spacing in mustache: Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
+<ul>
+'.LightnCandy::sec('people', $cx, $in, true, function($cx, $in) {return '
+ <li>'.LightnCandy::enc('name', $cx, $in).' is a '.LightnCandy::enc('gender', $cx, $in).'</li>
+';}).'
+</ul>
+'.LightnCandy::enc('end', $cx, $in).'
 ';
 }
 ?>

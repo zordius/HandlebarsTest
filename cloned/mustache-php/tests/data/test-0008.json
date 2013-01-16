@@ -1,5 +1,0 @@
-{
-	"tpl": "{{=[[ ]]=}}{{#result}}{{/result}}[[={{ }}=]]",
-	"data": {"result":"FAIL"},
-	"out": "{{#result}}{{/result}}"
-}

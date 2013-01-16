@@ -42,10 +42,10 @@ if ($argv[1] && ($argv[1] < 3)) {
     }
     print "|\ttest case\t| " . join("\t|\t", $libs) . "\t|\n";
     foreach ($reports as $name => $report) {
-        $fn = substr(basename($name, '.json'), -20);
+        $fn = substr('                ' . basename($name, '.json'), -20);
         print "| $fn";
         foreach ($report as $test) {
-            print "\t|\t" . substr("                ". $test['match'], -13);
+            print "\t|\t" . substr('                ' . $test['match'], -13);
         }
         print " |\n";
     }

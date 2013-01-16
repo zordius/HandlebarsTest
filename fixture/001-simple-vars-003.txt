@@ -1,2 +1,3 @@
 Hello , you have just won $!
 This is next line.
+Test on spacing in mustache: Hello , you have just won $!

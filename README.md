@@ -46,6 +46,11 @@ Directories
 Feature Comparison
 ------------------
 <pre>
+* YES : Exact same behavior with handlebars.js run in nodejs
+* NO : Do not support, can not parse the template, or do not output for array value
+* CR/LF : Output more or less CR/LF (minor issue)
+* QUOTE : Encode ' to &amp;#039;, not to &amp;#x27; (minor issue)
+* SINGLEQUOTE : Do not encode ' to &amp;#x27;
 |       test case       | handlebars.php        |       lightncandy     |       mustache-php    |       mustache.php  |
 | 001-simple-vars-001   |                 YES   |                 YES   |                 YES   |                 YES |
 | 001-simple-vars-002   |                  NO   |                 YES   |                  NO   |                  NO |

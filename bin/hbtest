@@ -34,6 +34,11 @@ try {
 
     // Execute template
     @$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
+
+    if ($argv[1] == 'lightncandy') {
+        print "### Handlebar usage:\n";
+        print_r(LightnCandy::getContext());
+    }
 } catch (Excaption $e) {
     $result = false;
 }

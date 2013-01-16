@@ -41,13 +41,17 @@ if ($result !== $standard) {
     if (preg_replace('/\r|\n/', '', $result) === preg_replace('/\r|\n/', '', $standard)) {
         warn("!!!!! ERROR: the output is not exact same with fixture (more or less CR/LF)\n");
         $match = 'CR/LF';
+    } else if (preg_replace('/\'/', '&#x27;', $result) === $standard) {
+        warn("!!!!! ERROR: the output is not exact same with fixture (single quote not encoded)\n");
+        $match = 'SINGLEQUOTE';
     } else if (preg_replace('/&#039;/', '&#x27;', $result) === $standard) {
         warn("!!!!! ERROR: the output is not exact same with fixture (urlencode difference on single quote)\n");
         $match = 'QUOTE';
     } else {
-        warn("!!!!! ERROR: the output is not same with fixture\n$standard");
+        warn("!!!!! ERROR: the output is not same with fixture\n");
         $match = 'NO';
     }
+    print "# STANDARD:\n$standard\n";
 }
 
 if ($match !== 'NO') {

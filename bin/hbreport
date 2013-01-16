@@ -22,7 +22,8 @@ $Fmap = Array(
     'YES' => '%Y%',
     'NO' => '%X%',
     'CR/LF' => 'cr/lf',
-    'QUOTE' => 'quote'
+    'QUOTE' => 'quote',
+    'SINGLEQUOTE' => 'squote'
 );
 
 // output quick feature report

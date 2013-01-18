@@ -11,6 +11,14 @@ Requirements
 * nodejs04+ and handlebars for fixture generation.
   ( npm install handlebars )
 
+Quick Conclusion
+----------------
+<b>Use https://github.com/zordius/lightncandy to compile handlebars in php</b>
+
+* lightncandy runs 4~6 times faster than https://github.com/bobthecow/mustache.php
+* lightncandy runs 4~10 times faster than https://github.com/dingram/mustache-php
+* lightncandy runs 10~30 times faster than https://github.com/XaminProject/handlebars.php
+
 Libraries
 ---------
 
@@ -37,7 +45,7 @@ Directories
 * *fixture*: all data files for testing are placed here:
    * .json : testing data files in json format
    * .tmpl : testing template files
-   * .txt  : correct results
+   * .txt  : correct results and library outputs
    * .php  : lightncandy generated php template
 * *inc*: all required php lib files are placed here.
 * *bin*: all testing scripts and commands are placed here.

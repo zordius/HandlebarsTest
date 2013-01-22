@@ -1,4 +1,4 @@
 Hello [&quot;John&quot;,&quot;\u5f7c\u5fb7&quot;], you have just won $-1!
 This is next line.EMPTY&lt;HTML&gt;中文
-Test on spacing in mustache: Hee }}, you have just w
+Test \on 'spacing in mustache: Hee }}, you have just w
  }}!

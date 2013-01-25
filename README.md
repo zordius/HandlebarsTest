@@ -8,8 +8,11 @@ Requirements
 
 * php 5.3+ with json and mbstring suppport.
 
-* nodejs04+ and handlebars for fixture generation.
+* [optional] nodejs04+ and handlebars for fixture generation.
   ( npm install handlebars )
+
+* [optional] nodejs06+ and amanda for json schema validation.
+  ( npm install amanda )
 
 Quick Conclusion
 ----------------

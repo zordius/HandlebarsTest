@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+var fs = require('fs'),
+    jsv = require('amanda'),
+    dir = 'fixture/',
+    gen_total = 0,
+    ok_total = 0;
+
+fs.readdir(dir, function (err, files) {
+    files.forEach(function (file) {
+        var schema = file.replace(/-\d+\.json/, '.jsonschema');
+
+        if (!file.match(/\.json/)) {
+            return;
+        }
+
+        gen_total += 1;
+        console.log('# ' + file + ' > ' + schema);
+        fs.readFile(dir + file, 'utf8', function (err, data) {
+            var input = JSON.parse(data);
+            fs.readFile(dir + schema, 'utf8', function (err, data) {
+                var rule = JSON.parse(data);
+                jsv.validate(input, rule, function (error) {
+                    if (error) {
+                        console.log('!!DATA ERROR in ' + file);
+                        console.log(error);
+                    } else {
+                        ok_total += 1;
+                        if (gen_total == ok_total) {
+                            console.log('<< ALL SUCCESSED: ' + gen_total);
+                        }
+                    }
+                });
+            });
+        });
+    });
+});

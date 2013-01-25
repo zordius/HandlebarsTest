@@ -23,6 +23,8 @@ function prepare_tmpl($name, $file, $flag) {
         $php = LightnCandy::compile($tmpl_txt, $flag);
         $inc = preg_replace('/\.tmpl/', '.php', $file);
         file_put_contents($inc, $php);
+        $js = preg_replace('/\.tmpl/', '.jsonschema', $file);
+        file_put_contents($js, json_encode(LightnCandy::getJsonSchema(), true));
         $test_method = include($inc);
         break;
     case 'php':

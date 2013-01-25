@@ -24,7 +24,7 @@ function prepare_tmpl($name, $file, $flag) {
         $inc = preg_replace('/\.tmpl/', '.php', $file);
         file_put_contents($inc, $php);
         $js = preg_replace('/\.tmpl/', '.jsonschema', $file);
-        file_put_contents($js, json_encode(LightnCandy::getJsonSchema(), true));
+        file_put_contents($js, json_encode(LightnCandy::getJsonSchema(), JSON_PRETTY_PRINT));
         $test_method = include($inc);
         break;
     case 'php':

@@ -25,27 +25,7 @@ function prepare_tmpl($name, $file, $flag) {
         file_put_contents($inc, $php);
         $js = preg_replace('/\.tmpl/', '.jsonschema', $file);
         $level = 0;
-        file_put_contents($js, preg_replace_callback('/\\{|\\[|,|\\]|\\}|:/', function ($matches) use (&$level) {
-            switch ($matches[0]) {
-                case '}':
-                case ']':
-                    $level--;
-                    $is = str_repeat("\t", $level);
-                    return "\n$is{$matches[0]}";
-                case ':':
-                    return ': ';
-            }
-            $br = '';
-            switch ($matches[0]) {
-                case '{':
-                case '[':
-                    $level++;
-                case ',':
-                    $br = "\n";
-            }
-            $is = str_repeat("\t", $level);
-            return "{$matches[0]}$br$is";
-        }, json_encode(LightnCandy::getJsonSchema())));
+        file_put_contents($js, LightnCandy::getJsonSchemaString());
         $test_method = include($inc);
         break;
     case 'php':

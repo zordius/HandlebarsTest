@@ -1,0 +1,65 @@
+{
+  "$schema": "http: \/\/json-schema.org\/draft-03\/schema",
+  "description": "Template Json Schema",
+  "type": "object",
+  "properties": {
+    "grand_parent_id": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
+    "parent_contexts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "parent_id": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "grand_parent_id": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "child_contexts": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "child_id": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "parent_id": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "grand_parent_id": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

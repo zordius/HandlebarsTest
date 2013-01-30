@@ -19,18 +19,22 @@ fs.readdir(dir, function (err, files) {
         fs.readFile(dir + file, 'utf8', function (err, data) {
             var input = JSON.parse(data);
             fs.readFile(dir + schema, 'utf8', function (err, data) {
-                var rule = JSON.parse(data);
-                jsv.validate(input, rule, function (error) {
-                    if (error) {
-                        console.log('!!DATA ERROR in ' + file);
-                        console.log(error);
-                    } else {
-                        ok_total += 1;
-                        if (gen_total == ok_total) {
-                            console.log('<< ALL SUCCESSED: ' + gen_total);
+                try {
+                    jsv.validate(input, JSON.parse(data), function (error) {
+                        if (error) {
+                            console.log('!!DATA ERROR in ' + file);
+                            console.log(error);
+                        } else {
+                            ok_total += 1;
+                            if (gen_total == ok_total) {
+                                console.log('<< ALL SUCCESSED: ' + gen_total);
+                            }
                         }
-                    }
-                });
+                    });
+                } catch (e) {
+                    console.log('Error when verify #' + file + ' on schema ' + schema + ':');
+                    console.log(e);
+                }
             });
         });
     });

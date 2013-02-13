@@ -1,22 +1,22 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => true,
-            'jsobj' => true
+            'jstrue' => false,
+            'jsobj' => false
         ),
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
+    return 'Hello '.htmlentities($in['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['value'], ENT_QUOTES).'!
 '.(!LightnCandy::ifvar('test', $in) ? ('
-Yes! '.LightnCandy::enc('name', $cx, $in).' is '.LightnCandy::enc('gender', $cx, $in).'
+Yes! '.htmlentities($in['name'], ENT_QUOTES).' is '.htmlentities($in['gender'], ENT_QUOTES).'
 ') : '').'
 '.(!LightnCandy::ifvar('test', $in) ? ('
-2nd If, '.LightnCandy::enc('name', $cx, $in).' is '.LightnCandy::raw('gender', $cx, $in).'
+2nd If, '.htmlentities($in['name'], ENT_QUOTES).' is '.$in['gender'].'
 ') : ('
-Else test, '.LightnCandy::enc('name', $cx, $in).' is '.LightnCandy::enc('gender', $cx, $in).'
+Else test, '.htmlentities($in['name'], ENT_QUOTES).' is '.htmlentities($in['gender'], ENT_QUOTES).'
 ')).'
-'.LightnCandy::enc('end', $cx, $in).'
+'.htmlentities($in['end'], ENT_QUOTES).'
 ';
 }
 ?>

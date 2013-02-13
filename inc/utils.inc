@@ -47,7 +47,10 @@ function prepare_tmpl($name, $file, $flag) {
     case 'mustache.php':
         require_once('cloned/mustache.php/src/Mustache/Autoloader.php');
         Mustache_Autoloader::register();
-        $m = new Mustache_Engine;
+        $m = new Mustache_Engine(array(
+            'cache' => dirname(__FILE__) . '/cache',
+            'logger' => new Mustache_Logger_StreamLogger('php://stderr'),
+        ));
         $test_tmpl = $m->loadTemplate($tmpl_txt);
         $test_method = 'render';
         break;

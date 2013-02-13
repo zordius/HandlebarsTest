@@ -1,19 +1,19 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => true,
-            'jsobj' => true
+            'jstrue' => false,
+            'jsobj' => false
         ),
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
+    return 'Hello '.htmlentities($in['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['value'], ENT_QUOTES).'!
 <ul>
 '.LightnCandy::sec('people', $cx, $in, false, function($cx, $in) {return '
- <li>'.LightnCandy::enc('name', $cx, $in).' is a '.LightnCandy::enc('gender', $cx, $in).'</li>
+ <li>'.htmlentities($in['name'], ENT_QUOTES).' is a '.htmlentities($in['gender'], ENT_QUOTES).'</li>
 ';}).'
 </ul>
-'.LightnCandy::enc('end', $cx, $in).'
+'.htmlentities($in['end'], ENT_QUOTES).'
 ';
 }
 ?>

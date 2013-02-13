@@ -14,8 +14,6 @@
 
 
 
-    <li><a href="#Blue">Mr. Third</a></li>
-
 
 </ul>
 

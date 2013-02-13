@@ -1,21 +1,21 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => true,
-            'jsobj' => true
+            'jstrue' => false,
+            'jsobj' => false
         ),
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
+    return 'Hello '.htmlentities($in['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['value'], ENT_QUOTES).'!
 <ul>
-'.LightnCandy::sec('', $cx, $in, true, function($cx, $in) {return '
- <li>'.LightnCandy::enc('name', $cx, $in).' is a '.LightnCandy::enc('gender', $cx, $in).'</li>
+'.LightnCandy::sec('.', $cx, $in, true, function($cx, $in) {return '
+ <li>'.htmlentities($in['name'], ENT_QUOTES).' is a '.htmlentities($in['gender'], ENT_QUOTES).'</li>
 ';}).'
 </ul>
-'.LightnCandy::enc('end', $cx, $in).'
-'.LightnCandy::sec('', $cx, $in, true, function($cx, $in) {return '
- THIS:'.LightnCandy::enc('name', $cx, $in).' is a '.LightnCandy::raw('gender', $cx, $in).'
+'.htmlentities($in['end'], ENT_QUOTES).'
+'.LightnCandy::sec('this', $cx, $in, true, function($cx, $in) {return '
+ THIS:'.htmlentities($in['name'], ENT_QUOTES).' is a '.$in['gender'].'
 ';}).'
 ';
 }

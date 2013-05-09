@@ -1,14 +1,14 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false
+            'jstrue' => true,
+            'jsobj' => true
         ),
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.htmlentities($in['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['value'], ENT_QUOTES).'!
-Hello original '.$in['name'].' , the value is '.$in['value'].'
+    return 'Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
+Hello original '.LightnCandy::raw('name', $cx, $in).' , the value is '.LightnCandy::raw('value', $cx, $in).'
 ';
 }
 ?>

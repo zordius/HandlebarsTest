@@ -2,7 +2,7 @@ Hello , you have just won $!
 
 Line 1
 
-This is a test, test = 1
+This is a test, test = true
 
 Line 2
 

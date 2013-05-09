@@ -1,19 +1,19 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false
+            'jstrue' => true,
+            'jsobj' => true
         ),
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.htmlentities($in['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['value'], ENT_QUOTES).'!
+    return 'Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
 This is next line.
 '.LightnCandy::sec('test', $cx, $in, false, function($cx, $in) {return '
-This is true! won $'.htmlentities($in['value'], ENT_QUOTES).'!!
+This is true! won $'.LightnCandy::enc('value', $cx, $in).'!!
 ';}).'
-'.((is_null($in['test']) && ($in['test'] !== false)) ? ('
-No, this is fake! not win $'.htmlentities($in['value'], ENT_QUOTES).'!!
+'.(LightnCandy::isec('test', $in) ? ('
+No, this is fake! not win $'.LightnCandy::enc('value', $cx, $in).'!!
 ') : '').'
 ';
 }

@@ -1,36 +1,36 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false
+            'jstrue' => true,
+            'jsobj' => true
         ),
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.htmlentities($in['winner']['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['winner']['value'], ENT_QUOTES).'!
+    return 'Hello '.LightnCandy::enc('winner.name', $cx, $in).', you have just won $'.LightnCandy::enc('winner.value', $cx, $in).'!
 '.LightnCandy::sec('test', $cx, $in, false, function($cx, $in) {return '
 Line 1
 ';}).'
-This is a test, test = '.htmlentities($in['test'], ENT_QUOTES).'
+This is a test, test = '.LightnCandy::enc('test', $cx, $in).'
 '.LightnCandy::sec('test', $cx, $in, false, function($cx, $in) {return '
 Line 2
 ';}).'
-'.((is_null($in['test']) && ($in['test'] !== false)) ? ('
+'.(LightnCandy::isec('test', $in) ? ('
 Line 3
 ') : '').'
-'.((is_null($in['test']) && ($in['test'] !== false)) ? ('
+'.(LightnCandy::isec('test', $in) ? ('
 Line 4
 ') : '').'
 '.LightnCandy::sec('test', $cx, $in, false, function($cx, $in) {return '
 Line 5
 ';}).'
-'.((is_null($in['test']) && ($in['test'] !== false)) ? ('
+'.(LightnCandy::isec('test', $in) ? ('
 Line 6
 ') : '').'
 ---- double section ----
 '.LightnCandy::sec('sec', $cx, $in, false, function($cx, $in) {return '
-'.htmlentities($in['name'], ENT_QUOTES).':'.htmlentities($in['value'], ENT_QUOTES).'
-'.LightnCandy::sec('sec', $cx, $in, false, function($cx, $in) {return '-- '.htmlentities($in['name'], ENT_QUOTES).', '.htmlentities($in['value'], ENT_QUOTES).'--';}).'
+'.LightnCandy::enc('name', $cx, $in).':'.LightnCandy::enc('value', $cx, $in).'
+'.LightnCandy::sec('sec', $cx, $in, false, function($cx, $in) {return '-- '.LightnCandy::enc('name', $cx, $in).', '.LightnCandy::enc('value', $cx, $in).'--';}).'
 ';}).' 
 ';
 }

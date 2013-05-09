@@ -1,17 +1,17 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false
+            'jstrue' => true,
+            'jsobj' => true
         ),
         'path' => Array(),
         'parents' => Array()
     );
-    return ''.htmlentities($in['grand_parent_id'], ENT_QUOTES).'
+    return ''.LightnCandy::enc('grand_parent_id', $cx, $in).'
 '.LightnCandy::sec('parent_contexts', $cx, $in, false, function($cx, $in) {return '
-  '.htmlentities($in['parent_id'], ENT_QUOTES).' ('.htmlentities($in['grand_parent_id'], ENT_QUOTES).')
+  '.LightnCandy::enc('parent_id', $cx, $in).' ('.LightnCandy::enc('grand_parent_id', $cx, $in).')
   '.LightnCandy::sec('child_contexts', $cx, $in, false, function($cx, $in) {return '
-    '.htmlentities($in['child_id'], ENT_QUOTES).' ('.htmlentities($in['parent_id'], ENT_QUOTES).' << '.htmlentities($in['grand_parent_id'], ENT_QUOTES).')
+    '.LightnCandy::enc('child_id', $cx, $in).' ('.LightnCandy::enc('parent_id', $cx, $in).' << '.LightnCandy::enc('grand_parent_id', $cx, $in).')
   ';}).'
 ';}).'
 ';

@@ -1,7 +1,7 @@
 {
   "$schema": "http: \/\/json-schema.org\/draft-03\/schema",
   "description": "Template Json Schema",
-  "type": "object",
+  "type": "array",
   "properties": {
     "name": {
       "type": [
@@ -17,55 +17,30 @@
       ],
       "required": true
     },
-    ".": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
-          },
-          "gender": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
-          }
-        }
-      }
-    },
     "end": {
       "type": [
         "string",
         "number"
       ],
       "required": true
-    },
-    "this": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
-          },
-          "gender": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
-          }
-        }
+    }
+  },
+  "items": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "required": true
+      },
+      "gender": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "required": true
       }
     }
   }

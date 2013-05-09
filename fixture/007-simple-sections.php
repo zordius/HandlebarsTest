@@ -1,21 +1,21 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false
+            'jstrue' => true,
+            'jsobj' => true
         ),
         'path' => Array(),
         'parents' => Array()
     );
-    return '<h1>'.htmlentities($in['header'], ENT_QUOTES).'</h1>
+    return '<h1>'.LightnCandy::enc('header', $cx, $in).'</h1>
 '.LightnCandy::sec('notEmpty', $cx, $in, false, function($cx, $in) {return '
 <ul>
 '.LightnCandy::sec('item', $cx, $in, false, function($cx, $in) {return '
 '.LightnCandy::sec('current', $cx, $in, false, function($cx, $in) {return '
-    <li><strong>'.htmlentities($in['name'], ENT_QUOTES).'</strong></li>
+    <li><strong>'.LightnCandy::enc('name', $cx, $in).'</strong></li>
 ';}).'
-'.((is_null($in['current']) && ($in['current'] !== false)) ? ('
-    <li><a href="'.htmlentities($in['url'], ENT_QUOTES).'">'.htmlentities($in['name'], ENT_QUOTES).'</a></li>
+'.(LightnCandy::isec('current', $in) ? ('
+    <li><a href="'.LightnCandy::enc('url', $cx, $in).'">'.LightnCandy::enc('name', $cx, $in).'</a></li>
 ') : '').'
 ';}).'
 </ul>

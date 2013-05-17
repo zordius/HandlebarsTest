@@ -7,9 +7,9 @@
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
-This is next line.'.LightnCandy::enc('empty_var', $cx, $in).'中文
-Test \on \'spacing in mustache: Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
+    return 'Hello '.LCRun::enc('name', $cx, $in).', you have just won $'.LCRun::enc('value', $cx, $in).'!
+This is next line.'.LCRun::enc('empty_var', $cx, $in).'中文
+Test \on \'spacing in mustache: Hello '.LCRun::enc('name', $cx, $in).', you have just won $'.LCRun::enc('value', $cx, $in).'!
 ';
 }
 ?>

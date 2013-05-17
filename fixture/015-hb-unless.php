@@ -7,16 +7,16 @@
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
-'.(!LightnCandy::ifvar('test', $in) ? ('
-Yes! '.LightnCandy::enc('name', $cx, $in).' is '.LightnCandy::enc('gender', $cx, $in).'
+    return 'Hello '.LCRun::enc('name', $cx, $in).', you have just won $'.LCRun::enc('value', $cx, $in).'!
+'.(!LCRun::ifvar('test', $in) ? ('
+Yes! '.LCRun::enc('name', $cx, $in).' is '.LCRun::enc('gender', $cx, $in).'
 ') : '').'
-'.(!LightnCandy::ifvar('test', $in) ? ('
-2nd If, '.LightnCandy::enc('name', $cx, $in).' is '.LightnCandy::raw('gender', $cx, $in).'
+'.(!LCRun::ifvar('test', $in) ? ('
+2nd If, '.LCRun::enc('name', $cx, $in).' is '.LCRun::raw('gender', $cx, $in).'
 ') : ('
-Else test, '.LightnCandy::enc('name', $cx, $in).' is '.LightnCandy::enc('gender', $cx, $in).'
+Else test, '.LCRun::enc('name', $cx, $in).' is '.LCRun::enc('gender', $cx, $in).'
 ')).'
-'.LightnCandy::enc('end', $cx, $in).'
+'.LCRun::enc('end', $cx, $in).'
 ';
 }
 ?>

@@ -7,8 +7,8 @@
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.LightnCandy::enc('name', $cx, $in).', you have just won $'.LightnCandy::enc('value', $cx, $in).'!
-Winners: '.LightnCandy::sec('winners', $cx, $in, false, function($cx, $in) {return ''.LightnCandy::enc('', $cx, $in).'('.LightnCandy::raw('', $cx, $in).') = '.LightnCandy::enc('', $cx, $in).'('.LightnCandy::raw('', $cx, $in).')';}).'
+    return 'Hello '.LCRun::enc('name', $cx, $in).', you have just won $'.LCRun::enc('value', $cx, $in).'!
+Winners: '.LCRun::sec('winners', $cx, $in, false, function($cx, $in) {return ''.LCRun::enc('', $cx, $in).'('.LCRun::raw('', $cx, $in).') = '.LCRun::enc('', $cx, $in).'('.LCRun::raw('', $cx, $in).')';}).'
 ';
 }
 ?>

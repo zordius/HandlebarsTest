@@ -91,9 +91,9 @@ foreach ($reports as $name => $report) {
 $rnum = count($reports) + 1;
 $lnum = count($libs) + 1;
 
-print "%CHART{type=\"bar\" name=\"hbchart$rt\" table=\"hbreport$rt\"  data=\"R2:C2..R$rnum:C$lnum\" xaxis=\"R2:C1..R$rnum:C1\" legend=\"R1:C2..R1:C$lnum\" ymin=\"0\" yaxis=\"on\" xaxisangle=\"1\" numxgrids=\"$rnum\" width=\"3000\" }%\n";
+print "%CHART{type=\"bar\" name=\"hbchart$rt\" table=\"hbreport$rt\"  data=\"R2:C2..R$rnum:C$lnum\" xaxis=\"R2:C1..R$rnum:C1\" legend=\"R1:C2..R1:C$lnum\" ymin=\"0\" yaxis=\"on\" xaxisangle=\"1\" numxgrids=\"$rnum\" width=\"3600\" }%\n";
 
-print "\nFeature Test:\n";
+print "\nFeature Test (lightncandy in performance mode):\n";
 print "| *test case* | *" . join('* | *', $libs) . "* |\n";
 $i = 0;
 

@@ -9,7 +9,7 @@
     );
     return '<div class="yui3-u-1-2 member-status">
  <ul class="h-list">
- '.LCRun::wi('login_status', $in, function($cx, $in) {return '
+ '.LCRun::wi('login_status', $cx, $in, function($cx, $in) {return '
   '.(LCRun::ifvar('is_login', $in) ? ('
    <li><a href="'.LCRun::enc('edit_account_link', $cx, $in).'">Hello '.LCRun::enc('username', $cx, $in).'</a></li>
    <li><a href="'.LCRun::enc('logut_link', $cx, $in).'">Logout</a></li>

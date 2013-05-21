@@ -143,5 +143,10 @@ Feature Comparison
 |    015-hb-unless-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  016-hb-eachthis-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  016-hb-eachthis-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|      017-hb-with-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|      017-hb-with-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|  018-hb-withwith-001  |                  NO   |                 YES   |                  NO   |                  NO |
+|  018-hb-withwith-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|  018-hb-withwith-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  livetest-001-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 </pre>

@@ -1,0 +1,8 @@
+Hello John, you have just won $10000!
+<ul>
+ <li> is a  (John, 10000, OK!)</li>
+ <li> is a  (John, 10000, OK!)</li>
+ <li> is a  (John, 10000, OK!)</li>
+ <li> is a  (John, 10000, OK!)</li>
+</ul>
+OK!

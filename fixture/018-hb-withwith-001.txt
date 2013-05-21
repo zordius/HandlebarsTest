@@ -7,13 +7,6 @@
    <li><a href="http://tw.yahoo.com/?login">Login</a></li>
   
   
-   
-   
-   
-   NO
-   
-   
-  
  
  </ul>
 </div>

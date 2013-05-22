@@ -16,6 +16,12 @@ Yes! '.LCRun::enc('name', $cx, $in).' is '.LCRun::enc('gender', $cx, $in).'
 ') : ('
 Else test, '.LCRun::enc('name', $cx, $in).' is '.LCRun::enc('gender', $cx, $in).'
 ')).'
+-TEST PATH-
+'.(LCRun::ifvar('test.name', $in) ? ('
+Yes! '.LCRun::enc('subname', $cx, $in).'
+') : ('
+No! '.LCRun::enc('subname', $cx, $in).'
+')).'
 '.LCRun::enc('end', $cx, $in).'
 ';
 }

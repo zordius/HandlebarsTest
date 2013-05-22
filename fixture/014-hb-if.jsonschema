@@ -24,6 +24,13 @@
       ],
       "required": true
     },
+    "subname": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
     "end": {
       "type": [
         "string",

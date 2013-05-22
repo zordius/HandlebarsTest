@@ -1,21 +1,21 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false
+            'jstrue' => true,
+            'jsobj' => true
         ),
         'path' => Array(),
         'parents' => Array()
     );
-    return 'Hello '.htmlentities($in['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['value'], ENT_QUOTES).'!
+    return 'Hello '.LCRun::enc('name', $cx, $in).', you have just won $'.LCRun::enc('value', $cx, $in).'!
 <ul>
-'.LCRun::sec('.', $cx, $in, true, function($cx, $in) {return '
- <li>'.htmlentities($in['name'], ENT_QUOTES).' is a '.htmlentities($in['gender'], ENT_QUOTES).'</li>
+'.LCRun::sec('', $cx, $in, true, function($cx, $in) {return '
+ <li>'.LCRun::enc('name', $cx, $in).' is a '.LCRun::enc('gender', $cx, $in).'</li>
 ';}).'
 </ul>
-- '.htmlentities($in['end'], ENT_QUOTES).' -
-'.LCRun::sec('this', $cx, $in, true, function($cx, $in) {return '
- THIS:'.htmlentities($in['name'], ENT_QUOTES).' is a '.$in['gender'].'
+- '.LCRun::enc('end', $cx, $in).' -
+'.LCRun::sec('', $cx, $in, true, function($cx, $in) {return '
+ THIS:'.LCRun::enc('name', $cx, $in).' is a '.LCRun::raw('gender', $cx, $in).'
 ';}).'
 ==
 ';

@@ -2,8 +2,9 @@
     $cx = Array(
         'flags' => Array(
             'jstrue' => true,
-            'jsobj' => true
+            'jsobj' => true,
         ),
+        'scopes' => Array(),
         'path' => Array(),
         'parents' => Array()
     );
@@ -14,7 +15,7 @@
 '.LCRun::sec('current', $cx, $in, false, function($cx, $in) {return '
     <li><strong>'.LCRun::enc('name', $cx, $in).'</strong></li>
 ';}).'
-'.(LCRun::isec('current', $in) ? ('
+'.(LCRun::isec('current', $cx, $in) ? ('
     <li><a href="'.LCRun::enc('url', $cx, $in).'">'.LCRun::enc('name', $cx, $in).'</a></li>
 ') : '').'
 ';}).'

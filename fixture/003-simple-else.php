@@ -2,8 +2,9 @@
     $cx = Array(
         'flags' => Array(
             'jstrue' => true,
-            'jsobj' => true
+            'jsobj' => true,
         ),
+        'scopes' => Array(),
         'path' => Array(),
         'parents' => Array()
     );
@@ -12,7 +13,7 @@ This is next line.
 '.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '
 This is true! won $'.LCRun::enc('value', $cx, $in).'!!
 ';}).'
-'.(LCRun::isec('test', $in) ? ('
+'.(LCRun::isec('test', $cx, $in) ? ('
 No, this is fake! not win $'.LCRun::enc('value', $cx, $in).'!!
 ') : '').'
 ';

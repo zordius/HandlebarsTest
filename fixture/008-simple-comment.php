@@ -2,8 +2,9 @@
     $cx = Array(
         'flags' => Array(
             'jstrue' => true,
-            'jsobj' => true
+            'jsobj' => true,
         ),
+        'scopes' => Array(),
         'path' => Array(),
         'parents' => Array()
     );

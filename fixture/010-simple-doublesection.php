@@ -2,8 +2,9 @@
     $cx = Array(
         'flags' => Array(
             'jstrue' => true,
-            'jsobj' => true
+            'jsobj' => true,
         ),
+        'scopes' => Array(),
         'path' => Array(),
         'parents' => Array()
     );
@@ -15,16 +16,16 @@ This is a test, test = '.LCRun::enc('test', $cx, $in).'
 '.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '
 Line 2
 ';}).'
-'.(LCRun::isec('test', $in) ? ('
+'.(LCRun::isec('test', $cx, $in) ? ('
 Line 3
 ') : '').'
-'.(LCRun::isec('test', $in) ? ('
+'.(LCRun::isec('test', $cx, $in) ? ('
 Line 4
 ') : '').'
 '.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '
 Line 5
 ';}).'
-'.(LCRun::isec('test', $in) ? ('
+'.(LCRun::isec('test', $cx, $in) ? ('
 Line 6
 ') : '').'
 ---- double section ----

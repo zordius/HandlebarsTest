@@ -7,6 +7,6 @@ Yes! John is Men
 
 -TEST PATH-
 
-No! 
+Yes! 
 
 OK!

@@ -13,10 +13,11 @@
  <li>'.LCRun::enc('name', $cx, $in).' is a '.LCRun::enc('gender', $cx, $in).'</li>
 ';}).'
 </ul>
-'.LCRun::enc('end', $cx, $in).'
+- '.LCRun::enc('end', $cx, $in).' -
 '.LCRun::sec('', $cx, $in, true, function($cx, $in) {return '
  THIS:'.LCRun::enc('name', $cx, $in).' is a '.LCRun::raw('gender', $cx, $in).'
 ';}).'
+==
 ';
 }
 ?>

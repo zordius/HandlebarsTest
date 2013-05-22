@@ -33,7 +33,7 @@ if ($argv[1] == 'lightncandy') {
     }
 }
 try {
-    prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), $flag);
+    prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), Array('flags' => $flag));
 
     // Execute template
     @$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);

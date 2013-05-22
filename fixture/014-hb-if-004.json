@@ -1,0 +1,12 @@
+{
+    "name": "John",
+    "value": 10000,
+    "gender": "Men",
+    "test": {
+        "name": {
+            "subname": "Peter"
+        },
+        "gender": "man"
+    },
+    "end": "OK!"
+}

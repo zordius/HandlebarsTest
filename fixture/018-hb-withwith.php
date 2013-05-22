@@ -38,6 +38,14 @@
   ';}).'
 WITH~
  ';}).'
+_WITH PATH_
+ '.LCRun::wi('login_status.test', $cx, $in, function($cx, $in) {return '
+XTEST: '.LCRun::enc('testval', $cx, $in).' - '.LCRun::raw('textval', $cx, $in).'
+IF: '.(LCRun::ifvar('testval', $in) ? ('YES~') : '').''.(!LCRun::ifvar('testval', $in) ? ('NO!') : '').'
+SECTION::'.LCRun::sec('test2', $cx, $in, false, function($cx, $in) {return ' - loop: '.LCRun::enc('loopval', $cx, $in).'';}).'
+EACH::'.LCRun::sec('test3', $cx, $in, true, function($cx, $in) {return '	lp:'.LCRun::raw('loopval', $cx, $in).'';}).'
+END!
+ ';}).'
  </ul>
 </div>
 ';

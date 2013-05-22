@@ -29,5 +29,13 @@
   {{/with}}
 WITH~
  {{/with}}
+_WITH PATH_
+ {{#with login_status.test}}
+XTEST: {{testval}} - {{{textval}}}
+IF: {{#if testval}}YES~{{/if}}{{#unless testval}}NO!{{/unless}}
+SECTION::{{#test2}} - loop: {{loopval}}{{/test2}}
+EACH::{{#each test3}}	lp:{{{loopval}}}{{/each}}
+END!
+ {{/with}}
  </ul>
 </div>

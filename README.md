@@ -150,3 +150,16 @@ Feature Comparison
 |  018-hb-withwith-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  livetest-001-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 </pre>
+
+How to Test
+-----------
+
+1. install nodejs04+
+2. install npm
+3. npm install handlebars
+4. bin/generate-fixture
+   * This will generate *.txt files under fixtures.
+   * These files is generated with handlebars.js.
+   * All tests will use these txt files as standard answers.
+
+* single lib test

@@ -1,0 +1,12 @@
+{
+    "login_status": {
+        "is_login": false,
+        "edit_accout_link": "http://tw.yahoo.com",
+        "username": "tester",
+        "logut_link": "http://tw.yahoo.com/?logout",
+        "register_link": "http://tw.yahoo.com/?reg",
+        "login_link": "http://tw.yahoo.com/?login",
+        "test": "TESTSTRING"
+    },
+    "test": false
+}

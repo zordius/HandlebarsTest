@@ -12,11 +12,9 @@
    
    
 ~IF~
-   YES
    
+   NO
 ~SEC~
-   
-    
    
 ~EACH~
    

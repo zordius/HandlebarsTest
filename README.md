@@ -123,7 +123,7 @@ Feature Comparison
 |  012-simple-this-001  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 |  012-simple-this-002  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 |  012-simple-this-003  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
-|  012-simple-this-004  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
+|  012-simple-this-004  |                 YES   |                 YES   |              OUTPUT   |              OUTPUT |
 |  012-simple-this-005  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 |  012-simple-this-006  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 |      013-hb-each-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
@@ -138,16 +138,25 @@ Feature Comparison
 |        014-hb-if-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |        014-hb-if-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |        014-hb-if-003  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|        014-hb-if-004  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |    015-hb-unless-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |    015-hb-unless-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |    015-hb-unless-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-|  016-hb-eachthis-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-|  016-hb-eachthis-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|  016-hb-eachthis-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|  016-hb-eachthis-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |      017-hb-with-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |      017-hb-with-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-001  |                  NO   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|  018-hb-withwith-004  |                  NO   |                 YES   |                  NO   |                  NO |
+|  018-hb-withwith-005  |                  NO   |                 YES   |                  NO   |                  NO |
+|  018-hb-withwith-006  |                  NO   |                 YES   |                  NO   |                  NO |
+|  018-hb-withwith-007  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| 19-hb-eachparent-001  |               CR/LF   |              OUTPUT   |                  NO   |                  NO |
+| 19-hb-eachparent-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|   020-hb-doteach-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|   020-hb-doteach-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |  livetest-001-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 </pre>
 

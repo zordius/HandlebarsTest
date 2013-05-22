@@ -163,3 +163,16 @@ How to Test
    * All tests will use these txt files as standard answers.
 
 * single lib test
+   * bin/hbtest libName testFile [testTimes]
+   * libName can be one of: none , lightncandy , handlebars.php , mustache-php , mustache.php
+   * testTimes default 100000. When testing on lightncandy, testTimes as even times will test as best performance, testTimes as odd times will test as best features.
+   * Example: bin/hbtest mustache.php fixture/001-simple-vars-001.json
+
+* feature test
+   * bin/hbreport 1
+   * This do not generate any file under report/
+   * Will print a feature chart on console.
+
+* performance test
+   * bin/hbreport
+   * This will generate report files under report/

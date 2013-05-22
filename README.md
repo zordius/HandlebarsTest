@@ -165,7 +165,7 @@ How to Test
 * single lib test
    * bin/hbtest libName testFile [testTimes]
    * libName can be one of: none , lightncandy , handlebars.php , mustache-php , mustache.php
-   * testTimes default 100000. When testing on lightncandy, testTimes as even times will test as best performance, testTimes as odd times will test as best features.
+   * testTimes default 100000. When testing on lightncandy, testTimes as even times will testing as best performance, testTimes as odd times will testing as best features.
    * Example: bin/hbtest mustache.php fixture/001-simple-vars-001.json
 
 * feature test
@@ -176,3 +176,4 @@ How to Test
 * performance test
    * bin/hbreport
    * This will generate report files under report/
+   * default test 100000 times on every cases and libs, takes very long time.

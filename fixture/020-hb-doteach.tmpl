@@ -1,0 +1,11 @@
+Hello {{name}}, you have just won ${{value}}!
+<ul>
+{{#each people.boss}}
+ <li>{{name}} is a {{gender}} ({{name}}, {{value}}, {{end}})</li>
+{{/each}}
+</ul>
+{{end}}
+{{#people.boss}}
+ THIS:{{name}} is a {{{gender}}}
+ PARENT: {{{name}}}, {{{value}}}, {{{end}}}
+{{/people.boss}}

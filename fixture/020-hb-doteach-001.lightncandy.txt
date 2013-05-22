@@ -1,0 +1,6 @@
+Hello John, you have just won $10000!
+<ul>
+
+</ul>
+OK!
+

@@ -18,18 +18,25 @@
    <li>New User? <a href="'.LCRun::enc('register_link', $cx, $in).'">Register Now</a></li>
    <li><a href="'.LCRun::enc('login_link', $cx, $in).'">Login</a></li>
   ') : '').'
+~WITH
   '.LCRun::wi('test', $cx, $in, function($cx, $in) {return '
+~TEST~
    '.LCRun::enc('testval', $cx, $in).'
    '.LCRun::raw('testval', $cx, $in).'
+~IF~
    '.(LCRun::ifvar('testval', $in) ? ('YES') : '').'
    '.(!LCRun::ifvar('testval', $in) ? ('NO') : '').'
+~SEC~
    '.LCRun::sec('test2', $cx, $in, false, function($cx, $in) {return '
     '.LCRun::enc('loopval', $cx, $in).'
    ';}).'
+~EACH~
    '.LCRun::sec('test3', $cx, $in, true, function($cx, $in) {return '
     '.LCRun::enc('loopval', $cx, $in).'
    ';}).'
+~END~
   ';}).'
+WITH~
  ';}).'
  </ul>
 </div>

@@ -9,18 +9,25 @@
    <li>New User? <a href="{{register_link}}">Register Now</a></li>
    <li><a href="{{login_link}}">Login</a></li>
   {{/unless}}
+~WITH
   {{#with test}}
+~TEST~
    {{testval}}
    {{{testval}}}
+~IF~
    {{#if testval}}YES{{/if}}
    {{#unless testval}}NO{{/unless}}
+~SEC~
    {{#test2}}
     {{loopval}}
    {{/test2}}
+~EACH~
    {{#each test3}}
     {{loopval}}
    {{/each}}
+~END~
   {{/with}}
+WITH~
  {{/with}}
  </ul>
 </div>

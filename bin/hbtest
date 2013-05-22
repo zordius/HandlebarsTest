@@ -25,9 +25,12 @@ warn(print_r($vars, true));
 
 // Prepare template
 $flag = 0;
-if ((($test_times % 2) == 1) && ($argv[1] == 'lightncandy')) {
+if ($argv[1] == 'lightncandy') {
     require_once('cloned/lightncandy/src/lightncandy.inc');
-    $flag = LightnCandy::FLAG_HANDLEBARSJS + LightnCandy::FLAG_ERROR_LOG;
+    $flag = LightnCandy::FLAG_ERROR_LOG;
+    if (($test_times % 2) == 1) {
+        $flag += LightnCandy::FLAG_HANDLEBARSJS;
+    }
 }
 try {
     prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), $flag);

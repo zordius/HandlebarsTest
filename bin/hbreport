@@ -36,27 +36,31 @@ $Dict = Array(
     'SINGLEQUOTE' => 'Do not encode \' to &amp;#x27;'
 );
 
-// output quick feature report
-if ($argv[1] && ($argv[1] < 3)) {
-    print "\n";
-    foreach ($Dict as $k => $v) {
-        print "* $k : $v\n";
-    }
-    print "|\ttest case\t| " . join("\t|\t", $libs) . "\t|\n";
-    foreach ($reports as $name => $report) {
-        $fn = substr('                ' . basename($name, '.json'), -20);
-        print "| $fn";
-        foreach ($report as $test) {
-            print "\t|\t" . substr('                ' . ((is_array($test) && array_key_exists('match', $test)) ? $test['match'] : 'NO'), -13);
-        }
-        print " |\n";
-    }
-    exit;
-}
-
 date_default_timezone_set('Asia/Taipei');
 $rt = date('Ymd.His');
 $rn  = "report/$rt";
+
+// output quick feature report
+print "\n";
+ob_start();
+foreach ($Dict as $k => $v) {
+    print "* $k : $v\n";
+}
+print "|\ttest case\t| " . join("\t|\t", $libs) . "\t|\n";
+foreach ($reports as $name => $report) {
+    $fn = substr('                ' . basename($name, '.json'), -20);
+    print "| $fn";
+    foreach ($report as $test) {
+        print "\t|\t" . substr('                ' . ((is_array($test) && array_key_exists('match', $test)) ? $test['match'] : 'NO'), -13);
+    }
+    print " |\n";
+}
+if ($argv[1] && ($argv[1] < 3)) {
+    ob_flush();
+    exit;
+} else {
+    file_put_contents("$rn-features.txt", ob_get_clean());
+}
 
 // output json report
 file_put_contents("$rn.json", json_encode(Array(

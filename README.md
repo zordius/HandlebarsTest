@@ -146,6 +146,7 @@ Feature Comparison
 |  016-hb-eachthis-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |      017-hb-with-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |      017-hb-with-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|      017-hb-with-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-001  |                  NO   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
@@ -153,10 +154,14 @@ Feature Comparison
 |  018-hb-withwith-005  |                  NO   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-006  |                  NO   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-007  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-| 19-hb-eachparent-001  |               CR/LF   |              OUTPUT   |                  NO   |                  NO |
+| 19-hb-eachparent-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
 | 19-hb-eachparent-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |   020-hb-doteach-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |   020-hb-doteach-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
+| 21-hb-manyparent-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| 21-hb-manyparent-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| 21-hb-manyparent-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| 21-hb-manyparent-004  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  livetest-001-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 </pre>
 

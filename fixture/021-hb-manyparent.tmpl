@@ -2,14 +2,30 @@ Hello {{name}}, you have just won ${{value}}!
 <ul>
 {{#each .}}
  <li>{{name}} is a {{gender}} ({{../name}}, {{../value}}, {{../end}})</li>
+ simple if~
+ {{#if good}}
+  simple GOOD! {{goodchild}} {{../gender}} - {{{../gender}}} X {{../../name}} ~ {{../../end}}
+ {{/if}}
+ if-else
  {{#if good}}
   GOOD! {{goodchild}} {{../gender}} - {{{../gender}}} X {{../../name}} ~ {{../../end}}
  {{else}}
   BAD! {{badchild}} {{../gender}} - {{{../gender}}} Y {{{../../name}}} = {{{../../end}}}
  {{/if}}
+ with
  {{#with good}}
     WITH: {{../gender}} , {{../../name}} , {{{../../end}}}
  {{/with}}
+ simple unless
+ {{#unless good}}
+   UNLESS good = bad -> {{../gender}} , {{../../name}}
+ {{/unless}}
+ unless else
+ {{#unless good}}
+   UNLESS good = bad -> {{../gender}} , {{../../name}}
+ {{else}}
+   UNLESS bad = good -> {{../gender}} , {{../../name}}
+ {{/unless}}
 {{/each}}
 ----------THIS
 {{#each this}}

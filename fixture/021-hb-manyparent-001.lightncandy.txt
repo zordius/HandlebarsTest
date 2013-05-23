@@ -6,17 +6,17 @@ Hello John, you have just won $10000!
  
  if-else
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
  unless else
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
 
  <li> is a  (John, 10000, OK!)</li>
@@ -24,17 +24,17 @@ Hello John, you have just won $10000!
  
  if-else
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
  unless else
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
 
  <li> is a  (John, 10000, OK!)</li>
@@ -42,17 +42,17 @@ Hello John, you have just won $10000!
  
  if-else
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
  unless else
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
 
  <li> is a  (John, 10000, OK!)</li>
@@ -60,58 +60,58 @@ Hello John, you have just won $10000!
  
  if-else
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
  unless else
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
 
 ----------THIS
 
  <li> is a  (John, 10000, OK!)</li>
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  
 
  <li> is a  (John, 10000, OK!)</li>
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  
 
  <li> is a  (John, 10000, OK!)</li>
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  
 
  <li> is a  (John, 10000, OK!)</li>
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  
 
 ----------SECTION THIS
 
- <li>John is a  (John, 10000, OK!)</li>
+ <li>John is a  (, , )</li>
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  
 
 ----------SECTION .
 
- <li>John is a  (John, 10000, OK!)</li>
+ <li>John is a  (, , )</li>
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  
 

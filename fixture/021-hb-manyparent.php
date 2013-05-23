@@ -74,6 +74,11 @@
  ';}).'
 ';}).'
 </ul>
+WITH TEST>
+'.LCRun::wi('people', $cx, $in, function($cx, $in) {return '
+ single: '.LCRun::enc('name', $cx, $in).', '.LCRun::enc('gender', $cx, $in).'
+ '.LCRun::sec('', $cx, $in, true, function($cx, $in) {return 'loop: '.LCRun::enc('name', $cx, $in).' - '.LCRun::enc('../name', $cx, $in).' - '.LCRun::enc('../../name', $cx, $in).'';}).'
+';}).'
 '.LCRun::enc('end', $cx, $in).'
 ';
 }

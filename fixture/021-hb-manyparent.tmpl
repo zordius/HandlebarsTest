@@ -64,4 +64,9 @@ Hello {{name}}, you have just won ${{value}}!
  {{/with}}
 {{/.}}
 </ul>
+WITH TEST>
+{{#with people}}
+ single: {{name}}, {{gender}}
+ {{#each .}}loop: {{name}} - {{../name}} - {{../../name}}{{/each}}
+{{/with}}
 {{end}}

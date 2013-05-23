@@ -1,9 +1,9 @@
 Hello , you have just won $!
 <ul>
 
- <li>John is a  (John, 10000, )</li>
+ <li>John is a  (, , )</li>
 
- <li> is a  (, 10,test,[object Object], )</li>
+ <li> is a  (, , )</li>
 
  <li> is a  (, , )</li>
 
@@ -13,14 +13,14 @@ Hello , you have just won $!
 
 
  THIS:John is a 
- PARENT: John, 10000, 
+ PARENT: , ,  END  NAME John
 
  THIS: is a 
- PARENT: , 10,test,[object Object], 
+ PARENT: , ,  END  NAME 
 
  THIS: is a 
- PARENT: , , 
+ PARENT: , ,  END  NAME 
 
  THIS: is a 
- PARENT: , , 
+ PARENT: , ,  END  NAME 
 

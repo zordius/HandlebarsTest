@@ -1,0 +1,71 @@
+Hello John, you have just won $10000!
+<ul>
+
+ <li> is a  (John, 10000, OK!)</li>
+ 
+  BAD!   -  Y John = OK!
+ 
+ 
+
+ <li> is a  (John, 10000, OK!)</li>
+ 
+  BAD!   -  Y John = OK!
+ 
+ 
+
+ <li> is a  (John, 10000, OK!)</li>
+ 
+  BAD!   -  Y John = OK!
+ 
+ 
+
+ <li> is a  (John, 10000, OK!)</li>
+ 
+  BAD!   -  Y John = OK!
+ 
+ 
+
+----------THIS
+
+ <li> is a  (John, 10000, OK!)</li>
+ 
+  BAD!   -  Y John = OK!
+ 
+ 
+
+ <li> is a  (John, 10000, OK!)</li>
+ 
+  BAD!   -  Y John = OK!
+ 
+ 
+
+ <li> is a  (John, 10000, OK!)</li>
+ 
+  BAD!   -  Y John = OK!
+ 
+ 
+
+ <li> is a  (John, 10000, OK!)</li>
+ 
+  BAD!   -  Y John = OK!
+ 
+ 
+
+----------SECTION THIS
+
+ <li>John is a  (John, 10000, OK!)</li>
+ 
+  BAD!   -  Y John = OK!
+ 
+ 
+
+----------SECTION .
+
+ <li>John is a  (John, 10000, OK!)</li>
+ 
+  BAD!   -  Y John = OK!
+ 
+ 
+
+</ul>
+OK!

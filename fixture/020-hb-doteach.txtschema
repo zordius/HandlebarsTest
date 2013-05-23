@@ -23,7 +23,7 @@
         "boss": {
           "type": "array",
           "items": {
-            "type": "array",
+            "type": "object",
             "properties": {
               "name": {
                 "type": [
@@ -38,35 +38,20 @@
                   "number"
                 ],
                 "required": true
-              }
-            },
-            "items": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "\/name": {
-                    "type": [
-                      "string",
-                      "number"
-                    ],
-                    "required": true
-                  },
-                  "\/value": {
-                    "type": [
-                      "string",
-                      "number"
-                    ],
-                    "required": true
-                  },
-                  "\/end": {
-                    "type": [
-                      "string",
-                      "number"
-                    ],
-                    "required": true
-                  }
-                }
+              },
+              "value": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              },
+              "end": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
               }
             }
           }

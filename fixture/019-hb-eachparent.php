@@ -17,7 +17,7 @@
 '.LCRun::enc('end', $cx, $in).'
 '.LCRun::sec('', $cx, $in, true, function($cx, $in) {return '
  THIS:'.LCRun::enc('name', $cx, $in).' is a '.LCRun::raw('gender', $cx, $in).'
- PARENT: '.LCRun::raw('../name', $cx, $in).', '.LCRun::raw('../value', $cx, $in).', '.LCRun::raw('../end', $cx, $in).'
+ PARENT: '.LCRun::raw('../name', $cx, $in).', '.LCRun::raw('../value', $cx, $in).', '.LCRun::raw('../end', $cx, $in).' END '.LCRun::enc('end', $cx, $in).' NAME '.LCRun::enc('name', $cx, $in).'
 ';}).'
 ';
 }

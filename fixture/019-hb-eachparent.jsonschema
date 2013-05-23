@@ -41,6 +41,13 @@
           "number"
         ],
         "required": true
+      },
+      "end": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "required": true
       }
     },
     "items": {

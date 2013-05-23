@@ -1,0 +1,51 @@
+Hello {{name}}, you have just won ${{value}}!
+<ul>
+{{#each .}}
+ <li>{{name}} is a {{gender}} ({{../name}}, {{../value}}, {{../end}})</li>
+ {{#if good}}
+  GOOD! {{goodchild}} {{../gender}} - {{{../gender}}} X {{../../name}} ~ {{../../end}}
+ {{else}}
+  BAD! {{badchild}} {{../gender}} - {{{../gender}}} Y {{{../../name}}} = {{{../../end}}}
+ {{/if}}
+ {{#with good}}
+    WITH: {{../gender}} , {{../../name}} , {{{../../end}}}
+ {{/with}}
+{{/each}}
+----------THIS
+{{#each this}}
+ <li>{{name}} is a {{gender}} ({{../name}}, {{../value}}, {{../end}})</li>
+ {{#if good}}
+  GOOD! {{goodchild}} {{../gender}} - {{{../gender}}} X {{../../name}} ~ {{../../end}}
+ {{else}}
+  BAD! {{badchild}} {{../gender}} - {{{../gender}}} Y {{{../../name}}} = {{{../../end}}}
+ {{/if}}
+ {{#with good}}
+    WITH: {{../gender}} , {{../../name}} , {{{../../end}}}
+ {{/with}}
+{{/each}}
+----------SECTION THIS
+{{#this}}
+ <li>{{name}} is a {{gender}} ({{../name}}, {{../value}}, {{../end}})</li>
+ {{#if good}}
+  GOOD! {{goodchild}} {{../gender}} - {{{../gender}}} X {{../../name}} ~ {{../../end}}
+ {{else}}
+  BAD! {{badchild}} {{../gender}} - {{{../gender}}} Y {{{../../name}}} = {{{../../end}}}
+ {{/if}}
+ {{#with good}}
+    WITH: {{../gender}} , {{../../name}} , {{{../../end}}}
+ {{/with}}
+{{/this}}
+----------SECTION .
+{{#.}}
+ <li>{{name}} is a {{gender}} ({{../name}}, {{../value}}, {{../end}})</li>
+ {{#if good}}
+  GOOD! {{goodchild}} {{../gender}} - {{{../gender}}} X {{../../name}} ~ {{../../end}}
+ {{else}}
+  BAD! {{badchild}} {{../gender}} - {{{../gender}}} Y {{{../../name}}} = {{{../../end}}}
+ {{/if}}
+ {{#with good}}
+    WITH: {{../gender}} , {{../../name}} , {{{../../end}}}
+ {{/with}}
+{{/.}}
+</ul>
+{{end}}

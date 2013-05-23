@@ -6,7 +6,7 @@ Hello , you have just won $!
 
   BAD!   -  Y  = 
  with
-    WITH:  ,  , 
+    WITH: ,  ,  , 
  simple unless
    UNLESS good = bad ->  , 
  unless else
@@ -19,7 +19,7 @@ Hello , you have just won $!
 
   BAD!   -  Y  = 
  with
-    WITH: 0 ,  , 
+    WITH: , 0 ,  , 
  simple unless
    UNLESS good = bad ->  , 
  unless else
@@ -32,7 +32,7 @@ Hello , you have just won $!
  if-else
   GOOD!   -  X  ~ 
   with
-    WITH: 3th ,  , 
+    WITH: , 3th ,  , 
  simple unless
  unless else
  <li> is a  (, , )</li>
@@ -41,20 +41,7 @@ Hello , you have just won $!
 
   BAD!   -  Y  = 
  with
-    WITH:  ,  , 
- simple unless
-   UNLESS good = bad ->  , 
- unless else
-   UNLESS good = bad ->  , 
- 
-   UNLESS bad = good ->  , 
- <li> is a  (, , )</li>
- simple if~
- if-else
-
-  BAD!   -  Y  = 
- with
-    WITH:  ,  , 
+    WITH: ,  ,  , 
  simple unless
    UNLESS good = bad ->  , 
  unless else
@@ -67,7 +54,7 @@ Hello , you have just won $!
 
   BAD!   -  Y  = 
  with
-    WITH:  ,  , 
+    WITH: ,  ,  , 
  simple unless
    UNLESS good = bad ->  , 
  unless else
@@ -80,7 +67,20 @@ Hello , you have just won $!
 
   BAD!   -  Y  = 
  with
-    WITH:  ,  , 
+    WITH: ,  ,  , 
+ simple unless
+   UNLESS good = bad ->  , 
+ unless else
+   UNLESS good = bad ->  , 
+ 
+   UNLESS bad = good ->  , 
+ <li> is a  (, , )</li>
+ simple if~
+ if-else
+
+  BAD!   -  Y  = 
+ with
+    WITH: ,  ,  , 
  simple unless
    UNLESS good = bad ->  , 
  unless else

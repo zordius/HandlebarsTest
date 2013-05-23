@@ -24,7 +24,7 @@
  ';}).'
  with
  '.LCRun::wi('good', $cx, $in, function($cx, $in) {return '
-    WITH: '.LCRun::enc('../gender', $cx, $in).' , '.LCRun::enc('../../name', $cx, $in).' , '.LCRun::raw('../../end', $cx, $in).'
+    WITH: '.LCRun::enc('gender', $cx, $in).', '.LCRun::enc('../gender', $cx, $in).' , '.LCRun::enc('../../name', $cx, $in).' , '.LCRun::raw('../../end', $cx, $in).'
  ';}).'
  simple unless
  '.LCRun::unl('good', $cx, $in, function($cx, $in) {return '

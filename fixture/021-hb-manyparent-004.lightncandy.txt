@@ -40,9 +40,11 @@ Hello , you have just won $!
  <li> is a 3th (, , )</li>
  simple if~
  
+  simple GOOD!  3th - 3th X  ~ 
+ 
  if-else
  
-  BAD!  3th - 3th Y  = 
+  GOOD!  3th - 3th X  ~ 
  
  with
  
@@ -50,11 +52,9 @@ Hello , you have just won $!
  
  simple unless
  
-   UNLESS good = bad -> 3th , 
- 
  unless else
  
-   UNLESS good = bad -> 3th , 
+   UNLESS bad = good -> 3th , 
  
 
  <li> is a  (, , )</li>
@@ -145,7 +145,7 @@ Hello , you have just won $!
 
  <li> is a 3th (, , )</li>
  
-  BAD!  3th - 3th Y  = 
+  GOOD!  3th - 3th X  ~ 
  
  
     WITH:  ,  , 
@@ -191,7 +191,7 @@ Hello , you have just won $!
 
  <li> is a 3th (, , )</li>
  
-  BAD!  3th - 3th Y  = 
+  GOOD!  3th - 3th X  ~ 
  
  
     WITH:  ,  , 
@@ -237,7 +237,7 @@ Hello , you have just won $!
 
  <li> is a 3th (, , )</li>
  
-  BAD!  3th - 3th Y  = 
+  GOOD!  3th - 3th X  ~ 
  
  
     WITH:  ,  , 

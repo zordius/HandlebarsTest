@@ -1,0 +1,41 @@
+[
+    {
+        "name": "John",
+        "value": 10000,
+        "end": "OK!"
+    },
+    {
+        "goodchild": "CH3",
+        "good": false,
+        "gender": 0
+    },
+    {
+        "people": [
+            {
+                "name": "Mr. First",
+                "gender": "man",
+                "good": {
+                    "goodchild": "CH1"
+                },
+                "goodchild": "CH2"
+            },
+            {
+                "name": "Mrs. Second",
+                "gender": "woman",
+                "good": true
+            }
+        ],
+        "good": true
+    },
+    "LoopOK?",
+    false,
+    0,
+    [
+        {
+            "name": "Mrs. Second",
+            "gender": "woman",
+            "good": true
+        },
+        "Loop2nd"
+    ]
+]

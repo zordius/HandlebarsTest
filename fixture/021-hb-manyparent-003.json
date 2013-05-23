@@ -1,0 +1,21 @@
+{
+    "name": "John",
+    "value": 10000,
+    "goodchild": "CH3",
+    "people": [
+        {
+             "name": "Mr. First",
+             "gender": "man",
+             "good": {
+                 "goodchild": "CH1"
+             },
+             "goodchild": "CH2"
+        },
+        {
+             "name": "Mrs. Second",
+             "gender": "woman",
+             "good": true
+        }
+    ],
+    "end": "OK!"
+}

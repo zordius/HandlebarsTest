@@ -1,0 +1,17 @@
+{
+    "name": "John",
+    "value": 10000,
+    "people": [
+        {
+             "name": "Mr. First",
+             "gender": "man",
+             "good": 1
+        },
+        {
+             "name": "Mrs. Second",
+             "gender": "woman",
+             "good": true
+        }
+    ],
+    "end": "OK!"
+}

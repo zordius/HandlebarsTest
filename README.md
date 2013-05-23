@@ -179,8 +179,13 @@ How to Test
 
 * feature test
    * bin/hbreport 1
-   * This do not generate any file under report/
-   * Will print a feature chart on console.
+      * This do not generate any file under report/
+      * Will print a feature chart on console.
+      * lightncandy will be executed with FLAG_STANDALONE and FLAG_HANDLEBARSJS enabled.
+   * bin/hbreport 3
+      * This do not generate any file under report/
+      * Will print a feature chart on console.
+      * lightncandy will be executed with FLAG_HANDLEBARSJS enabled.
 
 * performance test
    * bin/hbreport

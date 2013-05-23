@@ -6,7 +6,8 @@
         ),
         'scopes' => Array(),
         'path' => Array(),
-        'parents' => Array()
+        'parents' => Array(),
+
     );
     return '<div class="yui3-u-1-2 member-status">
  <ul class="h-list">

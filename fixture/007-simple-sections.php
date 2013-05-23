@@ -6,7 +6,8 @@
         ),
         'scopes' => Array(),
         'path' => Array(),
-        'parents' => Array()
+        'parents' => Array(),
+
     );
     return '<h1>'.LCRun::enc('header', $cx, $in).'</h1>
 '.LCRun::sec('notEmpty', $cx, $in, false, function($cx, $in) {return '

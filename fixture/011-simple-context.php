@@ -6,7 +6,8 @@
         ),
         'scopes' => Array(),
         'path' => Array(),
-        'parents' => Array()
+        'parents' => Array(),
+
     );
     return ''.LCRun::enc('grand_parent_id', $cx, $in).'
 '.LCRun::sec('parent_contexts', $cx, $in, false, function($cx, $in) {return '

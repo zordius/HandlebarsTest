@@ -6,7 +6,8 @@
         ),
         'scopes' => Array(),
         'path' => Array(),
-        'parents' => Array()
+        'parents' => Array(),
+
     );
     return '<div id="yauitqna">
     <table>

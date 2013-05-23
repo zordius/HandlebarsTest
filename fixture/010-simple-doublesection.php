@@ -6,7 +6,8 @@
         ),
         'scopes' => Array(),
         'path' => Array(),
-        'parents' => Array()
+        'parents' => Array(),
+
     );
     return 'Hello '.LCRun::enc('winner.name', $cx, $in).', you have just won $'.LCRun::enc('winner.value', $cx, $in).'!
 '.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '

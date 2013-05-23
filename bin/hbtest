@@ -31,6 +31,9 @@ if ($argv[1] == 'lightncandy') {
     if (($test_times % 2) == 1) {
         $flag += LightnCandy::FLAG_HANDLEBARSJS;
     }
+    if (($test_times % 3) == 1) {
+        $flag += LightnCandy::FLAG_STANDALONE;
+    }
 }
 try {
     prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), Array('flags' => $flag));

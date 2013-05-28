@@ -1,0 +1,7 @@
+Hello John, you have just won $10000!
+each partial....
+001-simple-vars--
+017-hb-with001-simple-vars--
+017-hb-withend each.
+
+if + with + partial:

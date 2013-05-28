@@ -1,14 +1,38 @@
 Hello John, you have just won $10000!
 include this:
+    Hello John, you have just won $10000!
+    This is next line.中文
+    Test \on 'spacing in mustache: Hello John, you have just won $10000!
 end include.
 section partial....
+  Hello John, you have just won $10000!
+  This is next line.中文
+  Test \on 'spacing in mustache: Hello John, you have just won $10000!
 end section.
 
 Winners: test(test) = (Array)
 
-Partial1:
-Partial2:
-Partial3:
-Partial4:
-Partial5:
-Partial6:
+Partial1:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+
+Partial2:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+
+Partial3:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+
+Partial4:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+
+Partial5:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+
+Partial6:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+

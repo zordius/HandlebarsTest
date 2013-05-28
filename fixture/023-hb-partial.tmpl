@@ -1,0 +1,15 @@
+Hello {{name}}, you have just won ${{value}}!
+each partial....
+{{#each winners}}
+  {{> 001-simple-vars}}
+--
+  {{>017-hb-with}}
+{{/each}}
+end each.
+
+if + with + partial:
+{{#if test}}
+ {{#with people}}
+  {{> 001-simple-vars}}
+ {{/with}}
+{{/if}}

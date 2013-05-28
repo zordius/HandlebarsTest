@@ -4,6 +4,15 @@ function warn ($str) {
     file_put_contents('php://stderr', "$str\n");
 }
 
+function getPartials () {
+    $partials = Array();
+    foreach (glob('fixture/*.tmpl') as $tmpl) {
+        preg_match('/fixture\\/(.+)\\.tmpl/', $tmpl, $matches);
+        $partials[$matches[1]] = file_get_contents($tmpl);
+    }
+    return $partials;
+}
+
 function prepare_tmpl($name, $file, $flag) {
     global $test_tmpl, $test_method;
 
@@ -50,6 +59,7 @@ function prepare_tmpl($name, $file, $flag) {
         $m = new Mustache_Engine(array(
             'cache' => dirname(__FILE__) . '/cache',
             'logger' => new Mustache_Logger_StreamLogger('php://stderr'),
+            'partials' => getPartials()
         ));
         $test_tmpl = $m->loadTemplate($tmpl_txt);
         $test_method = 'render';

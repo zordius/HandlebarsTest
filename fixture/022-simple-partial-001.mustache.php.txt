@@ -5,3 +5,10 @@ section partial....
 end section.
 
 Winners: test(test) = (Array)
+
+Partial1:
+Partial2:
+Partial3:
+Partial4:
+Partial5:
+Partial6:

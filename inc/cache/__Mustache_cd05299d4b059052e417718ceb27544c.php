@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_9061857ef261d155dc21d2166f315fed extends Mustache_Template
+class __Mustache_cd05299d4b059052e417718ceb27544c extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -34,6 +34,37 @@ class __Mustache_9061857ef261d155dc21d2166f315fed extends Mustache_Template
         $buffer .= $indent . 'Winners: ';
         // 'winners' section
         $buffer .= $this->section05ab2510ea03dd60e28fee6476fe662e($context, $indent, $context->find('winners'));
+        $buffer .= "\n";
+        $buffer .= "\n";
+        $buffer .= $indent . 'Partial1:';
+        if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
+            $buffer .= $partial->renderInternal($context, '');
+        }
+        $buffer .= "\n";
+        $buffer .= $indent . 'Partial2:';
+        if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
+            $buffer .= $partial->renderInternal($context, '');
+        }
+        $buffer .= "\n";
+        $buffer .= $indent . 'Partial3:';
+        if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
+            $buffer .= $partial->renderInternal($context, '');
+        }
+        $buffer .= "\n";
+        $buffer .= $indent . 'Partial4:';
+        if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
+            $buffer .= $partial->renderInternal($context, '');
+        }
+        $buffer .= "\n";
+        $buffer .= $indent . 'Partial5:';
+        if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
+            $buffer .= $partial->renderInternal($context, '');
+        }
+        $buffer .= "\n";
+        $buffer .= $indent . 'Partial6:';
+        if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
+            $buffer .= $partial->renderInternal($context, '');
+        }
         $buffer .= "\n";
 
         return $buffer;

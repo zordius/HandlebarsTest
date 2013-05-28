@@ -5,3 +5,10 @@ section partial....
 001-simple-varsend section.
 
 Winners: test(test) = test(test)
+
+Partial1:001-simple-vars
+Partial2:001-simple-vars
+Partial3:001-simple-vars
+Partial4:001-simple-vars
+Partial5:001-simple-vars
+Partial6:001-simple-vars

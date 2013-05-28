@@ -15,3 +15,28 @@ Test \on 'spacing in mustache: Hello , you have just won $!
 end section.
 
 Winners: [object Object]([object Object]) = [object Object]([object Object])
+
+Partial1:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+
+Partial2:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+
+Partial3:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+
+Partial4:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+
+Partial5:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+
+Partial6:Hello John, you have just won $10000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $10000!
+

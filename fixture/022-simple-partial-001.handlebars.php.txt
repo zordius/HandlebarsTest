@@ -1,0 +1,7 @@
+Hello John, you have just won $10000!
+include this:
+001-simple-varsend include.
+section partial....
+001-simple-varsend section.
+
+Winners: test(test) = test(test)

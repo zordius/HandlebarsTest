@@ -3,32 +3,52 @@
 var fs = require('fs'),
     handlebars = require('handlebars'),
     dir = 'fixture/',
+    partial_total = 0,
+    partial_ok = 0,
     gen_total = 0,
-    ok_total = 0;
+    ok_total = 0,
+    generateFixtures = function () {
+        fs.readdir(dir, function (err, files) {
+            files.forEach(function (file) {
+                var tmpl = file.replace(/-\d+\.json/, '.tmpl');
+        
+                if (!file.match(/\.json/)) {
+                    return;
+                }
+        
+                gen_total += 1;
+                console.log('# ' + file + ' > ' + tmpl);
+                fs.readFile(dir + file, 'utf8', function (err, data) {
+                    var json = JSON.parse(data);
+                    fs.readFile(dir + tmpl, 'utf8', function (err, data) {
+                        var html = handlebars.compile(data)(json),
+                            fn = file.replace(/\.json/, '.txt');
+        
+                        fs.writeFileSync(dir + fn, html);
+                        ok_total += 1;
+                        console.log('  ' + fn + ' OK');
+                        if (gen_total == ok_total) {
+                            console.log('<< ALL SUCCESSED: ' + gen_total);
+                        }
+                    });
+                });
+            });
+        });
+    };
 
 fs.readdir(dir, function (err, files) {
     files.forEach(function (file) {
-        var tmpl = file.replace(/-\d+\.json/, '.tmpl');
-
-        if (!file.match(/\.json/)) {
+        if (!file.match(/\.tmpl/)) {
             return;
         }
-
-        gen_total += 1;
-        console.log('# ' + file + ' > ' + tmpl);
+        partial_total++;
         fs.readFile(dir + file, 'utf8', function (err, data) {
-            var json = JSON.parse(data);
-            fs.readFile(dir + tmpl, 'utf8', function (err, data) {
-                var html = handlebars.compile(data)(json),
-                    fn = file.replace(/\.json/, '.txt');
-
-                fs.writeFileSync(dir + fn, html);
-                ok_total += 1;
-                console.log('  ' + fn + ' OK');
-                if (gen_total == ok_total) {
-                    console.log('<< ALL SUCCESSED: ' + gen_total);
-                }
-            });
+            handlebars.registerPartial(file.replace(/\.tmpl/, ''), data);
+            partial_ok++;
+            if (partial_ok == partial_total) {
+                generateFixtures();
+            }
         });
     });
 });
+

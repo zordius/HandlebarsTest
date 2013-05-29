@@ -1,8 +1,8 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false,
+            'jstrue' => true,
+            'jsobj' => true,
         ),
         'scopes' => Array(),
         'path' => Array(),
@@ -131,16 +131,16 @@
 )
 
     );
-    return 'Hello '.htmlentities($in['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['value'], ENT_QUOTES).'!
+    return 'Hello '.$cx['funcs']['enc']('name', $cx, $in).', you have just won $'.$cx['funcs']['enc']('value', $cx, $in).'!
 <ul>
 '.$cx['funcs']['sec']('people.boss', $cx, $in, true, function($cx, $in) {return '
- <li>'.htmlentities($in['name'], ENT_QUOTES).' is a '.htmlentities($in['gender'], ENT_QUOTES).' ('.htmlentities($in['name'], ENT_QUOTES).', '.htmlentities($in['value'], ENT_QUOTES).', '.htmlentities($in['end'], ENT_QUOTES).')</li>
+ <li>'.$cx['funcs']['enc']('name', $cx, $in).' is a '.$cx['funcs']['enc']('gender', $cx, $in).' ('.$cx['funcs']['enc']('name', $cx, $in).', '.$cx['funcs']['enc']('value', $cx, $in).', '.$cx['funcs']['enc']('end', $cx, $in).')</li>
 ';}).'
 </ul>
-'.htmlentities($in['end'], ENT_QUOTES).'
+'.$cx['funcs']['enc']('end', $cx, $in).'
 '.$cx['funcs']['sec']('people.boss', $cx, $in, false, function($cx, $in) {return '
- THIS:'.htmlentities($in['name'], ENT_QUOTES).' is a '.$in['gender'].'
- PARENT: '.$in['name'].', '.$in['value'].', '.$in['end'].'
+ THIS:'.$cx['funcs']['enc']('name', $cx, $in).' is a '.$cx['funcs']['raw']('gender', $cx, $in).'
+ PARENT: '.$cx['funcs']['raw']('name', $cx, $in).', '.$cx['funcs']['raw']('value', $cx, $in).', '.$cx['funcs']['raw']('end', $cx, $in).'
 ';}).'
 ';
 }

@@ -1,8 +1,8 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false,
+            'jstrue' => true,
+            'jsobj' => true,
         ),
         'scopes' => Array(),
         'path' => Array(),
@@ -131,30 +131,30 @@
 )
 
     );
-    return 'Hello '.htmlentities($in['winner']['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['winner']['value'], ENT_QUOTES).'!
+    return 'Hello '.$cx['funcs']['enc']('winner.name', $cx, $in).', you have just won $'.$cx['funcs']['enc']('winner.value', $cx, $in).'!
 '.$cx['funcs']['sec']('test', $cx, $in, false, function($cx, $in) {return '
 Line 1
 ';}).'
-This is a test, test = '.htmlentities($in['test'], ENT_QUOTES).'
+This is a test, test = '.$cx['funcs']['enc']('test', $cx, $in).'
 '.$cx['funcs']['sec']('test', $cx, $in, false, function($cx, $in) {return '
 Line 2
 ';}).'
-'.((is_null($in['test']) && ($in['test'] !== false)) ? ('
+'.($cx['funcs']['isec']('test', $cx, $in) ? ('
 Line 3
 ') : '').'
-'.((is_null($in['test']) && ($in['test'] !== false)) ? ('
+'.($cx['funcs']['isec']('test', $cx, $in) ? ('
 Line 4
 ') : '').'
 '.$cx['funcs']['sec']('test', $cx, $in, false, function($cx, $in) {return '
 Line 5
 ';}).'
-'.((is_null($in['test']) && ($in['test'] !== false)) ? ('
+'.($cx['funcs']['isec']('test', $cx, $in) ? ('
 Line 6
 ') : '').'
 ---- double section ----
 '.$cx['funcs']['sec']('sec', $cx, $in, false, function($cx, $in) {return '
-'.htmlentities($in['name'], ENT_QUOTES).':'.htmlentities($in['value'], ENT_QUOTES).'
-'.$cx['funcs']['sec']('sec', $cx, $in, false, function($cx, $in) {return '-- '.htmlentities($in['name'], ENT_QUOTES).', '.htmlentities($in['value'], ENT_QUOTES).'--';}).'
+'.$cx['funcs']['enc']('name', $cx, $in).':'.$cx['funcs']['enc']('value', $cx, $in).'
+'.$cx['funcs']['sec']('sec', $cx, $in, false, function($cx, $in) {return '-- '.$cx['funcs']['enc']('name', $cx, $in).', '.$cx['funcs']['enc']('value', $cx, $in).'--';}).'
 ';}).' 
 ';
 }

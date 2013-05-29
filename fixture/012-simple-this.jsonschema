@@ -1,4 +1,31 @@
 {
   "$schema": "http: \/\/json-schema.org\/draft-03\/schema",
-  "description": "Template Json Schema"
+  "description": "Template Json Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
+    "value": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
+    "winners": {
+      "type": "array",
+      "items": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "required": true
+      }
+    }
+  }
 }

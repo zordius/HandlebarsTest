@@ -1,8 +1,8 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false,
+            'jstrue' => true,
+            'jsobj' => true,
         ),
         'scopes' => Array(),
         'path' => Array(),
@@ -131,9 +131,9 @@
 )
 
     );
-    return 'Hello '.htmlentities($in['winner']['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['winner']['value'], ENT_QUOTES).'!
-We have $'.htmlentities($in['award']['first']['value'], ENT_QUOTES).' for '.htmlentities($in['award']['first']['name'], ENT_QUOTES).' award!!
-Raw dot test: '.htmlentities($in['winner']['name'], ENT_QUOTES).' '.$in['award']['first']['value'].' for '.$in['award']['first']['name'].'
+    return 'Hello '.$cx['funcs']['enc']('winner.name', $cx, $in).', you have just won $'.$cx['funcs']['enc']('winner.value', $cx, $in).'!
+We have $'.$cx['funcs']['enc']('award.first.value', $cx, $in).' for '.$cx['funcs']['enc']('award.first.name', $cx, $in).' award!!
+Raw dot test: '.$cx['funcs']['enc']('winner.name', $cx, $in).' '.$cx['funcs']['raw']('award.first.value', $cx, $in).' for '.$cx['funcs']['raw']('award.first.name', $cx, $in).'
 ';
 }
 ?>

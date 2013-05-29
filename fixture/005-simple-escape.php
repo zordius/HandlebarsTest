@@ -1,8 +1,8 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false,
+            'jstrue' => true,
+            'jsobj' => true,
         ),
         'scopes' => Array(),
         'path' => Array(),
@@ -131,8 +131,8 @@
 )
 
     );
-    return 'Hello '.htmlentities($in['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['value'], ENT_QUOTES).'!
-Hello original '.$in['name'].' , the value is '.$in['value'].'
+    return 'Hello '.$cx['funcs']['enc']('name', $cx, $in).', you have just won $'.$cx['funcs']['enc']('value', $cx, $in).'!
+Hello original '.$cx['funcs']['raw']('name', $cx, $in).' , the value is '.$cx['funcs']['raw']('value', $cx, $in).'
 ';
 }
 ?>

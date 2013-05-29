@@ -1,8 +1,8 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false,
+            'jstrue' => true,
+            'jsobj' => true,
         ),
         'scopes' => Array(),
         'path' => Array(),
@@ -131,15 +131,15 @@
 )
 
     );
-    return '<h1>'.htmlentities($in['header'], ENT_QUOTES).'</h1>
+    return '<h1>'.$cx['funcs']['enc']('header', $cx, $in).'</h1>
 '.$cx['funcs']['sec']('notEmpty', $cx, $in, false, function($cx, $in) {return '
 <ul>
 '.$cx['funcs']['sec']('item', $cx, $in, false, function($cx, $in) {return '
 '.$cx['funcs']['sec']('current', $cx, $in, false, function($cx, $in) {return '
-    <li><strong>'.htmlentities($in['name'], ENT_QUOTES).'</strong></li>
+    <li><strong>'.$cx['funcs']['enc']('name', $cx, $in).'</strong></li>
 ';}).'
-'.((is_null($in['current']) && ($in['current'] !== false)) ? ('
-    <li><a href="'.htmlentities($in['url'], ENT_QUOTES).'">'.htmlentities($in['name'], ENT_QUOTES).'</a></li>
+'.($cx['funcs']['isec']('current', $cx, $in) ? ('
+    <li><a href="'.$cx['funcs']['enc']('url', $cx, $in).'">'.$cx['funcs']['enc']('name', $cx, $in).'</a></li>
 ') : '').'
 ';}).'
 </ul>

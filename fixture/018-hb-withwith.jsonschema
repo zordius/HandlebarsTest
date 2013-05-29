@@ -1,4 +1,152 @@
 {
   "$schema": "http: \/\/json-schema.org\/draft-03\/schema",
-  "description": "Template Json Schema"
+  "description": "Template Json Schema",
+  "type": "object",
+  "properties": {
+    "login_status": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "edit_account_link": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "username": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "logut_link": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "register_link": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "login_link": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "test": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "testval": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "test2": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "loopval": {
+                        "type": [
+                          "string",
+                          "number"
+                        ],
+                        "required": true
+                      }
+                    }
+                  }
+                },
+                "test3": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "loopval": {
+                        "type": [
+                          "string",
+                          "number"
+                        ],
+                        "required": true
+                      }
+                    }
+                  }
+                },
+                "login_status": {
+                  "type": "object",
+                  "properties": {
+                    "test": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "testval": {
+                            "type": [
+                              "string",
+                              "number"
+                            ],
+                            "required": true
+                          },
+                          "textval": {
+                            "type": [
+                              "string",
+                              "number"
+                            ],
+                            "required": true
+                          },
+                          "test2": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "loopval": {
+                                  "type": [
+                                    "string",
+                                    "number"
+                                  ],
+                                  "required": true
+                                }
+                              }
+                            }
+                          },
+                          "test3": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "loopval": {
+                                  "type": [
+                                    "string",
+                                    "number"
+                                  ],
+                                  "required": true
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,8 +1,8 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false,
+            'jstrue' => true,
+            'jsobj' => true,
         ),
         'scopes' => Array(),
         'path' => Array(),
@@ -133,11 +133,11 @@
     );
     return '<div id="yauitqna">
     <table>
-        '.$cx['funcs']['sec']('.', $cx, $in, true, function($cx, $in) {return '
+        '.$cx['funcs']['sec']('', $cx, $in, true, function($cx, $in) {return '
         <tr>
             <td class="first" colspan="2">
-            <h4><a name="'.htmlentities($in['name'], ENT_QUOTES).'"></a>問題 $p</h4>
-            '.htmlentities($in['yid'], ENT_QUOTES).' 暱稱：'.htmlentities($in['userName'], ENT_QUOTES).' ( '.htmlentities($in['recommend'], ENT_QUOTES).' )<p>'.htmlentities($in['comment'], ENT_QUOTES).'</p>
+            <h4><a name="'.$cx['funcs']['enc']('name', $cx, $in).'"></a>問題 $p</h4>
+            '.$cx['funcs']['enc']('yid', $cx, $in).' 暱稱：'.$cx['funcs']['enc']('userName', $cx, $in).' ( '.$cx['funcs']['enc']('recommend', $cx, $in).' )<p>'.$cx['funcs']['enc']('comment', $cx, $in).'</p>
             </td>
             <td class="asktime">$askTime</td>
         </tr>                               
@@ -148,9 +148,9 @@
                         <p><a href="http://tw.user.bid.yahoo.com/tw/user/Y7379251092">EYESCREAM</a>
                         ( <a href="http://tw.user.bid.yahoo.com/tw/show/rating?userID=Y7379251092">56141</a>
                         )</p>
-                        <p>Lady您好：'.htmlentities($in['comment'], ENT_QUOTES).'</p>
+                        <p>Lady您好：'.$cx['funcs']['enc']('comment', $cx, $in).'</p>
                     </td>
-                    <td class="asktime">'.htmlentities($in['replyTime'], ENT_QUOTES).'</td>
+                    <td class="asktime">'.$cx['funcs']['enc']('replyTime', $cx, $in).'</td>
                 </tr>
             ';}).'
         ';}).'

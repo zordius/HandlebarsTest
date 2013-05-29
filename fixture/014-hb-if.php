@@ -1,8 +1,8 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false,
+            'jstrue' => true,
+            'jsobj' => true,
         ),
         'scopes' => Array(),
         'path' => Array(),
@@ -131,22 +131,22 @@
 )
 
     );
-    return 'Hello '.htmlentities($in['name'], ENT_QUOTES).', you have just won $'.htmlentities($in['value'], ENT_QUOTES).'!
+    return 'Hello '.$cx['funcs']['enc']('name', $cx, $in).', you have just won $'.$cx['funcs']['enc']('value', $cx, $in).'!
 '.($cx['funcs']['ifvar']('test', $cx, $in) ? ('
-Yes! '.htmlentities($in['name'], ENT_QUOTES).' is '.htmlentities($in['gender'], ENT_QUOTES).'
+Yes! '.$cx['funcs']['enc']('name', $cx, $in).' is '.$cx['funcs']['enc']('gender', $cx, $in).'
 ') : '').'
 '.($cx['funcs']['ifvar']('test', $cx, $in) ? ('
-2nd If, '.htmlentities($in['name'], ENT_QUOTES).' is '.$in['gender'].'
+2nd If, '.$cx['funcs']['enc']('name', $cx, $in).' is '.$cx['funcs']['raw']('gender', $cx, $in).'
 ') : ('
-Else test, '.htmlentities($in['name'], ENT_QUOTES).' is '.htmlentities($in['gender'], ENT_QUOTES).'
+Else test, '.$cx['funcs']['enc']('name', $cx, $in).' is '.$cx['funcs']['enc']('gender', $cx, $in).'
 ')).'
 -TEST PATH-
 '.($cx['funcs']['ifvar']('test.name', $cx, $in) ? ('
-Yes! '.htmlentities($in['subname'], ENT_QUOTES).'
+Yes! '.$cx['funcs']['enc']('subname', $cx, $in).'
 ') : ('
-No! '.htmlentities($in['subname'], ENT_QUOTES).'
+No! '.$cx['funcs']['enc']('subname', $cx, $in).'
 ')).'
-'.htmlentities($in['end'], ENT_QUOTES).'
+'.$cx['funcs']['enc']('end', $cx, $in).'
 ';
 }
 ?>

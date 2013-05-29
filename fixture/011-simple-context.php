@@ -1,8 +1,8 @@
 <?php return function ($in) {
     $cx = Array(
         'flags' => Array(
-            'jstrue' => false,
-            'jsobj' => false,
+            'jstrue' => true,
+            'jsobj' => true,
         ),
         'scopes' => Array(),
         'path' => Array(),
@@ -131,11 +131,11 @@
 )
 
     );
-    return ''.htmlentities($in['grand_parent_id'], ENT_QUOTES).'
+    return ''.$cx['funcs']['enc']('grand_parent_id', $cx, $in).'
 '.$cx['funcs']['sec']('parent_contexts', $cx, $in, false, function($cx, $in) {return '
-  '.htmlentities($in['parent_id'], ENT_QUOTES).' ('.htmlentities($in['grand_parent_id'], ENT_QUOTES).')
+  '.$cx['funcs']['enc']('parent_id', $cx, $in).' ('.$cx['funcs']['enc']('grand_parent_id', $cx, $in).')
   '.$cx['funcs']['sec']('child_contexts', $cx, $in, false, function($cx, $in) {return '
-    '.htmlentities($in['child_id'], ENT_QUOTES).' ('.htmlentities($in['parent_id'], ENT_QUOTES).' << '.htmlentities($in['grand_parent_id'], ENT_QUOTES).')
+    '.$cx['funcs']['enc']('child_id', $cx, $in).' ('.$cx['funcs']['enc']('parent_id', $cx, $in).' << '.$cx['funcs']['enc']('grand_parent_id', $cx, $in).')
   ';}).'
 ';}).'
 ';

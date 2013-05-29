@@ -1,63 +1,68 @@
 {
   "$schema": "http: \/\/json-schema.org\/draft-03\/schema",
   "description": "Template Json Schema",
-  "type": "array",
-  "items": {
-    "type": "object",
-    "properties": {
-      "name": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "yid": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "userName": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "recommend": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "comment": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "replyer": {
-        "type": "array",
-        "items": {
-          "type": "object",
-          "properties": {
-            "comment": {
-              "type": [
-                "string",
-                "number"
-              ],
-              "required": true
-            },
-            "replyTime": {
-              "type": [
-                "string",
-                "number"
-              ],
-              "required": true
+  "type": "object",
+  "properties": {
+    ".": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "yid": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "userName": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "recommend": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "comment": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "replyer": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "comment": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "replyTime": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                }
+              }
             }
           }
         }

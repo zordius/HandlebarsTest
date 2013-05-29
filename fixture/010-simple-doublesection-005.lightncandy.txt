@@ -2,7 +2,7 @@ Hello , you have just won $!
 
 Line 1
 
-This is a test, test = true
+This is a test, test = 1
 
 Line 2
 
@@ -18,7 +18,7 @@ T1:V1
 -- T1, V1--
 
 T2:V2
--- , --
+-- w, w--
 
 T3:V3
 -- T31, V31---- T32, V32--

@@ -17,6 +17,9 @@ foreach (glob('fixture/*.json') as $test) {
   $reports[$test] = $report;
 }
 $meta = $report[0];
+$mode = 'In this test lightncandy is configured as '
+        . (($argv[1] % 2) ? 'FULL FEATURE' : 'BEST PERFORMANCE')
+        . ((($argv[1] % 3) == 1) ? ' + STANDALONE' : '');
 
 $Fmap = Array(
     'YES' => '%Y%',
@@ -43,6 +46,7 @@ $rn  = "report/$rt";
 // output quick feature report
 print "\n";
 ob_start();
+print "*$mode*\n";
 foreach ($Dict as $k => $v) {
     print "* $k : $v\n";
 }
@@ -75,6 +79,7 @@ file_put_contents("$rn.json", json_encode(Array(
 print "\n";
 ob_start();
 print "Test libraries in *{$meta['loop']}* times, results as N seconds\n";
+print "*$mode*\n";
 print "|\ttest case\t| " . join("\t|\t", $libs) . "\t|\n";
 foreach ($reports as $name => $report) {
     $fn = substr('                ' . basename($name, '.json'), -20);
@@ -96,6 +101,7 @@ ob_start();
 print "---++ Report $rt\n";
 print "%TWISTY{}%\n";
 print "Test libraries in *{$meta['loop']}* times, results as N seconds\n";
+print "*$mode*\n";
 print "%TABLE{name=\"hbreport$rt\"}%\n";
 print "| *test case* | *" . join('* | *', $libs) . "* |\n";
 

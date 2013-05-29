@@ -1,0 +1,53 @@
+Hello John, you have just won $10000!
+each partial....
+
+  Hello what, you have just won $that!
+This is next line.中文
+Test \on 'spacing in mustache: Hello what, you have just won $that!
+
+--
+  <div class="yui3-u-1-2 member-status">
+ <ul class="h-list">
+ 
+  <li><a>About Auction</a></li>
+ </ul>
+</div>
+
+
+  Hello John, you have just won $200!
+This is next line.中文
+Test \on 'spacing in mustache: Hello John, you have just won $200!
+
+--
+  <div class="yui3-u-1-2 member-status">
+ <ul class="h-list">
+ 
+  <li><a>About Auction</a></li>
+ </ul>
+</div>
+
+
+  Hello Peter, you have just won $1000!
+This is next line.中文
+Test \on 'spacing in mustache: Hello Peter, you have just won $1000!
+
+--
+  <div class="yui3-u-1-2 member-status">
+ <ul class="h-list">
+ 
+  <li><a>About Auction</a></li>
+ </ul>
+</div>
+
+
+end each.
+
+if + with + partial:
+
+w>
+  p>Hello peopleName, you have just won $peopleValue!
+This is next line.中文
+Test \on 'spacing in mustache: Hello peopleName, you have just won $peopleValue!
+<
+<w
+

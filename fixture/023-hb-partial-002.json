@@ -1,0 +1,13 @@
+{
+    "name": "John",
+    "value": 10000,
+    "winners": {
+        "this": "test",
+        "test": true,
+        "ok": {
+            "name": "what",
+            "value": "that"
+        }
+    },
+    "test": 0
+}

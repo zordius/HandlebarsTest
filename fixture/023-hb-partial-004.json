@@ -1,0 +1,28 @@
+{
+    "name": "John",
+    "value": 10000,
+    "winners": [
+        {
+            "name": "what",
+            "value": "that"
+        },
+        {
+            "name": "John",
+            "value": "200"
+        },
+        {
+            "name": "Peter",
+            "value": "1000"
+        }
+    ],
+    "people": {
+        "name": "peopleName",
+        "value": "peopleValue"
+    },
+    "test": {
+        "people": {
+            "name": "testName",
+            "value": "testValue"
+        }
+    }
+}

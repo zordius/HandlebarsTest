@@ -162,6 +162,8 @@ Feature Comparison
 | 21-hb-manyparent-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 21-hb-manyparent-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 21-hb-manyparent-004  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| 2-simple-partial-001  |              OUTPUT   |                 YES   |                  NO   |              OUTPUT |
+|   023-hb-partial-001  |              OUTPUT   |              OUTPUT   |                  NO   |                  NO |
 |  livetest-001-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 </pre>
 

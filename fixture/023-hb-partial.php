@@ -160,12 +160,12 @@ end each.
 
 if + with + partial:
 '.($cx['funcs']['ifvar']('test', $cx, $in) ? ('
- '.$cx['funcs']['wi']('people', $cx, $in, function($cx, $in) {return '
-  Hello '.$cx['funcs']['enc']('name', $cx, $in).', you have just won $'.$cx['funcs']['enc']('value', $cx, $in).'!
+w>'.$cx['funcs']['wi']('people', $cx, $in, function($cx, $in) {return '
+  p>Hello '.$cx['funcs']['enc']('name', $cx, $in).', you have just won $'.$cx['funcs']['enc']('value', $cx, $in).'!
 This is next line.'.$cx['funcs']['enc']('empty_var', $cx, $in).'中文
 Test \on \'spacing in mustache: Hello '.$cx['funcs']['enc']('name', $cx, $in).', you have just won $'.$cx['funcs']['enc']('value', $cx, $in).'!
-
- ';}).'
+<
+<w';}).'
 ') : '').'
 ';
 }

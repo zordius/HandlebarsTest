@@ -4,9 +4,8 @@
             'jstrue' => true,
             'jsobj' => true,
         ),
-        'scopes' => Array(),
+        'scopes' => Array($in),
         'path' => Array(),
-        'parents' => Array(),
 
     );
     return 'Hello '.LCRun::enc('winner.name', $cx, $in).', you have just won $'.LCRun::enc('winner.value', $cx, $in).'!

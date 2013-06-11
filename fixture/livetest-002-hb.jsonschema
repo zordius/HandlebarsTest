@@ -1,0 +1,59 @@
+{
+  "$schema": "http: \/\/json-schema.org\/draft-03\/schema",
+  "description": "Template Json Schema",
+  "type": "object",
+  "properties": {
+    "specs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "options": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "\/id": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    }
+                  }
+                }
+              },
+              "properties": {
+                "id": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "name": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "icon": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

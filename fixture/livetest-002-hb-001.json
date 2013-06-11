@@ -1,0 +1,18 @@
+{
+    "specs":[
+        {
+            "id":"s1",
+            "options": [
+                {
+                    "icon": true,
+                    "name": "test",
+                    "id": "c1"
+                },{
+                    "icon": true,
+                    "name": "test",
+                    "id": "c2"
+                }
+            ]
+        }
+    ]
+}

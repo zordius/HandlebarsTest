@@ -1,0 +1,23 @@
+{{#each specs}}
+   <div class="item-spec">
+    {{#each options}}
+        {{#if icon}}
+        <div class="spec">
+            <div class="spec-overlay"></div>
+            <input type="radio" id="spec-{{../id}}-{{id}}" value="{{id}}" name="{{../id}}" alt="{{name}}" data-name="{{name}}"/>
+            <label class="spec-label icon" for="spec-{{../id}}-{{id}}" style="background-image:url({{icon}});">
+            </label>
+        </div>
+        {{else}}
+        <div class="spec">
+            <div class="spec-overlay"></div>
+            <input type="radio" id="spec-{{../id}}-{{id}}" value="{{id}}" name="{{../id}}" data-name="{{name}}"/>
+            <label class="spec-label" for="spec-{{../id}}-{{id}}">{{name}}</label>
+        </div>
+        {{/if}}
+        <script>
+            document.getElementById('spec-{{../id}}-{{id}}').className += 'hidden';
+        </script>
+    {{/each}}
+    </div>
+{{/each}}

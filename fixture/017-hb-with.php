@@ -4,9 +4,8 @@
             'jstrue' => true,
             'jsobj' => true,
         ),
-        'scopes' => Array(),
+        'scopes' => Array($in),
         'path' => Array(),
-        'parents' => Array(),
 
     );
     return '<div class="yui3-u-1-2 member-status">

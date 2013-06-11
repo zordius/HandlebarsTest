@@ -4,9 +4,8 @@
             'jstrue' => true,
             'jsobj' => true,
         ),
-        'scopes' => Array(),
+        'scopes' => Array($in),
         'path' => Array(),
-        'parents' => Array(),
 
     );
     return '<h1>'.LCRun::enc('header', $cx, $in).'</h1>

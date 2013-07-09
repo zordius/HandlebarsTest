@@ -21,8 +21,14 @@ var fs = require('fs'),
                 fs.readFile(dir + file, 'utf8', function (err, data) {
                     var json = JSON.parse(data);
                     fs.readFile(dir + tmpl, 'utf8', function (err, data) {
-                        var html = handlebars.compile(data)(json),
+                        var html,
                             fn = file.replace(/\.json/, '.txt');
+
+                        try {
+                            html = handlebars.compile(data)(json);
+                        } catch (E) {
+                            console.log('ERROR on compile ' + file + '!!!! :' + E);
+                        }
         
                         fs.writeFileSync(dir + fn, html);
                         ok_total += 1;

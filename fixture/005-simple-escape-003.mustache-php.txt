@@ -1,3 +1,3 @@
 Hello John
 &quot;中文&quot;, you have just won $&lt;&#039;10000&#039;&gt;&amp;?!
-Hello original  , the value is }
+Hello original } , the value is }

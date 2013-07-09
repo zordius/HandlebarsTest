@@ -4,5 +4,3 @@ This is next line.
 This is true! won $!!
 
 
-No, this is fake! not win $10000!!
-

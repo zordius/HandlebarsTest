@@ -8,8 +8,11 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::enc('name', $cx, $in).', you have just won $'.LCRun::enc('value', $cx, $in).'!
-Hello original '.LCRun::raw('name', $cx, $in).' , the value is '.LCRun::raw('value', $cx, $in).'
+    return '<ul>
+'.LCRun::sec('people', $cx, $in, true, function($cx, $in) {return '
+ <li>'.LCRun::enc('@index', $cx, $in).', '.LCRun::enc('@key', $cx, $in).' : '.LCRun::enc('name', $cx, $in).'</li>
+';}).'
+</ul>
 ';
 }
 ?>

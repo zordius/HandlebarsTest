@@ -15,6 +15,13 @@
             ],
             "required": true
           },
+          "@key": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
           "name": {
             "type": [
               "string",

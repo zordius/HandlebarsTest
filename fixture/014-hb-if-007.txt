@@ -1,0 +1,12 @@
+Hello John, you have just won $10000!
+
+Yes! John is Men
+
+
+2nd If, John is Men
+
+-TEST PATH-
+
+No! 
+
+OK!

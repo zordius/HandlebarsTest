@@ -92,8 +92,8 @@ Feature Comparison
 | 004-simple-mvars-002  |                 YES   |                 YES   |                 YES   |                 YES |
 | 004-simple-mvars-003  |                 YES   |                 YES   |                 YES   |                 YES |
 | 004-simple-mvars-004  |                 YES   |                 YES   |                 YES   |                 YES |
-| 05-simple-escape-001  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
-| 05-simple-escape-002  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
+| 05-simple-escape-001  |                 YES   |                 YES   |              OUTPUT   |                 YES |
+| 05-simple-escape-002  |                 YES   |                 YES   |              OUTPUT   |                 YES |
 | 05-simple-escape-003  |              OUTPUT   |               QUOTE   |              OUTPUT   |              OUTPUT |
 | 6-simple-section-001  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
 | 6-simple-section-002  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
@@ -139,9 +139,14 @@ Feature Comparison
 |        014-hb-if-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |        014-hb-if-003  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |        014-hb-if-004  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|        014-hb-if-005  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|        014-hb-if-006  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|        014-hb-if-007  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |    015-hb-unless-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |    015-hb-unless-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |    015-hb-unless-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|    015-hb-unless-004  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|    015-hb-unless-005  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  016-hb-eachthis-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |  016-hb-eachthis-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |      017-hb-with-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
@@ -163,8 +168,15 @@ Feature Comparison
 | 21-hb-manyparent-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 21-hb-manyparent-004  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 2-simple-partial-001  |              OUTPUT   |                 YES   |                  NO   |              OUTPUT |
-|   023-hb-partial-001  |              OUTPUT   |              OUTPUT   |                  NO   |                  NO |
+|   023-hb-partial-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|   023-hb-partial-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|   023-hb-partial-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|   023-hb-partial-004  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| 024-hb-eachindex-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| 024-hb-eachindex-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| hb-partialparent-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  livetest-001-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|  livetest-002-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 </pre>
 
 How to Test

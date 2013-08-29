@@ -1,0 +1,27 @@
+*In this test lightncandy is configured as BEST PERFORMANCE*
+* YES : Exact same behavior with handlebars.js run in nodejs
+* NO : Do not support, can not parse the template
+* OUTPUT : Do not output for array value, object or true
+* CR/LF : Output more or less CR/LF (minor issue)
+* QUOTE : Encode ' to &amp;#039;, not to &amp;#x27; (minor issue)
+* SINGLEQUOTE : Do not encode ' to &amp;#x27;
+|	test case	| handlebars.php	|	lightncandy	|	mustache-php	|	mustache.php	|
+|       tokens.001-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.002-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.003-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.004-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.005-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.006-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.007-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.008-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.009-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.010-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.020-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.030-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.040-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.050-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.060-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.070-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.080-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.090-001	|	          YES	|	          YES	|	          YES	|	          YES |
+|       tokens.100-001	|	          YES	|	          YES	|	          YES	|	          YES |

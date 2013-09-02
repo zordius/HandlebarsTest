@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_fb41e0bfb900b70754af5bb989dcc9ae extends Mustache_Template
+class __Mustache_86affe03cd6f0949eafce19bc3986d22 extends Mustache_Template
 {
     public function renderInternal(Mustache_Context $context, $indent = '')
     {
@@ -8,25 +8,25 @@ class __Mustache_fb41e0bfb900b70754af5bb989dcc9ae extends Mustache_Template
 
         $buffer .= $indent . 'Hello ';
         $value = $this->resolveValue($context->find('name'), $context, $indent);
-        $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= ', you have just won $';
         $value = $this->resolveValue($context->find('value'), $context, $indent);
-        $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-        $buffer .= '!';
-        $buffer .= "\n";
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+        $buffer .= '!
+';
         $buffer .= $indent . 'This is next line.';
         $value = $this->resolveValue($context->find('empty_var'), $context, $indent);
-        $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-        $buffer .= '中文';
-        $buffer .= "\n";
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+        $buffer .= '中文
+';
         $buffer .= $indent . 'Test \\on \'spacing in mustache: Hello ';
         $value = $this->resolveValue($context->find('name'), $context, $indent);
-        $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= ', you have just won $';
         $value = $this->resolveValue($context->find('value'), $context, $indent);
-        $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-        $buffer .= '!';
-        $buffer .= "\n";
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+        $buffer .= '!
+';
 
         return $buffer;
     }

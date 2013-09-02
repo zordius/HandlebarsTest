@@ -18,6 +18,7 @@ if ($argv[1] == 'none') {
     exit();
 }
 
+$tokenTest = preg_match('/token/', $argv[2]);
 $input = file_get_contents($argv[2]);
 $vars = json_decode($input, true);
 warn("### Input:\n$input\n### as PHP:");
@@ -29,10 +30,13 @@ if ($argv[1] == 'lightncandy') {
     require_once('cloned/lightncandy/src/lightncandy.inc');
     $flag = LightnCandy::FLAG_ERROR_LOG;
     if (($test_times % 2) == 1) {
-        $flag += LightnCandy::FLAG_HANDLEBARSJS;
+        $flag = $flag | LightnCandy::FLAG_HANDLEBARSJS;
     }
     if (($test_times % 3) == 1) {
-        $flag += LightnCandy::FLAG_STANDALONE;
+        $flag = $flag | LightnCandy::FLAG_STANDALONE;
+    }
+    if (($test_times % 5) == 1) {
+        $flag = $flag | LightnCandy::FLAG_BESTPERFORMANCE;
     }
 }
 try {
@@ -54,10 +58,10 @@ try {
 
 warn("### Output:\n$result");
 
-$standard = file_get_contents(preg_replace('/\.json/', '.txt', $argv[2]));
+$standard = $tokenTest ? null :  file_get_contents(preg_replace('/\.json/', '.txt', $argv[2]));
 file_put_contents(preg_replace('/\.json/', ".$argv[1].txt", $argv[2]), $result);
 $match = 'YES';
-if ($result !== $standard) {
+if ($standard && ($result !== $standard)) {
     if (preg_replace('/\r|\n/', '', $result) === preg_replace('/\r|\n/', '', $standard)) {
         warn("!!!!! ERROR: the output is not exact same with fixture (more or less CR/LF)\n");
         $match = 'CR/LF';

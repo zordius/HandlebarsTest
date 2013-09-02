@@ -197,14 +197,18 @@ How to Test
    * Example: bin/hbtest mustache.php fixture/001-simple-vars-001.json
 
 * feature test
-   * bin/hbreport 1
+   * bin/hbreport 5
+      * This do not generate any file under report/
+      * Will print a feature chart on console.
+      * lightncandy will be executed with FLAG_HANDLEBARSJS enabled. (to test without FLAG_STANDALONE. now we know this boost handlebars 1%~10% speed)
+   * bin/hbreport 7
       * This do not generate any file under report/
       * Will print a feature chart on console.
       * lightncandy will be executed with FLAG_STANDALONE and FLAG_HANDLEBARSJS enabled.
-   * bin/hbreport 3
+   * bin/hbreport 1
       * This do not generate any file under report/
       * Will print a feature chart on console.
-      * lightncandy will be executed with FLAG_HANDLEBARSJS enabled.
+      * lightncandy will be executed with FLAG_STANDALONE , FLAG_HANDLEBARSJS and FLAG_BESTPERFORMANCE enabled (to know more about FLAG_BESTPERFORMANCE, read lightncandy document please)
 
 * performance test
    * bin/hbreport

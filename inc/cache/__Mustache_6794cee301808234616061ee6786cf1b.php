@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_31a521025e89b8f2bc4bbb576a65332c extends Mustache_Template
+class __Mustache_6794cee301808234616061ee6786cf1b extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -11,21 +11,22 @@ class __Mustache_31a521025e89b8f2bc4bbb576a65332c extends Mustache_Template
 
         $buffer .= $indent . 'Hello ';
         $value = $this->resolveValue($context->find('name'), $context, $indent);
-        $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= ', you have just won $';
         $value = $this->resolveValue($context->find('value'), $context, $indent);
-        $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-        $buffer .= '!';
-        $buffer .= "\n";
-        $buffer .= $indent . '<ul>';
-        $buffer .= "\n";
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+        $buffer .= '!
+';
+        $buffer .= $indent . '<ul>
+';
         // 'people' section
         $buffer .= $this->sectionD344a5a328801db6f5d4db6332c1f2a7($context, $indent, $context->find('people'));
-        $buffer .= $indent . '</ul>';
-        $buffer .= "\n";
+        $buffer .= $indent . '</ul>
+';
         $value = $this->resolveValue($context->find('end'), $context, $indent);
-        $buffer .= $indent . htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-        $buffer .= "\n";
+        $buffer .= $indent . htmlspecialchars($value, 2, 'UTF-8');
+        $buffer .= '
+';
 
         return $buffer;
     }
@@ -39,19 +40,19 @@ class __Mustache_31a521025e89b8f2bc4bbb576a65332c extends Mustache_Template
 ';
             $buffer .= $this->mustache
                 ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context, $indent);
+                ->renderInternal($context);
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
                 $context->push($value);
                 $buffer .= $indent . ' <li>';
                 $value = $this->resolveValue($context->find('name'), $context, $indent);
-                $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
                 $buffer .= ' is a ';
                 $value = $this->resolveValue($context->find('gender'), $context, $indent);
-                $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-                $buffer .= '</li>';
-                $buffer .= "\n";
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+                $buffer .= '</li>
+';
                 $context->pop();
             }
         }

@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_e55892debe2aec4cae22bda15818c475 extends Mustache_Template
+class __Mustache_5bc4a2e998ceb68e698c2fe0baaac3e6 extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -10,8 +10,9 @@ class __Mustache_e55892debe2aec4cae22bda15818c475 extends Mustache_Template
         $buffer = '';
 
         $value = $this->resolveValue($context->find('grand_parent_id'), $context, $indent);
-        $buffer .= $indent . htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-        $buffer .= "\n";
+        $buffer .= $indent . htmlspecialchars($value, 2, 'UTF-8');
+        $buffer .= '
+';
         // 'parent_contexts' section
         $buffer .= $this->section71fe90fe216efd1fa56f4d68a47500a2($context, $indent, $context->find('parent_contexts'));
 
@@ -27,22 +28,22 @@ class __Mustache_e55892debe2aec4cae22bda15818c475 extends Mustache_Template
   ';
             $buffer .= $this->mustache
                 ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context, $indent);
+                ->renderInternal($context);
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
                 $context->push($value);
                 $buffer .= $indent . '    ';
                 $value = $this->resolveValue($context->find('child_id'), $context, $indent);
-                $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
                 $buffer .= ' (';
                 $value = $this->resolveValue($context->find('parent_id'), $context, $indent);
-                $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
                 $buffer .= ' << ';
                 $value = $this->resolveValue($context->find('grand_parent_id'), $context, $indent);
-                $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-                $buffer .= ')';
-                $buffer .= "\n";
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+                $buffer .= ')
+';
                 $context->pop();
             }
         }
@@ -62,19 +63,19 @@ class __Mustache_e55892debe2aec4cae22bda15818c475 extends Mustache_Template
 ';
             $buffer .= $this->mustache
                 ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context, $indent);
+                ->renderInternal($context);
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
                 $context->push($value);
                 $buffer .= $indent . '  ';
                 $value = $this->resolveValue($context->find('parent_id'), $context, $indent);
-                $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
                 $buffer .= ' (';
                 $value = $this->resolveValue($context->find('grand_parent_id'), $context, $indent);
-                $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-                $buffer .= ')';
-                $buffer .= "\n";
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+                $buffer .= ')
+';
                 // 'child_contexts' section
                 $buffer .= $this->sectionB47e2732d8e27016c4df84c8a84d7a8b($context, $indent, $context->find('child_contexts'));
                 $context->pop();

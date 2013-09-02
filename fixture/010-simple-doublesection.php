@@ -16,18 +16,18 @@ This is a test, test = '.LCRun::enc('test', $cx, $in).'
 '.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '
 Line 2
 ';}).'
-'.(LCRun::isec('test', $cx, $in) ? ('
+'.((LCRun::isec('test', $cx, $in)) ? '
 Line 3
-') : '').'
-'.(LCRun::isec('test', $cx, $in) ? ('
+' : '').'
+'.((LCRun::isec('test', $cx, $in)) ? '
 Line 4
-') : '').'
+' : '').'
 '.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '
 Line 5
 ';}).'
-'.(LCRun::isec('test', $cx, $in) ? ('
+'.((LCRun::isec('test', $cx, $in)) ? '
 Line 6
-') : '').'
+' : '').'
 ---- double section ----
 '.LCRun::sec('sec', $cx, $in, false, function($cx, $in) {return '
 '.LCRun::enc('name', $cx, $in).':'.LCRun::enc('value', $cx, $in).'

@@ -3,23 +3,46 @@
 $reports = Array();
 $libs = Array();
 $base = 'https://github.com/zordius/HandlebarsTest/blob/master/';
+$times = isset($argv[1]) ? $argv[1] : '';
+
 
 foreach (glob('cloned/*') as $file) {
     $libs[] = preg_replace('/cloned\//', '', $file);
 }
 
-foreach (glob('fixture/*.json') as $test) {
-  $report = Array();
-  foreach ($libs as $lib) {
-    $result = system("bin/hbtest $lib $test $argv[1]");
-    $report[] = json_decode($result, true);
-  }
-  $reports[$test] = $report;
+if ($times === 'T') {
+    $times = '';
+    for ($i=1;$i<100;$i++) {
+      if ($i>10) {$i+=9;}
+      $report = Array();
+      $j = substr($i + 1000, 1);
+      $tmpl = "fixture/tokens.$j.tmpl";
+      $json = "fixture/tokens.$j-001.json";
+      file_put_contents($tmpl, str_repeat("{{name}}\n", $i));
+      file_put_contents($json, '{"name": "David"}', $i);
+      foreach ($libs as $lib) {
+        $result = system("bin/hbtest $lib $json $times");
+        $report[] = json_decode($result, true);
+      }
+      unlink($tmpl);
+      unlink($json);
+      $reports[$json] = $report;
+    }
+} else {
+    foreach (glob('fixture/*.json') as $test) {
+      $report = Array();
+      foreach ($libs as $lib) {
+        $result = system("bin/hbtest $lib $test $times");
+        $report[] = json_decode($result, true);
+      }
+      $reports[$test] = $report;
+    }
 }
 $meta = $report[0];
 $mode = 'In this test lightncandy is configured as '
-        . (($argv[1] % 2) ? 'FULL FEATURE' : 'BEST PERFORMANCE')
-        . ((($argv[1] % 3) == 1) ? ' + STANDALONE' : '');
+        . ((($times % 2) == 1) ? 'HANDLEBARS.JS COMPATIBLE' : 'PHP VARIABLE OUTPUT')
+        . ((($times % 3) == 1) ? '+ STANDALONE' : '')
+        . ((($times % 5) == 1) ? '+ PERFORMANCE' : '');
 
 $Fmap = Array(
     'YES' => '%Y%',
@@ -59,7 +82,7 @@ foreach ($reports as $name => $report) {
     }
     print " |\n";
 }
-if ($argv[1] && ($argv[1] <= 3)) {
+if ($times && ($times <= 10)) {
     ob_flush();
     exit;
 } else {
@@ -89,7 +112,7 @@ foreach ($reports as $name => $report) {
     }
     print " |\n";
 }
-if ($argv[1] && ($argv[1] < 3)) {
+if ($times && ($times < 10)) {
     ob_flush();
     exit;
 } else {

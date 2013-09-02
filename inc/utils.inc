@@ -61,7 +61,11 @@ function prepare_tmpl($name, $file, $flag) {
             'logger' => new Mustache_Logger_StreamLogger('php://stderr'),
             'partials' => getPartials()
         ));
-        $test_tmpl = $m->loadTemplate($tmpl_txt);
+        try {
+            $test_tmpl = $m->loadTemplate($tmpl_txt);
+        } catch (Exception $e) {
+            echo "Error....$e\n";
+        }
         $test_method = 'render';
         break;
 

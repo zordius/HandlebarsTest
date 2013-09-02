@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_94a8ce1a46f49fec935b7dd425859fb2 extends Mustache_Template
+class __Mustache_5b4022eb44b7bdae924694a5d670c0ac extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -11,16 +11,26 @@ class __Mustache_94a8ce1a46f49fec935b7dd425859fb2 extends Mustache_Template
 
         $buffer .= $indent . 'Hello ';
         $value = $this->resolveValue($context->find('name'), $context, $indent);
-        $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= ', you have just won $';
         $value = $this->resolveValue($context->find('value'), $context, $indent);
-        $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-        $buffer .= '!';
-        $buffer .= "\n";
-        $buffer .= $indent . 'This is next line.';
-        $buffer .= "\n";
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+        $buffer .= '!
+';
+        $buffer .= $indent . 'This is next line.
+';
         // 'test' section
         $buffer .= $this->section364d5f021cd691fbea8663fa93d71f2e($context, $indent, $context->find('test'));
+        // 'test' inverted section
+        $value = $context->find('test');
+        if (empty($value)) {
+            
+            $buffer .= $indent . 'No, this is fake! not win $';
+            $value = $this->resolveValue($context->find('value'), $context, $indent);
+            $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+            $buffer .= '!!
+';
+        }
 
         return $buffer;
     }
@@ -34,16 +44,16 @@ This is true! won ${{value}}!!
 ';
             $buffer .= $this->mustache
                 ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context, $indent);
+                ->renderInternal($context);
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
                 $context->push($value);
                 $buffer .= $indent . 'This is true! won $';
                 $value = $this->resolveValue($context->find('value'), $context, $indent);
-                $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-                $buffer .= '!!';
-                $buffer .= "\n";
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+                $buffer .= '!!
+';
                 $context->pop();
             }
         }

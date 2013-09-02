@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_cd05299d4b059052e417718ceb27544c extends Mustache_Template
+class __Mustache_5764825e53beba3fb760fb9473ab471b extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -11,61 +11,70 @@ class __Mustache_cd05299d4b059052e417718ceb27544c extends Mustache_Template
 
         $buffer .= $indent . 'Hello ';
         $value = $this->resolveValue($context->find('name'), $context, $indent);
-        $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= ', you have just won $';
         $value = $this->resolveValue($context->find('value'), $context, $indent);
-        $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
-        $buffer .= '!';
-        $buffer .= "\n";
-        $buffer .= $indent . 'include this:';
-        $buffer .= "\n";
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+        $buffer .= '!
+';
+        $buffer .= $indent . 'include this:
+';
         if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
             $buffer .= $partial->renderInternal($context, '    ');
         }
-        $buffer .= $indent . 'end include.';
-        $buffer .= "\n";
-        $buffer .= $indent . 'section partial....';
-        $buffer .= "\n";
+        $buffer .= $indent . 'end include.
+';
+        $buffer .= $indent . 'section partial....
+';
         // 'winners' section
         $buffer .= $this->section2f14cd99daac269a3c0bff1ad1b6610d($context, $indent, $context->find('winners'));
-        $buffer .= $indent . 'end section.';
-        $buffer .= "\n";
-        $buffer .= "\n";
+        $buffer .= $indent . 'end section.
+';
+        $buffer .= $indent . '
+';
         $buffer .= $indent . 'Winners: ';
         // 'winners' section
         $buffer .= $this->section05ab2510ea03dd60e28fee6476fe662e($context, $indent, $context->find('winners'));
-        $buffer .= "\n";
-        $buffer .= "\n";
+        $buffer .= '
+';
+        $buffer .= $indent . '
+';
         $buffer .= $indent . 'Partial1:';
         if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
             $buffer .= $partial->renderInternal($context, '');
         }
-        $buffer .= "\n";
+        $buffer .= '
+';
         $buffer .= $indent . 'Partial2:';
         if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
             $buffer .= $partial->renderInternal($context, '');
         }
-        $buffer .= "\n";
+        $buffer .= '
+';
         $buffer .= $indent . 'Partial3:';
         if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
             $buffer .= $partial->renderInternal($context, '');
         }
-        $buffer .= "\n";
+        $buffer .= '
+';
         $buffer .= $indent . 'Partial4:';
         if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
             $buffer .= $partial->renderInternal($context, '');
         }
-        $buffer .= "\n";
+        $buffer .= '
+';
         $buffer .= $indent . 'Partial5:';
         if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
             $buffer .= $partial->renderInternal($context, '');
         }
-        $buffer .= "\n";
+        $buffer .= '
+';
         $buffer .= $indent . 'Partial6:';
         if ($partial = $this->mustache->loadPartial('001-simple-vars')) {
             $buffer .= $partial->renderInternal($context, '');
         }
-        $buffer .= "\n";
+        $buffer .= '
+';
 
         return $buffer;
     }
@@ -79,7 +88,7 @@ class __Mustache_cd05299d4b059052e417718ceb27544c extends Mustache_Template
 ';
             $buffer .= $this->mustache
                 ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context, $indent);
+                ->renderInternal($context);
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
@@ -101,19 +110,19 @@ class __Mustache_cd05299d4b059052e417718ceb27544c extends Mustache_Template
             $source = '{{this}}({{{this}}}) = {{.}}({{{.}}})';
             $buffer .= $this->mustache
                 ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context, $indent);
+                ->renderInternal($context);
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
                 $context->push($value);
                 $value = $this->resolveValue($context->find('this'), $context, $indent);
-                $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
                 $buffer .= '(';
                 $value = $this->resolveValue($context->find('this'), $context, $indent);
                 $buffer .= $value;
                 $buffer .= ') = ';
                 $value = $this->resolveValue($context->last(), $context, $indent);
-                $buffer .= htmlspecialchars($value, ENT_COMPAT, 'UTF-8');
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
                 $buffer .= '(';
                 $value = $this->resolveValue($context->last(), $context, $indent);
                 $buffer .= $value;

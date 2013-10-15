@@ -14,7 +14,7 @@
     'ifv' => function ($var, $cx, $in, $truecb, $falsecb = null) {
         $v = $cx['funcs']['val']($var, $cx, $in);
         $ret = '';
-        if (is_null($v) || ($v === false)) {
+        if (is_null($v) || ($v === false) || ($v === 0) || ($v === '') || (is_array($v) && (count($v) == 0))) {
             if ($falsecb) {
                 $cx['scopes'][] = $in;
                 $ret = $falsecb($cx, $in);
@@ -66,25 +66,34 @@
         }
         return ($var === '') ? $in : (is_array($in) && isset($in[$var]) ? $in[$var] : null);
     },
-    'raw' => function ($var, $cx, $in) {
+    'raw' => function ($var, $cx, $in, $loop = false) {
         $v = $cx['funcs']['val']($var, $cx, $in);
         if ($v === true) {
             if ($cx['flags']['jstrue']) {
                 return 'true';
             }
-        } elseif (is_array($v)) {
+        }
+
+        if ($loop && ($v === false)) {
+            if ($cx['flags']['jstrue']) {
+                return 'false';
+            }
+        }
+
+        if (is_array($v)) {
             if ($cx['flags']['jsobj']) {
                 if (count(array_diff_key($v, array_keys(array_keys($v)))) > 0) {
                     return '[object Object]';
                 } else {
                     $ret = Array();
                     foreach ($v as $k => $vv) {
-                        $ret[] = $cx['funcs']['raw']($k, $cx, $v);
+                        $ret[] = $cx['funcs']['raw']($k, $cx, $v, true);
                     }
                     return join(',', $ret);
                 }
             }
         }
+
         return $v;
     },
     'enc' => function ($var, $cx, $in) {
@@ -148,7 +157,7 @@
     );
     ob_start();echo '<ul>
 ',$cx['funcs']['sec']('people', $cx, $in, true, function($cx, $in) {echo '
- <li>',$cx['funcs']['enc']('@index', $cx, $in),', ',$cx['funcs']['enc']('@key', $cx, $in),' : ',$cx['funcs']['enc']('name', $cx, $in),'</li>
+ <li>',$cx['funcs']['enc']('@index', $cx, $in),', ',$cx['funcs']['enc']('@key', $cx, $in),' : ',$cx['funcs']['enc']('name', $cx, $in),' ';if ($cx['funcs']['ifvar']('name', $cx, $in)){echo '(V)';}else{echo '';}echo '';if ($cx['funcs']['ifvar']('../test', $cx, $in)){echo '(Y)';}else{echo '';}echo '</li>
 ';}),'
 </ul>
 ';return ob_get_clean();

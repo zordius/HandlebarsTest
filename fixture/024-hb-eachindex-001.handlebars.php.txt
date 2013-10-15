@@ -1,6 +1,18 @@
 <ul>
- <li>,  : David</li>
- <li>,  : John</li>
- <li>,  : Peter</li>
- <li>,  : Mary</li>
+ <li>,  : David (V)</li>
+ <li>,  : John (V)</li>
+ <li>,  : Peter (V)</li>
+ <li>,  : Mary (V)</li>
+ <li>,  :  </li>
+ <li>,  : 1 (V)</li>
+ <li>,  : 0 </li>
+ <li>,  : true (V)</li>
+ <li>,  : false (V)</li>
+ <li>,  : 1 (V)</li>
+ <li>,  :  </li>
+ <li>,  :  </li>
+ <li>,  :  (V)</li>
+ <li>,  :  (V)</li>
+ <li>,  :  (V)</li>
+ <li>,  :  (V)</li>
 </ul>

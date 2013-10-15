@@ -1,0 +1,18 @@
+{{#if empty}}
+
+{{else}}
+{{#each data}}
+
+{{#each child}}
+    {{#if key}}
+       The value is = {{key}} !!
+    {{else}}
+        key is empty or null
+    {{/if}}
+
+    {{../fake}}
+
+{{/each}}
+{{/each}}
+
+{{/if}}

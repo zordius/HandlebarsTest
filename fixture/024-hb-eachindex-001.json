@@ -3,6 +3,18 @@
         {"name": "David"},
         {"name": "John"},
         {"name": "Peter"},
-        {"name": "Mary"}
+        {"name": "Mary"},
+        {"name": ""},
+        {"name": "1"},
+        {"name": "0"},
+        {"name": "true"},
+        {"name": "false"},
+        {"name": true},
+        {"name": false},
+        {"name": []},
+        {"name": ["test"]},
+        {"name": [false]},
+        {"name": [true]},
+        {"name": [false, true]}
     ]
 }

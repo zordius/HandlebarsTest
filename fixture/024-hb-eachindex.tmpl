@@ -1,5 +1,5 @@
 <ul>
 {{#each people}}
- <li>{{@index}}, {{@key}} : {{name}}</li>
+ <li>{{@index}}, {{@key}} : {{name}} {{#if name}}(V){{/if}}{{#if ../test}}(Y){{/if}}</li>
 {{/each}}
 </ul>

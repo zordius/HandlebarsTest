@@ -65,6 +65,8 @@ Feature Comparison
 * QUOTE : Encode ' to &amp;#039;, not to &amp;#x27; (minor issue)
 * SINGLEQUOTE : Do not encode ' to &amp;#x27;
 
+* SPECIAL NOTE: now (2014-02-10) case 003-simple-else-005 , 006-simple-section-003 , 018-hb-withwith-004 , 021-hb-manyparent-004 result is not 'YES' but 'OUTPUT' . We can not ensure the handlebars.js 1.3.0 behavior is correct or not. Now we open an issue to track this: https://github.com/wycats/handlebars.js/issues/731
+
 <pre>
 |       test case       | handlebars.php        |       lightncandy     |       mustache-php    |       mustache.php  |
 |  001-simple-vars-001  |                 YES   |                 YES   |              OUTPUT   |                 YES |

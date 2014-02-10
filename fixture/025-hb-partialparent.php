@@ -9,56 +9,52 @@
 
     );
     return 'Hello '.LCRun::enc('name', $cx, $in).', you have just won $'.LCRun::enc('value', $cx, $in).'!
-start each:
+
+##0 start section:
+'.LCRun::sec('winners', $cx, $in, false, function($cx, $in) {return '
+  - EACH 1 - '.LCRun::enc('name', $cx, $in).' ~ '.LCRun::enc('../name', $cx, $in).'
+  Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).', This: '.LCRun::enc('', $cx, $in).', Test: '.LCRun::enc('test', $cx, $in).'
+
+  - EACH 2- '.LCRun::enc('name', $cx, $in).' ~ '.LCRun::enc('../name', $cx, $in).'
+';}).'
+end section.
+
+##1 start each:
 '.LCRun::sec('winners', $cx, $in, true, function($cx, $in) {return '
-  Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).'
--Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).'
-ParentName: '.LCRun::enc('name', $cx, $in).', ParentValue: '.LCRun::enc('value', $cx, $in).'
-RootName: { {name}}, RootValue: { {value}}
+  - EACH 3 - '.LCRun::enc('name', $cx, $in).' ~ '.LCRun::enc('../name', $cx, $in).'
+  Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).', This: '.LCRun::enc('', $cx, $in).', Test: '.LCRun::enc('test', $cx, $in).'
 
-
+  - EACH 4 - '.LCRun::enc('name', $cx, $in).' ~ '.LCRun::enc('../name', $cx, $in).'
 ';}).'
 end each.
 
-start each+if:
+##2 start each+if:
 '.LCRun::sec('winners', $cx, $in, true, function($cx, $in) {return '
- '.((LCRun::ifvar('test', $cx, $in)) ? '
-  Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).'
--Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).'
-ParentName: '.LCRun::enc('name', $cx, $in).', ParentValue: '.LCRun::enc('value', $cx, $in).'
-RootName: { {name}}, RootValue: { {value}}
+ '.LCRun::ifv('test', $cx, $in, function($cx, $in) {return '
+  Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).', This: '.LCRun::enc('', $cx, $in).', Test: '.LCRun::enc('test', $cx, $in).'
 
-
- ' : '').'
+ ';}).'
 ';}).'
 end each+if.
 
-start each+if+with:
+##3 start each+if+with:
 '.LCRun::sec('winners', $cx, $in, true, function($cx, $in) {return '
- '.((LCRun::ifvar('test', $cx, $in)) ? '
+ '.LCRun::ifv('test', $cx, $in, function($cx, $in) {return '
   '.LCRun::wi('people', $cx, $in, function($cx, $in) {return '
-   Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).'
--Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).'
-ParentName: '.LCRun::enc('name', $cx, $in).', ParentValue: '.LCRun::enc('value', $cx, $in).'
-RootName: { {name}}, RootValue: { {value}}
-
+   Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).', This: '.LCRun::enc('', $cx, $in).', Test: '.LCRun::enc('test', $cx, $in).'
 
   ';}).'
- ' : '').'
+ ';}).'
 ';}).'
 end each+if+with.
 
-start each+with+if:
+##4 start each+with+if:
 '.LCRun::sec('winners', $cx, $in, true, function($cx, $in) {return '
  '.LCRun::wi('people', $cx, $in, function($cx, $in) {return '
-  '.((LCRun::ifvar('test', $cx, $in)) ? '
-   Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).'
--Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).'
-ParentName: '.LCRun::enc('name', $cx, $in).', ParentValue: '.LCRun::enc('value', $cx, $in).'
-RootName: { {name}}, RootValue: { {value}}
+  '.LCRun::ifv('test', $cx, $in, function($cx, $in) {return '
+   Name:'.LCRun::enc('name', $cx, $in).', Value:'.LCRun::enc('value', $cx, $in).', This: '.LCRun::enc('', $cx, $in).', Test: '.LCRun::enc('test', $cx, $in).'
 
-
-  ' : '').'
+  ';}).'
  ';}).'
 ';}).'
 end each+with+if.

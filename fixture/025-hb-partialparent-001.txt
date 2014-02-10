@@ -1,23 +1,29 @@
 Hello John, you have just won $10000!
-start each:
 
-  Name:, Value:
--Name:, Value:
-ParentName: , ParentValue: 
-RootName: { {name}}, RootValue: { {value}}
+##0 start section:
 
+  - EACH 1 -  ~ John
+  Name:, Value:, This: [object Object], Test: true
 
+  - EACH 2-  ~ John
 
-  Name:, Value:
--Name:, Value:
-ParentName: , ParentValue: 
-RootName: { {name}}, RootValue: { {value}}
+end section.
 
+##1 start each:
 
+  - EACH 3 -  ~ John
+  Name:, Value:, This: test, Test: 
+
+  - EACH 4 -  ~ John
+
+  - EACH 3 -  ~ John
+  Name:, Value:, This: true, Test: 
+
+  - EACH 4 -  ~ John
 
 end each.
 
-start each+if:
+##2 start each+if:
 
  
 
@@ -25,7 +31,7 @@ start each+if:
 
 end each+if.
 
-start each+if+with:
+##3 start each+if+with:
 
  
 
@@ -33,7 +39,7 @@ start each+if+with:
 
 end each+if+with.
 
-start each+with+if:
+##4 start each+with+if:
 
  
 

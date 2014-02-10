@@ -24,3 +24,17 @@ Hello , you have just won $!
  THIS: is a 
  PARENT: , ,  END  NAME 
 
+Section This:
+
+ <li>X~John is a  (, , )</li>
+
+ <li>X~ is a  (, , )</li>
+
+ <li>X~ is a  (, , )</li>
+
+ <li>X~ is a  (, , )</li>
+
+Section Var:
+
+Each Var:
+

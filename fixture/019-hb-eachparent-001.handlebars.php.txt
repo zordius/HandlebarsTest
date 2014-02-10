@@ -14,3 +14,14 @@ OK!
  PARENT: John, 10000, OK! END  NAME 
  THIS: is a 
  PARENT: John, 10000, OK! END  NAME 
+Section This:
+ <li>X~ is a  (John, 10000, OK!)</li>
+ <li>X~ is a  (John, 10000, OK!)</li>
+ <li>X~ is a  (John, 10000, OK!)</li>
+ <li>X~ is a  (John, 10000, OK!)</li>
+Section Var:
+ <li>XXXVARMr. First is a man (John, 10000, OK!)</li>
+ <li>XXXVARMrs. Second is a woman (John, 10000, OK!)</li>
+Each Var:
+ <li>XXX-EACH-VARMr. First is a man (John, 10000, OK!)</li>
+ <li>XXX-EACH-VARMrs. Second is a woman (John, 10000, OK!)</li>

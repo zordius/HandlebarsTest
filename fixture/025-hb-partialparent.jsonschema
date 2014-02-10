@@ -20,7 +20,7 @@
     "winners": {
       "type": "array",
       "items": {
-        "type": "object",
+        "type": "array",
         "properties": {
           "name": {
             "type": [
@@ -36,10 +36,17 @@
             ],
             "required": true
           },
+          "test": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
           "people": {
             "type": "array",
             "items": {
-              "type": "object",
+              "type": "array",
               "properties": {
                 "name": {
                   "type": [
@@ -54,7 +61,21 @@
                     "number"
                   ],
                   "required": true
+                },
+                "test": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
                 }
+              },
+              "items": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
               }
             }
           },
@@ -66,7 +87,7 @@
                 "people": {
                   "type": "array",
                   "items": {
-                    "type": "object",
+                    "type": "array",
                     "properties": {
                       "name": {
                         "type": [
@@ -81,13 +102,46 @@
                           "number"
                         ],
                         "required": true
+                      },
+                      "test": {
+                        "type": [
+                          "string",
+                          "number"
+                        ],
+                        "required": true
                       }
+                    },
+                    "items": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
                     }
                   }
                 }
               }
             }
           }
+        },
+        "items": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "items": {
+            "type": "object",
+            "properties": {
+              "\/name": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              }
+            }
+          },
+          "required": true
         }
       }
     }

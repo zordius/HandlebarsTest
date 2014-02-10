@@ -14,3 +14,10 @@ Hello , you have just won $!
  PARENT: , ,  END  NAME 
  THIS: is a 
  PARENT: , ,  END  NAME 
+Section This:
+ <li>X~John is a  (, , )</li>
+ <li>X~ is a  (, , )</li>
+ <li>X~ is a  (, , )</li>
+ <li>X~ is a  (, , )</li>
+Section Var:
+Each Var:

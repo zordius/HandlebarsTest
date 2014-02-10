@@ -1,0 +1,42 @@
+Hello John, you have just won $10000!
+start each:
+
+  Name:, Value:
+-Name:, Value:
+ParentName: , ParentValue: 
+RootName: { {name}}, RootValue: { {value}}
+
+
+
+  Name:, Value:
+-Name:, Value:
+ParentName: , ParentValue: 
+RootName: { {name}}, RootValue: { {value}}
+
+
+
+end each.
+
+start each+if:
+
+ 
+
+ 
+
+end each+if.
+
+start each+if+with:
+
+ 
+
+ 
+
+end each+if+with.
+
+start each+with+if:
+
+ 
+
+ 
+
+end each+with+if.

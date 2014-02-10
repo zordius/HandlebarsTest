@@ -1,0 +1,12 @@
+Hello John, you have just won $10000!
+start each:
+partial001partial001end each.
+
+start each+if:
+end each+if.
+
+start each+if+with:
+end each+if+with.
+
+start each+with+if:
+end each+with+if.

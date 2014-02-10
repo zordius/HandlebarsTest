@@ -1,0 +1,34 @@
+Hello {{name}}, you have just won ${{value}}!
+start each:
+{{#each winners}}
+  {{> partial001}}
+{{/each}}
+end each.
+
+start each+if:
+{{#each winners}}
+ {{#if test}}
+  {{> partial001}}
+ {{/if}}
+{{/each}}
+end each+if.
+
+start each+if+with:
+{{#each winners}}
+ {{#if test}}
+  {{#with people}}
+   {{> partial001}}
+  {{/with}}
+ {{/if}}
+{{/each}}
+end each+if+with.
+
+start each+with+if:
+{{#each winners}}
+ {{#with people}}
+  {{#if test}}
+   {{> partial001}}
+  {{/if}}
+ {{/with}}
+{{/each}}
+end each+with+if.

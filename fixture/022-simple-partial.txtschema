@@ -27,10 +27,7 @@
     "winners": {
       "type": "array",
       "items": {
-        "type": [
-          "string",
-          "number"
-        ],
+        "type": "array",
         "properties": {
           "name": {
             "type": [
@@ -54,7 +51,13 @@
             "required": true
           }
         },
-        "required": true
+        "items": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        }
       }
     }
   }

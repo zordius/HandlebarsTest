@@ -20,11 +20,14 @@
     "winners": {
       "type": "array",
       "items": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
+        "type": "array",
+        "items": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        }
       }
     }
   }

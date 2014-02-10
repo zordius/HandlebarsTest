@@ -26,21 +26,24 @@
     }
   },
   "items": {
-    "type": "object",
-    "properties": {
-      "name": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "gender": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
+    "type": "array",
+    "items": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        },
+        "gender": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        }
       }
     }
   }

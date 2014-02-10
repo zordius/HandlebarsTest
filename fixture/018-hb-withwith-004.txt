@@ -9,14 +9,12 @@
 ~WITH
   
 ~TEST~
-   0
-   0
+   
+   
 ~IF~
    
    NO
 ~SEC~
-   
-    0
    
 ~EACH~
    
@@ -26,9 +24,9 @@ WITH~
  
 _WITH PATH_
  
-XTEST: 0 - 0
+XTEST:  - 
 IF: NO!
-SECTION:: - loop: 0
+SECTION::
 EACH::
 END!
  

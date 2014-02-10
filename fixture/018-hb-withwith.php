@@ -6,196 +6,49 @@
         ),
         'scopes' => Array($in),
         'path' => Array(),
-'funcs' => Array(
-    'ifvar' => function ($var, $cx, $in) {
-        $v = $cx['funcs']['val']($var, $cx, $in);
-        return !is_null($v) && ($v !== false) && ($v !== 0) && ($v !== '') && (is_array($v) ? (count($v) > 0) : true);
-    },
-    'ifv' => function ($var, $cx, $in, $truecb, $falsecb = null) {
-        $v = $cx['funcs']['val']($var, $cx, $in);
-        $ret = '';
-        if (is_null($v) || ($v === false) || ($v === 0) || ($v === '') || (is_array($v) && (count($v) == 0))) {
-            if ($falsecb) {
-                $cx['scopes'][] = $in;
-                $ret = $falsecb($cx, $in);
-                array_pop($cx['scopes']);
-            }
-        } else {
-            if ($truecb) {
-                $cx['scopes'][] = $in;
-                $ret = $truecb($cx, $in);
-                array_pop($cx['scopes']);
-            }
-        }
-        return $ret;
-    },
-    'unl' => function ($var, $cx, $in, $truecb, $falsecb = null) {
-        return $cx['funcs']['ifv']($var, $cx, $in, $falsecb, $truecb);
-    },
-    'isec' => function ($var, $cx, $in) {
-        $v = $cx['funcs']['val']($var, $cx, $in);
-        return is_null($v) || ($v === false);
-    },
-    'val' => function ($var, $cx, $in) {
-        $levels = 0;
-
-        if ($var === '@index') {
-            return $cx['sp_vars']['index'];
-        }
-        if ($var === '@key') {
-            return $cx['sp_vars']['key'];
-        }
-        $var = preg_replace_callback('/\\.\\.\\//', function($matches) use (&$levels) {
-            $levels++;
-            return '';
-        }, $var);
-        if ($levels > 0) {
-            $pos = count($cx['scopes']) - $levels;
-            if ($pos >= 0) {
-                $in = $cx['scopes'][$pos];
-            } else {
-                return '';
-            }
-        }
-        if (preg_match('/(.+?)\\.(.+)/', $var, $matched)) {
-            if (array_key_exists($matched[1], $in)) {
-                return $cx['funcs']['val']($matched[2], $cx, $in[$matched[1]]);
-            } else {
-                return null;
-            }
-        }
-        return ($var === '') ? $in : (is_array($in) && isset($in[$var]) ? $in[$var] : null);
-    },
-    'raw' => function ($var, $cx, $in, $loop = false) {
-        $v = $cx['funcs']['val']($var, $cx, $in);
-        if ($v === true) {
-            if ($cx['flags']['jstrue']) {
-                return 'true';
-            }
-        }
-
-        if ($loop && ($v === false)) {
-            if ($cx['flags']['jstrue']) {
-                return 'false';
-            }
-        }
-
-        if (is_array($v)) {
-            if ($cx['flags']['jsobj']) {
-                if (count(array_diff_key($v, array_keys(array_keys($v)))) > 0) {
-                    return '[object Object]';
-                } else {
-                    $ret = Array();
-                    foreach ($v as $k => $vv) {
-                        $ret[] = $cx['funcs']['raw']($k, $cx, $v, true);
-                    }
-                    return join(',', $ret);
-                }
-            }
-        }
-
-        return $v;
-    },
-    'enc' => function ($var, $cx, $in) {
-        return htmlentities($cx['funcs']['raw']($var, $cx, $in), ENT_QUOTES);
-    },
-    'sec' => function ($var, &$cx, $in, $each, $cb) {
-        $v = $cx['funcs']['val']($var, $cx, $in);
-        $isary = is_array($v);
-        $loop = $each;
-        if (!$loop && $isary) {
-            $loop = (count(array_diff_key($v, array_keys(array_keys($v)))) == 0);
-        }
-        if ($loop && $isary) {
-            if ($each) {
-                $is_obj = count(array_diff_key($v, array_keys(array_keys($v)))) > 0;
-            } else {
-                $is_obj = false;
-            }
-            $ret = Array();
-            $cx['scopes'][] = $in;
-            foreach ($v as $index => $raw) {
-                $cx['sp_vars'][$is_obj ? 'key' : 'index'] = $index;
-                $ret[] = $cb($cx, $raw);
-            }
-            unset($cx['sp_vars'][$is_obj ? 'key' : 'index']);
-            array_pop($cx['scopes']);
-            return join('', $ret);
-        }
-        if ($each) {
-            return '';
-        }
-        if ($isary) {
-            $cx['scopes'][] = $v;
-            $ret = $cb($cx, $v);
-            array_pop($cx['scopes']);
-            return $ret;
-        }
-        if ($v === true) {
-            return $cb($cx, $in);
-        }
-        if (is_string($v)) {
-            return $cb($cx, Array());
-        }
-        if (!is_null($v) && ($v !== false)) {
-            return $cb($cx, $v);
-        }
-        return '';
-    },
-    'wi' => function ($var, &$cx, $in, $cb) {
-        $v = $cx['funcs']['val']($var, $cx, $in);
-        if (($v === false) || ($v === null)) {
-            return '';
-        }
-        $cx['scopes'][] = $in;
-        $ret = $cb($cx, $v);
-        array_pop($cx['scopes']);
-        return $ret;
-    },
-)
 
     );
-    ob_start();echo '<div class="yui3-u-1-2 member-status">
+    return '<div class="yui3-u-1-2 member-status">
  <ul class="h-list">
- ',$cx['funcs']['wi']('login_status', $cx, $in, function($cx, $in) {echo '
-  ';if ($cx['funcs']['ifvar']('is_login', $cx, $in)){echo '
-   <li><a href="',$cx['funcs']['enc']('edit_account_link', $cx, $in),'">Hello ',$cx['funcs']['enc']('username', $cx, $in),'</a></li>
-   <li><a href="',$cx['funcs']['enc']('logut_link', $cx, $in),'">Logout</a></li>
-  ';}else{echo '';}echo '
-  ';if (!$cx['funcs']['ifvar']('is_login', $cx, $in)){echo '
-   <li>New User? <a href="',$cx['funcs']['enc']('register_link', $cx, $in),'">Register Now</a></li>
-   <li><a href="',$cx['funcs']['enc']('login_link', $cx, $in),'">Login</a></li>
-  ';}else{echo '';}echo '
+ '.LCRun::wi('login_status', $cx, $in, function($cx, $in) {return '
+  '.((LCRun::ifvar('is_login', $cx, $in)) ? '
+   <li><a href="'.LCRun::enc('edit_account_link', $cx, $in).'">Hello '.LCRun::enc('username', $cx, $in).'</a></li>
+   <li><a href="'.LCRun::enc('logut_link', $cx, $in).'">Logout</a></li>
+  ' : '').'
+  '.((!LCRun::ifvar('is_login', $cx, $in)) ? '
+   <li>New User? <a href="'.LCRun::enc('register_link', $cx, $in).'">Register Now</a></li>
+   <li><a href="'.LCRun::enc('login_link', $cx, $in).'">Login</a></li>
+  ' : '').'
 ~WITH
-  ',$cx['funcs']['wi']('test', $cx, $in, function($cx, $in) {echo '
+  '.LCRun::wi('test', $cx, $in, function($cx, $in) {return '
 ~TEST~
-   ',$cx['funcs']['enc']('testval', $cx, $in),'
-   ',$cx['funcs']['raw']('testval', $cx, $in),'
+   '.LCRun::enc('testval', $cx, $in).'
+   '.LCRun::raw('testval', $cx, $in).'
 ~IF~
-   ';if ($cx['funcs']['ifvar']('testval', $cx, $in)){echo 'YES';}else{echo '';}echo '
-   ';if (!$cx['funcs']['ifvar']('testval', $cx, $in)){echo 'NO';}else{echo '';}echo '
+   '.((LCRun::ifvar('testval', $cx, $in)) ? 'YES' : '').'
+   '.((!LCRun::ifvar('testval', $cx, $in)) ? 'NO' : '').'
 ~SEC~
-   ',$cx['funcs']['sec']('test2', $cx, $in, false, function($cx, $in) {echo '
-    ',$cx['funcs']['enc']('loopval', $cx, $in),'
-   ';}),'
+   '.LCRun::sec('test2', $cx, $in, false, function($cx, $in) {return '
+    '.LCRun::enc('loopval', $cx, $in).'
+   ';}).'
 ~EACH~
-   ',$cx['funcs']['sec']('test3', $cx, $in, true, function($cx, $in) {echo '
-    ',$cx['funcs']['enc']('loopval', $cx, $in),'
-   ';}),'
+   '.LCRun::sec('test3', $cx, $in, true, function($cx, $in) {return '
+    '.LCRun::enc('loopval', $cx, $in).'
+   ';}).'
 ~END~
-  ';}),'
+  ';}).'
 WITH~
- ';}),'
+ ';}).'
 _WITH PATH_
- ',$cx['funcs']['wi']('login_status.test', $cx, $in, function($cx, $in) {echo '
-XTEST: ',$cx['funcs']['enc']('testval', $cx, $in),' - ',$cx['funcs']['raw']('textval', $cx, $in),'
-IF: ';if ($cx['funcs']['ifvar']('testval', $cx, $in)){echo 'YES~';}else{echo '';}echo '';if (!$cx['funcs']['ifvar']('testval', $cx, $in)){echo 'NO!';}else{echo '';}echo '
-SECTION::',$cx['funcs']['sec']('test2', $cx, $in, false, function($cx, $in) {echo ' - loop: ',$cx['funcs']['enc']('loopval', $cx, $in),'';}),'
-EACH::',$cx['funcs']['sec']('test3', $cx, $in, true, function($cx, $in) {echo '	lp:',$cx['funcs']['raw']('loopval', $cx, $in),'';}),'
+ '.LCRun::wi('login_status.test', $cx, $in, function($cx, $in) {return '
+XTEST: '.LCRun::enc('testval', $cx, $in).' - '.LCRun::raw('textval', $cx, $in).'
+IF: '.((LCRun::ifvar('testval', $cx, $in)) ? 'YES~' : '').''.((!LCRun::ifvar('testval', $cx, $in)) ? 'NO!' : '').'
+SECTION::'.LCRun::sec('test2', $cx, $in, false, function($cx, $in) {return ' - loop: '.LCRun::enc('loopval', $cx, $in).'';}).'
+EACH::'.LCRun::sec('test3', $cx, $in, true, function($cx, $in) {return '	lp:'.LCRun::raw('loopval', $cx, $in).'';}).'
 END!
- ';}),'
+ ';}).'
  </ul>
 </div>
-';return ob_get_clean();
+';
 }
 ?>

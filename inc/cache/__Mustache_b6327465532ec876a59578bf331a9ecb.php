@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_2961858c1ef801649a639dc39e8c11c7 extends Mustache_Template
+class __Mustache_b6327465532ec876a59578bf331a9ecb extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -18,14 +18,16 @@ class __Mustache_2961858c1ef801649a639dc39e8c11c7 extends Mustache_Template
         $buffer .= '!
 ';
         // 'test' section
-        $buffer .= $this->section5e8c319752e287819bb1c590da158249($context, $indent, $context->find('test'));
+        $value = $context->find('test');
+        $buffer .= $this->section5e8c319752e287819bb1c590da158249($context, $indent, $value);
         $buffer .= $indent . 'This is a test, test = ';
         $value = $this->resolveValue($context->find('test'), $context, $indent);
         $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= '
 ';
         // 'test' section
-        $buffer .= $this->section3ad155fd24143ea0ced62cfde7b56c65($context, $indent, $context->find('test'));
+        $value = $context->find('test');
+        $buffer .= $this->section3ad155fd24143ea0ced62cfde7b56c65($context, $indent, $value);
         // 'test' inverted section
         $value = $context->find('test');
         if (empty($value)) {
@@ -41,7 +43,8 @@ class __Mustache_2961858c1ef801649a639dc39e8c11c7 extends Mustache_Template
 ';
         }
         // 'test' section
-        $buffer .= $this->sectionCd625e8a4625d69f5611e6128bd09ef2($context, $indent, $context->find('test'));
+        $value = $context->find('test');
+        $buffer .= $this->sectionCd625e8a4625d69f5611e6128bd09ef2($context, $indent, $value);
         // 'test' inverted section
         $value = $context->find('test');
         if (empty($value)) {
@@ -52,7 +55,8 @@ class __Mustache_2961858c1ef801649a639dc39e8c11c7 extends Mustache_Template
         $buffer .= $indent . '---- double section ----
 ';
         // 'sec' section
-        $buffer .= $this->sectionC5a0a446f49a1f9ef67574a660c63193($context, $indent, $context->find('sec'));
+        $value = $context->find('sec');
+        $buffer .= $this->sectionC5a0a446f49a1f9ef67574a660c63193($context, $indent, $value);
 
         return $buffer;
     }
@@ -64,9 +68,14 @@ class __Mustache_2961858c1ef801649a639dc39e8c11c7 extends Mustache_Template
             $source = '
 Line 1
 ';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
@@ -87,9 +96,14 @@ Line 1
             $source = '
 Line 2
 ';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
@@ -110,9 +124,14 @@ Line 2
             $source = '
 Line 5
 ';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
@@ -131,9 +150,14 @@ Line 5
         $buffer = '';
         if (!is_string($value) && is_callable($value)) {
             $source = '-- {{name}}, {{value}}--';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
@@ -160,9 +184,14 @@ Line 5
 {{name}}:{{value}}
 {{#sec}}-- {{name}}, {{value}}--{{/sec}}
 ';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
@@ -175,7 +204,8 @@ Line 5
                 $buffer .= '
 ';
                 // 'sec' section
-                $buffer .= $this->sectionBe02ec176ac7c0878e74c2d7927c2ea6($context, $indent, $context->find('sec'));
+                $value = $context->find('sec');
+                $buffer .= $this->sectionBe02ec176ac7c0878e74c2d7927c2ea6($context, $indent, $value);
                 $buffer .= '
 ';
                 $context->pop();

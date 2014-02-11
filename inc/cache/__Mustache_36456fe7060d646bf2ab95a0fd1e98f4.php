@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_ea81cfef29d288512985ad6596f0047d extends Mustache_Template
+class __Mustache_36456fe7060d646bf2ab95a0fd1e98f4 extends Mustache_Template
 {
     public function renderInternal(Mustache_Context $context, $indent = '')
     {

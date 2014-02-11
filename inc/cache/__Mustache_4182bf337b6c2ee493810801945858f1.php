@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_86affe03cd6f0949eafce19bc3986d22 extends Mustache_Template
+class __Mustache_4182bf337b6c2ee493810801945858f1 extends Mustache_Template
 {
     public function renderInternal(Mustache_Context $context, $indent = '')
     {
@@ -14,18 +14,13 @@ class __Mustache_86affe03cd6f0949eafce19bc3986d22 extends Mustache_Template
         $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= '!
 ';
-        $buffer .= $indent . 'This is next line.';
-        $value = $this->resolveValue($context->find('empty_var'), $context, $indent);
-        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
-        $buffer .= '中文
-';
-        $buffer .= $indent . 'Test \\on \'spacing in mustache: Hello ';
+        $buffer .= $indent . 'Hello original ';
         $value = $this->resolveValue($context->find('name'), $context, $indent);
-        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
-        $buffer .= ', you have just won $';
+        $buffer .= $value;
+        $buffer .= ' , the value is ';
         $value = $this->resolveValue($context->find('value'), $context, $indent);
-        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
-        $buffer .= '!
+        $buffer .= $value;
+        $buffer .= '
 ';
 
         return $buffer;

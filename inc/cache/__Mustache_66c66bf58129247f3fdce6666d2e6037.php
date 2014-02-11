@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_af56cea15ba7139a324e6d0c0c34962e extends Mustache_Template
+class __Mustache_66c66bf58129247f3fdce6666d2e6037 extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -15,9 +15,11 @@ class __Mustache_af56cea15ba7139a324e6d0c0c34962e extends Mustache_Template
         $buffer .= '</h1>
 ';
         // 'notEmpty' section
-        $buffer .= $this->section2b1a20b84b0b55625ca0bbbf3cc09d94($context, $indent, $context->find('notEmpty'));
+        $value = $context->find('notEmpty');
+        $buffer .= $this->section2b1a20b84b0b55625ca0bbbf3cc09d94($context, $indent, $value);
         // 'isEmpty' section
-        $buffer .= $this->sectionF550575e4e34a5532c59cd1f5043dbca($context, $indent, $context->find('isEmpty'));
+        $value = $context->find('isEmpty');
+        $buffer .= $this->sectionF550575e4e34a5532c59cd1f5043dbca($context, $indent, $value);
 
         return $buffer;
     }
@@ -29,9 +31,14 @@ class __Mustache_af56cea15ba7139a324e6d0c0c34962e extends Mustache_Template
             $source = '
     <li><strong>{{name}}</strong></li>
 ';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
@@ -60,15 +67,21 @@ class __Mustache_af56cea15ba7139a324e6d0c0c34962e extends Mustache_Template
     <li><a href="{{url}}">{{name}}</a></li>
 {{/current}}
 ';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
                 $context->push($value);
                 // 'current' section
-                $buffer .= $this->section1096a61e8b971bb54566a3e90a3bc4fd($context, $indent, $context->find('current'));
+                $value = $context->find('current');
+                $buffer .= $this->section1096a61e8b971bb54566a3e90a3bc4fd($context, $indent, $value);
                 // 'current' inverted section
                 $value = $context->find('current');
                 if (empty($value)) {
@@ -105,9 +118,14 @@ class __Mustache_af56cea15ba7139a324e6d0c0c34962e extends Mustache_Template
 {{/item}}
 </ul>
 ';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
@@ -115,7 +133,8 @@ class __Mustache_af56cea15ba7139a324e6d0c0c34962e extends Mustache_Template
                 $buffer .= $indent . '<ul>
 ';
                 // 'item' section
-                $buffer .= $this->section8ba18b952216f53ff741499bde665a38($context, $indent, $context->find('item'));
+                $value = $context->find('item');
+                $buffer .= $this->section8ba18b952216f53ff741499bde665a38($context, $indent, $value);
                 $buffer .= $indent . '</ul>
 ';
                 $context->pop();
@@ -132,9 +151,14 @@ class __Mustache_af56cea15ba7139a324e6d0c0c34962e extends Mustache_Template
             $source = '
 <p>The list is empty.</p>
 ';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {

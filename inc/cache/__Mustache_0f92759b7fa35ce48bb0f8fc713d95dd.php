@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_7d615fe6963a699c326c7720dd1d7829 extends Mustache_Template
+class __Mustache_0f92759b7fa35ce48bb0f8fc713d95dd extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -17,24 +17,28 @@ class __Mustache_7d615fe6963a699c326c7720dd1d7829 extends Mustache_Template
         $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= '!
 ';
-        $buffer .= $indent . 'This is next line.
-';
         // 'test' section
-        $buffer .= $this->section364d5f021cd691fbea8663fa93d71f2e($context, $indent, $context->find('test'));
+        $value = $context->find('test');
+        $buffer .= $this->section1126f26395cf6acb5fe19d6643eec7b5($context, $indent, $value);
 
         return $buffer;
     }
 
-    private function section364d5f021cd691fbea8663fa93d71f2e(Mustache_Context $context, $indent, $value)
+    private function section1126f26395cf6acb5fe19d6643eec7b5(Mustache_Context $context, $indent, $value)
     {
         $buffer = '';
         if (!is_string($value) && is_callable($value)) {
-            $source = '
+            $source = '{{! when test is true, print one more line... }}
 This is true! won ${{value}}!!
 ';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {

@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_5bc4a2e998ceb68e698c2fe0baaac3e6 extends Mustache_Template
+class __Mustache_81377e574757a97a41a3d5856a2debb5 extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -14,7 +14,8 @@ class __Mustache_5bc4a2e998ceb68e698c2fe0baaac3e6 extends Mustache_Template
         $buffer .= '
 ';
         // 'parent_contexts' section
-        $buffer .= $this->section71fe90fe216efd1fa56f4d68a47500a2($context, $indent, $context->find('parent_contexts'));
+        $value = $context->find('parent_contexts');
+        $buffer .= $this->section71fe90fe216efd1fa56f4d68a47500a2($context, $indent, $value);
 
         return $buffer;
     }
@@ -26,9 +27,14 @@ class __Mustache_5bc4a2e998ceb68e698c2fe0baaac3e6 extends Mustache_Template
             $source = '
     {{child_id}} ({{parent_id}} << {{grand_parent_id}})
   ';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
@@ -61,9 +67,14 @@ class __Mustache_5bc4a2e998ceb68e698c2fe0baaac3e6 extends Mustache_Template
     {{child_id}} ({{parent_id}} << {{grand_parent_id}})
   {{/child_contexts}}
 ';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
@@ -77,7 +88,8 @@ class __Mustache_5bc4a2e998ceb68e698c2fe0baaac3e6 extends Mustache_Template
                 $buffer .= ')
 ';
                 // 'child_contexts' section
-                $buffer .= $this->sectionB47e2732d8e27016c4df84c8a84d7a8b($context, $indent, $context->find('child_contexts'));
+                $value = $context->find('child_contexts');
+                $buffer .= $this->sectionB47e2732d8e27016c4df84c8a84d7a8b($context, $indent, $value);
                 $context->pop();
             }
         }

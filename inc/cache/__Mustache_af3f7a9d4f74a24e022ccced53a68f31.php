@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_17e0260a5cde4db34063c5411e6df68b extends Mustache_Template
+class __Mustache_af3f7a9d4f74a24e022ccced53a68f31 extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -19,7 +19,8 @@ class __Mustache_17e0260a5cde4db34063c5411e6df68b extends Mustache_Template
 ';
         $buffer .= $indent . 'Winners: ';
         // 'winners' section
-        $buffer .= $this->section05ab2510ea03dd60e28fee6476fe662e($context, $indent, $context->find('winners'));
+        $value = $context->find('winners');
+        $buffer .= $this->section05ab2510ea03dd60e28fee6476fe662e($context, $indent, $value);
         $buffer .= '
 ';
 
@@ -31,9 +32,14 @@ class __Mustache_17e0260a5cde4db34063c5411e6df68b extends Mustache_Template
         $buffer = '';
         if (!is_string($value) && is_callable($value)) {
             $source = '{{this}}({{{this}}}) = {{.}}({{{.}}})';
-            $buffer .= $this->mustache
-                ->loadLambda((string) call_user_func($value, $source, $this->lambdaHelper))
-                ->renderInternal($context);
+            $result = call_user_func($value, $source, $this->lambdaHelper);
+            if (strpos($result, '{{') === false) {
+                $buffer .= $result;
+            } else {
+                $buffer .= $this->mustache
+                    ->loadLambda((string) $result)
+                    ->renderInternal($context);
+            }
         } elseif (!empty($value)) {
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {

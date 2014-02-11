@@ -1,0 +1,18 @@
+Hello {{name}}, you have just won ${{value}}!
+
+##0 start section:
+{{#winners}}
+  - EACH 1- {{name}}
+{{/winners}}
+end section.
+
+##1 start each:
+{{#each winners}}
+  - EACH 2 - {{name}}
+{{/each}}
+end each.
+
+##3 Index
+Index ?: {{winners.name}}
+Index 0: {{winners.0.name}}
+Index 1: {{winners.1.name}}

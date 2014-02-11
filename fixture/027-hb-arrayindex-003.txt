@@ -1,0 +1,54 @@
+Hello John, you have just won $10000!
+
+##0 start section:
+
+  - EACH 1- 
+
+  - EACH 1- NotJohn
+
+  - EACH 1- 
+
+  - EACH 1- 0
+
+  - EACH 1- 
+
+  - EACH 1- 
+
+  - EACH 1- 
+
+  - EACH 1- 
+
+  - EACH 1- 
+
+  - EACH 1- 
+
+end section.
+
+##1 start each:
+
+  - EACH 2 - 
+
+  - EACH 2 - NotJohn
+
+  - EACH 2 - 
+
+  - EACH 2 - 0
+
+  - EACH 2 - 
+
+  - EACH 2 - 
+
+  - EACH 2 - 
+
+  - EACH 2 - 
+
+  - EACH 2 - 
+
+  - EACH 2 - 
+
+end each.
+
+##3 Index
+Index ?: 
+Index 0: 
+Index 1: NotJohn

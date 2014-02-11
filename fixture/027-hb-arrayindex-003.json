@@ -1,0 +1,23 @@
+{
+    "name": "John",
+    "value": 10000,
+    "winners": [
+        {
+            "this": "test",
+            "test": true
+        },
+        {
+            "name": "NotJohn",
+            "value": 12345
+        },
+        "TestString",
+        0,
+        false,
+        true,
+        [],
+        ["ArrayItem"],
+        -1,
+        1
+    ],
+    "test": 0
+}

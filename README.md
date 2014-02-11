@@ -65,7 +65,7 @@ Feature Comparison
 * QUOTE : Encode ' to &amp;#039;, not to &amp;#x27; (minor issue)
 * SINGLEQUOTE : Do not encode ' to &amp;#x27;
 
-* SPECIAL NOTE: now (2014-02-10) case 003-simple-else-005 , 006-simple-section-003 , 018-hb-withwith-004 , 021-hb-manyparent-004 result is not 'YES' but 'OUTPUT' . We can not ensure the handlebars.js 1.3.0 behavior is correct or not. Now we open an issue to track this: https://github.com/wycats/handlebars.js/issues/731
+* SPECIAL NOTE: now (2014-02-11) case 003-simple-else-005 , 006-simple-section-003 , 018-hb-withwith-004 , 021-hb-manyparent-004 , 027-hb-arrayindex-003 results are not 'YES' but 'OUTPUT'. We can not ensure the handlebars.js 1.3.0 behavior is correct or not. Now we open an issue to track this: https://github.com/wycats/handlebars.js/issues/731
 
 <pre>
 |       test case       | handlebars.php        |       lightncandy     |       mustache-php    |       mustache.php  |
@@ -82,7 +82,7 @@ Feature Comparison
 |  003-simple-else-002  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
 |  003-simple-else-003  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
 |  003-simple-else-004  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
-|  003-simple-else-005  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
+|  003-simple-else-005  |              OUTPUT   |              OUTPUT   |              OUTPUT   |              OUTPUT |
 |  003-simple-else-006  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 |  003-simple-else-007  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 |  003-simple-else-008  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
@@ -99,7 +99,7 @@ Feature Comparison
 | 05-simple-escape-003  |              OUTPUT   |               QUOTE   |              OUTPUT   |              OUTPUT |
 | 6-simple-section-001  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
 | 6-simple-section-002  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
-| 6-simple-section-003  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
+| 6-simple-section-003  |              OUTPUT   |              OUTPUT   |              OUTPUT   |              OUTPUT |
 | 6-simple-section-004  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 | 6-simple-section-005  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
 | 6-simple-section-006  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
@@ -159,18 +159,18 @@ Feature Comparison
 |  018-hb-withwith-001  |                  NO   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-|  018-hb-withwith-004  |                  NO   |                 YES   |                  NO   |                  NO |
+|  018-hb-withwith-004  |                  NO   |              OUTPUT   |                  NO   |                  NO |
 |  018-hb-withwith-005  |                  NO   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-006  |                  NO   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-007  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-| 19-hb-eachparent-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
+| 19-hb-eachparent-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 19-hb-eachparent-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |   020-hb-doteach-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |   020-hb-doteach-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
 | 21-hb-manyparent-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 21-hb-manyparent-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 21-hb-manyparent-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-| 21-hb-manyparent-004  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| 21-hb-manyparent-004  |              OUTPUT   |              OUTPUT   |                  NO   |                  NO |
 | 2-simple-partial-001  |              OUTPUT   |                 YES   |                  NO   |              OUTPUT |
 |   023-hb-partial-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |   023-hb-partial-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
@@ -188,8 +188,12 @@ Feature Comparison
 | 024-hb-eachindex-010  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 024-hb-eachindex-011  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 024-hb-eachindex-012  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-| hb-partialparent-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| hb-partialparent-001  |              OUTPUT   |              OUTPUT   |                  NO   |                  NO |
+| hb-partialparent-002  |              OUTPUT   |              OUTPUT   |                  NO   |                  NO |
 |    026-hb-eachif-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| 27-hb-arrayindex-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| 27-hb-arrayindex-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+| 27-hb-arrayindex-003  |              OUTPUT   |              OUTPUT   |                  NO   |                  NO |
 |  livetest-001-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  livetest-002-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 </pre>
@@ -202,7 +206,7 @@ How to Test
 3. npm install handlebars
 4. bin/generate-fixture
    * This will generate *.txt files under fixtures.
-   * These files is generated with handlebars.js.
+   * These files are generated with handlebars.js.
    * All tests will use these txt files as standard answers.
 
 * single lib test

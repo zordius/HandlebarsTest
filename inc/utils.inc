@@ -22,8 +22,9 @@ function prepare_tmpl($name, $file, $flag) {
     switch ($name) {
     case 'handlebars.php':
         require_once('cloned/handlebars.php/src/Handlebars/Autoloader.php');
-        Handlebars_Autoloader::register();
-        $m = new Handlebars_Engine;
+        Handlebars\Autoloader::register();
+        //use Handlebars\Handlebars;
+        $m = new Handlebars\Handlebars;
         $test_tmpl = $m->loadTemplate($tmpl_txt);
         $test_method = 'render';
         break;

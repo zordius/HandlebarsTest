@@ -1,0 +1,19 @@
+{
+    "name": "John",
+    "value": 10000,
+    "winners": {
+        "0": "test",
+        "1": {
+             "name": "JoJo",
+             "value": 1000
+        },
+        "!": {
+             "name": "YoYo",
+             "value": 999
+        }
+    },
+    "test": 0,
+    "[ \\ ^ ` { | } ~": "yES",
+    " \\ ^ ` { | } ~": "yEs",
+    "![": "ohohoh"
+}

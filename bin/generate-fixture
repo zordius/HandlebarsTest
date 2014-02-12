@@ -19,7 +19,12 @@ var fs = require('fs'),
                 gen_total += 1;
                 console.log('# ' + file + ' > ' + tmpl);
                 fs.readFile(dir + file, 'utf8', function (err, data) {
-                    var json = JSON.parse(data);
+                    var json;
+                    try {
+                        json = JSON.parse(data);
+                    } catch (E) {
+                        console.log('ERROR parsing ' + file + ' !!!!!:' + E);
+                    }
                     fs.readFile(dir + tmpl, 'utf8', function (err, data) {
                         var html,
                             fn = file.replace(/\.json/, '.txt');

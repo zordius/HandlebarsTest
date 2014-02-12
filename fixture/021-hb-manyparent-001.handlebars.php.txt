@@ -11,9 +11,7 @@ Hello John, you have just won $10000!
    UNLESS good = bad ->  , 
  unless else
    UNLESS good = bad ->  , 
- 
-   UNLESS bad = good ->  , 
- <li> is a  (John, 10000, OK!)</li>
+  <li> is a  (John, 10000, OK!)</li>
  simple if~
  if-else
 
@@ -24,9 +22,7 @@ Hello John, you have just won $10000!
    UNLESS good = bad ->  , 
  unless else
    UNLESS good = bad ->  , 
- 
-   UNLESS bad = good ->  , 
- <li> is a  (John, 10000, OK!)</li>
+  <li> is a  (John, 10000, OK!)</li>
  simple if~
  if-else
 
@@ -37,9 +33,7 @@ Hello John, you have just won $10000!
    UNLESS good = bad ->  , 
  unless else
    UNLESS good = bad ->  , 
- 
-   UNLESS bad = good ->  , 
- <li> is a  (John, 10000, OK!)</li>
+  <li> is a  (John, 10000, OK!)</li>
  simple if~
  if-else
 
@@ -50,9 +44,7 @@ Hello John, you have just won $10000!
    UNLESS good = bad ->  , 
  unless else
    UNLESS good = bad ->  , 
- 
-   UNLESS bad = good ->  , 
-----------THIS
+ ----------THIS
  <li> is a  (John, 10000, OK!)</li>
 
   BAD!   -  Y  = 

@@ -16,5 +16,5 @@ end each.
 
 ##3 Index
 Index ?: NotJohn
-Index 0: NotJohn
+Index 0: 
 Index 1: 

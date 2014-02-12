@@ -1,6 +1,6 @@
 <ul>
- <li>,  : David (V)</li>
- <li>,  : John (V)</li>
- <li>,  : Peter (V)</li>
- <li>,  : Mary (V)</li>
+ <li>, NO.1 : David (V)</li>
+ <li>, Pos.2 : John (V)</li>
+ <li>, 3rd : Peter (V)</li>
+ <li>, 4th : Mary (V)</li>
 </ul>

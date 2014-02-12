@@ -11,9 +11,7 @@ Hello , you have just won $!
    UNLESS good = bad ->  , 
  unless else
    UNLESS good = bad ->  , 
- 
-   UNLESS bad = good ->  , 
- <li> is a 0 (, , )</li>
+  <li> is a 0 (, , )</li>
  simple if~
  if-else
 
@@ -24,9 +22,7 @@ Hello , you have just won $!
    UNLESS good = bad ->  , 
  unless else
    UNLESS good = bad ->  , 
- 
-   UNLESS bad = good ->  , 
- <li> is a 3th (, , )</li>
+  <li> is a 3th (, , )</li>
  simple if~
   simple GOOD!   -  X  ~ 
  if-else
@@ -35,18 +31,7 @@ Hello , you have just won $!
     WITH: , 3th ,  , 
  simple unless
  unless else
- <li> is a  (, , )</li>
- simple if~
- if-else
 
-  BAD!   -  Y  = 
- with
-    WITH: ,  ,  , 
- simple unless
-   UNLESS good = bad ->  , 
- unless else
-   UNLESS good = bad ->  , 
- 
    UNLESS bad = good ->  , 
  <li> is a  (, , )</li>
  simple if~
@@ -59,9 +44,7 @@ Hello , you have just won $!
    UNLESS good = bad ->  , 
  unless else
    UNLESS good = bad ->  , 
- 
-   UNLESS bad = good ->  , 
- <li> is a  (, , )</li>
+  <li> is a  (, , )</li>
  simple if~
  if-else
 
@@ -72,9 +55,7 @@ Hello , you have just won $!
    UNLESS good = bad ->  , 
  unless else
    UNLESS good = bad ->  , 
- 
-   UNLESS bad = good ->  , 
- <li> is a  (, , )</li>
+  <li> is a  (, , )</li>
  simple if~
  if-else
 
@@ -85,9 +66,18 @@ Hello , you have just won $!
    UNLESS good = bad ->  , 
  unless else
    UNLESS good = bad ->  , 
- 
-   UNLESS bad = good ->  , 
-----------THIS
+  <li> is a  (, , )</li>
+ simple if~
+ if-else
+
+  BAD!   -  Y  = 
+ with
+    WITH: ,  ,  , 
+ simple unless
+   UNLESS good = bad ->  , 
+ unless else
+   UNLESS good = bad ->  , 
+ ----------THIS
  <li>John is a  (, , )</li>
 
   BAD!   -  Y  = 

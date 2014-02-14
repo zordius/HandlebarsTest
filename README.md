@@ -231,5 +231,10 @@ How to Test
 
 * performance test
    * bin/hbreport
-   * This will generate report files under report/
-   * default test 100000 times on every cases and libs, takes very long time.
+      * This will generate report files under report/
+      * default test 100000 times on every cases and libs, takes very long time.
+   * bin/hbreport 6
+      * This do not generate any file under report/
+      * Will print a feature chart on console.
+      * lightncandy will be executed with FLAG_BESTPERFORMANCE enabled (to know more about FLAG_BESTPERFORMANCE, read lightncandy document please)
+

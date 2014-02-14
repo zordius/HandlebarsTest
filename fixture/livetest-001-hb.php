@@ -13,8 +13,8 @@
         '.LCRun::sec('', $cx, $in, true, function($cx, $in) {return '
         <tr>
             <td class="first" colspan="2">
-            <h4><a name="'.LCRun::enc('name', $cx, $in).'"></a>問題 $p</h4>
-            '.LCRun::enc('yid', $cx, $in).' 暱稱：'.LCRun::enc('userName', $cx, $in).' ( '.LCRun::enc('recommend', $cx, $in).' )<p>'.LCRun::enc('comment', $cx, $in).'</p>
+            <h4><a name="'.LCRun::encq('name', $cx, $in).'"></a>問題 $p</h4>
+            '.LCRun::encq('yid', $cx, $in).' 暱稱：'.LCRun::encq('userName', $cx, $in).' ( '.LCRun::encq('recommend', $cx, $in).' )<p>'.LCRun::encq('comment', $cx, $in).'</p>
             </td>
             <td class="asktime">$askTime</td>
         </tr>                               
@@ -25,9 +25,9 @@
                         <p><a href="http://tw.user.bid.yahoo.com/tw/user/Y7379251092">EYESCREAM</a>
                         ( <a href="http://tw.user.bid.yahoo.com/tw/show/rating?userID=Y7379251092">56141</a>
                         )</p>
-                        <p>Lady您好：'.LCRun::enc('comment', $cx, $in).'</p>
+                        <p>Lady您好：'.LCRun::encq('comment', $cx, $in).'</p>
                     </td>
-                    <td class="asktime">'.LCRun::enc('replyTime', $cx, $in).'</td>
+                    <td class="asktime">'.LCRun::encq('replyTime', $cx, $in).'</td>
                 </tr>
             ';}).'
         ';}).'

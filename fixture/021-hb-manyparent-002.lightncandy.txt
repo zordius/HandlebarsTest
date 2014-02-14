@@ -1,117 +1,117 @@
 Hello John, you have just won $10000!
 <ul>
 
- <li> is a  (John, 10000, OK!)</li>
+ <li> is a  (, , )</li>
  simple if~
  
  if-else
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
  unless else
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
 
- <li> is a  (John, 10000, OK!)</li>
+ <li> is a  (, , )</li>
  simple if~
  
  if-else
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
  unless else
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
 
- <li> is a  (John, 10000, OK!)</li>
+ <li> is a  (, , )</li>
  simple if~
  
  if-else
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
  unless else
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
 
- <li> is a  (John, 10000, OK!)</li>
+ <li> is a  (, , )</li>
  simple if~
  
  if-else
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
  unless else
  
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  
 
 ----------THIS
 
- <li> is a  (John, 10000, OK!)</li>
+ <li> is a  (, , )</li>
  
-  BAD!   -  Y John = OK!
- 
- 
-
- <li> is a  (John, 10000, OK!)</li>
- 
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  
 
- <li> is a  (John, 10000, OK!)</li>
+ <li> is a  (, , )</li>
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  
 
- <li> is a  (John, 10000, OK!)</li>
+ <li> is a  (, , )</li>
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
+ 
+ 
+
+ <li> is a  (, , )</li>
+ 
+  BAD!   -  Y  = 
  
  
 
 ----------SECTION THIS
 
- <li>John is a  (John, 10000, OK!)</li>
+ <li>John is a  (, , )</li>
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  
 
 ----------SECTION .
 
- <li>John is a  (John, 10000, OK!)</li>
+ <li>John is a  (, , )</li>
  
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  
  
 
@@ -119,6 +119,6 @@ Hello John, you have just won $10000!
 WITH TEST>
 
  single: , 
- loop: Mr. First -  - Johnloop: Mrs. Second -  - John
+ loop: Mr. First -  - loop: Mrs. Second -  - 
 
 OK!

@@ -8,11 +8,11 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::enc('winner.name', $cx, $in).', you have just won $'.LCRun::enc('winner.value', $cx, $in).'!
+    return 'Hello '.LCRun::encq('winner]name', $cx, $in).', you have just won $'.LCRun::encq('winner]value', $cx, $in).'!
 '.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '
 Line 1
 ';}).'
-This is a test, test = '.LCRun::enc('test', $cx, $in).'
+This is a test, test = '.LCRun::encq('test', $cx, $in).'
 '.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '
 Line 2
 ';}).'
@@ -30,8 +30,8 @@ Line 6
 ' : '').'
 ---- double section ----
 '.LCRun::sec('sec', $cx, $in, false, function($cx, $in) {return '
-'.LCRun::enc('name', $cx, $in).':'.LCRun::enc('value', $cx, $in).'
-'.LCRun::sec('sec', $cx, $in, false, function($cx, $in) {return '-- '.LCRun::enc('name', $cx, $in).', '.LCRun::enc('value', $cx, $in).'--';}).'
+'.LCRun::encq('name', $cx, $in).':'.LCRun::encq('value', $cx, $in).'
+'.LCRun::sec('sec', $cx, $in, false, function($cx, $in) {return '-- '.LCRun::encq('name', $cx, $in).', '.LCRun::encq('value', $cx, $in).'--';}).'
 ';}).' 
 ';
 }

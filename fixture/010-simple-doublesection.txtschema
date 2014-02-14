@@ -3,78 +3,75 @@
   "description": "Template Json Schema",
   "type": "object",
   "properties": {
-    "winner": {
-      "type": "object",
-      "properties": {
-        "name": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        },
-        "value": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        }
-      }
-    },
-    "test": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "items": [
-        
-      ],
-      "required": true
-    },
-    "sec": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
-          },
-          "value": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
-          },
-          "sec": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
-                },
-                "value": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
-                }
-              }
+    "winner
+  ]name": {
+    "type": [
+      "string",
+      "number"
+    ],
+    "required": true
+  },
+  "winner
+]value": {
+  "type": [
+    "string",
+    "number"
+  ],
+  "required": true
+},
+"test": {
+  "type": [
+    "string",
+    "number"
+  ],
+  "items": [
+    
+  ],
+  "required": true
+},
+"sec": {
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "required": true
+      },
+      "value": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "required": true
+      },
+      "sec": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "value": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
             }
           }
         }
       }
     }
   }
+}
+}
 }

@@ -8,9 +8,9 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::enc('winner.name', $cx, $in).', you have just won $'.LCRun::enc('winner.value', $cx, $in).'!
-We have $'.LCRun::enc('award.first.value', $cx, $in).' for '.LCRun::enc('award.first.name', $cx, $in).' award!!
-Raw dot test: '.LCRun::enc('winner.name', $cx, $in).' '.LCRun::raw('award.first.value', $cx, $in).' for '.LCRun::raw('award.first.name', $cx, $in).'
+    return 'Hello '.LCRun::encq('winner]name', $cx, $in).', you have just won $'.LCRun::encq('winner]value', $cx, $in).'!
+We have $'.LCRun::encq('award]first]value', $cx, $in).' for '.LCRun::encq('award]first]name', $cx, $in).' award!!
+Raw dot test: '.LCRun::encq('winner]name', $cx, $in).' '.LCRun::raw('award]first]value', $cx, $in).' for '.LCRun::raw('award]first]name', $cx, $in).'
 ';
 }
 ?>

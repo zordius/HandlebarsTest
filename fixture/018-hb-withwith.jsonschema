@@ -85,57 +85,52 @@
                     }
                   }
                 },
-                "login_status": {
+                "login_status
+              ]test": {
+                "type": "array",
+                "items": {
                   "type": "object",
                   "properties": {
-                    "test": {
+                    "testval": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    },
+                    "textval": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    },
+                    "test2": {
                       "type": "array",
                       "items": {
                         "type": "object",
                         "properties": {
-                          "testval": {
+                          "loopval": {
                             "type": [
                               "string",
                               "number"
                             ],
                             "required": true
-                          },
-                          "textval": {
+                          }
+                        }
+                      }
+                    },
+                    "test3": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "loopval": {
                             "type": [
                               "string",
                               "number"
                             ],
                             "required": true
-                          },
-                          "test2": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "loopval": {
-                                  "type": [
-                                    "string",
-                                    "number"
-                                  ],
-                                  "required": true
-                                }
-                              }
-                            }
-                          },
-                          "test3": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "loopval": {
-                                  "type": [
-                                    "string",
-                                    "number"
-                                  ],
-                                  "required": true
-                                }
-                              }
-                            }
                           }
                         }
                       }
@@ -149,4 +144,5 @@
       }
     }
   }
+}
 }

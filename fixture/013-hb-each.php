@@ -8,13 +8,13 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::enc('name', $cx, $in).', you have just won $'.LCRun::enc('value', $cx, $in).'!
+    return 'Hello '.LCRun::encq('name', $cx, $in).', you have just won $'.LCRun::encq('value', $cx, $in).'!
 <ul>
 '.LCRun::sec('people', $cx, $in, true, function($cx, $in) {return '
- <li>'.LCRun::enc('name', $cx, $in).' is a '.LCRun::enc('gender', $cx, $in).'</li>
+ <li>'.LCRun::encq('name', $cx, $in).' is a '.LCRun::encq('gender', $cx, $in).'</li>
 ';}).'
 </ul>
-'.LCRun::enc('end', $cx, $in).'
+'.LCRun::encq('end', $cx, $in).'
 ';
 }
 ?>

@@ -8,15 +8,15 @@
         'path' => Array(),
 
     );
-    return '<h1>'.LCRun::enc('header', $cx, $in).'</h1>
+    return '<h1>'.LCRun::encq('header', $cx, $in).'</h1>
 '.LCRun::sec('notEmpty', $cx, $in, false, function($cx, $in) {return '
 <ul>
 '.LCRun::sec('item', $cx, $in, false, function($cx, $in) {return '
 '.LCRun::sec('current', $cx, $in, false, function($cx, $in) {return '
-    <li><strong>'.LCRun::enc('name', $cx, $in).'</strong></li>
+    <li><strong>'.LCRun::encq('name', $cx, $in).'</strong></li>
 ';}).'
 '.((LCRun::isec('current', $cx, $in)) ? '
-    <li><a href="'.LCRun::enc('url', $cx, $in).'">'.LCRun::enc('name', $cx, $in).'</a></li>
+    <li><a href="'.LCRun::encq('url', $cx, $in).'">'.LCRun::encq('name', $cx, $in).'</a></li>
 ' : '').'
 ';}).'
 </ul>

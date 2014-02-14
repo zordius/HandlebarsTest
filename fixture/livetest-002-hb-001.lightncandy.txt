@@ -4,25 +4,25 @@
         
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-c1-c1" value="c1" name="c1" alt="test" data-name="test"/>
-            <label class="spec-label icon" for="spec-c1-c1" style="background-image:url(true);">
+            <input type="radio" id="spec--c1" value="c1" name="" alt="test" data-name="test"/>
+            <label class="spec-label icon" for="spec--c1" style="background-image:url(true);">
             </label>
         </div>
         
         <script>
-            document.getElementById('spec-s1-c1').className += 'hidden';
+            document.getElementById('spec--c1').className += 'hidden';
         </script>
     
         
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-c2-c2" value="c2" name="c2" alt="test" data-name="test"/>
-            <label class="spec-label icon" for="spec-c2-c2" style="background-image:url(true);">
+            <input type="radio" id="spec--c2" value="c2" name="" alt="test" data-name="test"/>
+            <label class="spec-label icon" for="spec--c2" style="background-image:url(true);">
             </label>
         </div>
         
         <script>
-            document.getElementById('spec-s1-c2').className += 'hidden';
+            document.getElementById('spec--c2').className += 'hidden';
         </script>
     
     </div>

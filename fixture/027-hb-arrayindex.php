@@ -8,24 +8,24 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::enc('name', $cx, $in).', you have just won $'.LCRun::enc('value', $cx, $in).'!
+    return 'Hello '.LCRun::encq('name', $cx, $in).', you have just won $'.LCRun::encq('value', $cx, $in).'!
 
 ##0 start section:
 '.LCRun::sec('winners', $cx, $in, false, function($cx, $in) {return '
-  - EACH 1- '.LCRun::enc('name', $cx, $in).'
+  - EACH 1- '.LCRun::encq('name', $cx, $in).'
 ';}).'
 end section.
 
 ##1 start each:
 '.LCRun::sec('winners', $cx, $in, true, function($cx, $in) {return '
-  - EACH 2 - '.LCRun::enc('name', $cx, $in).'
+  - EACH 2 - '.LCRun::encq('name', $cx, $in).'
 ';}).'
 end each.
 
 ##3 Index
-Index ?: '.LCRun::enc('winners.name', $cx, $in).'
-Index 0: '.LCRun::enc('winners.0.name', $cx, $in).'
-Index 1: '.LCRun::enc('winners.1.name', $cx, $in).'
+Index ?: '.LCRun::encq('winners]name', $cx, $in).'
+Index 0: '.LCRun::encq('winners]0]name', $cx, $in).'
+Index 1: '.LCRun::encq('winners]1]name', $cx, $in).'
 ';
 }
 ?>

@@ -15,12 +15,12 @@
 
 '.LCRun::sec('child', $cx, $in, true, function($cx, $in) {return '
     '.LCRun::ifv('key', $cx, $in, function($cx, $in) {return '
-       The value is = '.LCRun::enc('key', $cx, $in).' !!
+       The value is = '.LCRun::encq('key', $cx, $in).' !!
     ';}, function($cx, $in) {return '
         key is empty or null
     ';}).'
 
-    '.LCRun::enc('../fake', $cx, $in).'
+    '.LCRun::encq(']]/fake', $cx, $in).'
 
 ';}).'
 ';}).'

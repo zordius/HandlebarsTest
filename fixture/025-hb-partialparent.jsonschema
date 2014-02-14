@@ -20,7 +20,10 @@
     "winners": {
       "type": "array",
       "items": {
-        "type": "array",
+        "type": [
+          "string",
+          "number"
+        ],
         "properties": {
           "name": {
             "type": [
@@ -29,121 +32,106 @@
             ],
             "required": true
           },
-          "value": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
-          },
-          "test": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
-          },
-          "people": {
-            "type": "array",
-            "items": {
-              "type": "array",
-              "properties": {
-                "name": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
-                },
-                "value": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
-                },
-                "test": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
-                }
-              },
-              "items": {
-                "type": [
-                  "string",
-                  "number"
-                ],
-                "required": true
-              }
-            }
-          },
-          "winners": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "properties": {
-                "people": {
-                  "type": "array",
-                  "items": {
-                    "type": "array",
-                    "properties": {
-                      "name": {
-                        "type": [
-                          "string",
-                          "number"
-                        ],
-                        "required": true
-                      },
-                      "value": {
-                        "type": [
-                          "string",
-                          "number"
-                        ],
-                        "required": true
-                      },
-                      "test": {
-                        "type": [
-                          "string",
-                          "number"
-                        ],
-                        "required": true
-                      }
-                    },
-                    "items": {
-                      "type": [
-                        "string",
-                        "number"
-                      ],
-                      "required": true
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
+          "
+        ]
+      ]\/name": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "required": true
+      },
+      "value": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "required": true
+      },
+      "test": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "required": true
+      },
+      "people": {
+        "type": "array",
         "items": {
           "type": [
             "string",
             "number"
           ],
-          "items": {
-            "type": "object",
-            "properties": {
-              "\/name": {
-                "type": [
-                  "string",
-                  "number"
-                ],
-                "required": true
-              }
+          "properties": {
+            "name": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "value": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "test": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
             }
           },
           "required": true
         }
+      },
+      "winners": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "people": {
+              "type": "array",
+              "items": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "properties": {
+                  "name": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  },
+                  "value": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  },
+                  "test": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  }
+                },
+                "required": true
+              }
+            }
+          }
+        }
       }
-    }
+    },
+    "required": true
   }
+}
+}
 }

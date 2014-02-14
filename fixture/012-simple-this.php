@@ -8,8 +8,8 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::enc('name', $cx, $in).', you have just won $'.LCRun::enc('value', $cx, $in).'!
-Winners: '.LCRun::sec('winners', $cx, $in, false, function($cx, $in) {return ''.LCRun::enc('', $cx, $in).'('.LCRun::raw('', $cx, $in).') = '.LCRun::enc('', $cx, $in).'('.LCRun::raw('', $cx, $in).')';}).'
+    return 'Hello '.LCRun::encq('name', $cx, $in).', you have just won $'.LCRun::encq('value', $cx, $in).'!
+Winners: '.LCRun::sec('winners', $cx, $in, false, function($cx, $in) {return ''.LCRun::encq('', $cx, $in).'('.LCRun::raw('', $cx, $in).') = '.LCRun::encq('', $cx, $in).'('.LCRun::raw('', $cx, $in).')';}).'
 ';
 }
 ?>

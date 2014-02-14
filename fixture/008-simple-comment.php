@@ -8,9 +8,9 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::enc('name', $cx, $in).', you have just won $'.LCRun::enc('value', $cx, $in).'!
+    return 'Hello '.LCRun::encq('name', $cx, $in).', you have just won $'.LCRun::encq('value', $cx, $in).'!
 '.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return ''.'
-This is true! won $'.LCRun::enc('value', $cx, $in).'!!
+This is true! won $'.LCRun::encq('value', $cx, $in).'!!
 ';}).'
 ';
 }

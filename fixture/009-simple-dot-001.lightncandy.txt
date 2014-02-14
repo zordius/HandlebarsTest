@@ -1,3 +1,3 @@
-Hello John &lt;K&#039;&gt;, you have just won $10000!
+Hello John &lt;K&#x27;&gt;, you have just won $10000!
 We have $100000 for &quot;GOLDEN&quot; award!!
-Raw dot test: John &lt;K&#039;&gt; 100000 for "GOLDEN"
+Raw dot test: John &lt;K&#x27;&gt; 100000 for "GOLDEN"

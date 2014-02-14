@@ -12,28 +12,28 @@
  <ul class="h-list">
  '.LCRun::wi('login_status', $cx, $in, function($cx, $in) {return '
   '.((LCRun::ifvar('is_login', $cx, $in)) ? '
-   <li><a href="'.LCRun::enc('edit_account_link', $cx, $in).'">Hello '.LCRun::enc('username', $cx, $in).'</a></li>
-   <li><a href="'.LCRun::enc('logut_link', $cx, $in).'">Logout</a></li>
+   <li><a href="'.LCRun::encq('edit_account_link', $cx, $in).'">Hello '.LCRun::encq('username', $cx, $in).'</a></li>
+   <li><a href="'.LCRun::encq('logut_link', $cx, $in).'">Logout</a></li>
   ' : '').'
   '.((!LCRun::ifvar('is_login', $cx, $in)) ? '
-   <li>New User? <a href="'.LCRun::enc('register_link', $cx, $in).'">Register Now</a></li>
-   <li><a href="'.LCRun::enc('login_link', $cx, $in).'">Login</a></li>
+   <li>New User? <a href="'.LCRun::encq('register_link', $cx, $in).'">Register Now</a></li>
+   <li><a href="'.LCRun::encq('login_link', $cx, $in).'">Login</a></li>
   ' : '').'
 ~WITH
   '.LCRun::wi('test', $cx, $in, function($cx, $in) {return '
 ~TEST~
-   '.LCRun::enc('testval', $cx, $in).'
+   '.LCRun::encq('testval', $cx, $in).'
    '.LCRun::raw('testval', $cx, $in).'
 ~IF~
    '.((LCRun::ifvar('testval', $cx, $in)) ? 'YES' : '').'
    '.((!LCRun::ifvar('testval', $cx, $in)) ? 'NO' : '').'
 ~SEC~
    '.LCRun::sec('test2', $cx, $in, false, function($cx, $in) {return '
-    '.LCRun::enc('loopval', $cx, $in).'
+    '.LCRun::encq('loopval', $cx, $in).'
    ';}).'
 ~EACH~
    '.LCRun::sec('test3', $cx, $in, true, function($cx, $in) {return '
-    '.LCRun::enc('loopval', $cx, $in).'
+    '.LCRun::encq('loopval', $cx, $in).'
    ';}).'
 ~END~
   ';}).'
@@ -41,9 +41,9 @@ WITH~
  ';}).'
 _WITH PATH_
  '.LCRun::wi('login_status.test', $cx, $in, function($cx, $in) {return '
-XTEST: '.LCRun::enc('testval', $cx, $in).' - '.LCRun::raw('textval', $cx, $in).'
+XTEST: '.LCRun::encq('testval', $cx, $in).' - '.LCRun::raw('textval', $cx, $in).'
 IF: '.((LCRun::ifvar('testval', $cx, $in)) ? 'YES~' : '').''.((!LCRun::ifvar('testval', $cx, $in)) ? 'NO!' : '').'
-SECTION::'.LCRun::sec('test2', $cx, $in, false, function($cx, $in) {return ' - loop: '.LCRun::enc('loopval', $cx, $in).'';}).'
+SECTION::'.LCRun::sec('test2', $cx, $in, false, function($cx, $in) {return ' - loop: '.LCRun::encq('loopval', $cx, $in).'';}).'
 EACH::'.LCRun::sec('test3', $cx, $in, true, function($cx, $in) {return '	lp:'.LCRun::raw('loopval', $cx, $in).'';}).'
 END!
  ';}).'

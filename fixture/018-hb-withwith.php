@@ -40,7 +40,7 @@
 WITH~
  ';}).'
 _WITH PATH_
- '.LCRun::wi('login_status.test', $cx, $in, function($cx, $in) {return '
+ '.LCRun::wi('login_status]test', $cx, $in, function($cx, $in) {return '
 XTEST: '.LCRun::encq('testval', $cx, $in).' - '.LCRun::raw('textval', $cx, $in).'
 IF: '.((LCRun::ifvar('testval', $cx, $in)) ? 'YES~' : '').''.((!LCRun::ifvar('testval', $cx, $in)) ? 'NO!' : '').'
 SECTION::'.LCRun::sec('test2', $cx, $in, false, function($cx, $in) {return ' - loop: '.LCRun::encq('loopval', $cx, $in).'';}).'

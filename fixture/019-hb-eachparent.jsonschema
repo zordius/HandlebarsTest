@@ -78,54 +78,57 @@
   },
   "items": {
     "type": "array",
-    "properties": {
-      "name": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "gender": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "end": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      }
-    },
     "items": {
       "type": "array",
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        },
+        "gender": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        },
+        "end": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        }
+      },
       "items": {
-        "type": "object",
-        "properties": {
-          "\/name": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
-          },
-          "\/value": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
-          },
-          "\/end": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "\/name": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "\/value": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "\/end": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            }
           }
         }
       }

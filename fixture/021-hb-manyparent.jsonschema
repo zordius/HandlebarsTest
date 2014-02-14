@@ -74,23 +74,26 @@
                   ],
                   "required": true
                 },
-                "\/
-              ]": {
-                "type": "object",
-                "properties": {
-                  "\/name": {
-                    "type": [
-                      "string",
-                      "number"
-                    ],
-                    "required": true
-                  },
-                  "\/end": {
-                    "type": [
-                      "string",
-                      "number"
-                    ],
-                    "required": true
+                "\/": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "\/name": {
+                        "type": [
+                          "string",
+                          "number"
+                        ],
+                        "required": true
+                      },
+                      "\/end": {
+                        "type": [
+                          "string",
+                          "number"
+                        ],
+                        "required": true
+                      }
+                    }
                   }
                 }
               }
@@ -98,46 +101,20 @@
           }
         }
       }
-    }
-  },
-  "items": {
-    "type": "object",
+    },
     "items": {
-      "type": "array",
-      "properties": {
-        "\/name": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        },
-        "\/value": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        },
-        "\/end": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        },
-        "\/gender": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        },
-        "\/
-      ]": {
-        "type": "object",
+      "type": "object",
+      "items": {
+        "type": "array",
         "properties": {
           "\/name": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "\/value": {
             "type": [
               "string",
               "number"
@@ -150,176 +127,17 @@
               "number"
             ],
             "required": true
-          }
-        }
-      },
-      "name": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "gender": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "goodchild": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "badchild": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "good": {
-        "type": "array",
-        "items": {
-          "type": "array",
-          "items": {
+          },
+          "\/gender": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "\/": {
             "type": "array",
             "items": {
-              "type": "object",
-              "properties": {
-                "\/gender": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
-                },
-                "\/
-              ]": {
-                "type": "object",
-                "properties": {
-                  "\/name": {
-                    "type": [
-                      "string",
-                      "number"
-                    ],
-                    "required": true
-                  },
-                  "\/end": {
-                    "type": [
-                      "string",
-                      "number"
-                    ],
-                    "required": true
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  "items": {
-    "type": "array",
-    "properties": {
-      "\/name": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "\/value": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "\/end": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "\/gender": {
-        "type": [
-          "string",
-          "number"
-        ],
-        "required": true
-      },
-      "\/
-    ]": {
-      "type": "object",
-      "properties": {
-        "\/name": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        },
-        "\/end": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        }
-      }
-    },
-    "name": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "required": true
-    },
-    "gender": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "required": true
-    },
-    "goodchild": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "required": true
-    },
-    "badchild": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "required": true
-    },
-    "good": {
-      "type": "array",
-      "items": {
-        "type": "array",
-        "items": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "\/gender": {
-                "type": [
-                  "string",
-                  "number"
-                ],
-                "required": true
-              },
-              "\/
-            ]": {
               "type": "object",
               "properties": {
                 "\/name": {
@@ -338,15 +156,387 @@
                 }
               }
             }
+          },
+          "name": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "gender": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "goodchild": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "badchild": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "good": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "\/gender": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    },
+                    "\/": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "\/name": {
+                            "type": [
+                              "string",
+                              "number"
+                            ],
+                            "required": true
+                          },
+                          "\/end": {
+                            "type": [
+                              "string",
+                              "number"
+                            ],
+                            "required": true
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "items": {
+          "type": "array",
+          "properties": {
+            "\/name": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "\/value": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "\/end": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "\/gender": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "\/": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "\/name": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  },
+                  "\/end": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  }
+                }
+              }
+            },
+            "name": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "gender": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "goodchild": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "badchild": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "good": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "\/gender": {
+                        "type": [
+                          "string",
+                          "number"
+                        ],
+                        "required": true
+                      },
+                      "\/": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "\/name": {
+                              "type": [
+                                "string",
+                                "number"
+                              ],
+                              "required": true
+                            },
+                            "\/end": {
+                              "type": [
+                                "string",
+                                "number"
+                              ],
+                              "required": true
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "people": {
+              "type": "array",
+              "items": {
+                "type": "array",
+                "properties": {
+                  "name": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  },
+                  "gender": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  },
+                  "end": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  }
+                },
+                "items": {
+                  "type": "array",
+                  "properties": {
+                    "name": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    }
+                  },
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "\/name": {
+                          "type": [
+                            "string",
+                            "number"
+                          ],
+                          "required": true
+                        },
+                        "\/": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "\/name": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ],
+                                "required": true
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "items": {
+            "type": "array",
+            "properties": {
+              "\/name": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              },
+              "\/value": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              },
+              "\/end": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              },
+              "\/gender": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              },
+              "\/": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "\/name": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    },
+                    "\/end": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    }
+                  }
+                }
+              }
+            },
+            "items": {
+              "type": "object",
+              "properties": {
+                "\/name": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "\/value": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "\/end": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "\/gender": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "\/": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "\/name": {
+                        "type": [
+                          "string",
+                          "number"
+                        ],
+                        "required": true
+                      },
+                      "\/end": {
+                        "type": [
+                          "string",
+                          "number"
+                        ],
+                        "required": true
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
-      }
-    }
-  },
-  "people": {
-    "type": "array",
-    "items": {
-      "type": "array",
+      },
       "properties": {
         "name": {
           "type": [
@@ -362,47 +552,58 @@
           ],
           "required": true
         },
-        "end": {
+        "goodchild": {
           "type": [
             "string",
             "number"
           ],
           "required": true
-        }
-      },
-      "items": {
-        "type": "array",
-        "properties": {
-          "name": {
-            "type": [
-              "string",
-              "number"
-            ],
-            "required": true
-          }
         },
-        "items": {
+        "badchild": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        },
+        "good": {
           "type": "array",
           "items": {
-            "type": "object",
-            "properties": {
-              "\/name": {
-                "type": [
-                  "string",
-                  "number"
-                ],
-                "required": true
-              },
-              "\/
-            ]": {
-              "type": "object",
-              "properties": {
-                "\/name": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "\/gender": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  },
+                  "\/": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "\/name": {
+                          "type": [
+                            "string",
+                            "number"
+                          ],
+                          "required": true
+                        },
+                        "\/end": {
+                          "type": [
+                            "string",
+                            "number"
+                          ],
+                          "required": true
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -411,187 +612,4 @@
       }
     }
   }
-}
-},
-"items": {
-"type": "array",
-"properties": {
-  "\/name": {
-    "type": [
-      "string",
-      "number"
-    ],
-    "required": true
-  },
-  "\/value": {
-    "type": [
-      "string",
-      "number"
-    ],
-    "required": true
-  },
-  "\/end": {
-    "type": [
-      "string",
-      "number"
-    ],
-    "required": true
-  },
-  "\/gender": {
-    "type": [
-      "string",
-      "number"
-    ],
-    "required": true
-  },
-  "\/
-]": {
-  "type": "object",
-  "properties": {
-    "\/name": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "required": true
-    },
-    "\/end": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "required": true
-    }
-  }
-}
-},
-"items": {
-"type": "object",
-"properties": {
-  "\/name": {
-    "type": [
-      "string",
-      "number"
-    ],
-    "required": true
-  },
-  "\/value": {
-    "type": [
-      "string",
-      "number"
-    ],
-    "required": true
-  },
-  "\/end": {
-    "type": [
-      "string",
-      "number"
-    ],
-    "required": true
-  },
-  "\/gender": {
-    "type": [
-      "string",
-      "number"
-    ],
-    "required": true
-  },
-  "\/
-]": {
-  "type": "object",
-  "properties": {
-    "\/name": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "required": true
-    },
-    "\/end": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "required": true
-    }
-  }
-}
-}
-}
-}
-}
-},
-"properties": {
-"name": {
-"type": [
-"string",
-"number"
-],
-"required": true
-},
-"gender": {
-"type": [
-"string",
-"number"
-],
-"required": true
-},
-"goodchild": {
-"type": [
-"string",
-"number"
-],
-"required": true
-},
-"badchild": {
-"type": [
-"string",
-"number"
-],
-"required": true
-},
-"good": {
-"type": "array",
-"items": {
-"type": "array",
-"items": {
-"type": "array",
-"items": {
-"type": "object",
-"properties": {
-  "\/gender": {
-    "type": [
-      "string",
-      "number"
-    ],
-    "required": true
-  },
-  "\/
-]": {
-  "type": "object",
-  "properties": {
-    "\/name": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "required": true
-    },
-    "\/end": {
-      "type": [
-        "string",
-        "number"
-      ],
-      "required": true
-    }
-  }
-}
-}
-}
-}
-}
-}
-}
-}
-}
 }

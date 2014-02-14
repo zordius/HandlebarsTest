@@ -6,17 +6,17 @@ Hello John, you have just won $10000!
  
  if-else
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad ->  , John
  
  unless else
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad ->  , John
  
 
  <li> is a  (John, 10000, OK!)</li>
@@ -24,17 +24,17 @@ Hello John, you have just won $10000!
  
  if-else
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad ->  , John
  
  unless else
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad ->  , John
  
 
  <li> is a  (John, 10000, OK!)</li>
@@ -42,17 +42,17 @@ Hello John, you have just won $10000!
  
  if-else
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad ->  , John
  
  unless else
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad ->  , John
  
 
  <li> is a  (John, 10000, OK!)</li>
@@ -60,17 +60,17 @@ Hello John, you have just won $10000!
  
  if-else
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad ->  , John
  
  unless else
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad ->  , John
  
 
  <li> is a  (John, 10000, OK!)</li>
@@ -78,48 +78,48 @@ Hello John, you have just won $10000!
  
  if-else
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad ->  , John
  
  unless else
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad ->  , John
  
 
 ----------THIS
 
  <li> is a  (John, 10000, OK!)</li>
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  
 
  <li> is a  (John, 10000, OK!)</li>
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  
 
  <li> is a  (John, 10000, OK!)</li>
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  
 
  <li> is a  (John, 10000, OK!)</li>
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  
 
  <li> is a  (John, 10000, OK!)</li>
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  
 
@@ -127,7 +127,7 @@ Hello John, you have just won $10000!
 
  <li>John is a  (John, 10000, OK!)</li>
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  
 
@@ -135,7 +135,7 @@ Hello John, you have just won $10000!
 
  <li>John is a  (John, 10000, OK!)</li>
  
-  BAD!   -  Y  = 
+  BAD!   -  Y John = OK!
  
  
 
@@ -143,6 +143,6 @@ Hello John, you have just won $10000!
 WITH TEST>
 
  single: , 
- loop: Mr. First -  - loop: Mrs. Second -  - 
+ loop: Mr. First -  - Johnloop: Mrs. Second -  - John
 
 OK!

@@ -84,24 +84,14 @@
 ],
 "required": true
 },
-"inners": {
-"type": "object",
-"properties": {
-"[
-!
-]": {
-"type": "object",
-"properties": {
-"nam": {
-  "type": [
-    "string",
-    "number"
-  ],
-  "required": true
-}
-}
-}
-}
+"winners
+]!
+]name": {
+"type": [
+"string",
+"number"
+],
+"required": true
 }
 }
 }

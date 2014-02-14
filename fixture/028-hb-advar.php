@@ -15,7 +15,7 @@
 . K '.LCRun::encq('![', $cx, $in).' X
 . Hello '.LCRun::encq('winners]0]name', $cx, $in).' !! Won $'.LCRun::encq('winners]0]value', $cx, $in).' now~~
 . Hello '.LCRun::encq('winners]1]name', $cx, $in).' !! Won $'.LCRun::encq('winners]1]value', $cx, $in).' later~~
-. No '.LCRun::encq('inners.[!].nam', $cx, $in).' !!
+. No '.LCRun::encq('winners]!]name', $cx, $in).' !!
 ';
 }
 ?>

@@ -27,7 +27,7 @@
     "people": {
       "type": "array",
       "items": {
-        "type": "object",
+        "type": "array",
         "properties": {
           "name": {
             "type": [
@@ -42,89 +42,93 @@
               "number"
             ],
             "required": true
-          },
-          "
-        ]
-      ]\/name": {
+          }
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "\/name": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              },
+              "\/value": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              },
+              "\/end": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "items": {
+    "type": "array",
+    "properties": {
+      "name": {
         "type": [
           "string",
           "number"
         ],
         "required": true
       },
-      "
-    ]
-  ]\/value": {
-    "type": [
-      "string",
-      "number"
-    ],
-    "required": true
-  },
-  "
-]
-]\/end": {
-"type": [
-  "string",
-  "number"
-],
-"required": true
-}
-}
-}
-}
-},
-"items": {
-"type": "object",
-"properties": {
-"name": {
-"type": [
-"string",
-"number"
-],
-"required": true
-},
-"gender": {
-"type": [
-"string",
-"number"
-],
-"required": true
-},
-"
-]
-]\/name": {
-"type": [
-"string",
-"number"
-],
-"required": true
-},
-"
-]
-]\/value": {
-"type": [
-"string",
-"number"
-],
-"required": true
-},
-"
-]
-]\/end": {
-"type": [
-"string",
-"number"
-],
-"required": true
-},
-"end": {
-"type": [
-"string",
-"number"
-],
-"required": true
-}
-}
-}
+      "gender": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "required": true
+      },
+      "end": {
+        "type": [
+          "string",
+          "number"
+        ],
+        "required": true
+      }
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "\/name": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "\/value": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "\/end": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          }
+        }
+      }
+    }
+  }
 }

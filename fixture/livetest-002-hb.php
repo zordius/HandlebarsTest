@@ -14,19 +14,19 @@
         '.LCRun::ifv('icon', $cx, $in, function($cx, $in) {return '
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-'.LCRun::encq(']]/id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'" value="'.LCRun::encq('id', $cx, $in).'" name="'.LCRun::encq(']]/id', $cx, $in).'" alt="'.LCRun::encq('name', $cx, $in).'" data-name="'.LCRun::encq('name', $cx, $in).'"/>
-            <label class="spec-label icon" for="spec-'.LCRun::encq(']]/id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'" style="background-image:url('.LCRun::encq('icon', $cx, $in).');">
+            <input type="radio" id="spec-'.LCRun::encq('../id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'" value="'.LCRun::encq('id', $cx, $in).'" name="'.LCRun::encq('../id', $cx, $in).'" alt="'.LCRun::encq('name', $cx, $in).'" data-name="'.LCRun::encq('name', $cx, $in).'"/>
+            <label class="spec-label icon" for="spec-'.LCRun::encq('../id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'" style="background-image:url('.LCRun::encq('icon', $cx, $in).');">
             </label>
         </div>
         ';}, function($cx, $in) {return '
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-'.LCRun::encq(']]/id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'" value="'.LCRun::encq('id', $cx, $in).'" name="'.LCRun::encq(']]/id', $cx, $in).'" data-name="'.LCRun::encq('name', $cx, $in).'"/>
-            <label class="spec-label" for="spec-'.LCRun::encq(']]/id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'">'.LCRun::encq('name', $cx, $in).'</label>
+            <input type="radio" id="spec-'.LCRun::encq('../id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'" value="'.LCRun::encq('id', $cx, $in).'" name="'.LCRun::encq('../id', $cx, $in).'" data-name="'.LCRun::encq('name', $cx, $in).'"/>
+            <label class="spec-label" for="spec-'.LCRun::encq('../id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'">'.LCRun::encq('name', $cx, $in).'</label>
         </div>
         ';}).'
         <script>
-            document.getElementById(\'spec-'.LCRun::encq(']]/id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'\').className += \'hidden\';
+            document.getElementById(\'spec-'.LCRun::encq('../id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'\').className += \'hidden\';
         </script>
     ';}).'
     </div>

@@ -20,7 +20,7 @@
         key is empty or null
     ';}).'
 
-    '.LCRun::encq(']]/fake', $cx, $in).'
+    '.LCRun::encq('../fake', $cx, $in).'
 
 ';}).'
 ';}).'

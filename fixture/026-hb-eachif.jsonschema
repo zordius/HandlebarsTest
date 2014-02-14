@@ -11,7 +11,7 @@
           "child": {
             "type": "array",
             "items": {
-              "type": "object",
+              "type": "array",
               "properties": {
                 "key": {
                   "type": [
@@ -19,21 +19,27 @@
                     "number"
                   ],
                   "required": true
-                },
-                "
-              ]
-            ]\/fake": {
-              "type": [
-                "string",
-                "number"
-              ],
-              "required": true
+                }
+              },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "\/fake": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    }
+                  }
+                }
+              }
             }
           }
         }
       }
     }
   }
-}
-}
 }

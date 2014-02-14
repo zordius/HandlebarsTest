@@ -12,19 +12,19 @@
 
 ##0 start section:
 '.LCRun::sec('winners', $cx, $in, false, function($cx, $in) {return '
-  - EACH 1 - '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq(']]/name', $cx, $in).'
+  - EACH 1 - '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq('../name', $cx, $in).'
   Name:'.LCRun::encq('name', $cx, $in).', Value:'.LCRun::encq('value', $cx, $in).', This: '.LCRun::encq('', $cx, $in).', Test: '.LCRun::encq('test', $cx, $in).'
 
-  - EACH 2- '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq(']]/name', $cx, $in).'
+  - EACH 2- '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq('../name', $cx, $in).'
 ';}).'
 end section.
 
 ##1 start each:
 '.LCRun::sec('winners', $cx, $in, true, function($cx, $in) {return '
-  - EACH 3 - '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq(']]/name', $cx, $in).'
+  - EACH 3 - '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq('../name', $cx, $in).'
   Name:'.LCRun::encq('name', $cx, $in).', Value:'.LCRun::encq('value', $cx, $in).', This: '.LCRun::encq('', $cx, $in).', Test: '.LCRun::encq('test', $cx, $in).'
 
-  - EACH 4 - '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq(']]/name', $cx, $in).'
+  - EACH 4 - '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq('../name', $cx, $in).'
 ';}).'
 end each.
 

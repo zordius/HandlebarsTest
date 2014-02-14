@@ -1,42 +1,42 @@
 Hello John, you have just won $10000!
 <ul>
 
- <li> is a  (, , )</li>
+ <li> is a  (John, 10000, OK!)</li>
 
- <li> is a  (, , )</li>
+ <li> is a  (John, 10000, OK!)</li>
 
- <li> is a  (, , )</li>
+ <li> is a  (John, 10000, OK!)</li>
 
- <li> is a  (, , )</li>
+ <li> is a  (John, 10000, OK!)</li>
 
 </ul>
 OK!
 
  THIS: is a 
- PARENT: , ,  END  NAME 
+ PARENT: John, 10000, OK! END  NAME 
 
  THIS: is a 
- PARENT: , ,  END  NAME 
+ PARENT: John, 10000, OK! END  NAME 
 
  THIS: is a 
- PARENT: , ,  END  NAME 
+ PARENT: John, 10000, OK! END  NAME 
 
  THIS: is a 
- PARENT: , ,  END  NAME 
+ PARENT: John, 10000, OK! END  NAME 
 
 Section This:
 
- <li>X~John is a  (, , )</li>
+ <li>X~John is a  (John, 10000, OK!)</li>
 
 Section Var:
 
- <li>XXXVARMr. First is a man (, , )</li>
+ <li>XXXVARMr. First is a man (John, 10000, OK!)</li>
 
- <li>XXXVARMrs. Second is a woman (, , )</li>
+ <li>XXXVARMrs. Second is a woman (John, 10000, OK!)</li>
 
 Each Var:
 
- <li>XXX-EACH-VARMr. First is a man (, , )</li>
+ <li>XXX-EACH-VARMr. First is a man (John, 10000, OK!)</li>
 
- <li>XXX-EACH-VARMrs. Second is a woman (, , )</li>
+ <li>XXX-EACH-VARMrs. Second is a woman (John, 10000, OK!)</li>
 

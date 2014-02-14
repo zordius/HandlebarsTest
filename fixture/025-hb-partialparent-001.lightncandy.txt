@@ -11,15 +11,15 @@ end section.
 
 ##1 start each:
 
-  - EACH 3 -  ~ 
+  - EACH 3 -  ~ John
   Name:, Value:, This: test, Test: 
 
-  - EACH 4 -  ~ 
+  - EACH 4 -  ~ John
 
-  - EACH 3 -  ~ 
+  - EACH 3 -  ~ John
   Name:, Value:, This: true, Test: 
 
-  - EACH 4 -  ~ 
+  - EACH 4 -  ~ John
 
 end each.
 

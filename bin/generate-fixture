@@ -47,6 +47,10 @@ var fs = require('fs'),
         });
     };
 
+handlebars.registerHelper('helper1', function (url, text) {
+    return '<a href="' + url + '">' + text + '</a>';
+});
+
 fs.readdir(dir, function (err, files) {
     files.forEach(function (file) {
         if (!file.match(/\.tmpl/)) {

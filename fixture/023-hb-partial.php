@@ -4,6 +4,7 @@
             'jstrue' => true,
             'jsobj' => true,
         ),
+        'helpers' => Array(),
         'scopes' => Array($in),
         'path' => Array(),
 

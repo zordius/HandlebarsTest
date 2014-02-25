@@ -12,7 +12,7 @@ var fs = require('fs'),
             files.forEach(function (file) {
                 var tmpl = file.replace(/-\d+\.json/, '.tmpl');
         
-                if (!file.match(/\.json/)) {
+                if (!file.match(/\.json$/)) {
                     return;
                 }
         

@@ -27,7 +27,7 @@ warn(print_r($vars, true));
 // Prepare template
 $flag = 0;
 if ($argv[1] == 'lightncandy') {
-    require_once('cloned/lightncandy/src/lightncandy.inc');
+    require_once('cloned/lightncandy/src/lightncandy.php');
     $flag = LightnCandy::FLAG_ERROR_LOG;
     if (($test_times % 2) == 1) {
         $flag = $flag | LightnCandy::FLAG_HANDLEBARSJS;
@@ -43,6 +43,13 @@ try {
     prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), Array(
         'flags' => $flag,
         'basedir' => './fixture',
+        'helpers' => Array(
+            'helper1' => function ($url, $txt) {
+                $u = ($url !== null) ? $url : 'undefined';
+                $t = ($txt !== null) ? $txt : 'undefined';
+                return "<a href=\"{$u}\">{$t}</a>";
+            }
+        )
     ));
 
     // Execute template

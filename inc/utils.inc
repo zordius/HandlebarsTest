@@ -25,11 +25,19 @@ function prepare_tmpl($name, $file, $flag) {
         Handlebars\Autoloader::register();
         //use Handlebars\Handlebars;
         $m = new Handlebars\Handlebars;
+        $m->getHelpers()->add('helper1', function($tmpl, $cx, $args, $src) {
+            $v = explode(' ', $args);
+            $url = $cx->get($v[0]);
+            $txt = $cx->get($v[1]);
+            $u = ($url !== null) ? $url : 'undefined';
+            $t = ($txt !== null) ? $txt : 'undefined';
+            return "<a href=\"{$u}\">{$t}</a>";
+        });
         $test_tmpl = $m->loadTemplate($tmpl_txt);
         $test_method = 'render';
         break;
     case 'lightncandy':
-        require_once('cloned/lightncandy/src/lightncandy.inc');
+        require_once('cloned/lightncandy/src/lightncandy.php');
         $php = LightnCandy::compile($tmpl_txt, $flag);
         $inc = preg_replace('/\.tmpl/', '.php', $file);
         file_put_contents($inc, $php);

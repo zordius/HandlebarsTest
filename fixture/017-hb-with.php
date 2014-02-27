@@ -4,7 +4,12 @@
             'jstrue' => true,
             'jsobj' => true,
         ),
-        'helpers' => Array(),
+        'helpers' => Array(            'helper1' => function($url, $txt) {
+                $u = ($url !== null) ? $url : 'undefined';
+                $t = ($txt !== null) ? $txt : 'undefined';
+                return "<a href=\"{$u}\">{$t}</a>";
+            },
+),
         'scopes' => Array($in),
         'path' => Array(),
 

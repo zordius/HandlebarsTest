@@ -16,14 +16,14 @@
     );
     return '<div class="yui3-u-1-2 member-status">
  <ul class="h-list">
- '.LCRun::wi('login_status', $cx, $in, function($cx, $in) {return '
-  '.((LCRun::ifvar('is_login', $cx, $in)) ? '
-   <li><a href="'.LCRun::encq('edit_account_link', $cx, $in).'">Hello '.LCRun::encq('username', $cx, $in).'</a></li>
-   <li><a href="'.LCRun::encq('logut_link', $cx, $in).'">Logout</a></li>
+ '.LCRun2::wi(Array('login_status'), $cx, $in, function($cx, $in) {return '
+  '.((LCRun2::ifvar(Array('is_login'), $cx, $in)) ? '
+   <li><a href="'.LCRun2::encq(Array('edit_account_link'), $cx, $in).'">Hello '.LCRun2::encq(Array('username'), $cx, $in).'</a></li>
+   <li><a href="'.LCRun2::encq(Array('logut_link'), $cx, $in).'">Logout</a></li>
   ' : '').'
-  '.((!LCRun::ifvar('is_login', $cx, $in)) ? '
-   <li>New User? <a href="'.LCRun::encq('register_link', $cx, $in).'">Register Now</a></li>
-   <li><a href="'.LCRun::encq('login_link', $cx, $in).'">Login</a></li>
+  '.((!LCRun2::ifvar(Array('is_login'), $cx, $in)) ? '
+   <li>New User? <a href="'.LCRun2::encq(Array('register_link'), $cx, $in).'">Register Now</a></li>
+   <li><a href="'.LCRun2::encq(Array('login_link'), $cx, $in).'">Login</a></li>
   ' : '').'
  ';}).'
   <li><a>About Auction</a></li>

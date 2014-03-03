@@ -37,12 +37,64 @@
           ],
           "required": true
         },
+        "1": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "value": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "end": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "gender": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            }
+          }
+        },
         "goodchild": {
           "type": [
             "string",
             "number"
           ],
           "required": true
+        },
+        "2": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            },
+            "end": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            }
+          }
         },
         "badchild": {
           "type": [
@@ -54,7 +106,7 @@
         "good": {
           "type": "array",
           "items": {
-            "type": "array",
+            "type": "object",
             "properties": {
               "gender": {
                 "type": [
@@ -62,41 +114,35 @@
                   "number"
                 ],
                 "required": true
-              }
-            },
-            "items": {
-              "type": "array",
-              "items": {
+              },
+              "1": {
                 "type": "object",
                 "properties": {
-                  "\/gender": {
+                  "gender": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  }
+                }
+              },
+              "2": {
+                "type": "object",
+                "properties": {
+                  "name": {
                     "type": [
                       "string",
                       "number"
                     ],
                     "required": true
                   },
-                  "\/": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "\/name": {
-                          "type": [
-                            "string",
-                            "number"
-                          ],
-                          "required": true
-                        },
-                        "\/end": {
-                          "type": [
-                            "string",
-                            "number"
-                          ],
-                          "required": true
-                        }
-                      }
-                    }
+                  "end": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
                   }
                 }
               }
@@ -109,56 +155,6 @@
         "items": {
           "type": "array",
           "properties": {
-            "\/name": {
-              "type": [
-                "string",
-                "number"
-              ],
-              "required": true
-            },
-            "\/value": {
-              "type": [
-                "string",
-                "number"
-              ],
-              "required": true
-            },
-            "\/end": {
-              "type": [
-                "string",
-                "number"
-              ],
-              "required": true
-            },
-            "\/gender": {
-              "type": [
-                "string",
-                "number"
-              ],
-              "required": true
-            },
-            "\/": {
-              "type": "array",
-              "items": {
-                "type": "object",
-                "properties": {
-                  "\/name": {
-                    "type": [
-                      "string",
-                      "number"
-                    ],
-                    "required": true
-                  },
-                  "\/end": {
-                    "type": [
-                      "string",
-                      "number"
-                    ],
-                    "required": true
-                  }
-                }
-              }
-            },
             "name": {
               "type": [
                 "string",
@@ -173,12 +169,64 @@
               ],
               "required": true
             },
+            "1": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "value": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "end": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "gender": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                }
+              }
+            },
             "goodchild": {
               "type": [
                 "string",
                 "number"
               ],
               "required": true
+            },
+            "2": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "end": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                }
+              }
             },
             "badchild": {
               "type": [
@@ -190,40 +238,36 @@
             "good": {
               "type": "array",
               "items": {
-                "type": "array",
-                "items": {
-                  "type": "array",
-                  "items": {
+                "type": "object",
+                "properties": {
+                  "1": {
                     "type": "object",
                     "properties": {
-                      "\/gender": {
+                      "gender": {
+                        "type": [
+                          "string",
+                          "number"
+                        ],
+                        "required": true
+                      }
+                    }
+                  },
+                  "2": {
+                    "type": "object",
+                    "properties": {
+                      "name": {
                         "type": [
                           "string",
                           "number"
                         ],
                         "required": true
                       },
-                      "\/": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "\/name": {
-                              "type": [
-                                "string",
-                                "number"
-                              ],
-                              "required": true
-                            },
-                            "\/end": {
-                              "type": [
-                                "string",
-                                "number"
-                              ],
-                              "required": true
-                            }
-                          }
-                        }
+                      "end": {
+                        "type": [
+                          "string",
+                          "number"
+                        ],
+                        "required": true
                       }
                     }
                   }
@@ -236,56 +280,6 @@
             "items": {
               "type": "array",
               "properties": {
-                "\/name": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
-                },
-                "\/value": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
-                },
-                "\/end": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
-                },
-                "\/gender": {
-                  "type": [
-                    "string",
-                    "number"
-                  ],
-                  "required": true
-                },
-                "\/": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "\/name": {
-                        "type": [
-                          "string",
-                          "number"
-                        ],
-                        "required": true
-                      },
-                      "\/end": {
-                        "type": [
-                          "string",
-                          "number"
-                        ],
-                        "required": true
-                      }
-                    }
-                  }
-                },
                 "name": {
                   "type": [
                     "string",
@@ -300,12 +294,64 @@
                   ],
                   "required": true
                 },
+                "1": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    },
+                    "value": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    },
+                    "end": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    },
+                    "gender": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    }
+                  }
+                },
                 "goodchild": {
                   "type": [
                     "string",
                     "number"
                   ],
                   "required": true
+                },
+                "2": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    },
+                    "end": {
+                      "type": [
+                        "string",
+                        "number"
+                      ],
+                      "required": true
+                    }
+                  }
                 },
                 "badchild": {
                   "type": [
@@ -317,40 +363,36 @@
                 "good": {
                   "type": "array",
                   "items": {
-                    "type": "array",
-                    "items": {
-                      "type": "array",
-                      "items": {
+                    "type": "object",
+                    "properties": {
+                      "1": {
                         "type": "object",
                         "properties": {
-                          "\/gender": {
+                          "gender": {
+                            "type": [
+                              "string",
+                              "number"
+                            ],
+                            "required": true
+                          }
+                        }
+                      },
+                      "2": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
                             "type": [
                               "string",
                               "number"
                             ],
                             "required": true
                           },
-                          "\/": {
-                            "type": "array",
-                            "items": {
-                              "type": "object",
-                              "properties": {
-                                "\/name": {
-                                  "type": [
-                                    "string",
-                                    "number"
-                                  ],
-                                  "required": true
-                                },
-                                "\/end": {
-                                  "type": [
-                                    "string",
-                                    "number"
-                                  ],
-                                  "required": true
-                                }
-                              }
-                            }
+                          "end": {
+                            "type": [
+                              "string",
+                              "number"
+                            ],
+                            "required": true
                           }
                         }
                       }
@@ -361,58 +403,8 @@
               "items": {
                 "type": "array",
                 "items": {
-                  "type": "array",
+                  "type": "object",
                   "properties": {
-                    "\/name": {
-                      "type": [
-                        "string",
-                        "number"
-                      ],
-                      "required": true
-                    },
-                    "\/value": {
-                      "type": [
-                        "string",
-                        "number"
-                      ],
-                      "required": true
-                    },
-                    "\/end": {
-                      "type": [
-                        "string",
-                        "number"
-                      ],
-                      "required": true
-                    },
-                    "\/gender": {
-                      "type": [
-                        "string",
-                        "number"
-                      ],
-                      "required": true
-                    },
-                    "\/": {
-                      "type": "array",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "\/name": {
-                            "type": [
-                              "string",
-                              "number"
-                            ],
-                            "required": true
-                          },
-                          "\/end": {
-                            "type": [
-                              "string",
-                              "number"
-                            ],
-                            "required": true
-                          }
-                        }
-                      }
-                    },
                     "name": {
                       "type": [
                         "string",
@@ -427,12 +419,64 @@
                       ],
                       "required": true
                     },
+                    "1": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "number"
+                          ],
+                          "required": true
+                        },
+                        "value": {
+                          "type": [
+                            "string",
+                            "number"
+                          ],
+                          "required": true
+                        },
+                        "end": {
+                          "type": [
+                            "string",
+                            "number"
+                          ],
+                          "required": true
+                        },
+                        "gender": {
+                          "type": [
+                            "string",
+                            "number"
+                          ],
+                          "required": true
+                        }
+                      }
+                    },
                     "goodchild": {
                       "type": [
                         "string",
                         "number"
                       ],
                       "required": true
+                    },
+                    "2": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": [
+                            "string",
+                            "number"
+                          ],
+                          "required": true
+                        },
+                        "end": {
+                          "type": [
+                            "string",
+                            "number"
+                          ],
+                          "required": true
+                        }
+                      }
                     },
                     "badchild": {
                       "type": [
@@ -444,40 +488,36 @@
                     "good": {
                       "type": "array",
                       "items": {
-                        "type": "array",
-                        "items": {
-                          "type": "array",
-                          "items": {
+                        "type": "object",
+                        "properties": {
+                          "1": {
                             "type": "object",
                             "properties": {
-                              "\/gender": {
+                              "gender": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ],
+                                "required": true
+                              }
+                            }
+                          },
+                          "2": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
                                 "type": [
                                   "string",
                                   "number"
                                 ],
                                 "required": true
                               },
-                              "\/": {
-                                "type": "array",
-                                "items": {
-                                  "type": "object",
-                                  "properties": {
-                                    "\/name": {
-                                      "type": [
-                                        "string",
-                                        "number"
-                                      ],
-                                      "required": true
-                                    },
-                                    "\/end": {
-                                      "type": [
-                                        "string",
-                                        "number"
-                                      ],
-                                      "required": true
-                                    }
-                                  }
-                                }
+                              "end": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ],
+                                "required": true
                               }
                             }
                           }
@@ -514,7 +554,7 @@
                         "items": {
                           "type": "array",
                           "items": {
-                            "type": "array",
+                            "type": "object",
                             "properties": {
                               "name": {
                                 "type": [
@@ -522,94 +562,30 @@
                                   "number"
                                 ],
                                 "required": true
-                              }
-                            },
-                            "items": {
-                              "type": "array",
-                              "items": {
+                              },
+                              "1": {
                                 "type": "object",
                                 "properties": {
-                                  "\/name": {
+                                  "name": {
                                     "type": [
                                       "string",
                                       "number"
                                     ],
                                     "required": true
-                                  },
-                                  "\/": {
-                                    "type": "array",
-                                    "items": {
-                                      "type": "object",
-                                      "properties": {
-                                        "\/name": {
-                                          "type": [
-                                            "string",
-                                            "number"
-                                          ],
-                                          "required": true
-                                        }
-                                      }
-                                    }
                                   }
                                 }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "items": {
-                    "type": "array",
-                    "items": {
-                      "type": "object",
-                      "properties": {
-                        "\/name": {
-                          "type": [
-                            "string",
-                            "number"
-                          ],
-                          "required": true
-                        },
-                        "\/value": {
-                          "type": [
-                            "string",
-                            "number"
-                          ],
-                          "required": true
-                        },
-                        "\/end": {
-                          "type": [
-                            "string",
-                            "number"
-                          ],
-                          "required": true
-                        },
-                        "\/gender": {
-                          "type": [
-                            "string",
-                            "number"
-                          ],
-                          "required": true
-                        },
-                        "\/": {
-                          "type": "array",
-                          "items": {
-                            "type": "object",
-                            "properties": {
-                              "\/name": {
-                                "type": [
-                                  "string",
-                                  "number"
-                                ],
-                                "required": true
                               },
-                              "\/end": {
-                                "type": [
-                                  "string",
-                                  "number"
-                                ],
-                                "required": true
+                              "2": {
+                                "type": "object",
+                                "properties": {
+                                  "name": {
+                                    "type": [
+                                      "string",
+                                      "number"
+                                    ],
+                                    "required": true
+                                  }
+                                }
                               }
                             }
                           }

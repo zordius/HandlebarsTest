@@ -14,53 +14,53 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::encq('name', $cx, $in).', you have just won $'.LCRun::encq('value', $cx, $in).'!
+    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
 
 ##0 start section:
-'.LCRun::sec('winners', $cx, $in, false, function($cx, $in) {return '
-  - EACH 1 - '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq('../name', $cx, $in).'
-  Name:'.LCRun::encq('name', $cx, $in).', Value:'.LCRun::encq('value', $cx, $in).', This: '.LCRun::encq('', $cx, $in).', Test: '.LCRun::encq('test', $cx, $in).'
+'.LCRun2::sec(Array('winners'), $cx, $in, false, function($cx, $in) {return '
+  - EACH 1 - '.LCRun2::encq(Array('name'), $cx, $in).' ~ '.LCRun2::encq(Array(1,'name'), $cx, $in).'
+  Name:'.LCRun2::encq(Array('name'), $cx, $in).', Value:'.LCRun2::encq(Array('value'), $cx, $in).', This: '.LCRun2::encq(Array(null), $cx, $in).', Test: '.LCRun2::encq(Array('test'), $cx, $in).'
 
-  - EACH 2- '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq('../name', $cx, $in).'
+  - EACH 2- '.LCRun2::encq(Array('name'), $cx, $in).' ~ '.LCRun2::encq(Array(1,'name'), $cx, $in).'
 ';}).'
 end section.
 
 ##1 start each:
-'.LCRun::sec('winners', $cx, $in, true, function($cx, $in) {return '
-  - EACH 3 - '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq('../name', $cx, $in).'
-  Name:'.LCRun::encq('name', $cx, $in).', Value:'.LCRun::encq('value', $cx, $in).', This: '.LCRun::encq('', $cx, $in).', Test: '.LCRun::encq('test', $cx, $in).'
+'.LCRun2::sec(Array('winners'), $cx, $in, true, function($cx, $in) {return '
+  - EACH 3 - '.LCRun2::encq(Array('name'), $cx, $in).' ~ '.LCRun2::encq(Array(1,'name'), $cx, $in).'
+  Name:'.LCRun2::encq(Array('name'), $cx, $in).', Value:'.LCRun2::encq(Array('value'), $cx, $in).', This: '.LCRun2::encq(Array(null), $cx, $in).', Test: '.LCRun2::encq(Array('test'), $cx, $in).'
 
-  - EACH 4 - '.LCRun::encq('name', $cx, $in).' ~ '.LCRun::encq('../name', $cx, $in).'
+  - EACH 4 - '.LCRun2::encq(Array('name'), $cx, $in).' ~ '.LCRun2::encq(Array(1,'name'), $cx, $in).'
 ';}).'
 end each.
 
 ##2 start each+if:
-'.LCRun::sec('winners', $cx, $in, true, function($cx, $in) {return '
- '.LCRun::ifv('test', $cx, $in, function($cx, $in) {return '
-  Name:'.LCRun::encq('name', $cx, $in).', Value:'.LCRun::encq('value', $cx, $in).', This: '.LCRun::encq('', $cx, $in).', Test: '.LCRun::encq('test', $cx, $in).'
+'.LCRun2::sec(Array('winners'), $cx, $in, true, function($cx, $in) {return '
+ '.((LCRun2::ifvar(Array('test'), $cx, $in)) ? '
+  Name:'.LCRun2::encq(Array('name'), $cx, $in).', Value:'.LCRun2::encq(Array('value'), $cx, $in).', This: '.LCRun2::encq(Array(null), $cx, $in).', Test: '.LCRun2::encq(Array('test'), $cx, $in).'
 
- ';}).'
+ ' : '').'
 ';}).'
 end each+if.
 
 ##3 start each+if+with:
-'.LCRun::sec('winners', $cx, $in, true, function($cx, $in) {return '
- '.LCRun::ifv('test', $cx, $in, function($cx, $in) {return '
-  '.LCRun::wi('people', $cx, $in, function($cx, $in) {return '
-   Name:'.LCRun::encq('name', $cx, $in).', Value:'.LCRun::encq('value', $cx, $in).', This: '.LCRun::encq('', $cx, $in).', Test: '.LCRun::encq('test', $cx, $in).'
+'.LCRun2::sec(Array('winners'), $cx, $in, true, function($cx, $in) {return '
+ '.((LCRun2::ifvar(Array('test'), $cx, $in)) ? '
+  '.LCRun2::wi(Array('people'), $cx, $in, function($cx, $in) {return '
+   Name:'.LCRun2::encq(Array('name'), $cx, $in).', Value:'.LCRun2::encq(Array('value'), $cx, $in).', This: '.LCRun2::encq(Array(null), $cx, $in).', Test: '.LCRun2::encq(Array('test'), $cx, $in).'
 
   ';}).'
- ';}).'
+ ' : '').'
 ';}).'
 end each+if+with.
 
 ##4 start each+with+if:
-'.LCRun::sec('winners', $cx, $in, true, function($cx, $in) {return '
- '.LCRun::wi('people', $cx, $in, function($cx, $in) {return '
-  '.LCRun::ifv('test', $cx, $in, function($cx, $in) {return '
-   Name:'.LCRun::encq('name', $cx, $in).', Value:'.LCRun::encq('value', $cx, $in).', This: '.LCRun::encq('', $cx, $in).', Test: '.LCRun::encq('test', $cx, $in).'
+'.LCRun2::sec(Array('winners'), $cx, $in, true, function($cx, $in) {return '
+ '.LCRun2::wi(Array('people'), $cx, $in, function($cx, $in) {return '
+  '.((LCRun2::ifvar(Array('test'), $cx, $in)) ? '
+   Name:'.LCRun2::encq(Array('name'), $cx, $in).', Value:'.LCRun2::encq(Array('value'), $cx, $in).', This: '.LCRun2::encq(Array(null), $cx, $in).', Test: '.LCRun2::encq(Array('test'), $cx, $in).'
 
-  ';}).'
+  ' : '').'
  ';}).'
 ';}).'
 end each+with+if.

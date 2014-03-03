@@ -14,11 +14,11 @@
         'path' => Array(),
 
     );
-    return ''.LCRun::encq('grand_parent_id', $cx, $in).'
-'.LCRun::sec('parent_contexts', $cx, $in, false, function($cx, $in) {return '
-  '.LCRun::encq('parent_id', $cx, $in).' ('.LCRun::encq('grand_parent_id', $cx, $in).')
-  '.LCRun::sec('child_contexts', $cx, $in, false, function($cx, $in) {return '
-    '.LCRun::encq('child_id', $cx, $in).' ('.LCRun::encq('parent_id', $cx, $in).' << '.LCRun::encq('grand_parent_id', $cx, $in).')
+    return ''.LCRun2::encq(Array('grand_parent_id'), $cx, $in).'
+'.LCRun2::sec(Array('parent_contexts'), $cx, $in, false, function($cx, $in) {return '
+  '.LCRun2::encq(Array('parent_id'), $cx, $in).' ('.LCRun2::encq(Array('grand_parent_id'), $cx, $in).')
+  '.LCRun2::sec(Array('child_contexts'), $cx, $in, false, function($cx, $in) {return '
+    '.LCRun2::encq(Array('child_id'), $cx, $in).' ('.LCRun2::encq(Array('parent_id'), $cx, $in).' << '.LCRun2::encq(Array('grand_parent_id'), $cx, $in).')
   ';}).'
 ';}).'
 ';

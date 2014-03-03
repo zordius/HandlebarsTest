@@ -12,12 +12,11 @@
             "type": "array",
             "items": {
               "type": "object",
-              "items": {
-                "type": "array",
-                "items": {
+              "properties": {
+                "1": {
                   "type": "object",
                   "properties": {
-                    "\/id": {
+                    "id": {
                       "type": [
                         "string",
                         "number"
@@ -25,9 +24,7 @@
                       "required": true
                     }
                   }
-                }
-              },
-              "properties": {
+                },
                 "id": {
                   "type": [
                     "string",

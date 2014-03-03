@@ -14,14 +14,14 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::encq('name', $cx, $in).', you have just won $'.LCRun::encq('value', $cx, $in).'!
+    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
 
-. '.LCRun::encq('!', $cx, $in).' !!
-. KAKA '.LCRun::encq('! # % & ( ) * + , . / ; < = > @ [ \ ^ ` { | } ~', $cx, $in).'
-. K '.LCRun::encq('![', $cx, $in).' X
-. Hello '.LCRun::encq('winners]0]name', $cx, $in).' !! Won $'.LCRun::encq('winners]0]value', $cx, $in).' now~~
-. Hello '.LCRun::encq('winners]1]name', $cx, $in).' !! Won $'.LCRun::encq('winners]1]value', $cx, $in).' later~~
-. No '.LCRun::encq('winners]!]name', $cx, $in).' !!
+. '.LCRun2::encq(Array('!'), $cx, $in).' !!
+. KAKA '.LCRun2::encq(Array('! # % & ( ) * + , . / ; < = > @ [ \ ^ ` { | } ~'), $cx, $in).'
+. K '.LCRun2::encq(Array('!['), $cx, $in).' X
+. Hello '.LCRun2::encq(Array('winners','0','name'), $cx, $in).' !! Won $'.LCRun2::encq(Array('winners','0','value'), $cx, $in).' now~~
+. Hello '.LCRun2::encq(Array('winners','1','name'), $cx, $in).' !! Won $'.LCRun2::encq(Array('winners','1','value'), $cx, $in).' later~~
+. No '.LCRun2::encq(Array('winners','!','name'), $cx, $in).' !!
 ';
 }
 ?>

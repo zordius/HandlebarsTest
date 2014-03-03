@@ -14,78 +14,78 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::encq('name', $cx, $in).', you have just won $'.LCRun::encq('value', $cx, $in).'!
+    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
 <ul>
-'.LCRun::sec('', $cx, $in, true, function($cx, $in) {return '
- <li>'.LCRun::encq('name', $cx, $in).' is a '.LCRun::encq('gender', $cx, $in).' ('.LCRun::encq('../name', $cx, $in).', '.LCRun::encq('../value', $cx, $in).', '.LCRun::encq('../end', $cx, $in).')</li>
+'.LCRun2::sec(Array(null), $cx, $in, true, function($cx, $in) {return '
+ <li>'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::encq(Array('gender'), $cx, $in).' ('.LCRun2::encq(Array(1,'name'), $cx, $in).', '.LCRun2::encq(Array(1,'value'), $cx, $in).', '.LCRun2::encq(Array(1,'end'), $cx, $in).')</li>
  simple if~
- '.LCRun::ifv('good', $cx, $in, function($cx, $in) {return '
-  simple GOOD! '.LCRun::encq('goodchild', $cx, $in).' '.LCRun::encq('../gender', $cx, $in).' - '.LCRun::raw('../gender', $cx, $in).' X '.LCRun::encq('../../name', $cx, $in).' ~ '.LCRun::encq('../../end', $cx, $in).'
- ';}).'
+ '.((LCRun2::ifvar(Array('good'), $cx, $in)) ? '
+  simple GOOD! '.LCRun2::encq(Array('goodchild'), $cx, $in).' '.LCRun2::encq(Array(1,'gender'), $cx, $in).' - '.LCRun2::raw(Array(1,'gender'), $cx, $in).' X '.LCRun2::encq(Array(2,'name'), $cx, $in).' ~ '.LCRun2::encq(Array(2,'end'), $cx, $in).'
+ ' : '').'
  if-else
- '.LCRun::ifv('good', $cx, $in, function($cx, $in) {return '
-  GOOD! '.LCRun::encq('goodchild', $cx, $in).' '.LCRun::encq('../gender', $cx, $in).' - '.LCRun::raw('../gender', $cx, $in).' X '.LCRun::encq('../../name', $cx, $in).' ~ '.LCRun::encq('../../end', $cx, $in).'
- ';}, function($cx, $in) {return '
-  BAD! '.LCRun::encq('badchild', $cx, $in).' '.LCRun::encq('../gender', $cx, $in).' - '.LCRun::raw('../gender', $cx, $in).' Y '.LCRun::raw('../../name', $cx, $in).' = '.LCRun::raw('../../end', $cx, $in).'
- ';}).'
+ '.((LCRun2::ifvar(Array('good'), $cx, $in)) ? '
+  GOOD! '.LCRun2::encq(Array('goodchild'), $cx, $in).' '.LCRun2::encq(Array(1,'gender'), $cx, $in).' - '.LCRun2::raw(Array(1,'gender'), $cx, $in).' X '.LCRun2::encq(Array(2,'name'), $cx, $in).' ~ '.LCRun2::encq(Array(2,'end'), $cx, $in).'
+ ' : '
+  BAD! '.LCRun2::encq(Array('badchild'), $cx, $in).' '.LCRun2::encq(Array(1,'gender'), $cx, $in).' - '.LCRun2::raw(Array(1,'gender'), $cx, $in).' Y '.LCRun2::raw(Array(2,'name'), $cx, $in).' = '.LCRun2::raw(Array(2,'end'), $cx, $in).'
+ ').'
  with
- '.LCRun::wi('good', $cx, $in, function($cx, $in) {return '
-    WITH: '.LCRun::encq('gender', $cx, $in).', '.LCRun::encq('../gender', $cx, $in).' , '.LCRun::encq('../../name', $cx, $in).' , '.LCRun::raw('../../end', $cx, $in).'
+ '.LCRun2::wi(Array('good'), $cx, $in, function($cx, $in) {return '
+    WITH: '.LCRun2::encq(Array('gender'), $cx, $in).', '.LCRun2::encq(Array(1,'gender'), $cx, $in).' , '.LCRun2::encq(Array(2,'name'), $cx, $in).' , '.LCRun2::raw(Array(2,'end'), $cx, $in).'
  ';}).'
  simple unless
- '.LCRun::unl('good', $cx, $in, function($cx, $in) {return '
-   UNLESS good = bad -> '.LCRun::encq('../gender', $cx, $in).' , '.LCRun::encq('../../name', $cx, $in).'
- ';}).'
+ '.((!LCRun2::ifvar(Array('good'), $cx, $in)) ? '
+   UNLESS good = bad -> '.LCRun2::encq(Array(1,'gender'), $cx, $in).' , '.LCRun2::encq(Array(2,'name'), $cx, $in).'
+ ' : '').'
  unless else
- '.LCRun::unl('good', $cx, $in, function($cx, $in) {return '
-   UNLESS good = bad -> '.LCRun::encq('../gender', $cx, $in).' , '.LCRun::encq('../../name', $cx, $in).'
- ';}, function($cx, $in) {return '
-   UNLESS bad = good -> '.LCRun::encq('../gender', $cx, $in).' , '.LCRun::encq('../../name', $cx, $in).'
- ';}).'
+ '.((!LCRun2::ifvar(Array('good'), $cx, $in)) ? '
+   UNLESS good = bad -> '.LCRun2::encq(Array(1,'gender'), $cx, $in).' , '.LCRun2::encq(Array(2,'name'), $cx, $in).'
+ ' : '
+   UNLESS bad = good -> '.LCRun2::encq(Array(1,'gender'), $cx, $in).' , '.LCRun2::encq(Array(2,'name'), $cx, $in).'
+ ').'
 ';}).'
 ----------THIS
-'.LCRun::sec('', $cx, $in, true, function($cx, $in) {return '
- <li>'.LCRun::encq('name', $cx, $in).' is a '.LCRun::encq('gender', $cx, $in).' ('.LCRun::encq('../name', $cx, $in).', '.LCRun::encq('../value', $cx, $in).', '.LCRun::encq('../end', $cx, $in).')</li>
- '.LCRun::ifv('good', $cx, $in, function($cx, $in) {return '
-  GOOD! '.LCRun::encq('goodchild', $cx, $in).' '.LCRun::encq('../gender', $cx, $in).' - '.LCRun::raw('../gender', $cx, $in).' X '.LCRun::encq('../../name', $cx, $in).' ~ '.LCRun::encq('../../end', $cx, $in).'
- ';}, function($cx, $in) {return '
-  BAD! '.LCRun::encq('badchild', $cx, $in).' '.LCRun::encq('../gender', $cx, $in).' - '.LCRun::raw('../gender', $cx, $in).' Y '.LCRun::raw('../../name', $cx, $in).' = '.LCRun::raw('../../end', $cx, $in).'
- ';}).'
- '.LCRun::wi('good', $cx, $in, function($cx, $in) {return '
-    WITH: '.LCRun::encq('../gender', $cx, $in).' , '.LCRun::encq('../../name', $cx, $in).' , '.LCRun::raw('../../end', $cx, $in).'
+'.LCRun2::sec(Array(null), $cx, $in, true, function($cx, $in) {return '
+ <li>'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::encq(Array('gender'), $cx, $in).' ('.LCRun2::encq(Array(1,'name'), $cx, $in).', '.LCRun2::encq(Array(1,'value'), $cx, $in).', '.LCRun2::encq(Array(1,'end'), $cx, $in).')</li>
+ '.((LCRun2::ifvar(Array('good'), $cx, $in)) ? '
+  GOOD! '.LCRun2::encq(Array('goodchild'), $cx, $in).' '.LCRun2::encq(Array(1,'gender'), $cx, $in).' - '.LCRun2::raw(Array(1,'gender'), $cx, $in).' X '.LCRun2::encq(Array(2,'name'), $cx, $in).' ~ '.LCRun2::encq(Array(2,'end'), $cx, $in).'
+ ' : '
+  BAD! '.LCRun2::encq(Array('badchild'), $cx, $in).' '.LCRun2::encq(Array(1,'gender'), $cx, $in).' - '.LCRun2::raw(Array(1,'gender'), $cx, $in).' Y '.LCRun2::raw(Array(2,'name'), $cx, $in).' = '.LCRun2::raw(Array(2,'end'), $cx, $in).'
+ ').'
+ '.LCRun2::wi(Array('good'), $cx, $in, function($cx, $in) {return '
+    WITH: '.LCRun2::encq(Array(1,'gender'), $cx, $in).' , '.LCRun2::encq(Array(2,'name'), $cx, $in).' , '.LCRun2::raw(Array(2,'end'), $cx, $in).'
  ';}).'
 ';}).'
 ----------SECTION THIS
-'.LCRun::sec('', $cx, $in, false, function($cx, $in) {return '
- <li>'.LCRun::encq('name', $cx, $in).' is a '.LCRun::encq('gender', $cx, $in).' ('.LCRun::encq('../name', $cx, $in).', '.LCRun::encq('../value', $cx, $in).', '.LCRun::encq('../end', $cx, $in).')</li>
- '.LCRun::ifv('good', $cx, $in, function($cx, $in) {return '
-  GOOD! '.LCRun::encq('goodchild', $cx, $in).' '.LCRun::encq('../gender', $cx, $in).' - '.LCRun::raw('../gender', $cx, $in).' X '.LCRun::encq('../../name', $cx, $in).' ~ '.LCRun::encq('../../end', $cx, $in).'
- ';}, function($cx, $in) {return '
-  BAD! '.LCRun::encq('badchild', $cx, $in).' '.LCRun::encq('../gender', $cx, $in).' - '.LCRun::raw('../gender', $cx, $in).' Y '.LCRun::raw('../../name', $cx, $in).' = '.LCRun::raw('../../end', $cx, $in).'
- ';}).'
- '.LCRun::wi('good', $cx, $in, function($cx, $in) {return '
-    WITH: '.LCRun::encq('../gender', $cx, $in).' , '.LCRun::encq('../../name', $cx, $in).' , '.LCRun::raw('../../end', $cx, $in).'
+'.LCRun2::sec(Array(null), $cx, $in, false, function($cx, $in) {return '
+ <li>'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::encq(Array('gender'), $cx, $in).' ('.LCRun2::encq(Array(1,'name'), $cx, $in).', '.LCRun2::encq(Array(1,'value'), $cx, $in).', '.LCRun2::encq(Array(1,'end'), $cx, $in).')</li>
+ '.((LCRun2::ifvar(Array('good'), $cx, $in)) ? '
+  GOOD! '.LCRun2::encq(Array('goodchild'), $cx, $in).' '.LCRun2::encq(Array(1,'gender'), $cx, $in).' - '.LCRun2::raw(Array(1,'gender'), $cx, $in).' X '.LCRun2::encq(Array(2,'name'), $cx, $in).' ~ '.LCRun2::encq(Array(2,'end'), $cx, $in).'
+ ' : '
+  BAD! '.LCRun2::encq(Array('badchild'), $cx, $in).' '.LCRun2::encq(Array(1,'gender'), $cx, $in).' - '.LCRun2::raw(Array(1,'gender'), $cx, $in).' Y '.LCRun2::raw(Array(2,'name'), $cx, $in).' = '.LCRun2::raw(Array(2,'end'), $cx, $in).'
+ ').'
+ '.LCRun2::wi(Array('good'), $cx, $in, function($cx, $in) {return '
+    WITH: '.LCRun2::encq(Array(1,'gender'), $cx, $in).' , '.LCRun2::encq(Array(2,'name'), $cx, $in).' , '.LCRun2::raw(Array(2,'end'), $cx, $in).'
  ';}).'
 ';}).'
 ----------SECTION .
-'.LCRun::sec('', $cx, $in, false, function($cx, $in) {return '
- <li>'.LCRun::encq('name', $cx, $in).' is a '.LCRun::encq('gender', $cx, $in).' ('.LCRun::encq('../name', $cx, $in).', '.LCRun::encq('../value', $cx, $in).', '.LCRun::encq('../end', $cx, $in).')</li>
- '.LCRun::ifv('good', $cx, $in, function($cx, $in) {return '
-  GOOD! '.LCRun::encq('goodchild', $cx, $in).' '.LCRun::encq('../gender', $cx, $in).' - '.LCRun::raw('../gender', $cx, $in).' X '.LCRun::encq('../../name', $cx, $in).' ~ '.LCRun::encq('../../end', $cx, $in).'
- ';}, function($cx, $in) {return '
-  BAD! '.LCRun::encq('badchild', $cx, $in).' '.LCRun::encq('../gender', $cx, $in).' - '.LCRun::raw('../gender', $cx, $in).' Y '.LCRun::raw('../../name', $cx, $in).' = '.LCRun::raw('../../end', $cx, $in).'
- ';}).'
- '.LCRun::wi('good', $cx, $in, function($cx, $in) {return '
-    WITH: '.LCRun::encq('../gender', $cx, $in).' , '.LCRun::encq('../../name', $cx, $in).' , '.LCRun::raw('../../end', $cx, $in).'
+'.LCRun2::sec(Array(null), $cx, $in, false, function($cx, $in) {return '
+ <li>'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::encq(Array('gender'), $cx, $in).' ('.LCRun2::encq(Array(1,'name'), $cx, $in).', '.LCRun2::encq(Array(1,'value'), $cx, $in).', '.LCRun2::encq(Array(1,'end'), $cx, $in).')</li>
+ '.((LCRun2::ifvar(Array('good'), $cx, $in)) ? '
+  GOOD! '.LCRun2::encq(Array('goodchild'), $cx, $in).' '.LCRun2::encq(Array(1,'gender'), $cx, $in).' - '.LCRun2::raw(Array(1,'gender'), $cx, $in).' X '.LCRun2::encq(Array(2,'name'), $cx, $in).' ~ '.LCRun2::encq(Array(2,'end'), $cx, $in).'
+ ' : '
+  BAD! '.LCRun2::encq(Array('badchild'), $cx, $in).' '.LCRun2::encq(Array(1,'gender'), $cx, $in).' - '.LCRun2::raw(Array(1,'gender'), $cx, $in).' Y '.LCRun2::raw(Array(2,'name'), $cx, $in).' = '.LCRun2::raw(Array(2,'end'), $cx, $in).'
+ ').'
+ '.LCRun2::wi(Array('good'), $cx, $in, function($cx, $in) {return '
+    WITH: '.LCRun2::encq(Array(1,'gender'), $cx, $in).' , '.LCRun2::encq(Array(2,'name'), $cx, $in).' , '.LCRun2::raw(Array(2,'end'), $cx, $in).'
  ';}).'
 ';}).'
 </ul>
 WITH TEST>
-'.LCRun::wi('people', $cx, $in, function($cx, $in) {return '
- single: '.LCRun::encq('name', $cx, $in).', '.LCRun::encq('gender', $cx, $in).'
- '.LCRun::sec('', $cx, $in, true, function($cx, $in) {return 'loop: '.LCRun::encq('name', $cx, $in).' - '.LCRun::encq('../name', $cx, $in).' - '.LCRun::encq('../../name', $cx, $in).'';}).'
+'.LCRun2::wi(Array('people'), $cx, $in, function($cx, $in) {return '
+ single: '.LCRun2::encq(Array('name'), $cx, $in).', '.LCRun2::encq(Array('gender'), $cx, $in).'
+ '.LCRun2::sec(Array(null), $cx, $in, true, function($cx, $in) {return 'loop: '.LCRun2::encq(Array('name'), $cx, $in).' - '.LCRun2::encq(Array(1,'name'), $cx, $in).' - '.LCRun2::encq(Array(2,'name'), $cx, $in).'';}).'
 ';}).'
-'.LCRun::encq('end', $cx, $in).'
+'.LCRun2::encq(Array('end'), $cx, $in).'
 ';
 }
 ?>

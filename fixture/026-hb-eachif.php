@@ -14,24 +14,24 @@
         'path' => Array(),
 
     );
-    return ''.LCRun::ifv('empty', $cx, $in, function($cx, $in) {return '
+    return ''.((LCRun2::ifvar(Array('empty'), $cx, $in)) ? '
 
-';}, function($cx, $in) {return '
-'.LCRun::sec('data', $cx, $in, true, function($cx, $in) {return '
+' : '
+'.LCRun2::sec(Array('data'), $cx, $in, true, function($cx, $in) {return '
 
-'.LCRun::sec('child', $cx, $in, true, function($cx, $in) {return '
-    '.LCRun::ifv('key', $cx, $in, function($cx, $in) {return '
-       The value is = '.LCRun::encq('key', $cx, $in).' !!
-    ';}, function($cx, $in) {return '
+'.LCRun2::sec(Array('child'), $cx, $in, true, function($cx, $in) {return '
+    '.((LCRun2::ifvar(Array('key'), $cx, $in)) ? '
+       The value is = '.LCRun2::encq(Array('key'), $cx, $in).' !!
+    ' : '
         key is empty or null
-    ';}).'
+    ').'
 
-    '.LCRun::encq('../fake', $cx, $in).'
-
-';}).'
-';}).'
+    '.LCRun2::encq(Array(1,'fake'), $cx, $in).'
 
 ';}).'
+';}).'
+
+').'
 ';
 }
 ?>

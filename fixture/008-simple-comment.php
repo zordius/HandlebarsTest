@@ -14,9 +14,9 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::encq('name', $cx, $in).', you have just won $'.LCRun::encq('value', $cx, $in).'!
-'.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return ''.'
-This is true! won $'.LCRun::encq('value', $cx, $in).'!!
+    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
+'.LCRun2::sec(Array('test'), $cx, $in, false, function($cx, $in) {return ''.'
+This is true! won $'.LCRun2::encq(Array('value'), $cx, $in).'!!
 ';}).'
 ';
 }

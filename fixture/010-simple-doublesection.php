@@ -14,30 +14,30 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::encq('winner]name', $cx, $in).', you have just won $'.LCRun::encq('winner]value', $cx, $in).'!
-'.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '
+    return 'Hello '.LCRun2::encq(Array('winner','name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('winner','value'), $cx, $in).'!
+'.LCRun2::sec(Array('test'), $cx, $in, false, function($cx, $in) {return '
 Line 1
 ';}).'
-This is a test, test = '.LCRun::encq('test', $cx, $in).'
-'.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '
+This is a test, test = '.LCRun2::encq(Array('test'), $cx, $in).'
+'.LCRun2::sec(Array('test'), $cx, $in, false, function($cx, $in) {return '
 Line 2
 ';}).'
-'.((LCRun::isec('test', $cx, $in)) ? '
+'.((LCRun2::isec(Array('test'), $cx, $in)) ? '
 Line 3
 ' : '').'
-'.((LCRun::isec('test', $cx, $in)) ? '
+'.((LCRun2::isec(Array('test'), $cx, $in)) ? '
 Line 4
 ' : '').'
-'.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '
+'.LCRun2::sec(Array('test'), $cx, $in, false, function($cx, $in) {return '
 Line 5
 ';}).'
-'.((LCRun::isec('test', $cx, $in)) ? '
+'.((LCRun2::isec(Array('test'), $cx, $in)) ? '
 Line 6
 ' : '').'
 ---- double section ----
-'.LCRun::sec('sec', $cx, $in, false, function($cx, $in) {return '
-'.LCRun::encq('name', $cx, $in).':'.LCRun::encq('value', $cx, $in).'
-'.LCRun::sec('sec', $cx, $in, false, function($cx, $in) {return '-- '.LCRun::encq('name', $cx, $in).', '.LCRun::encq('value', $cx, $in).'--';}).'
+'.LCRun2::sec(Array('sec'), $cx, $in, false, function($cx, $in) {return '
+'.LCRun2::encq(Array('name'), $cx, $in).':'.LCRun2::encq(Array('value'), $cx, $in).'
+'.LCRun2::sec(Array('sec'), $cx, $in, false, function($cx, $in) {return '-- '.LCRun2::encq(Array('name'), $cx, $in).', '.LCRun2::encq(Array('value'), $cx, $in).'--';}).'
 ';}).' 
 ';
 }

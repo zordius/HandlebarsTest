@@ -14,13 +14,13 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::encq('name', $cx, $in).', you have just won $'.LCRun::encq('value', $cx, $in).'!
+    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
 This is next line.
-'.LCRun::sec('test', $cx, $in, false, function($cx, $in) {return '
-This is true! won $'.LCRun::encq('value', $cx, $in).'!!
+'.LCRun2::sec(Array('test'), $cx, $in, false, function($cx, $in) {return '
+This is true! won $'.LCRun2::encq(Array('value'), $cx, $in).'!!
 ';}).'
-'.((LCRun::isec('test', $cx, $in)) ? '
-No, this is fake! not win $'.LCRun::encq('value', $cx, $in).'!!
+'.((LCRun2::isec(Array('test'), $cx, $in)) ? '
+No, this is fake! not win $'.LCRun2::encq(Array('value'), $cx, $in).'!!
 ' : '').'
 ';
 }

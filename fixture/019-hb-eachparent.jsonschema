@@ -27,7 +27,7 @@
     "people": {
       "type": "array",
       "items": {
-        "type": "array",
+        "type": "object",
         "properties": {
           "name": {
             "type": [
@@ -42,28 +42,25 @@
               "number"
             ],
             "required": true
-          }
-        },
-        "items": {
-          "type": "array",
-          "items": {
+          },
+          "1": {
             "type": "object",
             "properties": {
-              "\/name": {
+              "name": {
                 "type": [
                   "string",
                   "number"
                 ],
                 "required": true
               },
-              "\/value": {
+              "value": {
                 "type": [
                   "string",
                   "number"
                 ],
                 "required": true
               },
-              "\/end": {
+              "end": {
                 "type": [
                   "string",
                   "number"
@@ -79,7 +76,7 @@
   "items": {
     "type": "array",
     "items": {
-      "type": "array",
+      "type": "object",
       "properties": {
         "name": {
           "type": [
@@ -95,34 +92,24 @@
           ],
           "required": true
         },
-        "end": {
-          "type": [
-            "string",
-            "number"
-          ],
-          "required": true
-        }
-      },
-      "items": {
-        "type": "array",
-        "items": {
+        "1": {
           "type": "object",
           "properties": {
-            "\/name": {
+            "name": {
               "type": [
                 "string",
                 "number"
               ],
               "required": true
             },
-            "\/value": {
+            "value": {
               "type": [
                 "string",
                 "number"
               ],
               "required": true
             },
-            "\/end": {
+            "end": {
               "type": [
                 "string",
                 "number"
@@ -130,6 +117,13 @@
               "required": true
             }
           }
+        },
+        "end": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
         }
       }
     }

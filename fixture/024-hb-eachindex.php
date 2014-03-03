@@ -15,8 +15,8 @@
 
     );
     return '<ul>
-'.LCRun::sec('people', $cx, $in, true, function($cx, $in) {return '
- <li>'.LCRun::encq('@index', $cx, $in).', '.LCRun::encq('@key', $cx, $in).' : '.LCRun::encq('name', $cx, $in).' '.((LCRun::ifvar('name', $cx, $in)) ? '(V)' : '').''.((LCRun::ifvar('../test', $cx, $in)) ? '(Y)' : '').'</li>
+'.LCRun2::sec(Array('people'), $cx, $in, true, function($cx, $in) {return '
+ <li>'.LCRun2::encq(Array('@index'), $cx, $in).', '.LCRun2::encq(Array('@key'), $cx, $in).' : '.LCRun2::encq(Array('name'), $cx, $in).' '.((LCRun2::ifvar(Array('name'), $cx, $in)) ? '(V)' : '').''.((LCRun2::ifvar(Array(1,'test'), $cx, $in)) ? '(Y)' : '').'</li>
 ';}).'
 </ul>
 ';

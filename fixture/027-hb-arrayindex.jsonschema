@@ -18,7 +18,7 @@
       "required": true
     },
     "winners": {
-      "type": "array",
+      "type": "object",
       "items": {
         "type": "object",
         "properties": {
@@ -30,33 +30,28 @@
             "required": true
           }
         }
+      },
+      "properties": {
+        "name": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        },
+        "1": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            }
+          }
+        }
       }
-    },
-    "winners
-  ]name": {
-    "type": [
-      "string",
-      "number"
-    ],
-    "required": true
-  },
-  "winners
-]0
-]name": {
-"type": [
-  "string",
-  "number"
-],
-"required": true
-},
-"winners
-]1
-]name": {
-"type": [
-"string",
-"number"
-],
-"required": true
-}
-}
+    }
+  }
 }

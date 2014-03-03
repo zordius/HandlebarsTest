@@ -14,25 +14,25 @@
         'path' => Array(),
 
     );
-    return ''.LCRun::sec('specs', $cx, $in, true, function($cx, $in) {return '
+    return ''.LCRun2::sec(Array('specs'), $cx, $in, true, function($cx, $in) {return '
    <div class="item-spec">
-    '.LCRun::sec('options', $cx, $in, true, function($cx, $in) {return '
-        '.LCRun::ifv('icon', $cx, $in, function($cx, $in) {return '
+    '.LCRun2::sec(Array('options'), $cx, $in, true, function($cx, $in) {return '
+        '.((LCRun2::ifvar(Array('icon'), $cx, $in)) ? '
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-'.LCRun::encq('../id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'" value="'.LCRun::encq('id', $cx, $in).'" name="'.LCRun::encq('../id', $cx, $in).'" alt="'.LCRun::encq('name', $cx, $in).'" data-name="'.LCRun::encq('name', $cx, $in).'"/>
-            <label class="spec-label icon" for="spec-'.LCRun::encq('../id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'" style="background-image:url('.LCRun::encq('icon', $cx, $in).');">
+            <input type="radio" id="spec-'.LCRun2::encq(Array(1,'id'), $cx, $in).'-'.LCRun2::encq(Array('id'), $cx, $in).'" value="'.LCRun2::encq(Array('id'), $cx, $in).'" name="'.LCRun2::encq(Array(1,'id'), $cx, $in).'" alt="'.LCRun2::encq(Array('name'), $cx, $in).'" data-name="'.LCRun2::encq(Array('name'), $cx, $in).'"/>
+            <label class="spec-label icon" for="spec-'.LCRun2::encq(Array(1,'id'), $cx, $in).'-'.LCRun2::encq(Array('id'), $cx, $in).'" style="background-image:url('.LCRun2::encq(Array('icon'), $cx, $in).');">
             </label>
         </div>
-        ';}, function($cx, $in) {return '
+        ' : '
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-'.LCRun::encq('../id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'" value="'.LCRun::encq('id', $cx, $in).'" name="'.LCRun::encq('../id', $cx, $in).'" data-name="'.LCRun::encq('name', $cx, $in).'"/>
-            <label class="spec-label" for="spec-'.LCRun::encq('../id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'">'.LCRun::encq('name', $cx, $in).'</label>
+            <input type="radio" id="spec-'.LCRun2::encq(Array(1,'id'), $cx, $in).'-'.LCRun2::encq(Array('id'), $cx, $in).'" value="'.LCRun2::encq(Array('id'), $cx, $in).'" name="'.LCRun2::encq(Array(1,'id'), $cx, $in).'" data-name="'.LCRun2::encq(Array('name'), $cx, $in).'"/>
+            <label class="spec-label" for="spec-'.LCRun2::encq(Array(1,'id'), $cx, $in).'-'.LCRun2::encq(Array('id'), $cx, $in).'">'.LCRun2::encq(Array('name'), $cx, $in).'</label>
         </div>
-        ';}).'
+        ').'
         <script>
-            document.getElementById(\'spec-'.LCRun::encq('../id', $cx, $in).'-'.LCRun::encq('id', $cx, $in).'\').className += \'hidden\';
+            document.getElementById(\'spec-'.LCRun2::encq(Array(1,'id'), $cx, $in).'-'.LCRun2::encq(Array('id'), $cx, $in).'\').className += \'hidden\';
         </script>
     ';}).'
     </div>

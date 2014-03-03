@@ -29,6 +29,18 @@
             ],
             "required": true
           },
+          "1": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              }
+            }
+          },
           "value": {
             "type": [
               "string",
@@ -129,18 +141,6 @@
             "string",
             "number"
           ],
-          "items": {
-            "type": "object",
-            "properties": {
-              "\/name": {
-                "type": [
-                  "string",
-                  "number"
-                ],
-                "required": true
-              }
-            }
-          },
           "required": true
         }
       }

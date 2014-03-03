@@ -14,28 +14,28 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::encq('name', $cx, $in).', you have just won $'.LCRun::encq('value', $cx, $in).'!
+    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
 <ul>
-'.LCRun::sec('', $cx, $in, true, function($cx, $in) {return '
- <li>'.LCRun::encq('name', $cx, $in).' is a '.LCRun::encq('gender', $cx, $in).' ('.LCRun::encq('../name', $cx, $in).', '.LCRun::encq('../value', $cx, $in).', '.LCRun::encq('../end', $cx, $in).')</li>
+'.LCRun2::sec(Array(null), $cx, $in, true, function($cx, $in) {return '
+ <li>'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::encq(Array('gender'), $cx, $in).' ('.LCRun2::encq(Array(1,'name'), $cx, $in).', '.LCRun2::encq(Array(1,'value'), $cx, $in).', '.LCRun2::encq(Array(1,'end'), $cx, $in).')</li>
 ';}).'
 </ul>
-'.LCRun::encq('end', $cx, $in).'
-'.LCRun::sec('', $cx, $in, true, function($cx, $in) {return '
- THIS:'.LCRun::encq('name', $cx, $in).' is a '.LCRun::raw('gender', $cx, $in).'
- PARENT: '.LCRun::raw('../name', $cx, $in).', '.LCRun::raw('../value', $cx, $in).', '.LCRun::raw('../end', $cx, $in).' END '.LCRun::encq('end', $cx, $in).' NAME '.LCRun::encq('name', $cx, $in).'
+'.LCRun2::encq(Array('end'), $cx, $in).'
+'.LCRun2::sec(Array(null), $cx, $in, true, function($cx, $in) {return '
+ THIS:'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::raw(Array('gender'), $cx, $in).'
+ PARENT: '.LCRun2::raw(Array(1,'name'), $cx, $in).', '.LCRun2::raw(Array(1,'value'), $cx, $in).', '.LCRun2::raw(Array(1,'end'), $cx, $in).' END '.LCRun2::encq(Array('end'), $cx, $in).' NAME '.LCRun2::encq(Array('name'), $cx, $in).'
 ';}).'
 Section This:
-'.LCRun::sec('', $cx, $in, false, function($cx, $in) {return '
- <li>X~'.LCRun::encq('name', $cx, $in).' is a '.LCRun::encq('gender', $cx, $in).' ('.LCRun::encq('../name', $cx, $in).', '.LCRun::encq('../value', $cx, $in).', '.LCRun::encq('../end', $cx, $in).')</li>
+'.LCRun2::sec(Array(null), $cx, $in, false, function($cx, $in) {return '
+ <li>X~'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::encq(Array('gender'), $cx, $in).' ('.LCRun2::encq(Array(1,'name'), $cx, $in).', '.LCRun2::encq(Array(1,'value'), $cx, $in).', '.LCRun2::encq(Array(1,'end'), $cx, $in).')</li>
 ';}).'
 Section Var:
-'.LCRun::sec('people', $cx, $in, false, function($cx, $in) {return '
- <li>XXXVAR'.LCRun::encq('name', $cx, $in).' is a '.LCRun::encq('gender', $cx, $in).' ('.LCRun::encq('../name', $cx, $in).', '.LCRun::encq('../value', $cx, $in).', '.LCRun::encq('../end', $cx, $in).')</li>
+'.LCRun2::sec(Array('people'), $cx, $in, false, function($cx, $in) {return '
+ <li>XXXVAR'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::encq(Array('gender'), $cx, $in).' ('.LCRun2::encq(Array(1,'name'), $cx, $in).', '.LCRun2::encq(Array(1,'value'), $cx, $in).', '.LCRun2::encq(Array(1,'end'), $cx, $in).')</li>
 ';}).'
 Each Var:
-'.LCRun::sec('people', $cx, $in, true, function($cx, $in) {return '
- <li>XXX-EACH-VAR'.LCRun::encq('name', $cx, $in).' is a '.LCRun::encq('gender', $cx, $in).' ('.LCRun::encq('../name', $cx, $in).', '.LCRun::encq('../value', $cx, $in).', '.LCRun::encq('../end', $cx, $in).')</li>
+'.LCRun2::sec(Array('people'), $cx, $in, true, function($cx, $in) {return '
+ <li>XXX-EACH-VAR'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::encq(Array('gender'), $cx, $in).' ('.LCRun2::encq(Array(1,'name'), $cx, $in).', '.LCRun2::encq(Array(1,'value'), $cx, $in).', '.LCRun2::encq(Array(1,'end'), $cx, $in).')</li>
 ';}).'
 ';
 }

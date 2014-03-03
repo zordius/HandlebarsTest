@@ -14,15 +14,15 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun::encq('name', $cx, $in).', you have just won $'.LCRun::encq('value', $cx, $in).'!
+    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
 <ul>
-'.LCRun::sec('', $cx, $in, true, function($cx, $in) {return '
- <li>'.LCRun::encq('name', $cx, $in).' is a '.LCRun::encq('gender', $cx, $in).'</li>
+'.LCRun2::sec(Array(null), $cx, $in, true, function($cx, $in) {return '
+ <li>'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::encq(Array('gender'), $cx, $in).'</li>
 ';}).'
 </ul>
-- '.LCRun::encq('end', $cx, $in).' -
-'.LCRun::sec('', $cx, $in, true, function($cx, $in) {return '
- THIS:'.LCRun::encq('name', $cx, $in).' is a '.LCRun::raw('gender', $cx, $in).'
+- '.LCRun2::encq(Array('end'), $cx, $in).' -
+'.LCRun2::sec(Array(null), $cx, $in, true, function($cx, $in) {return '
+ THIS:'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::raw(Array('gender'), $cx, $in).'
 ';}).'
 ==
 ';

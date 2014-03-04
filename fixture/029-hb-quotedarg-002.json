@@ -1,0 +1,15 @@
+{
+    "name": "John",
+    "value": 10000,
+    "test": {
+        "this": "test",
+        "test": true,
+        "!": {
+            "name": "Oh~~~"
+        }
+    },
+    "url": "about:blank",
+    "text": "lalala",
+    "test": 0,
+    "te\"st": 1
+}

@@ -28,6 +28,37 @@ if ($times === 'T') {
       unlink($json);
       $reports[$json] = $report;
     }
+} if ($times === 'F') {
+    include_once('cloned/lightncandy/src/lightncandy.php');
+    $flags = Array(
+        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO,
+        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONE,
+        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONE,
+        LightnCandy::FLAG_HANDLEBARSJS,
+    );
+    $err = Array();
+    foreach (glob('fixture/*.json') as $test) {
+        foreach ($flags as $flag) {
+            ob_start();
+            $result = json_decode(system("bin/hbtest lightncandy $test -$flag 2>/dev/null"), true);
+            ob_end_clean();
+            $result['flag'] = $flag;
+            if ($result['match'] == 'YES') {
+                echo '.';
+            } else {
+                echo substr($result['match'], 0, 1);
+                $err[] = $result;
+            }
+        }
+    }
+    echo "\n";
+    foreach ($err as $e) {
+        echo "Test {$e['test']} result as {$e['match']}\n";
+    }
+    $c = count($err);
+    $kc = isset($argv[2]) ? $argv[2] : 0;
+    echo "Know issues: $kc , detected issues: $c ...." . (($c > $kc) ? 'ERROR!!' : 'PASS') . "\n";
+    exit($c - $kc);
 } else {
     foreach (glob('fixture/*.json') as $test) {
       $report = Array();

@@ -228,6 +228,10 @@ How to Test
       * This do not generate any file under report/
       * Will print a feature chart on console.
       * lightncandy will be executed with FLAG_STANDALONE , FLAG_HANDLEBARSJS and FLAG_BESTPERFORMANCE enabled (to know more about FLAG_BESTPERFORMANCE, read lightncandy document please)
+   * bin/hbreport F num_of_know_issue
+      * This do not generate any file under report/
+      * only test on lightncandy
+      * exit with number of detected issues - number of know issues
 
 * performance test
    * bin/hbreport

@@ -18,11 +18,13 @@ if ($argv[1] == 'none') {
     exit();
 }
 
+$debug = ($test_times < 0) ? false : true;
+
 $tokenTest = preg_match('/token/', $argv[2]);
 $input = file_get_contents($argv[2]);
 $vars = json_decode($input, true);
-warn("### Input:\n$input\n### as PHP:");
-warn(print_r($vars, true));
+debugp("### Input:\n$input\n### as PHP:");
+debugp(print_r($vars, true));
 
 // Prepare template
 $flag = 0;
@@ -59,14 +61,14 @@ try {
     @$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
 
     if ($argv[1] == 'lightncandy') {
-        print "### Handlebar usage:\n";
-        print_r(LightnCandy::getContext());
+        debugp("### Handlebar usage:\n");
+        debugp(print_r(LightnCandy::getContext(), true));
     }
 } catch (Excaption $e) {
     $result = false;
 }
 
-warn("### Output:\n$result");
+debugp("### Output:\n$result");
 
 $stdf = preg_replace('/\.json/', '.txt', $argv[2]);
 $standard = $tokenTest ? null :  file_get_contents($stdf);
@@ -75,31 +77,33 @@ file_put_contents($outf, $result);
 $match = 'YES';
 if ($standard && ($result !== $standard)) {
     if (preg_replace('/\r|\n/', '', $result) === preg_replace('/\r|\n/', '', $standard)) {
-        warn("!!!!! ERROR: the output is not exact same with fixture (more or less CR/LF)\n");
+        debugp("!!!!! ERROR: the output is not exact same with fixture (more or less CR/LF)\n");
         $match = 'CR/LF';
     } else if (preg_replace('/\'/', '&#x27;', $result) === $standard) {
-        warn("!!!!! ERROR: the output is not exact same with fixture (single quote not encoded)\n");
+        debugp("!!!!! ERROR: the output is not exact same with fixture (single quote not encoded)\n");
         $match = 'SINGLEQUOTE';
     } else if (preg_replace('/&#039;/', '&#x27;', $result) === $standard) {
-        warn("!!!!! ERROR: the output is not exact same with fixture (urlencode difference on single quote)\n");
+        debugp("!!!!! ERROR: the output is not exact same with fixture (urlencode difference on single quote)\n");
         $match = 'QUOTE';
     } else if ($result == false) {
-        warn("!!!!! ERROR: the lib do not support this feature\n");
+        debugp("!!!!! ERROR: the lib do not support this feature\n");
         $match = 'NO';
     } else {
-        warn("!!!!! ERROR: the output is not same with fixture\n");
+        debugp("!!!!! ERROR: the output is not same with fixture\n");
         $match = 'OUTPUT';
     }
-    print "# STANDARD:\n$standard\n";
-    print "# DIFF:\n";
-    warn(system("colordiff.pl $stdf $outf"));
+    debugp("# STANDARD:\n$standard\n");
+    debugp("# DIFF:\n");
+    if ($debug) {
+        debugp(system("colordiff.pl $stdf $outf"));
+    }
 }
 
 if (($test_times < 0) || (($match !== 'NO') && ($match !== 'OUTPUT'))) {
     if ($test_times < 0) {
         $test_times = 1;
     }
-    warn("###do $test_times loop test");
+    debugp("###do $test_times loop test");
 
     $start_time = microtime(true);
     if ($test_tmpl) {
@@ -113,9 +117,9 @@ if (($test_times < 0) || (($match !== 'NO') && ($match !== 'OUTPUT'))) {
         }
     }
     $duration = microtime(true) - $start_time;
-    warn("Render $test_times times with $argv[1] lib takes $duration seconds");
+    debugp("Render $test_times times with $argv[1] lib takes $duration seconds");
 } else {
-    warn("Skip $test_times times test with $argv[1] lib due to result bad");
+    debugp("Skip $test_times times test with $argv[1] lib due to result bad");
     $duration = 0;
 }
 
@@ -143,6 +147,14 @@ usage: $argv[0] libName testFile [testTimes]
 PRINTEND
     ;
     exit(1);
+}
+
+function debugp($t) {
+    global $debug;
+
+    if ($debug) {
+        warn($t);
+    }
 }
 
 ?>

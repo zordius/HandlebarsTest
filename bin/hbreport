@@ -4,7 +4,7 @@ $reports = Array();
 $libs = Array();
 $base = 'https://github.com/zordius/HandlebarsTest/blob/master/';
 $times = isset($argv[1]) ? $argv[1] : '';
-
+$php_cmd = getenv('TRAVIS') ? 'php ' : '';
 
 foreach (glob('cloned/*') as $file) {
     $libs[] = preg_replace('/cloned\//', '', $file);
@@ -63,7 +63,7 @@ if ($times === 'T') {
     foreach (glob('fixture/*.json') as $test) {
       $report = Array();
       foreach ($libs as $lib) {
-        $result = system("bin/hbtest $lib $test $times");
+        $result = system("{$php_cmd}bin/hbtest $lib $test $times");
         $report[] = json_decode($result, true);
       }
       $reports[$test] = $report;

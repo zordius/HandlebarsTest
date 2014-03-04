@@ -4,9 +4,7 @@ $reports = Array();
 $libs = Array();
 $base = 'https://github.com/zordius/HandlebarsTest/blob/master/';
 $times = isset($argv[1]) ? $argv[1] : '';
-$php_cmd = getenv('TRAVIS') ? 'php ' : '';
-
-echo "PHP ENV: $php_cmd ~~~";
+$php_cmd = isset($argv[3]) ? 'php ' : '';
 
 foreach (glob('cloned/*') as $file) {
     $libs[] = preg_replace('/cloned\//', '', $file);

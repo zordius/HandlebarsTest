@@ -5,4 +5,4 @@ php:
   - 5.5
 
 script:
-  - bin/hbreport F 32
+  - php bin/hbreport F 32

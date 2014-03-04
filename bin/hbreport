@@ -40,7 +40,7 @@ if ($times === 'T') {
     foreach (glob('fixture/*.json') as $test) {
         foreach ($flags as $flag) {
             ob_start();
-            $result = json_decode(system("bin/hbtest lightncandy $test -$flag 2>/dev/null"), true);
+            $result = json_decode(system("{$php_cmd}bin/hbtest lightncandy $test -$flag 2>/dev/null"), true);
             ob_end_clean();
             $result['flag'] = $flag;
             if ($result['match'] == 'YES') {
@@ -63,7 +63,7 @@ if ($times === 'T') {
     foreach (glob('fixture/*.json') as $test) {
       $report = Array();
       foreach ($libs as $lib) {
-        $result = system("{$php_cmd}bin/hbtest $lib $test $times");
+        $result = system("bin/hbtest $lib $test $times");
         $report[] = json_decode($result, true);
       }
       $reports[$test] = $report;

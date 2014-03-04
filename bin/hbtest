@@ -38,6 +38,9 @@ if ($argv[1] == 'lightncandy') {
     if (($test_times % 5) == 1) {
         $flag = $flag | LightnCandy::FLAG_BESTPERFORMANCE;
     }
+    if ($test_times < 0) {
+        $flag = - $test_times;
+    }
 }
 try {
     prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), Array(
@@ -65,8 +68,10 @@ try {
 
 warn("### Output:\n$result");
 
-$standard = $tokenTest ? null :  file_get_contents(preg_replace('/\.json/', '.txt', $argv[2]));
-file_put_contents(preg_replace('/\.json/', ".$argv[1].txt", $argv[2]), $result);
+$stdf = preg_replace('/\.json/', '.txt', $argv[2]);
+$standard = $tokenTest ? null :  file_get_contents($stdf);
+$outf = preg_replace('/\.json/', ".$argv[1].txt", $argv[2]);
+file_put_contents($outf, $result);
 $match = 'YES';
 if ($standard && ($result !== $standard)) {
     if (preg_replace('/\r|\n/', '', $result) === preg_replace('/\r|\n/', '', $standard)) {
@@ -86,18 +91,23 @@ if ($standard && ($result !== $standard)) {
         $match = 'OUTPUT';
     }
     print "# STANDARD:\n$standard\n";
+    print "# DIFF:\n";
+    warn(system("colordiff.pl $stdf $outf"));
 }
 
-if (($match !== 'NO') && ($match !== 'OUTPUT')) {
+if (($test_times < 0) || (($match !== 'NO') && ($match !== 'OUTPUT'))) {
+    if ($test_times < 0) {
+        $test_times = 1;
+    }
     warn("###do $test_times loop test");
 
     $start_time = microtime(true);
     if ($test_tmpl) {
-        for ($i = 1; $i < $test_times;$i++) {
+        for ($i = 0; $i < $test_times;$i++) {
             $test_tmpl->$test_method($vars);
         }
     } else {
-        for ($i = 1; $i < $test_times;$i++) {
+        for ($i = 0; $i < $test_times;$i++) {
     /* skip php warning */
     @        $test_method($vars);
         }

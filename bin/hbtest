@@ -75,6 +75,7 @@ $standard = $tokenTest ? null :  file_get_contents($stdf);
 $outf = preg_replace('/\.json/', ".$argv[1].txt", $argv[2]);
 file_put_contents($outf, $result);
 $match = 'YES';
+$diff = null;
 if ($standard && ($result !== $standard)) {
     if (preg_replace('/\r|\n/', '', $result) === preg_replace('/\r|\n/', '', $standard)) {
         debugp("!!!!! ERROR: the output is not exact same with fixture (more or less CR/LF)\n");
@@ -94,8 +95,9 @@ if ($standard && ($result !== $standard)) {
     }
     debugp("# STANDARD:\n$standard\n");
     debugp("# DIFF:\n");
+    $diff = shell_exec("colordiff.pl $stdf $outf 2>/dev/null");
     if ($debug) {
-        debugp(system("colordiff.pl $stdf $outf"));
+        debugp($diff);
     }
 }
 
@@ -128,7 +130,8 @@ print json_encode(Array(
     'test' => $argv[2],
     'loop' => $test_times,
     'time' => $duration,
-    'match' => $match
+    'match' => $match,
+    'diff' => $diff,
 ));
 
 function print_help() {

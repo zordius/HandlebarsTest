@@ -8,6 +8,8 @@ if (count($argv) < 3) {
 }
 
 $test_times = (count($argv) > 3) ? $argv[3] : 100000;
+$diffcmd = (count($argv) > 3) ? "colordiff" : "colordiff.pl";
+
 if ($argv[1] == 'none') {
     warn("###do $test_times loop test");
     $start_time = microtime(true);
@@ -95,7 +97,7 @@ if ($standard && ($result !== $standard)) {
     }
     debugp("# STANDARD:\n$standard\n");
     debugp("# DIFF:\n");
-    $diff = shell_exec("colordiff.pl $stdf $outf 2>/dev/null");
+    $diff = shell_exec("$diffcmd $stdf $outf 2>/dev/null");
     if ($debug) {
         debugp($diff);
     }

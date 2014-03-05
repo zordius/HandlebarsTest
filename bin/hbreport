@@ -52,8 +52,15 @@ if ($times === 'T') {
         }
     }
     echo "\n";
+    $diff ='';
     foreach ($err as $e) {
-        echo "Test {$e['test']} result as {$e['match']}\n{$e['diff']}\n";
+        echo "Test {$e['test']} result as {$e['match']}";
+        if ($diff !== $e['diff']) {
+            echo "\n{$e['diff']}\n";
+            $diff = $e['diff'];
+        } else {
+            echo " (same diff)\n";
+        }
     }
     $c = count($err);
     $kc = isset($argv[2]) ? $argv[2] : 0;

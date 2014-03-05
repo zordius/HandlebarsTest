@@ -1,0 +1,10 @@
+Hello John, you have just won $10000!
+
+. Test 1:  !!
+. Test 2:  !!
+. Test 3:  !!
+. Test 4: OK !!
+. Test 5: <a href="about:blank">this is a test & OK</a> !!
+. Test 6: <a href="about:blank">this is a test</a> !!
+. Test 7: &lt;a href=&quot;about:blank&quot;&gt;this is a test &amp; OK&lt;/a&gt; !!
+. Test 8: &lt;a href=&quot;about:blank&quot;&gt;this is a test&lt;/a&gt; !!

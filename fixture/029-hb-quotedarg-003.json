@@ -1,0 +1,13 @@
+{
+    "name": "John",
+    "value": 10000,
+    "test": {
+        "this": "test",
+        "a b": "Yes!"
+    },
+    "url": "about:blank",
+    "text": "lalala",
+    "test": 0,
+    "te\"st": 2,
+    "helper1": "I am value..&"
+}

@@ -51,6 +51,10 @@ handlebars.registerHelper('helper1', function (url, text) {
     return '<a href="' + url + '">' + text + '</a>';
 });
 
+handlebars.registerHelper('helper2', function (options) {
+    return '<a href="' + options.hash.url + '">' + options.hash.text + '</a>(' + options.hash['ur"l'] + ')';
+});
+
 fs.readdir(dir, function (err, files) {
     files.forEach(function (file) {
         if (!file.match(/\.tmpl/)) {

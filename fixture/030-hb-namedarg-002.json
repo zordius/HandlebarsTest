@@ -1,0 +1,13 @@
+{
+    "name": "John",
+    "value": 10000,
+    "winners": {
+        "this": "test",
+        "test": true,
+        "!": {
+            "name": "Oh~~~"
+        }
+    },
+    "url": "http://some.where",
+    "text": "TEXT HERE"
+}

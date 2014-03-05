@@ -9,6 +9,12 @@
                 $t = ($txt !== null) ? $txt : 'undefined';
                 return "<a href=\"{$u}\">{$t}</a>";
             },
+            'helper2' => function($hash) {
+                $u = isset($hash['url']) ? $hash['url'] : 'undefined';
+                $t = isset($hash['text']) ? $hash['text'] : 'undefined';
+                $x = isset($hash['ur"l']) ? $hash['ur"l'] : 'undefined';
+                return "<a href=\"{$u}\">{$t}</a>({$x})";
+            },
 ),
         'scopes' => Array($in),
         'path' => Array(),

@@ -8,7 +8,7 @@ if (count($argv) < 3) {
 }
 
 $test_times = (count($argv) > 3) ? $argv[3] : 100000;
-$diffcmd = (count($argv) > 3) ? "colordiff" : "colordiff.pl";
+$diffcmd = (count($argv) > 4) ? "colordiff" : "colordiff.pl";
 
 if ($argv[1] == 'none') {
     warn("###do $test_times loop test");

@@ -1,0 +1,42 @@
+{
+  "$schema": "http: \/\/json-schema.org\/draft-03\/schema",
+  "description": "Template Json Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
+    "value": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
+    "url": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
+    "\"this is a test & OK\"": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
+    "\"this is a test\"": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    }
+  }
+}

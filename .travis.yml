@@ -8,8 +8,9 @@ before_script:
   - sudo apt-get install colordiff
   - cd cloned
   - git clone https://github.com/zordius/lightncandy
-  - git checkout -qf `cat ../lightncandy`
-  - cd ..
-  - echo Tests based on this version: https://github.com/zordius/lightncandy/commit/`cat ../lightncandy`
+  - cd lightncandy
+  - git checkout -qf `cat ../../lightncandy`
+  - cd ../..
+  - echo Tests based on this version: https://github.com/zordius/lightncandy/commit/`cat lightncandy`
 script:
   - php bin/hbreport F 32 T

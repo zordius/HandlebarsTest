@@ -5,10 +5,10 @@ php:
   - 5.5
 
 before_script:
+  - sudo apt-get install colordiff
   - whereis colordiff
   - whereis colordiff.pl
   - colordiff
-  - sudo apt-get install colordiff
   - cd cloned
   - git clone https://github.com/zordius/lightncandy
   - cd ..

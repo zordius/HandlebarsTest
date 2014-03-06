@@ -55,6 +55,23 @@ handlebars.registerHelper('helper2', function (options) {
     return '<a href="' + options.hash.url + '">' + options.hash.text + '</a>(' + options.hash['ur"l'] + ')';
 });
 
+handlebars.registerHelper('helper3', function () {
+    var options = arguments[arguments.length-1];
+    return options.fn(['test1', 'test2', 'test3']);
+});
+
+handlebars.registerHelper('helper4', function () {
+    var options = arguments[arguments.length-1];
+    if (options.hash.val) {
+        this.helper4_value = options.hash.val % 2;
+        return options.fn(this);
+    }
+    if (options.hash.odd) {
+        return options.fn([1,3,5,7,9]);
+    }
+    return '';
+});
+
 fs.readdir(dir, function (err, files) {
     files.forEach(function (file) {
         if (!file.match(/\.tmpl/)) {

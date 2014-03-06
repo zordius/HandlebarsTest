@@ -1,0 +1,27 @@
+Hello {{name}}, you have just won ${{value}}!
+
+. Test 1: {{#helper3 people~}}
+  <li>{{name}} -> {{value}}</li>
+{{~/helper3}}
+
+. Test 2: {{#helper4 "people"}}
+  <li>{{name}} -> {{value}}</li>
+{{/helper4}}
+
+. Test 3: {{#each people}}
+  NOTE A: {{name}} : {{.}} != {{../.}}
+S~{{.}}~{{#helper3}}
+  NOTE B: {{name}} : {{.}} != {{../.}}
+{{/helper3}}E
+{{/each}}
+
+. Test 4: {{#[helper3]}}ABC{{/[helper3]}}
+
+. Test 5: {{#helper4 val=123 odd=1}}~~~{{.}}~~~{{/[helper4]}}
+
+. Test 6: {{#helper4 val=people odd=test}}TRY~~~{{.}} , {{../.}} ~~~{{/helper4}}
+
+. Test 7: {{#each people}} 
+ OK! 1 {{#helper3 val=name odd=value}}TRY ?!??!!~~~{{.}} , {{../.}} ~~~{{/helper3}}
+ OK! {{#helper4 val=name odd=value}}TRY ?!~~~{{.}} , {{../.}} ~~~{{/helper4}}
+{{/each}}

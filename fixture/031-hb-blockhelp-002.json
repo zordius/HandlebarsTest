@@ -1,0 +1,8 @@
+{
+    "name": "John",
+    "value": 10000,
+    "people": {
+        "name": "test",
+        "value": 200
+    }
+}

@@ -1,0 +1,171 @@
+{
+  "$schema": "http: \/\/json-schema.org\/draft-03\/schema",
+  "description": "Template Json Schema",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
+    "value": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
+    "helper3": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "value": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          }
+        }
+      }
+    },
+    "helper4": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "value": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "1": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            }
+          }
+        },
+        "items": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        }
+      }
+    },
+    "people": {
+      "type": "array",
+      "items": {
+        "type": "array",
+        "properties": {
+          "name": {
+            "type": [
+              "string",
+              "number"
+            ],
+            "required": true
+          },
+          "1": {
+            "type": "array",
+            "items": {
+              "type": [
+                "string",
+                "number"
+              ],
+              "required": true
+            }
+          },
+          "helper3": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "properties": {
+                "name": {
+                  "type": [
+                    "string",
+                    "number"
+                  ],
+                  "required": true
+                },
+                "1": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  }
+                }
+              },
+              "items": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              }
+            }
+          },
+          "helper4": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "items": {
+                "type": [
+                  "string",
+                  "number"
+                ],
+                "required": true
+              },
+              "properties": {
+                "1": {
+                  "type": "array",
+                  "items": {
+                    "type": [
+                      "string",
+                      "number"
+                    ],
+                    "required": true
+                  }
+                }
+              }
+            }
+          }
+        },
+        "items": {
+          "type": [
+            "string",
+            "number"
+          ],
+          "required": true
+        }
+      }
+    }
+  }
+}

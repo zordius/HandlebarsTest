@@ -1,0 +1,31 @@
+Hello John, you have just won $10000!
+
+. Test 1: <li> -> </li>
+
+. Test 2: 
+
+. Test 3: 
+  NOTE A:  : test != [object Object]
+S~test~
+  NOTE B:  : test1,test2,test3 != test
+E
+
+  NOTE A:  : 200 != [object Object]
+S~200~
+  NOTE B:  : test1,test2,test3 != 200
+E
+
+
+. Test 4: ABC
+
+. Test 5: 
+
+. Test 6: TRY~~~[object Object] , [object Object] ~~~
+
+. Test 7:  
+ OK! 1 TRY ?!??!!~~~test1,test2,test3 , test ~~~
+ OK! 
+ 
+ OK! 1 TRY ?!??!!~~~test1,test2,test3 , 200 ~~~
+ OK! 
+

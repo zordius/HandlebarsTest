@@ -50,7 +50,7 @@ S~'.LCRun2::encq(Array(null), $cx, $in).'~'.LCRun2::bch('helper3', Array(), $cx,
 
 . Test 4: '.LCRun2::bch('helper3', Array(), $cx, $in, function($cx, $in) {return 'ABC';}).'
 
-. Test 5: '.LCRun2::bch('helper4', Array('val'=>Array('123'),'odd'=>Array('1')), $cx, $in, function($cx, $in) {return '~~~'.LCRun2::encq(Array(null), $cx, $in).'~~~';}).'
+. Test 5: '.LCRun2::bch('helper4', Array('val'=>Array('"123"'),'odd'=>Array('"1"')), $cx, $in, function($cx, $in) {return '~~~'.LCRun2::encq(Array(null), $cx, $in).'~~~';}).'
 
 . Test 6: '.LCRun2::bch('helper4', Array('val'=>Array('people'),'odd'=>Array('test')), $cx, $in, function($cx, $in) {return 'TRY~~~'.LCRun2::encq(Array(null), $cx, $in).' , '.LCRun2::encq(Array(1,null), $cx, $in).' ~~~';}).'
 

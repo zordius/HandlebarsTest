@@ -18,7 +18,7 @@ E
 
 . Test 4: ABC
 
-. Test 5: 
+. Test 5: ~~~[object Object]~~~
 
 . Test 6: TRY~~~[object Object] , [object Object] ~~~
 

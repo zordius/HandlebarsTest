@@ -62,11 +62,12 @@ handlebars.registerHelper('helper3', function () {
 
 handlebars.registerHelper('helper4', function () {
     var options = arguments[arguments.length-1];
-    if (options.hash.val) {
+
+    if (typeof options.hash.val !== 'undefined') {
         this.helper4_value = options.hash.val % 2;
         return options.fn(this);
     }
-    if (options.hash.odd) {
+    if (typeof options.hash.odd !== 'undefined') {
         return options.fn([1,3,5,7,9]);
     }
     return '';

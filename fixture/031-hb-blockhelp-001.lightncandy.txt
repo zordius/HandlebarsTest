@@ -8,7 +8,7 @@ Hello John, you have just won $10000!
 
 . Test 4: ABC
 
-. Test 5: 
+. Test 5: ~~~[object Object]~~~
 
 . Test 6: TRY~~~1,3,5,7,9 , [object Object] ~~~
 

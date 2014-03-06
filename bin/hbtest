@@ -8,7 +8,14 @@ if (count($argv) < 3) {
 }
 
 $test_times = (count($argv) > 3) ? $argv[3] : 100000;
-$diffcmd = (count($argv) > 4) ? "colordiff" : "colordiff.pl";
+$diffcmd = null;
+foreach (Array('colordiff', 'colordiff.pl', 'diff') as $c) {
+    exec("$c 2>/dev/null", $n, $r);
+    if ($r < 127) {
+        $diffcmd = $c;
+        break;
+    }
+}
 
 if ($argv[1] == 'none') {
     warn("###do $test_times loop test");
@@ -102,10 +109,12 @@ if ($standard && ($result !== $standard)) {
         $match = 'OUTPUT';
     }
     debugp("# STANDARD:\n$standard\n");
-    debugp("# DIFF:\n");
-    $diff = shell_exec("$diffcmd $stdf $outf 2>/dev/null");
-    if ($debug) {
-        debugp($diff);
+    if ($diffcmd) {
+        debugp("# DIFF:\n");
+        $diff = shell_exec("$diffcmd $stdf $outf 2>/dev/null");
+        if ($debug) {
+            debugp($diff);
+        }
     }
 }
 

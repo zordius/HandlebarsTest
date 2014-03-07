@@ -1,0 +1,16 @@
+{
+    "name": "John",
+    "value": 10000,
+    "people": [
+        {
+            "url": "people url",
+            "text": "people text"
+        }
+    ],
+    "test": {
+        "url": "test url",
+        "text": "test text"
+    },
+    "url": "this url",
+    "text": "that text"
+}

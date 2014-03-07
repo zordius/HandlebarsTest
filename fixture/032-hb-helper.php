@@ -37,9 +37,10 @@
 
 . Test 1: '.LCRun2::ch('helper1', Array(Array('url'),Array('text')), 'raw', $cx, $in).'
 . Test 2: '.LCRun2::ch('helper1', Array(Array('url'),Array('text')), 'encq', $cx, $in).'
-. Test 3: '.LCRun2::ch('helper1', Array(Array('people','url'),Array('people','text')), 'encq', $cx, $in).'
+. Test 3: '.LCRun2::ch('helper1', Array(Array('test','url'),Array('test','text')), 'encq', $cx, $in).'
 . Test 4: '.LCRun2::sec(Array('people'), $cx, $in, true, function($cx, $in) {return '
-  * '.LCRun2::ch('helper1', Array(Array(1,'url'),Array(1,'text')), 'encq', $cx, $in).' !
+  * '.LCRun2::ch('helper1', Array(Array(1,'url'),Array(1,'text')), 'encq', $cx, $in).' <= '.LCRun2::encq(Array(1,'url'), $cx, $in).' , '.LCRun2::encq(Array(1,'text'), $cx, $in).', '.LCRun2::raw(Array(1,'url'), $cx, $in).', '.LCRun2::raw(Array(1,'text'), $cx, $in).' !!
+  * '.LCRun2::ch('helper1', Array(Array('url'),Array('text')), 'encq', $cx, $in).' <= '.LCRun2::encq(Array('url'), $cx, $in).' , '.LCRun2::encq(Array(1,'text'), $cx, $in).' , '.LCRun2::raw(Array('url'), $cx, $in).', '.LCRun2::raw(Array(1,'text'), $cx, $in).' :D
 ';}).'
 ';
 }

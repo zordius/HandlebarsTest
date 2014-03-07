@@ -30,8 +30,8 @@ function prepare_tmpl($name, $file, $flag) {
             $v = $tmpl->parseArguments($args);
             // Sorry, handlebars.php auto convert none string to ''
             // We will test on valid values to give it a chance.
-            $url = $cx->get($v[0]);
-            $txt = $cx->get($v[1]);
+            $u = $cx->get($v[0]);
+            $t = $cx->get($v[1]);
             return "<a href=\"{$u}\">{$t}</a>";
         });
 

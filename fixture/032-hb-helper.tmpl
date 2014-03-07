@@ -1,0 +1,8 @@
+Hello {{name}}, you have just won ${{value}}!
+
+. Test 1: {{{helper1 url text}}}
+. Test 2: {{helper1 url text}}
+. Test 3: {{helper1 people.url people.text}}
+. Test 4: {{#each people}}
+  * {{helper1 ../url ../text}} !
+{{/each}}

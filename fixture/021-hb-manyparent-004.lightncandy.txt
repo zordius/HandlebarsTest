@@ -24,27 +24,27 @@ Hello , you have just won $!
  
  if-else
  
-  BAD!   -  Y  = 
+  BAD!  0 - 0 Y  = 
  
  with
  
  simple unless
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad -> 0 , 
  
  unless else
  
-   UNLESS good = bad ->  , 
+   UNLESS good = bad -> 0 , 
  
 
  <li> is a 3th (, , )</li>
  simple if~
  
-  simple GOOD!   -  X  ~ 
+  simple GOOD!  3th - 3th X  ~ 
  
  if-else
  
-  GOOD!   -  X  ~ 
+  GOOD!  3th - 3th X  ~ 
  
  with
  
@@ -54,7 +54,7 @@ Hello , you have just won $!
  
  unless else
  
-   UNLESS bad = good ->  , 
+   UNLESS bad = good -> 3th , 
  
 
  <li> is a  (, , )</li>
@@ -139,13 +139,13 @@ Hello , you have just won $!
 
  <li> is a 0 (, , )</li>
  
-  BAD!   -  Y  = 
+  BAD!  0 - 0 Y  = 
  
  
 
  <li> is a 3th (, , )</li>
  
-  GOOD!   -  X  ~ 
+  GOOD!  3th - 3th X  ~ 
  
  
     WITH: 3th ,  , 
@@ -185,13 +185,13 @@ Hello , you have just won $!
 
  <li> is a 0 (, , )</li>
  
-  BAD!   -  Y  = 
+  BAD!  0 - 0 Y  = 
  
  
 
  <li> is a 3th (, , )</li>
  
-  GOOD!   -  X  ~ 
+  GOOD!  3th - 3th X  ~ 
  
  
     WITH: 3th ,  , 
@@ -231,13 +231,13 @@ Hello , you have just won $!
 
  <li> is a 0 (, , )</li>
  
-  BAD!   -  Y  = 
+  BAD!  0 - 0 Y  = 
  
  
 
  <li> is a 3th (, , )</li>
  
-  GOOD!   -  X  ~ 
+  GOOD!  3th - 3th X  ~ 
  
  
     WITH: 3th ,  , 

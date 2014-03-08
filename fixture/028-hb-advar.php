@@ -33,14 +33,14 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
+    return 'Hello '.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq((is_array($in) ? $in['value'] : null), $cx).'!
 
-. '.LCRun2::encq(Array('!'), $cx, $in).' !!
-. KAKA '.LCRun2::encq(Array('! # % & ( ) * + , . / ; < = > @ [ \ ^ ` { | } ~'), $cx, $in).'
-. K '.LCRun2::encq(Array('!['), $cx, $in).' X
-. Hello '.LCRun2::encq(Array('winners','0','name'), $cx, $in).' !! Won $'.LCRun2::encq(Array('winners','0','value'), $cx, $in).' now~~
-. Hello '.LCRun2::encq(Array('winners','1','name'), $cx, $in).' !! Won $'.LCRun2::encq(Array('winners','1','value'), $cx, $in).' later~~
-. No '.LCRun2::encq(Array('winners','!','name'), $cx, $in).' !!
+. '.LCRun2::encq((is_array($in) ? $in['!'] : null), $cx).' !!
+. KAKA '.LCRun2::encq((is_array($in) ? $in['! # % & ( ) * + , . / ; < = > @ [ \ ^ ` { | } ~'] : null), $cx).'
+. K '.LCRun2::encq((is_array($in) ? $in['!['] : null), $cx).' X
+. Hello '.LCRun2::encq((is_array($in['winners']['0']) ? $in['winners']['0']['name'] : null), $cx).' !! Won $'.LCRun2::encq((is_array($in['winners']['0']) ? $in['winners']['0']['value'] : null), $cx).' now~~
+. Hello '.LCRun2::encq((is_array($in['winners']['1']) ? $in['winners']['1']['name'] : null), $cx).' !! Won $'.LCRun2::encq((is_array($in['winners']['1']) ? $in['winners']['1']['value'] : null), $cx).' later~~
+. No '.LCRun2::encq((is_array($in['winners']['!']) ? $in['winners']['!']['name'] : null), $cx).' !!
 ';
 }
 ?>

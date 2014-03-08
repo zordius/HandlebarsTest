@@ -33,9 +33,9 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
-This is next line.'.LCRun2::encq(Array('empty_var'), $cx, $in).'中文
-Test \on \'spacing in mustache: Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
+    return 'Hello '.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq((is_array($in) ? $in['value'] : null), $cx).'!
+This is next line.'.LCRun2::encq((is_array($in) ? $in['empty_var'] : null), $cx).'中文
+Test \on \'spacing in mustache: Hello '.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq((is_array($in) ? $in['value'] : null), $cx).'!
 ';
 }
 ?>

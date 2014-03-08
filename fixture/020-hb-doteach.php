@@ -33,16 +33,16 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
+    return 'Hello '.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq((is_array($in) ? $in['value'] : null), $cx).'!
 <ul>
-'.LCRun2::sec(Array('people','boss'), $cx, $in, true, function($cx, $in) {return '
- <li>'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::encq(Array('gender'), $cx, $in).' ('.LCRun2::encq(Array('name'), $cx, $in).', '.LCRun2::encq(Array('value'), $cx, $in).', '.LCRun2::encq(Array('end'), $cx, $in).')</li>
+'.LCRun2::sec((is_array($in['people']) ? $in['people']['boss'] : null), $cx, $in, true, function($cx, $in) {return '
+ <li>'.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).' is a '.LCRun2::encq((is_array($in) ? $in['gender'] : null), $cx).' ('.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).', '.LCRun2::encq((is_array($in) ? $in['value'] : null), $cx).', '.LCRun2::encq((is_array($in) ? $in['end'] : null), $cx).')</li>
 ';}).'
 </ul>
-'.LCRun2::encq(Array('end'), $cx, $in).'
-'.LCRun2::sec(Array('people','boss'), $cx, $in, false, function($cx, $in) {return '
- THIS:'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::raw(Array('gender'), $cx, $in).'
- PARENT: '.LCRun2::raw(Array('name'), $cx, $in).', '.LCRun2::raw(Array('value'), $cx, $in).', '.LCRun2::raw(Array('end'), $cx, $in).'
+'.LCRun2::encq((is_array($in) ? $in['end'] : null), $cx).'
+'.LCRun2::sec((is_array($in['people']) ? $in['people']['boss'] : null), $cx, $in, false, function($cx, $in) {return '
+ THIS:'.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).' is a '.LCRun2::raw((is_array($in) ? $in['gender'] : null), $cx).'
+ PARENT: '.LCRun2::raw((is_array($in) ? $in['name'] : null), $cx).', '.LCRun2::raw((is_array($in) ? $in['value'] : null), $cx).', '.LCRun2::raw((is_array($in) ? $in['end'] : null), $cx).'
 ';}).'
 ';
 }

@@ -543,6 +543,18 @@
                             ],
                             "required": true
                           },
+                          "1": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": [
+                                  "string",
+                                  "number"
+                                ],
+                                "required": true
+                              }
+                            }
+                          },
                           "end": {
                             "type": [
                               "string",

@@ -33,8 +33,8 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
-Hello original '.LCRun2::raw(Array('name'), $cx, $in).' , the value is '.LCRun2::raw(Array('value'), $cx, $in).'
+    return 'Hello '.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq((is_array($in) ? $in['value'] : null), $cx).'!
+Hello original '.LCRun2::raw((is_array($in) ? $in['name'] : null), $cx).' , the value is '.LCRun2::raw((is_array($in) ? $in['value'] : null), $cx).'
 ';
 }
 ?>

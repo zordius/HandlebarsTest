@@ -33,17 +33,17 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
+    return 'Hello '.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq((is_array($in) ? $in['value'] : null), $cx).'!
 
-. Test 1: '.((LCRun2::ifvar(Array('""'), $cx, $in)) ? 'OK' : '').' !!
-. Test 2: '.LCRun2::encq(Array('test','a b'), $cx, $in).' !!
-. Test 3: '.LCRun2::encq(Array('te"st','cd'), $cx, $in).' !!
-. Test 4: '.((LCRun2::ifvar(Array('te"st'), $cx, $in)) ? 'OK' : '').' !!
-. Test 5: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this is a test & OK"')), 'raw', $cx, $in).' !!
-. Test 6: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this is a test"')), 'raw', $cx, $in).' !!
-. Test 7: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this is a test & OK"')), 'encq', $cx, $in).' !!
-. Test 8: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this is a test"')), 'encq', $cx, $in).' !!
-. Test 9: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this.is.atest"')), 'encq', $cx, $in).' !!
+. Test 1: '.((LCRun2::ifvar('')) ? 'OK' : '').' !!
+. Test 2: '.LCRun2::encq((is_array($in['test']) ? $in['test']['a b'] : null), $cx).' !!
+. Test 3: '.LCRun2::encq((is_array($in['te"st']) ? $in['te"st']['cd'] : null), $cx).' !!
+. Test 4: '.((LCRun2::ifvar((is_array($in) ? $in['te"st'] : null))) ? 'OK' : '').' !!
+. Test 5: '.LCRun2::ch('helper1', Array((is_array($in) ? $in['url'] : null),'this is a test & OK'), 'raw', $cx).' !!
+. Test 6: '.LCRun2::ch('helper1', Array((is_array($in) ? $in['url'] : null),'this is a test'), 'raw', $cx).' !!
+. Test 7: '.LCRun2::ch('helper1', Array((is_array($in) ? $in['url'] : null),'this is a test & OK'), 'encq', $cx).' !!
+. Test 8: '.LCRun2::ch('helper1', Array((is_array($in) ? $in['url'] : null),'this is a test'), 'encq', $cx).' !!
+. Test 9: '.LCRun2::ch('helper1', Array((is_array($in) ? $in['url'] : null),'this.is.atest'), 'encq', $cx).' !!
 ';
 }
 ?>

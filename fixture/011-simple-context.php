@@ -33,11 +33,11 @@
         'path' => Array(),
 
     );
-    return ''.LCRun2::encq(Array('grand_parent_id'), $cx, $in).'
-'.LCRun2::sec(Array('parent_contexts'), $cx, $in, false, function($cx, $in) {return '
-  '.LCRun2::encq(Array('parent_id'), $cx, $in).' ('.LCRun2::encq(Array('grand_parent_id'), $cx, $in).')
-  '.LCRun2::sec(Array('child_contexts'), $cx, $in, false, function($cx, $in) {return '
-    '.LCRun2::encq(Array('child_id'), $cx, $in).' ('.LCRun2::encq(Array('parent_id'), $cx, $in).' << '.LCRun2::encq(Array('grand_parent_id'), $cx, $in).')
+    return ''.LCRun2::encq((is_array($in) ? $in['grand_parent_id'] : null), $cx).'
+'.LCRun2::sec((is_array($in) ? $in['parent_contexts'] : null), $cx, $in, false, function($cx, $in) {return '
+  '.LCRun2::encq((is_array($in) ? $in['parent_id'] : null), $cx).' ('.LCRun2::encq((is_array($in) ? $in['grand_parent_id'] : null), $cx).')
+  '.LCRun2::sec((is_array($in) ? $in['child_contexts'] : null), $cx, $in, false, function($cx, $in) {return '
+    '.LCRun2::encq((is_array($in) ? $in['child_id'] : null), $cx).' ('.LCRun2::encq((is_array($in) ? $in['parent_id'] : null), $cx).' << '.LCRun2::encq((is_array($in) ? $in['grand_parent_id'] : null), $cx).')
   ';}).'
 ';}).'
 ';

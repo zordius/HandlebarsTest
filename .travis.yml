@@ -13,4 +13,4 @@ before_script:
   - cd ../..
 script:
   - echo Tests based on this version... https://github.com/zordius/lightncandy/commit/`cat lightncandy`
-  - php bin/hbreport F 32 T
+  - php bin/hbreport F 28 T

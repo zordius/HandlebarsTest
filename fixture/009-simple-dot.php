@@ -33,9 +33,9 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(Array('winner','name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('winner','value'), $cx, $in).'!
-We have $'.LCRun2::encq(Array('award','first','value'), $cx, $in).' for '.LCRun2::encq(Array('award','first','name'), $cx, $in).' award!!
-Raw dot test: '.LCRun2::encq(Array('winner','name'), $cx, $in).' '.LCRun2::raw(Array('award','first','value'), $cx, $in).' for '.LCRun2::raw(Array('award','first','name'), $cx, $in).'
+    return 'Hello '.LCRun2::encq((is_array($in['winner']) ? $in['winner']['name'] : null), $cx).', you have just won $'.LCRun2::encq((is_array($in['winner']) ? $in['winner']['value'] : null), $cx).'!
+We have $'.LCRun2::encq((is_array($in['award']['first']) ? $in['award']['first']['value'] : null), $cx).' for '.LCRun2::encq((is_array($in['award']['first']) ? $in['award']['first']['name'] : null), $cx).' award!!
+Raw dot test: '.LCRun2::encq((is_array($in['winner']) ? $in['winner']['name'] : null), $cx).' '.LCRun2::raw((is_array($in['award']['first']) ? $in['award']['first']['value'] : null), $cx).' for '.LCRun2::raw((is_array($in['award']['first']) ? $in['award']['first']['name'] : null), $cx).'
 ';
 }
 ?>

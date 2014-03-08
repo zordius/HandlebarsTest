@@ -35,41 +35,41 @@
     );
     return '<div class="yui3-u-1-2 member-status">
  <ul class="h-list">
- '.LCRun2::wi(Array('login_status'), $cx, $in, function($cx, $in) {return '
-  '.((LCRun2::ifvar(Array('is_login'), $cx, $in)) ? '
-   <li><a href="'.LCRun2::encq(Array('edit_account_link'), $cx, $in).'">Hello '.LCRun2::encq(Array('username'), $cx, $in).'</a></li>
-   <li><a href="'.LCRun2::encq(Array('logut_link'), $cx, $in).'">Logout</a></li>
+ '.LCRun2::wi((is_array($in) ? $in['login_status'] : null), $cx, $in, function($cx, $in) {return '
+  '.((LCRun2::ifvar((is_array($in) ? $in['is_login'] : null))) ? '
+   <li><a href="'.LCRun2::encq((is_array($in) ? $in['edit_account_link'] : null), $cx).'">Hello '.LCRun2::encq((is_array($in) ? $in['username'] : null), $cx).'</a></li>
+   <li><a href="'.LCRun2::encq((is_array($in) ? $in['logut_link'] : null), $cx).'">Logout</a></li>
   ' : '').'
-  '.((!LCRun2::ifvar(Array('is_login'), $cx, $in)) ? '
-   <li>New User? <a href="'.LCRun2::encq(Array('register_link'), $cx, $in).'">Register Now</a></li>
-   <li><a href="'.LCRun2::encq(Array('login_link'), $cx, $in).'">Login</a></li>
+  '.((!LCRun2::ifvar((is_array($in) ? $in['is_login'] : null))) ? '
+   <li>New User? <a href="'.LCRun2::encq((is_array($in) ? $in['register_link'] : null), $cx).'">Register Now</a></li>
+   <li><a href="'.LCRun2::encq((is_array($in) ? $in['login_link'] : null), $cx).'">Login</a></li>
   ' : '').'
 ~WITH
-  '.LCRun2::wi(Array('test'), $cx, $in, function($cx, $in) {return '
+  '.LCRun2::wi((is_array($in) ? $in['test'] : null), $cx, $in, function($cx, $in) {return '
 ~TEST~
-   '.LCRun2::encq(Array('testval'), $cx, $in).'
-   '.LCRun2::raw(Array('testval'), $cx, $in).'
+   '.LCRun2::encq((is_array($in) ? $in['testval'] : null), $cx).'
+   '.LCRun2::raw((is_array($in) ? $in['testval'] : null), $cx).'
 ~IF~
-   '.((LCRun2::ifvar(Array('testval'), $cx, $in)) ? 'YES' : '').'
-   '.((!LCRun2::ifvar(Array('testval'), $cx, $in)) ? 'NO' : '').'
+   '.((LCRun2::ifvar((is_array($in) ? $in['testval'] : null))) ? 'YES' : '').'
+   '.((!LCRun2::ifvar((is_array($in) ? $in['testval'] : null))) ? 'NO' : '').'
 ~SEC~
-   '.LCRun2::sec(Array('test2'), $cx, $in, false, function($cx, $in) {return '
-    '.LCRun2::encq(Array('loopval'), $cx, $in).'
+   '.LCRun2::sec((is_array($in) ? $in['test2'] : null), $cx, $in, false, function($cx, $in) {return '
+    '.LCRun2::encq((is_array($in) ? $in['loopval'] : null), $cx).'
    ';}).'
 ~EACH~
-   '.LCRun2::sec(Array('test3'), $cx, $in, true, function($cx, $in) {return '
-    '.LCRun2::encq(Array('loopval'), $cx, $in).'
+   '.LCRun2::sec((is_array($in) ? $in['test3'] : null), $cx, $in, true, function($cx, $in) {return '
+    '.LCRun2::encq((is_array($in) ? $in['loopval'] : null), $cx).'
    ';}).'
 ~END~
   ';}).'
 WITH~
  ';}).'
 _WITH PATH_
- '.LCRun2::wi(Array('login_status','test'), $cx, $in, function($cx, $in) {return '
-XTEST: '.LCRun2::encq(Array('testval'), $cx, $in).' - '.LCRun2::raw(Array('textval'), $cx, $in).'
-IF: '.((LCRun2::ifvar(Array('testval'), $cx, $in)) ? 'YES~' : '').''.((!LCRun2::ifvar(Array('testval'), $cx, $in)) ? 'NO!' : '').'
-SECTION::'.LCRun2::sec(Array('test2'), $cx, $in, false, function($cx, $in) {return ' - loop: '.LCRun2::encq(Array('loopval'), $cx, $in).'';}).'
-EACH::'.LCRun2::sec(Array('test3'), $cx, $in, true, function($cx, $in) {return '	lp:'.LCRun2::raw(Array('loopval'), $cx, $in).'';}).'
+ '.LCRun2::wi((is_array($in['login_status']) ? $in['login_status']['test'] : null), $cx, $in, function($cx, $in) {return '
+XTEST: '.LCRun2::encq((is_array($in) ? $in['testval'] : null), $cx).' - '.LCRun2::raw((is_array($in) ? $in['textval'] : null), $cx).'
+IF: '.((LCRun2::ifvar((is_array($in) ? $in['testval'] : null))) ? 'YES~' : '').''.((!LCRun2::ifvar((is_array($in) ? $in['testval'] : null))) ? 'NO!' : '').'
+SECTION::'.LCRun2::sec((is_array($in) ? $in['test2'] : null), $cx, $in, false, function($cx, $in) {return ' - loop: '.LCRun2::encq((is_array($in) ? $in['loopval'] : null), $cx).'';}).'
+EACH::'.LCRun2::sec((is_array($in) ? $in['test3'] : null), $cx, $in, true, function($cx, $in) {return '	lp:'.LCRun2::raw((is_array($in) ? $in['loopval'] : null), $cx).'';}).'
 END!
  ';}).'
  </ul>

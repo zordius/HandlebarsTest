@@ -33,13 +33,13 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(Array('name'), $cx, $in).', you have just won $'.LCRun2::encq(Array('value'), $cx, $in).'!
+    return 'Hello '.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq((is_array($in) ? $in['value'] : null), $cx).'!
 <ul>
-'.LCRun2::sec(Array('people'), $cx, $in, false, function($cx, $in) {return '
- <li>'.LCRun2::encq(Array('name'), $cx, $in).' is a '.LCRun2::encq(Array('gender'), $cx, $in).'</li>
+'.LCRun2::sec((is_array($in) ? $in['people'] : null), $cx, $in, false, function($cx, $in) {return '
+ <li>'.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).' is a '.LCRun2::encq((is_array($in) ? $in['gender'] : null), $cx).'</li>
 ';}).'
 </ul>
-'.LCRun2::encq(Array('end'), $cx, $in).'
+'.LCRun2::encq((is_array($in) ? $in['end'] : null), $cx).'
 ';
 }
 ?>

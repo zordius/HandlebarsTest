@@ -43,6 +43,7 @@
 . Test 6: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this is a test"')), 'raw', $cx, $in).' !!
 . Test 7: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this is a test & OK"')), 'encq', $cx, $in).' !!
 . Test 8: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this is a test"')), 'encq', $cx, $in).' !!
+. Test 9: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this.is.atest"')), 'encq', $cx, $in).' !!
 ';
 }
 ?>

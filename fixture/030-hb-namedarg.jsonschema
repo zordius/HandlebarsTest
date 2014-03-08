@@ -38,6 +38,13 @@
       ],
       "required": true
     },
+    "\"string\/arg.css\"": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
+    },
     "\"0\"": {
       "type": [
         "string",

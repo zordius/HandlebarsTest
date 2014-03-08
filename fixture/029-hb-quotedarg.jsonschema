@@ -61,6 +61,13 @@
         "number"
       ],
       "required": true
+    },
+    "\"this.is.atest\"": {
+      "type": [
+        "string",
+        "number"
+      ],
+      "required": true
     }
   }
 }

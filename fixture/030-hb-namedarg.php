@@ -38,6 +38,7 @@
 . Test 1: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this is a test & OK"')), 'raw', $cx, $in).' !!
 . Test 2: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this is a test"')), 'raw', $cx, $in).' !!
 . Test 3: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this is a test & OK"')), 'encq', $cx, $in).' !!
+. Test 3: '.LCRun2::ch('helper1', Array(Array('url'),Array('"string/arg.css"')), 'encq', $cx, $in).' !!
 . Test 4: '.LCRun2::ch('helper1', Array(Array('url'),Array('"this is a test"')), 'encq', $cx, $in).' !!
 . Test 5: '.LCRun2::ch('helper2', Array('url'=>Array('url'),'text'=>Array('"this is a test"')), 'encq', $cx, $in, true).' !!
 . Test 6: '.LCRun2::ch('helper2', Array('ur"l'=>Array('url'),'text'=>Array('"this is a test"')), 'encq', $cx, $in, true).' !!

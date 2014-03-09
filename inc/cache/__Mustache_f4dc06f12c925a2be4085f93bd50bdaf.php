@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_baf24ca18caaaa8f729cf67ccc32c1a5 extends Mustache_Template
+class __Mustache_f4dc06f12c925a2be4085f93bd50bdaf extends Mustache_Template
 {
     public function renderInternal(Mustache_Context $context, $indent = '')
     {
@@ -28,6 +28,11 @@ class __Mustache_baf24ca18caaaa8f729cf67ccc32c1a5 extends Mustache_Template
 ';
         $buffer .= $indent . '. Test 3: ';
         $value = $this->resolveValue($context->find('helper1  url  "this is a test & OK"'), $context, $indent);
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+        $buffer .= ' !!
+';
+        $buffer .= $indent . '. Test 3: ';
+        $value = $this->resolveValue($context->findDot('helper1  url  "string/arg.css"'), $context, $indent);
         $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= ' !!
 ';

@@ -65,7 +65,7 @@ Feature Comparison
 * QUOTE : Encode ' to &amp;#039;, not to &amp;#x27; (minor issue)
 * SINGLEQUOTE : Do not encode ' to &amp;#x27;
 
-* SPECIAL NOTE: now (2014-02-11) case 003-simple-else-005 , 006-simple-section-003 , 018-hb-withwith-004 , 021-hb-manyparent-004 , 027-hb-arrayindex-003 results are not 'YES' but 'OUTPUT'. We can not ensure the handlebars.js 1.3.0 behavior is correct or not. Now we open an issue to track this: https://github.com/wycats/handlebars.js/issues/731
+* SPECIAL NOTE: now (2014-02-11) case 003-simple-else-005 , 006-simple-section-003 , 018-hb-withwith-004 , 021-hb-manyparent-004 , 025-hb-particalparent-001, 025-hb-particalparent-002, 027-hb-arrayindex-003 results are not 'YES' but 'OUTPUT'. We can not ensure the handlebars.js 1.3.0+ behavior is correct or not. Now we open an issue to track this: https://github.com/wycats/handlebars.js/issues/731
 
 <pre>
 |       test case       | handlebars.php        |       lightncandy     |       mustache-php    |       mustache.php  |
@@ -77,10 +77,10 @@ Feature Comparison
 |  001-simple-vars-006  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 |    002-simple-if-001  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
 |    002-simple-if-002  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
-|    002-simple-if-003  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
+|    002-simple-if-003  |                  NO   |                 YES   |                 YES   |               CR/LF |
 |  003-simple-else-001  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
 |  003-simple-else-002  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
-|  003-simple-else-003  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
+|  003-simple-else-003  |                  NO   |                 YES   |                 YES   |               CR/LF |
 |  003-simple-else-004  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 |  003-simple-else-005  |              OUTPUT   |              OUTPUT   |              OUTPUT   |              OUTPUT |
 |  003-simple-else-006  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
@@ -96,9 +96,9 @@ Feature Comparison
 | 004-simple-mvars-004  |                 YES   |                 YES   |                 YES   |                 YES |
 | 05-simple-escape-001  |                 YES   |                 YES   |              OUTPUT   |                 YES |
 | 05-simple-escape-002  |                 YES   |                 YES   |              OUTPUT   |                 YES |
-| 05-simple-escape-003  |              OUTPUT   |               QUOTE   |              OUTPUT   |              OUTPUT |
+| 05-simple-escape-003  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 | 6-simple-section-001  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
-| 6-simple-section-002  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
+| 6-simple-section-002  |                  NO   |                 YES   |                 YES   |               CR/LF |
 | 6-simple-section-003  |              OUTPUT   |              OUTPUT   |              OUTPUT   |              OUTPUT |
 | 6-simple-section-004  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 | 6-simple-section-005  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
@@ -106,19 +106,19 @@ Feature Comparison
 | 6-simple-section-007  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
 | 6-simple-section-008  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
 | 6-simple-section-009  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
-| -simple-sections-001  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
+| -simple-sections-001  |                  NO   |                 YES   |                 YES   |               CR/LF |
 | -simple-sections-002  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
-| -simple-sections-003  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
+| -simple-sections-003  |                  NO   |                 YES   |                 YES   |               CR/LF |
 | -simple-sections-004  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
-| 8-simple-comment-001  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
+| 8-simple-comment-001  |                  NO   |                 YES   |                 YES   |               CR/LF |
 | 8-simple-comment-002  |               CR/LF   |                 YES   |                 YES   |               CR/LF |
-|   009-simple-dot-001  |         SINGLEQUOTE   |               QUOTE   |              OUTPUT   |         SINGLEQUOTE |
+|   009-simple-dot-001  |         SINGLEQUOTE   |                 YES   |              OUTPUT   |         SINGLEQUOTE |
 |   009-simple-dot-002  |                 YES   |                 YES   |              OUTPUT   |                 YES |
 |   009-simple-dot-003  |                 YES   |                 YES   |              OUTPUT   |                 YES |
-| le-doublesection-001  |              OUTPUT   |                 YES   |                 YES   |              OUTPUT |
-| le-doublesection-002  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
+| le-doublesection-001  |                  NO   |                 YES   |                 YES   |              OUTPUT |
+| le-doublesection-002  |                  NO   |                 YES   |              OUTPUT   |              OUTPUT |
 | le-doublesection-003  |                  NO   |                 YES   |              OUTPUT   |              OUTPUT |
-| le-doublesection-004  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
+| le-doublesection-004  |                  NO   |                 YES   |              OUTPUT   |              OUTPUT |
 | le-doublesection-005  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 | 1-simple-context-001  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 | 1-simple-context-002  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
@@ -145,12 +145,12 @@ Feature Comparison
 |        014-hb-if-006  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |        014-hb-if-007  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |        014-hb-if-008  |               CR/LF   |                 YES   |                  NO   |                  NO |
-|    015-hb-unless-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-|    015-hb-unless-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-|    015-hb-unless-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-|    015-hb-unless-004  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-|    015-hb-unless-005  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-|    015-hb-unless-006  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|    015-hb-unless-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|    015-hb-unless-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|    015-hb-unless-003  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|    015-hb-unless-004  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|    015-hb-unless-005  |               CR/LF   |                 YES   |                  NO   |                  NO |
+|    015-hb-unless-006  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |  016-hb-eachthis-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |  016-hb-eachthis-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |      017-hb-with-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
@@ -162,10 +162,10 @@ Feature Comparison
 |  018-hb-withwith-004  |                  NO   |              OUTPUT   |                  NO   |                  NO |
 |  018-hb-withwith-005  |                  NO   |                 YES   |                  NO   |                  NO |
 |  018-hb-withwith-006  |                  NO   |                 YES   |                  NO   |                  NO |
-|  018-hb-withwith-007  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|  018-hb-withwith-007  |                  NO   |                 YES   |                  NO   |                  NO |
 | 19-hb-eachparent-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-| 19-hb-eachparent-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
-|   020-hb-doteach-001  |               CR/LF   |                 YES   |                  NO   |                  NO |
+| 19-hb-eachparent-002  |                  NO   |                 YES   |                  NO   |                  NO |
+|   020-hb-doteach-001  |                  NO   |                 YES   |                  NO   |                  NO |
 |   020-hb-doteach-002  |               CR/LF   |                 YES   |                  NO   |                  NO |
 | 21-hb-manyparent-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 21-hb-manyparent-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
@@ -194,8 +194,24 @@ Feature Comparison
 | 27-hb-arrayindex-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 27-hb-arrayindex-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 | 27-hb-arrayindex-003  |              OUTPUT   |              OUTPUT   |                  NO   |                  NO |
+|     028-hb-advar-001  |                 YES   |                 YES   |              OUTPUT   |              OUTPUT |
+|     028-hb-advar-002  |                 YES   |                 YES   |              OUTPUT   |              OUTPUT |
+|     028-hb-advar-003  |                 YES   |                 YES   |              OUTPUT   |              OUTPUT |
+| 029-hb-quotedarg-001  |                  NO   |                 YES   |                  NO   |                  NO |
+| 029-hb-quotedarg-002  |                  NO   |                 YES   |                  NO   |                  NO |
+| 029-hb-quotedarg-003  |                  NO   |                 YES   |                  NO   |                  NO |
+|  030-hb-namedarg-001  |                  NO   |                 YES   |              OUTPUT   |              OUTPUT |
+|  030-hb-namedarg-002  |                  NO   |                 YES   |              OUTPUT   |              OUTPUT |
+| 031-hb-blockhelp-001  |                  NO   |                 YES   |                  NO   |                  NO |
+| 031-hb-blockhelp-002  |                  NO   |                 YES   |                  NO   |                  NO |
+|    032-hb-helper-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|    032-hb-helper-002  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|    032-hb-helper-003  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|    032-hb-helper-004  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+|    032-hb-helper-005  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |  livetest-001-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  livetest-002-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
+
 </pre>
 
 How to Test

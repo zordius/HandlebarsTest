@@ -4,18 +4,7 @@
             'jstrue' => true,
             'jsobj' => true,
         ),
-        'helpers' => Array(            'helper1' => function($url, $txt) {
-                $u = ($url !== null) ? $url : 'undefined';
-                $t = ($txt !== null) ? $txt : 'undefined';
-                return "<a href=\"{$u}\">{$t}</a>";
-            },
-            'helper2' => function($hash) {
-                $u = isset($hash['url']) ? $hash['url'] : 'undefined';
-                $t = isset($hash['text']) ? $hash['text'] : 'undefined';
-                $x = isset($hash['ur"l']) ? $hash['ur"l'] : 'undefined';
-                return "<a href=\"{$u}\">{$t}</a>({$x})";
-            },
-),
+        'helpers' => Array(),
         'blockhelpers' => Array(            'helper3' => function($cx, $args) {
                 return Array('test1', 'test2', 'test3');
             },

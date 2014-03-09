@@ -42,6 +42,9 @@ if ($times === 'T') {
             ob_start();
             $result = json_decode(system("{$php_cmd}bin/hbtest lightncandy $test -$flag 2>/dev/null"), true);
             ob_end_clean();
+            if (! $result) {
+                $result = Array('test' => $test, 'diff' => '', 'match' => 'X');
+            }
             $result['flag'] = $flag;
             if ($result['match'] == 'YES') {
                 echo '.';

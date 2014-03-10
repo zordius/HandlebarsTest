@@ -232,29 +232,20 @@ How to Test
    * Example: bin/hbtest mustache.php fixture/001-simple-vars-001.json
 
 * feature test
+   * all tests will be executed with FLAG_HANDLEBARS on (turn on all handlebars extensions on mustache)
+   * Thest tests do not generate any file under report/
+   * After test end, a feature chart will be outputed on console.
    * bin/hbreport 5
-      * This do not generate any file under report/
-      * Will print a feature chart on console.
-      * lightncandy will be executed with FLAG_HANDLEBARSJS enabled. (to test without FLAG_STANDALONE. now we know this boost handlebars 1%~10% speed)
+      * lightncandy will be executed with FLAG_JS enabled
    * bin/hbreport 7
-      * This do not generate any file under report/
-      * Will print a feature chart on console.
-      * lightncandy will be executed with FLAG_STANDALONE and FLAG_HANDLEBARSJS enabled.
+      * lightncandy will be executed with FLAG_JS and FLAG_STANDALONE enabled.
    * bin/hbreport 1
-      * This do not generate any file under report/
-      * Will print a feature chart on console.
-      * lightncandy will be executed with FLAG_STANDALONE , FLAG_HANDLEBARSJS and FLAG_BESTPERFORMANCE enabled (to know more about FLAG_BESTPERFORMANCE, read lightncandy document please)
+      * lightncandy will be executed with FLAG_JS, FLAG_STANDALONE and FLAG_BESTPERFORMANCE enabled (to know more about FLAG_BESTPERFORMANCE, read lightncandy document please)
    * bin/hbreport F num_of_know_issue
-      * This do not generate any file under report/
       * only test on lightncandy
-      * exit with number of detected issues - number of know issues
+      * exit with (number of detected issues - number of know issues)
 
 * performance test
    * bin/hbreport
       * This will generate report files under report/
       * default test 100000 times on every cases and libs, takes very long time.
-   * bin/hbreport 6
-      * This do not generate any file under report/
-      * Will print a feature chart on console.
-      * lightncandy will be executed with FLAG_BESTPERFORMANCE enabled (to know more about FLAG_BESTPERFORMANCE, read lightncandy document please)
-

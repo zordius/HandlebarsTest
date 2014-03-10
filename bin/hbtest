@@ -36,12 +36,11 @@ debugp("### Input:\n$input\n### as PHP:");
 debugp(print_r($vars, true));
 
 // Prepare template
-$flag = 0;
+require_once('cloned/lightncandy/src/lightncandy.php');
+$flag = LightnCandy::FLAG_HANDLEBARS | LightnCandy::FLAG_ERROR_LOG;
 if ($argv[1] == 'lightncandy') {
-    require_once('cloned/lightncandy/src/lightncandy.php');
-    $flag = LightnCandy::FLAG_ERROR_LOG;
     if (($test_times % 2) == 1) {
-        $flag = $flag | LightnCandy::FLAG_HANDLEBARSJS;
+        $flag = $flag | LightnCandy::FLAG_JS;
     }
     if (($test_times % 3) == 1) {
         $flag = $flag | LightnCandy::FLAG_STANDALONE;
@@ -53,6 +52,7 @@ if ($argv[1] == 'lightncandy') {
         $flag = - $test_times;
     }
 }
+
 try {
     prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), Array(
         'flags' => $flag,

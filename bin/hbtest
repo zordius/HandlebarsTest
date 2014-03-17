@@ -132,7 +132,7 @@ if ($standard && ($result !== $standard)) {
     }
 }
 
-if (($test_times < 0) || (($match !== 'NO') && ($match !== 'OUTPUT'))) {
+if (($test_times < 0) || ($match !== 'NO')) {
     if ($test_times < 0) {
         $test_times = 1;
     }

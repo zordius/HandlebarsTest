@@ -5,20 +5,43 @@
  <meta http-equiv="keyword" content="mustache, handlebars, lightncandy, performance" />
  <meta name="description" content="Shows handlebars library performance comparison chart" />
 <style>
-html, body {margin:0;height:100%;overflow:hidden}
+html,body,body>div{margin:0;height:100%;overflow:hidden}
+select{position:absolute;top:0;right:0}
 </style>
 </head>
-<body>
-</body>
+<body><div></div><select></select></body>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
 google.load('visualization', '1.0', {'packages':['corechart']});
 google.setOnLoadCallback(function () {
     var data = new google.visualization.DataTable(),
-        chart = new google.visualization.ComboChart(document.body),
-        jsonData = JSON.parse($.ajax({url: 'report.json', async: false, dataType: 'json'}).responseText),
-        I, J, colOK = false, nums, L;
+        chart = new google.visualization.ComboChart(document.body.childNodes[0]),
+        sel = document.body.childNodes[1],
+        reports = $.ajax({url: 'reports', async: false, dataType: 'json'}).responseText.split(/\r|\n/).reverse(),
+        M = location.href.match(/\?(.+)/),
+        jsonData, I, J, colOK = false, nums, L, url, opt;
+
+    reports.shift();
+    url = M ? M[1] : reports[0];
+
+    for (I in reports) {
+        opt = document.createElement('option');
+        opt.text = reports[I];
+        if (url == reports[I]) {
+            opt.selected = true;
+        }
+        sel.add(opt);
+    }
+
+    sel.onchange = function () {
+        location.href = '?' + reports[sel.selectedIndex];
+    };
+
+    try {
+        jsonData = JSON.parse($.ajax({url: url, async: false, dataType: 'json'}).responseText);
+    } catch (e) {
+    }
 
     data.addColumn('string', 'Testcase');
 

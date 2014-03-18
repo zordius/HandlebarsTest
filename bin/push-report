@@ -10,10 +10,10 @@ fi
 git config --global user.name "Travis-CI"
 git config --global user.email "zordius@yahoo-inc.com"
 
-phantomjs --local-to-remote-url-access=true bin/save-chart.js 'report/index.html?20140310.133001.json'
 cd report
+phantomjs --local-to-remote-url-access=true ../bin/save-chart.js index.html?`ls *.json |tail -n 1`
 mkdir build
-mv ../report.png build
+mv report.png build
 cp index.html build
 cp *.json build
 rm build/20130110*

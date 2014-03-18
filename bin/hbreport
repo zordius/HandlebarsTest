@@ -80,8 +80,9 @@ if ($times === 'T') {
     }
 }
 $meta = $report[0];
-$mode = 'In this test lightncandy is configured as '
-        . ((($times % 2) == 1) ? 'HANDLEBARS.JS COMPATIBLE' : 'PHP VARIABLE OUTPUT')
+
+$mode = 'In this test lightncandy is configured as HANDLEBARS'
+        . ((($times % 2) == 1) ? '+ JS COMPATIBLE' : '')
         . ((($times % 3) == 1) ? '+ STANDALONE' : '')
         . ((($times % 5) == 1) ? '+ PERFORMANCE' : '');
 

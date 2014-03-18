@@ -1,11 +1,11 @@
 <html>
 <head>
- <title>HandlebarsTest Report</title>
+ <title>HandlebarsTest Report: Execution Time of Handlebars PHP Libraries</title>
  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
  <meta http-equiv="keyword" content="mustache, handlebars, lightncandy, performance" />
  <meta name="description" content="Shows handlebars library performance comparison chart" />
 <style>
-html, body {margin:0;height:100%;width:6000px}
+html, body {margin:0;height:100%;overflow:hidden}
 </style>
 </head>
 <body>
@@ -16,11 +16,9 @@ html, body {margin:0;height:100%;width:6000px}
 google.load('visualization', '1.0', {'packages':['corechart']});
 google.setOnLoadCallback(function () {
     var data = new google.visualization.DataTable(),
-        chart = new google.visualization.ColumnChart(document.body),
-        jsonData = JSON.parse($.ajax({url: location.href.match(/#(.+)/)[1], async: false, dataType: 'json'}).responseText),
-        I, J, colOK = false, nums;
-
-console.log(jsonData.reports);
+        chart = new google.visualization.ComboChart(document.body),
+        jsonData = JSON.parse($.ajax({url: 'report.json', async: false, dataType: 'json'}).responseText),
+        I, J, colOK = false, nums, L;
 
     data.addColumn('string', 'Testcase');
 
@@ -28,8 +26,11 @@ console.log(jsonData.reports);
         nums = [I];
         for (J in jsonData.reports[I]) {
             if (!jsonData.reports[I][J]) {
-                nums.push(0);
-                continue;
+                L = 0;
+                break;
+            }
+            if (jsonData.reports[I][J].lib === 'lightncandy') {
+                L = jsonData.reports[I][J].time;
             }
             if (!colOK) {
                 data.addColumn('number', jsonData.reports[I][J].lib);
@@ -37,11 +38,40 @@ console.log(jsonData.reports);
             nums.push(jsonData.reports[I][J].time);
         }
 
-        data.addRow(nums);
+        if (L === 0) {
+            continue;
+        }
+
+        for (J in jsonData.reports[I]) {
+            if (jsonData.reports[I][J].lib != 'lightncandy') {
+                if (!colOK) {
+                    data.addColumn('number', 'lightncandy VS ' + jsonData.reports[I][J].lib);
+                }
+                if (jsonData.reports[I][J].time) {
+                    nums.push(Math.floor(100 * jsonData.reports[I][J].time / L) / 100);
+                } else {
+                    L = 0;
+                    continue;
+                }
+            }
+        }
+
+        if (L > 0) {
+            data.addRow(nums);
+        }
+
         colOK = true;
     }
   
-    chart.draw(data, {title: document.title, vAxis: {logScale: true}, legend: {position: 'in'}, chartArea: {width: 5800, left: 200}});
+    chart.draw(data, {
+        title: document.title, 
+        vAxis: {logScale: true},
+        legend: {position: 'in'},
+        chartArea: {width: 5800, left: 200},
+        bar: {groupWidth: '75%'},
+        seriesType: 'bars',
+        series: {4: {type: "line"}, 5: {type: "line"}, 6: {type: "line"}}
+    });
 });
 </script>
 </html>

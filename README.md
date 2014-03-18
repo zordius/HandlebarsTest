@@ -74,8 +74,8 @@ Feature Comparison
 
 * SPECIAL NOTE: now (2014-02-11) case 003-simple-else-005 , 006-simple-section-003 , 018-hb-withwith-004 , 021-hb-manyparent-004 , 025-hb-particalparent-001, 025-hb-particalparent-002, 027-hb-arrayindex-003 results are not 'YES' but 'OUTPUT'. We can not ensure the handlebars.js 1.3.0+ behavior is correct or not. Now we open an issue to track this: https://github.com/wycats/handlebars.js/issues/731
 
-<pre>
 |       test case       | handlebars.php        |       lightncandy     |       mustache-php    |       mustache.php  |
+|-----------------------|-----------------------|-----------------------|-----------------------|---------------------|
 |  001-simple-vars-001  |                 YES   |                 YES   |              OUTPUT   |                 YES |
 |  001-simple-vars-002  |              OUTPUT   |                 YES   |              OUTPUT   |              OUTPUT |
 |  001-simple-vars-003  |                 YES   |                 YES   |              OUTPUT   |                 YES |
@@ -218,8 +218,6 @@ Feature Comparison
 |    032-hb-helper-005  |               CR/LF   |                 YES   |                  NO   |                  NO |
 |  livetest-001-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
 |  livetest-002-hb-001  |              OUTPUT   |                 YES   |                  NO   |                  NO |
-
-</pre>
 
 How to Test
 -----------

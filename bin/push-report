@@ -1,4 +1,4 @@
-cp `ls report/*.json | tail -n 1` report.json
-git stash
-git checkout gh-pages
-git stash pop
+#!/bin/sh
+git checkout -B gh-pages
+git pull origin gh-pages
+`ls ../*.json` > reports

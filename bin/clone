@@ -4,4 +4,5 @@ git clone https://github.com/zordius/lightncandy
 git clone https://github.com/bobthecow/mustache.php
 git clone https://github.com/dingram/mustache-php
 git clone https://github.com/XaminProject/handlebars.php
+popd
 

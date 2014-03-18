@@ -11,9 +11,6 @@ before_script:
   - cd lightncandy
   - git checkout -qf `cat ../../lightncandy`
   - cd ../..
-  - cd report
-  - phantomjs --local-to-remote-url-access=true ../bin/save-chart.js index.html?`ls *.json |tail -n 1`
-  - cd ..
   - bin/push-report
 script:
   - echo Tests based on this version... https://github.com/zordius/lightncandy/commit/`cat lightncandy`

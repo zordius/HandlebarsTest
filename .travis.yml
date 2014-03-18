@@ -15,3 +15,7 @@ before_script:
 script:
   - echo Tests based on this version... https://github.com/zordius/lightncandy/commit/`cat lightncandy`
   - php bin/hbreport F 28 T
+
+env:
+  global:
+    secure: "Wlez8f9yijTGs4heE9YrBWsEssDKwSqKld5pTcgYNwoSOAue8MmG/g/60ayyWXRBXiGmNQfiHsBSGw9v9Stn7vKKXzGROc2T34ERLkBi2AtifFw6vJK0VrK2EpcWTvgHPLeNlln+gIrA/oHliW4AKX9aUwIBV/MTPjd2A85RBn8="

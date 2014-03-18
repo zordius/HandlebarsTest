@@ -11,7 +11,7 @@ git config --global user.name "Travis-CI"
 git config --global user.email "zordius@yahoo-inc.com"
 
 mkdir build
-`ls report/*.json` > build/reports
+ls report/*.json > build/reports
 cp report/index.html build
 cp report/*.json build
 cd build

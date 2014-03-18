@@ -12,11 +12,8 @@ git config --global user.email "zordius@yahoo-inc.com"
 
 cd report
 phantomjs --local-to-remote-url-access=true ../bin/save-chart.js index.html?`ls *.json |tail -n 1`
-ls -al
-whereis phantomjs
-set
 mkdir build
-mv report.png build
+mv chart.png build
 cp index.html build
 cp *.json build
 rm build/20130110*

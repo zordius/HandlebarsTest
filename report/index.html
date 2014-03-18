@@ -7,11 +7,12 @@
 <style>
 html,body,body>div{margin:0;height:100%;overflow:hidden}
 select{position:absolute;top:0;right:0}
+body.phantom select{top:-100px}
 </style>
 </head>
 <body><div></div><select></select></body>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
 google.load('visualization', '1.0', {'packages':['corechart']});
 google.setOnLoadCallback(function () {
@@ -20,7 +21,18 @@ google.setOnLoadCallback(function () {
         sel = document.body.childNodes[1],
         reports = $.ajax({url: 'reports', async: false, dataType: 'json'}).responseText.split(/\r|\n/).reverse(),
         M = location.href.match(/\?(.+)/),
-        jsonData, I, J, colOK = false, nums, L, url, opt;
+        isPhantom = window.navigator.userAgent.match(/PhantomJS/),
+        jsonData, I, J, colOK = false, nums, L, url, opt,
+        chartOpt = {
+            title: document.title,
+            vAxis: {logScale: isPhantom ? false : true, minValue: 0},
+            legend: {position: 'in', textStyle: {fontSize: 9}},
+            chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
+            bar: {groupWidth: '75%'},
+            seriesType: 'bars',
+            series: {4: {type: "line"}, 5: {type: "line"}, 6: {type: "line"}},
+            focusTarget: 'category'
+        };
 
     reports.shift();
     url = M ? M[1] : reports[0];
@@ -89,17 +101,13 @@ google.setOnLoadCallback(function () {
 
         colOK = true;
     }
-  
-    chart.draw(data, {
-        title: document.title,
-        vAxis: {logScale: true},
-        legend: {position: 'in', textStyle: {fontSize: 9}},
-        chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
-        bar: {groupWidth: '75%'},
-        focusTarget: 'category',
-        seriesType: 'bars',
-        series: {4: {type: "line"}, 5: {type: "line"}, 6: {type: "line"}}
-    });
+
+    if (isPhantom) {
+        document.body.className = 'phantom';
+        data.removeColumns(5, 3);
+    }
+
+    chart.draw(data, chartOpt);
 });
 </script>
 </html>

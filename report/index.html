@@ -38,6 +38,10 @@ google.setOnLoadCallback(function () {
         location.href = '?' + reports[sel.selectedIndex];
     };
 
+    window.onresize = function () {
+        location.reload();
+    };
+
     try {
         jsonData = JSON.parse($.ajax({url: url, async: false, dataType: 'json'}).responseText);
     } catch (e) {
@@ -87,11 +91,12 @@ google.setOnLoadCallback(function () {
     }
   
     chart.draw(data, {
-        title: document.title, 
+        title: document.title,
         vAxis: {logScale: true},
-        legend: {position: 'in'},
-        chartArea: {width: 5800, left: 200},
+        legend: {position: 'in', textStyle: {fontSize: 9}},
+        chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
         bar: {groupWidth: '75%'},
+        focusTarget: 'category',
         seriesType: 'bars',
         series: {4: {type: "line"}, 5: {type: "line"}, 6: {type: "line"}}
     });

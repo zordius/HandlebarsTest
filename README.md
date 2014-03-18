@@ -1,7 +1,7 @@
 HandlebarsTest
 ==============
 
-Performance tests on Mustache and Handlebars php libs
+Performance tests on Mustache and Handlebars php libs. Results can be found here: http://zordius.github.io/HandlebarsTest/ .
 
 Requirements
 ------------

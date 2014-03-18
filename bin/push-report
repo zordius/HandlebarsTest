@@ -1,0 +1,4 @@
+cp `ls report/*.json | tail -n 1` report.json
+git stash
+git checkout gh-pages
+git stash pop

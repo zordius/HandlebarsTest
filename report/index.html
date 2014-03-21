@@ -72,7 +72,7 @@ google.setOnLoadCallback(function () {
                 L = jsonData.reports[I][J].time;
             }
             if (!colOK) {
-                data.addColumn('number', jsonData.reports[I][J].lib);
+                data.addColumn('number', jsonData.reports[I][J].lib + ' (seconds)');
             }
             nums.push(jsonData.reports[I][J].time);
         }
@@ -84,7 +84,7 @@ google.setOnLoadCallback(function () {
         for (J in jsonData.reports[I]) {
             if (jsonData.reports[I][J].lib != 'lightncandy') {
                 if (!colOK) {
-                    data.addColumn('number', 'lightncandy VS ' + jsonData.reports[I][J].lib);
+                    data.addColumn('number', 'lightncandy VS ' + jsonData.reports[I][J].lib + ' (times)');
                 }
                 if (jsonData.reports[I][J].time) {
                     nums.push(Math.floor(100 * jsonData.reports[I][J].time / L) / 100);

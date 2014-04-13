@@ -1,0 +1,12 @@
+
+Children for {{name}}:
+
+{{#child}}
+    {{#if key}}
+       The value is = {{key}} !!
+    {{else}}
+        key is empty or null
+    {{/if}}
+{{else}}
+  {{../name}} has no children.
+{{/child}}

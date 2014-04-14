@@ -1,8 +1,7 @@
 #!/bin/sh
-pushd cloned
+cd cloned
 git clone git@github.com:zordius/lightncandy.git
 git clone git@github.com:bobthecow/mustache.php.git
 git clone git@github.com:dingram/mustache-php.git
 git clone git@github.com:XaminProject/handlebars.php.git
-popd
-
+cd -

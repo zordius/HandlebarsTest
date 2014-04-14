@@ -1,13 +1,13 @@
 <ul class="items">
 	
-		<li>1 for </li>
+		<li>1 for Ash</li>
 	
-		<li>2 for </li>
+		<li>2 for Ash</li>
 	
-		<li>3 for </li>
+		<li>3 for Ash</li>
 	
-		<li>4 for </li>
+		<li>4 for Ash</li>
 	
-		<li>5 for </li>
+		<li>5 for Ash</li>
 	
 </ul>

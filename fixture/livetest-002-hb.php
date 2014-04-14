@@ -10,25 +10,25 @@
         'path' => Array(),
 
     );
-    return ''.LCRun2::sec((is_array($in) ? $in['specs'] : null), $cx, $in, true, function($cx, $in) {return '
+    return ''.LCRun2::sec(((is_array($in) && isset($in['specs'])) ? $in['specs'] : null), $cx, $in, true, function($cx, $in) {return '
    <div class="item-spec">
-    '.LCRun2::sec((is_array($in) ? $in['options'] : null), $cx, $in, true, function($cx, $in) {return '
-        '.LCRun2::ifv((is_array($in) ? $in['icon'] : null), $cx, $in, function($cx, $in) {return '
+    '.LCRun2::sec(((is_array($in) && isset($in['options'])) ? $in['options'] : null), $cx, $in, true, function($cx, $in) {return '
+        '.LCRun2::ifv(((is_array($in) && isset($in['icon'])) ? $in['icon'] : null), $cx, $in, function($cx, $in) {return '
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-'.LCRun2::encq((is_array($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'-'.LCRun2::encq((is_array($in) ? $in['id'] : null), $cx).'" value="'.LCRun2::encq((is_array($in) ? $in['id'] : null), $cx).'" name="'.LCRun2::encq((is_array($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'" alt="'.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).'" data-name="'.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).'"/>
-            <label class="spec-label icon" for="spec-'.LCRun2::encq((is_array($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'-'.LCRun2::encq((is_array($in) ? $in['id'] : null), $cx).'" style="background-image:url('.LCRun2::encq((is_array($in) ? $in['icon'] : null), $cx).');">
+            <input type="radio" id="spec-'.LCRun2::encq(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['id'])) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'-'.LCRun2::encq(((is_array($in) && isset($in['id'])) ? $in['id'] : null), $cx).'" value="'.LCRun2::encq(((is_array($in) && isset($in['id'])) ? $in['id'] : null), $cx).'" name="'.LCRun2::encq(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['id'])) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'" alt="'.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).'" data-name="'.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).'"/>
+            <label class="spec-label icon" for="spec-'.LCRun2::encq(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['id'])) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'-'.LCRun2::encq(((is_array($in) && isset($in['id'])) ? $in['id'] : null), $cx).'" style="background-image:url('.LCRun2::encq(((is_array($in) && isset($in['icon'])) ? $in['icon'] : null), $cx).');">
             </label>
         </div>
         ';}, function($cx, $in) {return '
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-'.LCRun2::encq((is_array($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'-'.LCRun2::encq((is_array($in) ? $in['id'] : null), $cx).'" value="'.LCRun2::encq((is_array($in) ? $in['id'] : null), $cx).'" name="'.LCRun2::encq((is_array($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'" data-name="'.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).'"/>
-            <label class="spec-label" for="spec-'.LCRun2::encq((is_array($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'-'.LCRun2::encq((is_array($in) ? $in['id'] : null), $cx).'">'.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).'</label>
+            <input type="radio" id="spec-'.LCRun2::encq(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['id'])) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'-'.LCRun2::encq(((is_array($in) && isset($in['id'])) ? $in['id'] : null), $cx).'" value="'.LCRun2::encq(((is_array($in) && isset($in['id'])) ? $in['id'] : null), $cx).'" name="'.LCRun2::encq(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['id'])) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'" data-name="'.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).'"/>
+            <label class="spec-label" for="spec-'.LCRun2::encq(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['id'])) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'-'.LCRun2::encq(((is_array($in) && isset($in['id'])) ? $in['id'] : null), $cx).'">'.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).'</label>
         </div>
         ';}).'
         <script>
-            document.getElementById(\'spec-'.LCRun2::encq((is_array($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'-'.LCRun2::encq((is_array($in) ? $in['id'] : null), $cx).'\').className += \'hidden\';
+            document.getElementById(\'spec-'.LCRun2::encq(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['id'])) ? $cx['scopes'][count($cx['scopes'])-1]['id'] : null), $cx).'-'.LCRun2::encq(((is_array($in) && isset($in['id'])) ? $in['id'] : null), $cx).'\').className += \'hidden\';
         </script>
     ';}).'
     </div>

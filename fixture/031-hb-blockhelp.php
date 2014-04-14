@@ -22,18 +22,18 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq((is_array($in) ? $in['value'] : null), $cx).'!
+    return 'Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
 
-. Test 1: '.LCRun2::bch('helper3', Array((is_array($in) ? $in['people'] : null)), $cx, $in, function($cx, $in) {return '<li>'.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).' -> '.LCRun2::encq((is_array($in) ? $in['value'] : null), $cx).'</li>';}).'
+. Test 1: '.LCRun2::bch('helper3', Array(((is_array($in) && isset($in['people'])) ? $in['people'] : null)), $cx, $in, function($cx, $in) {return '<li>'.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).' -> '.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'</li>';}).'
 
 . Test 2: '.LCRun2::bch('helper4', Array('people'), $cx, $in, function($cx, $in) {return '
-  <li>'.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).' -> '.LCRun2::encq((is_array($in) ? $in['value'] : null), $cx).'</li>
+  <li>'.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).' -> '.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'</li>
 ';}).'
 
-. Test 3: '.LCRun2::sec((is_array($in) ? $in['people'] : null), $cx, $in, true, function($cx, $in) {return '
-  NOTE A: '.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).' : '.LCRun2::encq($in, $cx).' != '.LCRun2::encq($cx['scopes'][count($cx['scopes'])-1], $cx).'
+. Test 3: '.LCRun2::sec(((is_array($in) && isset($in['people'])) ? $in['people'] : null), $cx, $in, true, function($cx, $in) {return '
+  NOTE A: '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).' : '.LCRun2::encq($in, $cx).' != '.LCRun2::encq($cx['scopes'][count($cx['scopes'])-1], $cx).'
 S~'.LCRun2::encq($in, $cx).'~'.LCRun2::bch('helper3', Array(), $cx, $in, function($cx, $in) {return '
-  NOTE B: '.LCRun2::encq((is_array($in) ? $in['name'] : null), $cx).' : '.LCRun2::encq($in, $cx).' != '.LCRun2::encq($cx['scopes'][count($cx['scopes'])-1], $cx).'
+  NOTE B: '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).' : '.LCRun2::encq($in, $cx).' != '.LCRun2::encq($cx['scopes'][count($cx['scopes'])-1], $cx).'
 ';}).'E
 ';}).'
 
@@ -41,11 +41,11 @@ S~'.LCRun2::encq($in, $cx).'~'.LCRun2::bch('helper3', Array(), $cx, $in, functio
 
 . Test 5: '.LCRun2::bch('helper4', Array('val'=>'123','odd'=>'1'), $cx, $in, function($cx, $in) {return '~~~'.LCRun2::encq($in, $cx).'~~~';}).'
 
-. Test 6: '.LCRun2::bch('helper4', Array('val'=>(is_array($in) ? $in['people'] : null),'odd'=>(is_array($in) ? $in['test'] : null)), $cx, $in, function($cx, $in) {return 'TRY~~~'.LCRun2::encq($in, $cx).' , '.LCRun2::encq($cx['scopes'][count($cx['scopes'])-1], $cx).' ~~~';}).'
+. Test 6: '.LCRun2::bch('helper4', Array('val'=>((is_array($in) && isset($in['people'])) ? $in['people'] : null),'odd'=>((is_array($in) && isset($in['test'])) ? $in['test'] : null)), $cx, $in, function($cx, $in) {return 'TRY~~~'.LCRun2::encq($in, $cx).' , '.LCRun2::encq($cx['scopes'][count($cx['scopes'])-1], $cx).' ~~~';}).'
 
-. Test 7: '.LCRun2::sec((is_array($in) ? $in['people'] : null), $cx, $in, true, function($cx, $in) {return ' 
- OK! 1 '.LCRun2::bch('helper3', Array('val'=>(is_array($in) ? $in['name'] : null),'odd'=>(is_array($in) ? $in['value'] : null)), $cx, $in, function($cx, $in) {return 'TRY ?!??!!~~~'.LCRun2::encq($in, $cx).' , '.LCRun2::encq($cx['scopes'][count($cx['scopes'])-1], $cx).' ~~~';}).'
- OK! '.LCRun2::bch('helper4', Array('val'=>(is_array($in) ? $in['name'] : null),'odd'=>(is_array($in) ? $in['value'] : null)), $cx, $in, function($cx, $in) {return 'TRY ?!~~~'.LCRun2::encq($in, $cx).' , '.LCRun2::encq($cx['scopes'][count($cx['scopes'])-1], $cx).' ~~~';}).'
+. Test 7: '.LCRun2::sec(((is_array($in) && isset($in['people'])) ? $in['people'] : null), $cx, $in, true, function($cx, $in) {return ' 
+ OK! 1 '.LCRun2::bch('helper3', Array('val'=>((is_array($in) && isset($in['name'])) ? $in['name'] : null),'odd'=>((is_array($in) && isset($in['value'])) ? $in['value'] : null)), $cx, $in, function($cx, $in) {return 'TRY ?!??!!~~~'.LCRun2::encq($in, $cx).' , '.LCRun2::encq($cx['scopes'][count($cx['scopes'])-1], $cx).' ~~~';}).'
+ OK! '.LCRun2::bch('helper4', Array('val'=>((is_array($in) && isset($in['name'])) ? $in['name'] : null),'odd'=>((is_array($in) && isset($in['value'])) ? $in['value'] : null)), $cx, $in, function($cx, $in) {return 'TRY ?!~~~'.LCRun2::encq($in, $cx).' , '.LCRun2::encq($cx['scopes'][count($cx['scopes'])-1], $cx).' ~~~';}).'
 ';}).'
 ';
 }

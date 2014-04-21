@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_bc3ac4eebe8e23a576703d5c4801e37c extends Mustache_Template
+class __Mustache_b2f74864eed6e8fc34290eb50ae25e60 extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -17,31 +17,27 @@ class __Mustache_bc3ac4eebe8e23a576703d5c4801e37c extends Mustache_Template
         $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= '!
 ';
-        $buffer .= $indent . 'This is next line.
+        $buffer .= $indent . '<ul>
 ';
-        // 'test' section
-        $value = $context->find('test');
-        $buffer .= $this->section364d5f021cd691fbea8663fa93d71f2e($context, $indent, $value);
-        // 'test' inverted section
-        $value = $context->find('test');
-        if (empty($value)) {
-            
-            $buffer .= $indent . 'No, this is fake! not win $';
-            $value = $this->resolveValue($context->find('value'), $context, $indent);
-            $buffer .= htmlspecialchars($value, 2, 'UTF-8');
-            $buffer .= '!!
+        // 'people' section
+        $value = $context->find('people');
+        $buffer .= $this->sectionD344a5a328801db6f5d4db6332c1f2a7($context, $indent, $value);
+        $buffer .= $indent . '</ul>
 ';
-        }
+        $value = $this->resolveValue($context->find('end'), $context, $indent);
+        $buffer .= $indent . htmlspecialchars($value, 2, 'UTF-8');
+        $buffer .= '
+';
 
         return $buffer;
     }
 
-    private function section364d5f021cd691fbea8663fa93d71f2e(Mustache_Context $context, $indent, $value)
+    private function sectionD344a5a328801db6f5d4db6332c1f2a7(Mustache_Context $context, $indent, $value)
     {
         $buffer = '';
         if (!is_string($value) && is_callable($value)) {
             $source = '
-This is true! won ${{value}}!!
+ <li>{{name}} is a {{gender}}</li>
 ';
             $result = call_user_func($value, $source, $this->lambdaHelper);
             if (strpos($result, '{{') === false) {
@@ -55,10 +51,13 @@ This is true! won ${{value}}!!
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
                 $context->push($value);
-                $buffer .= $indent . 'This is true! won $';
-                $value = $this->resolveValue($context->find('value'), $context, $indent);
+                $buffer .= $indent . ' <li>';
+                $value = $this->resolveValue($context->find('name'), $context, $indent);
                 $buffer .= htmlspecialchars($value, 2, 'UTF-8');
-                $buffer .= '!!
+                $buffer .= ' is a ';
+                $value = $this->resolveValue($context->find('gender'), $context, $indent);
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+                $buffer .= '</li>
 ';
                 $context->pop();
             }

@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_7370af8000d1588f95d949eb731a7225 extends Mustache_Template
+class __Mustache_1ec46778c2ee7ea578fd02e5f841f36e extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -17,27 +17,31 @@ class __Mustache_7370af8000d1588f95d949eb731a7225 extends Mustache_Template
         $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= '!
 ';
-        $buffer .= $indent . '<ul>
+        $buffer .= $indent . 'This is next line.
 ';
-        // 'people' section
-        $value = $context->find('people');
-        $buffer .= $this->sectionD344a5a328801db6f5d4db6332c1f2a7($context, $indent, $value);
-        $buffer .= $indent . '</ul>
+        // 'test' section
+        $value = $context->find('test');
+        $buffer .= $this->section364d5f021cd691fbea8663fa93d71f2e($context, $indent, $value);
+        // 'test' inverted section
+        $value = $context->find('test');
+        if (empty($value)) {
+            
+            $buffer .= $indent . 'No, this is fake! not win $';
+            $value = $this->resolveValue($context->find('value'), $context, $indent);
+            $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+            $buffer .= '!!
 ';
-        $value = $this->resolveValue($context->find('end'), $context, $indent);
-        $buffer .= $indent . htmlspecialchars($value, 2, 'UTF-8');
-        $buffer .= '
-';
+        }
 
         return $buffer;
     }
 
-    private function sectionD344a5a328801db6f5d4db6332c1f2a7(Mustache_Context $context, $indent, $value)
+    private function section364d5f021cd691fbea8663fa93d71f2e(Mustache_Context $context, $indent, $value)
     {
         $buffer = '';
         if (!is_string($value) && is_callable($value)) {
             $source = '
- <li>{{name}} is a {{gender}}</li>
+This is true! won ${{value}}!!
 ';
             $result = call_user_func($value, $source, $this->lambdaHelper);
             if (strpos($result, '{{') === false) {
@@ -51,13 +55,10 @@ class __Mustache_7370af8000d1588f95d949eb731a7225 extends Mustache_Template
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
                 $context->push($value);
-                $buffer .= $indent . ' <li>';
-                $value = $this->resolveValue($context->find('name'), $context, $indent);
+                $buffer .= $indent . 'This is true! won $';
+                $value = $this->resolveValue($context->find('value'), $context, $indent);
                 $buffer .= htmlspecialchars($value, 2, 'UTF-8');
-                $buffer .= ' is a ';
-                $value = $this->resolveValue($context->find('gender'), $context, $indent);
-                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
-                $buffer .= '</li>
+                $buffer .= '!!
 ';
                 $context->pop();
             }

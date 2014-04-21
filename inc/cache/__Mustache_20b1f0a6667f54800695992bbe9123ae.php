@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_88a867f1b5da846d45a9e8fe19b19fcc extends Mustache_Template
+class __Mustache_20b1f0a6667f54800695992bbe9123ae extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -17,20 +17,18 @@ class __Mustache_88a867f1b5da846d45a9e8fe19b19fcc extends Mustache_Template
         $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= '!
 ';
-        $buffer .= $indent . 'This is next line.
-';
         // 'test' section
         $value = $context->find('test');
-        $buffer .= $this->section364d5f021cd691fbea8663fa93d71f2e($context, $indent, $value);
+        $buffer .= $this->section1126f26395cf6acb5fe19d6643eec7b5($context, $indent, $value);
 
         return $buffer;
     }
 
-    private function section364d5f021cd691fbea8663fa93d71f2e(Mustache_Context $context, $indent, $value)
+    private function section1126f26395cf6acb5fe19d6643eec7b5(Mustache_Context $context, $indent, $value)
     {
         $buffer = '';
         if (!is_string($value) && is_callable($value)) {
-            $source = '
+            $source = '{{! when test is true, print one more line... }}
 This is true! won ${{value}}!!
 ';
             $result = call_user_func($value, $source, $this->lambdaHelper);

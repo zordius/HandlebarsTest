@@ -3,6 +3,7 @@
         'flags' => Array(
             'jstrue' => true,
             'jsobj' => true,
+            'spvar' => true,
         ),
         'helpers' => Array(            'helper1' => function($url, $txt) {
                 $u = ($url !== null) ? $url : 'undefined';
@@ -12,210 +13,19 @@
 ),
         'blockhelpers' => Array(),
         'scopes' => Array($in),
+        'sp_vars' => Array(),
         'path' => Array(),
-'funcs' => Array(
-    'ifvar' => function ($v) {
-        return !is_null($v) && ($v !== false) && ($v !== 0) && ($v !== '') && (is_array($v) ? (count($v) > 0) : true);
-    },
-    'ifv' => function ($v, $cx, $in, $truecb, $falsecb = null) {
-        $ret = '';
-        if ($cx['funcs']['ifvar']($v)) {
-            if ($truecb) {
-                $cx['scopes'][] = $in;
-                $ret = $truecb($cx, $in);
-                array_pop($cx['scopes']);
-            }
-        } else {
-            if ($falsecb) {
-                $cx['scopes'][] = $in;
-                $ret = $falsecb($cx, $in);
-                array_pop($cx['scopes']);
-            }
-        }
-        return $ret;
-    },
-    'unl' => function ($var, $cx, $in, $truecb, $falsecb = null) {
-        return $cx['funcs']['ifv']($var, $cx, $in, $falsecb, $truecb);
-    },
-    'isec' => function ($v) {
-        return is_null($v) || ($v === false);
-    },
-    'raw' => function ($v, $cx, $loop = false) {
-        if ($v === true) {
-            if ($cx['flags']['jstrue']) {
-                return 'true';
-            }
-        }
-
-        if ($loop && ($v === false)) {
-            if ($cx['flags']['jstrue']) {
-                return 'false';
-            }
-        }
-
-        if (is_array($v)) {
-            if ($cx['flags']['jsobj']) {
-                if (count(array_diff_key($v, array_keys(array_keys($v)))) > 0) {
-                    return '[object Object]';
-                } else {
-                    $ret = Array();
-                    foreach ($v as $k => $vv) {
-                        $ret[] = $cx['funcs']['raw']($vv, $cx, true);
-                    }
-                    return join(',', $ret);
-                }
-            }
-        }
-
-        return $v;
-    },
-    'enc' => function ($var, $cx) {
-        return htmlentities($cx['funcs']['raw']($var, $cx), ENT_QUOTES, 'UTF-8');
-    },
-    'encq' => function ($var, $cx) {
-        return preg_replace('/&#039;/', '&#x27;', htmlentities($cx['funcs']['raw']($var, $cx), ENT_QUOTES, 'UTF-8'));
-    },
-    'sec' => function ($v, &$cx, $in, $each, $cb, $inv = null) {
-        $isary = is_array($v);
-        $loop = $each;
-        if ($isary && $inv !== null && count($v) === 0) {
-            $cx['scopes'][] = $in;
-            $ret = $inv($cx, $v);
-            array_pop($cx['scopes']);
-            return $ret;
-        }
-        if (!$loop && $isary) {
-            $loop = (count(array_diff_key($v, array_keys(array_keys($v)))) == 0);
-        }
-        if ($loop && $isary) {
-            if ($each) {
-                $is_obj = count(array_diff_key($v, array_keys(array_keys($v)))) > 0;
-            } else {
-                $is_obj = false;
-            }
-            $ret = Array();
-            $cx['scopes'][] = $in;
-            $i = 0;
-            foreach ($v as $index => $raw) {
-                if ($is_obj) {
-                    $cx['sp_vars']['key'] = $index;
-                    $cx['sp_vars']['index'] = $i;
-                    $i++;
-                } else {
-                    $cx['sp_vars']['index'] = $index;
-                }
-                $ret[] = $cb($cx, $raw);
-            }
-            if ($is_obj) {
-                unset($cx['sp_vars']['key']);
-            }
-            unset($cx['sp_vars']['index']);
-            array_pop($cx['scopes']);
-            return join('', $ret);
-        }
-        if ($each) {
-            if ($inv !== null) {
-                $cx['scopes'][] = $in;
-                $ret = $inv($cx, $v);
-                array_pop($cx['scopes']);
-                return $ret;
-            }
-            return '';
-        }
-        if ($isary) {
-            $cx['scopes'][] = $v;
-            $ret = $cb($cx, $v);
-            array_pop($cx['scopes']);
-            return $ret;
-        }
-
-        if ($v === true) {
-            return $cb($cx, $in);
-        } 
-
-        if (is_string($v)) {
-            return $cb($cx, Array());
-        }
-
-        if (!is_null($v) && ($v !== false)) {
-            return $cb($cx, $v);
-        }
-
-        if ($inv !== null) {
-            $cx['scopes'][] = $in;
-            $ret = $inv($cx, $v);
-            array_pop($cx['scopes']);
-            return $ret;
-        }
-
-        return '';
-    },
-    'wi' => function ($v, &$cx, $in, $cb) {
-        if (($v === false) || ($v === null)) {
-            return '';
-        }
-        $cx['scopes'][] = $in;
-        $ret = $cb($cx, $v);
-        array_pop($cx['scopes']);
-        return $ret;
-    },
-    'ch' => function ($ch, $vars, $op, &$cx, $named = false) {
-        $args = Array();
-        foreach ($vars as $i => $v) {
-            $args[$i] = $cx['funcs']['raw']($v, $cx);
-        }
-
-        $r = call_user_func_array($cx['helpers'][$ch], $named ? Array($args) : $args);
-
-        if (is_array($r)) {
-            if (isset($r[1])) {
-                if ($r[1]) {
-                    $op = $r[1];
-                } else {
-                    return $r;
-                }
-            }
-            $r = $r[0];
-        }
-
-        switch ($op) {
-            case 'enc': 
-                return htmlentities($r, ENT_QUOTES, 'UTF-8');
-            case 'encq':
-                return preg_replace('/&#039;/', '&#x27;', htmlentities($r, ENT_QUOTES, 'UTF-8'));
-            case 'raw':
-            default:
-                return $r;
-        }
-    },
-    'bch' => function ($ch, $vars, &$cx, $in, $cb) {
-        $args = Array();
-        foreach ($vars as $i => $v) {
-            $args[$i] = $cx['funcs']['raw']($v, $cx);
-        }
-
-        $r = call_user_func($cx['blockhelpers'][$ch], $in, $args);
-        if (is_null($r)) {
-            return '';
-        }
-
-        $cx['scopes'][] = $in;
-        $ret = $cb($cx, $r);
-        array_pop($cx['scopes']);
-        return $ret;
-    },
-)
 
     );
-    ob_start();echo 'Hello ',$cx['funcs']['encq'](((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx),', you have just won $',$cx['funcs']['encq'](((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx),'!
+    return 'Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
 
-. Test 1: ',$cx['funcs']['ch']('helper1', Array(((is_array($in) && isset($in['url'])) ? $in['url'] : null),((is_array($in) && isset($in['text'])) ? $in['text'] : null)), 'raw', $cx),'
-. Test 2: ',$cx['funcs']['ch']('helper1', Array(((is_array($in) && isset($in['url'])) ? $in['url'] : null),((is_array($in) && isset($in['text'])) ? $in['text'] : null)), 'encq', $cx),'
-. Test 3: ',$cx['funcs']['ch']('helper1', Array(((is_array($in['test']) && isset($in['test']['url'])) ? $in['test']['url'] : null),((is_array($in['test']) && isset($in['test']['text'])) ? $in['test']['text'] : null)), 'encq', $cx),'
-. Test 4: ',$cx['funcs']['sec'](((is_array($in) && isset($in['people'])) ? $in['people'] : null), $cx, $in, true, function($cx, $in) {echo '
-  * ',$cx['funcs']['ch']('helper1', Array(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['url'])) ? $cx['scopes'][count($cx['scopes'])-1]['url'] : null),((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['text'])) ? $cx['scopes'][count($cx['scopes'])-1]['text'] : null)), 'encq', $cx),' <= ',$cx['funcs']['encq'](((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['url'])) ? $cx['scopes'][count($cx['scopes'])-1]['url'] : null), $cx),' , ',$cx['funcs']['encq'](((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['text'])) ? $cx['scopes'][count($cx['scopes'])-1]['text'] : null), $cx),', ',$cx['funcs']['raw'](((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['url'])) ? $cx['scopes'][count($cx['scopes'])-1]['url'] : null), $cx),', ',$cx['funcs']['raw'](((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['text'])) ? $cx['scopes'][count($cx['scopes'])-1]['text'] : null), $cx),' !!
-  * ',$cx['funcs']['ch']('helper1', Array(((is_array($in) && isset($in['url'])) ? $in['url'] : null),((is_array($in) && isset($in['text'])) ? $in['text'] : null)), 'encq', $cx),' <= ',$cx['funcs']['encq'](((is_array($in) && isset($in['url'])) ? $in['url'] : null), $cx),' , ',$cx['funcs']['encq'](((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['text'])) ? $cx['scopes'][count($cx['scopes'])-1]['text'] : null), $cx),' , ',$cx['funcs']['raw'](((is_array($in) && isset($in['url'])) ? $in['url'] : null), $cx),', ',$cx['funcs']['raw'](((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['text'])) ? $cx['scopes'][count($cx['scopes'])-1]['text'] : null), $cx),' :D
-';}),'
-';return ob_get_clean();
+. Test 1: '.LCRun2::ch('helper1', Array(((is_array($in) && isset($in['url'])) ? $in['url'] : null),((is_array($in) && isset($in['text'])) ? $in['text'] : null)), 'raw', $cx).'
+. Test 2: '.LCRun2::ch('helper1', Array(((is_array($in) && isset($in['url'])) ? $in['url'] : null),((is_array($in) && isset($in['text'])) ? $in['text'] : null)), 'encq', $cx).'
+. Test 3: '.LCRun2::ch('helper1', Array(((is_array($in['test']) && isset($in['test']['url'])) ? $in['test']['url'] : null),((is_array($in['test']) && isset($in['test']['text'])) ? $in['test']['text'] : null)), 'encq', $cx).'
+. Test 4: '.LCRun2::sec(((is_array($in) && isset($in['people'])) ? $in['people'] : null), $cx, $in, true, function($cx, $in) {return '
+  * '.LCRun2::ch('helper1', Array(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['url'])) ? $cx['scopes'][count($cx['scopes'])-1]['url'] : null),((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['text'])) ? $cx['scopes'][count($cx['scopes'])-1]['text'] : null)), 'encq', $cx).' <= '.LCRun2::encq(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['url'])) ? $cx['scopes'][count($cx['scopes'])-1]['url'] : null), $cx).' , '.LCRun2::encq(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['text'])) ? $cx['scopes'][count($cx['scopes'])-1]['text'] : null), $cx).', '.LCRun2::raw(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['url'])) ? $cx['scopes'][count($cx['scopes'])-1]['url'] : null), $cx).', '.LCRun2::raw(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['text'])) ? $cx['scopes'][count($cx['scopes'])-1]['text'] : null), $cx).' !!
+  * '.LCRun2::ch('helper1', Array(((is_array($in) && isset($in['url'])) ? $in['url'] : null),((is_array($in) && isset($in['text'])) ? $in['text'] : null)), 'encq', $cx).' <= '.LCRun2::encq(((is_array($in) && isset($in['url'])) ? $in['url'] : null), $cx).' , '.LCRun2::encq(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['text'])) ? $cx['scopes'][count($cx['scopes'])-1]['text'] : null), $cx).' , '.LCRun2::raw(((is_array($in) && isset($in['url'])) ? $in['url'] : null), $cx).', '.LCRun2::raw(((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['text'])) ? $cx['scopes'][count($cx['scopes'])-1]['text'] : null), $cx).' :D
+';}).'
+';
 }
 ?>

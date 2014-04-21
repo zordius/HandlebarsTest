@@ -1,0 +1,6 @@
+{
+    "people": {
+        "test1": {"name": "David"},
+        "test2": {"name": "John"}
+    }
+}

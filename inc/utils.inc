@@ -73,7 +73,6 @@ function prepare_tmpl($name, $file, $flag) {
         file_put_contents($inc, $php);
         $js = preg_replace('/\.tmpl/', '.jsonschema', $file);
         $level = 0;
-        file_put_contents($js, LightnCandy::getJsonSchemaString());
         $test_method = include($inc);
         break;
     case 'php':

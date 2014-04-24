@@ -1,9 +1,10 @@
-<?php return function ($in) {
+<?php return function ($in, $debugopt = 1) {
     $cx = Array(
         'flags' => Array(
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
+            'debug' => $debugopt,
         ),
         'helpers' => Array(            'helper1' => function($url, $txt) {
                 $u = ($url !== null) ? $url : 'undefined';

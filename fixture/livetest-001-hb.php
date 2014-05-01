@@ -10,7 +10,6 @@
         'blockhelpers' => Array(),
         'scopes' => Array($in),
         'sp_vars' => Array(),
-        'path' => Array(),
 
     );
     return '<div id="yauitqna">

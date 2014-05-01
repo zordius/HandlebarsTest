@@ -10,7 +10,6 @@
         'blockhelpers' => Array(),
         'scopes' => Array($in),
         'sp_vars' => Array(),
-        'path' => Array(),
 
     );
     return ''.LCRun3::ifv($cx, ((is_array($in) && isset($in['empty'])) ? $in['empty'] : null), $in, function($cx, $in) {return '

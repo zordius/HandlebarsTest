@@ -92,7 +92,7 @@ try {
     }
 
     // Execute template
-    $result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
+    @$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
 } catch (Excaption $e) {
     $result = false;
 }

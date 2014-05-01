@@ -10,7 +10,6 @@
         'blockhelpers' => Array(),
         'scopes' => Array($in),
         'sp_vars' => Array(),
-        'path' => Array(),
 
     );
     return '<h1>'.LCRun3::encq($cx, ((is_array($in) && isset($in['header'])) ? $in['header'] : null)).'</h1>

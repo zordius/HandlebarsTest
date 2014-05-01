@@ -10,7 +10,6 @@
         'blockhelpers' => Array(),
         'scopes' => Array($in),
         'sp_vars' => Array(),
-        'path' => Array(),
 
     );
     return ''.LCRun3::encq($cx, ((is_array($in) && isset($in['grand_parent_id'])) ? $in['grand_parent_id'] : null)).'

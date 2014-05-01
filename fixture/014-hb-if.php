@@ -13,22 +13,22 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
-'.((LCRun2::ifvar(((is_array($in) && isset($in['test'])) ? $in['test'] : null))) ? '
-Yes! '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).' is '.LCRun2::encq(((is_array($in) && isset($in['gender'])) ? $in['gender'] : null), $cx).'
+    return 'Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+'.((LCRun3::ifvar($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null))) ? '
+Yes! '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' is '.LCRun3::encq($cx, ((is_array($in) && isset($in['gender'])) ? $in['gender'] : null)).'
 ' : '').'
-'.((LCRun2::ifvar(((is_array($in) && isset($in['test'])) ? $in['test'] : null))) ? '
-2nd If, '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).' is '.LCRun2::raw(((is_array($in) && isset($in['gender'])) ? $in['gender'] : null), $cx).'
+'.((LCRun3::ifvar($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null))) ? '
+2nd If, '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' is '.LCRun3::raw($cx, ((is_array($in) && isset($in['gender'])) ? $in['gender'] : null)).'
 ' : '
-Else test, '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).' is '.LCRun2::encq(((is_array($in) && isset($in['gender'])) ? $in['gender'] : null), $cx).'
+Else test, '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' is '.LCRun3::encq($cx, ((is_array($in) && isset($in['gender'])) ? $in['gender'] : null)).'
 ').'
 -TEST PATH-
-'.((LCRun2::ifvar(((is_array($in['test']) && isset($in['test']['name'])) ? $in['test']['name'] : null))) ? '
-Yes! '.LCRun2::encq(((is_array($in) && isset($in['subname'])) ? $in['subname'] : null), $cx).'
+'.((LCRun3::ifvar($cx, ((is_array($in['test']) && isset($in['test']['name'])) ? $in['test']['name'] : null))) ? '
+Yes! '.LCRun3::encq($cx, ((is_array($in) && isset($in['subname'])) ? $in['subname'] : null)).'
 ' : '
-No! '.LCRun2::encq(((is_array($in) && isset($in['subname'])) ? $in['subname'] : null), $cx).'
+No! '.LCRun3::encq($cx, ((is_array($in) && isset($in['subname'])) ? $in['subname'] : null)).'
 ').'
-'.LCRun2::encq(((is_array($in) && isset($in['end'])) ? $in['end'] : null), $cx).'
+'.LCRun3::encq($cx, ((is_array($in) && isset($in['end'])) ? $in['end'] : null)).'
 ';
 }
 ?>

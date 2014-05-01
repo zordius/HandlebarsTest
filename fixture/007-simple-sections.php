@@ -13,20 +13,20 @@
         'path' => Array(),
 
     );
-    return '<h1>'.LCRun2::encq(((is_array($in) && isset($in['header'])) ? $in['header'] : null), $cx).'</h1>
-'.LCRun2::sec(((is_array($in) && isset($in['notEmpty'])) ? $in['notEmpty'] : null), $cx, $in, false, function($cx, $in) {return '
+    return '<h1>'.LCRun3::encq($cx, ((is_array($in) && isset($in['header'])) ? $in['header'] : null)).'</h1>
+'.LCRun3::sec($cx, ((is_array($in) && isset($in['notEmpty'])) ? $in['notEmpty'] : null), $in, false, function($cx, $in) {return '
 <ul>
-'.LCRun2::sec(((is_array($in) && isset($in['item'])) ? $in['item'] : null), $cx, $in, false, function($cx, $in) {return '
-'.LCRun2::sec(((is_array($in) && isset($in['current'])) ? $in['current'] : null), $cx, $in, false, function($cx, $in) {return '
-    <li><strong>'.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).'</strong></li>
+'.LCRun3::sec($cx, ((is_array($in) && isset($in['item'])) ? $in['item'] : null), $in, false, function($cx, $in) {return '
+'.LCRun3::sec($cx, ((is_array($in) && isset($in['current'])) ? $in['current'] : null), $in, false, function($cx, $in) {return '
+    <li><strong>'.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).'</strong></li>
 ';}).'
-'.((LCRun2::isec(((is_array($in) && isset($in['current'])) ? $in['current'] : null))) ? '
-    <li><a href="'.LCRun2::encq(((is_array($in) && isset($in['url'])) ? $in['url'] : null), $cx).'">'.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).'</a></li>
+'.((LCRun3::isec($cx, ((is_array($in) && isset($in['current'])) ? $in['current'] : null))) ? '
+    <li><a href="'.LCRun3::encq($cx, ((is_array($in) && isset($in['url'])) ? $in['url'] : null)).'">'.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).'</a></li>
 ' : '').'
 ';}).'
 </ul>
 ';}).'
-'.LCRun2::sec(((is_array($in) && isset($in['isEmpty'])) ? $in['isEmpty'] : null), $cx, $in, false, function($cx, $in) {return '
+'.LCRun3::sec($cx, ((is_array($in) && isset($in['isEmpty'])) ? $in['isEmpty'] : null), $in, false, function($cx, $in) {return '
 <p>The list is empty.</p>
 ';}).'
 ';

@@ -27,7 +27,7 @@ if ($argv[1] == 'none') {
     exit();
 }
 
-$debug = ($test_times < 0) ? false : true;
+$debug = (($test_times < 0) && !isset($argv[4])) ? false : true;
 
 $tokenTest = preg_match('/token/', $argv[2]);
 $input = file_get_contents($argv[2]);
@@ -86,13 +86,13 @@ try {
         )
     ));
 
-    // Execute template
-    @$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
-
     if ($argv[1] == 'lightncandy') {
         debugp("### Handlebar usage:\n");
         debugp(print_r(LightnCandy::getContext(), true));
     }
+
+    // Execute template
+    $result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
 } catch (Excaption $e) {
     $result = false;
 }

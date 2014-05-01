@@ -13,9 +13,9 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
-This is next line.'.LCRun2::encq(((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null), $cx).'中文
-Test \on \'spacing in mustache: Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
+    return 'Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+This is next line.'.LCRun3::encq($cx, ((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null)).'中文
+Test \on \'spacing in mustache: Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
 ';
 }
 ?>

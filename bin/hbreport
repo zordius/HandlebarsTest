@@ -31,6 +31,10 @@ if ($times === 'T') {
 } if ($times === 'F') {
     include_once('cloned/lightncandy/src/lightncandy.php');
     $flags = Array(
+        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_RENDER_DEBUG,
+//        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONE | LightnCandy::FLAG_RENDER_DEBUG,
+//        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONE | LightnCandy::FLAG_RENDER_DEBUG,
+        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_RENDER_DEBUG,
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO,
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONE,
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONE,

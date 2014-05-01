@@ -14,8 +14,8 @@
 
     );
     return '<ul>
-'.LCRun2::sec(((is_array($in) && isset($in['people'])) ? $in['people'] : null), $cx, $in, true, function($cx, $in) {return '
- <li>'.LCRun2::encq($cx['sp_vars']['index'], $cx).', '.LCRun2::encq($cx['sp_vars']['key'], $cx).' : '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).' [from '.LCRun2::encq($cx['sp_vars']['first'], $cx).' to '.LCRun2::encq($cx['sp_vars']['last'], $cx).']</li>
+'.LCRun3::sec($cx, ((is_array($in) && isset($in['people'])) ? $in['people'] : null), $in, true, function($cx, $in) {return '
+ <li>'.LCRun3::encq($cx, $cx['sp_vars']['index']).', '.LCRun3::encq($cx, $cx['sp_vars']['key']).' : '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' [from '.LCRun3::encq($cx, $cx['sp_vars']['first']).' to '.LCRun3::encq($cx, $cx['sp_vars']['last']).']</li>
 ';}).'
 </ul>
 ';

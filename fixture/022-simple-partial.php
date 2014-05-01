@@ -13,47 +13,47 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
+    return 'Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
 include this:
-    Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
-This is next line.'.LCRun2::encq(((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null), $cx).'中文
-Test \on \'spacing in mustache: Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
+    Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+This is next line.'.LCRun3::encq($cx, ((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null)).'中文
+Test \on \'spacing in mustache: Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
 
 end include.
 section partial....
-'.LCRun2::sec(((is_array($in) && isset($in['winners'])) ? $in['winners'] : null), $cx, $in, false, function($cx, $in) {return '
-  Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
-This is next line.'.LCRun2::encq(((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null), $cx).'中文
-Test \on \'spacing in mustache: Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
+'.LCRun3::sec($cx, ((is_array($in) && isset($in['winners'])) ? $in['winners'] : null), $in, false, function($cx, $in) {return '
+  Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+This is next line.'.LCRun3::encq($cx, ((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null)).'中文
+Test \on \'spacing in mustache: Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
 
 ';}).'
 end section.
 
-Winners: '.LCRun2::sec(((is_array($in) && isset($in['winners'])) ? $in['winners'] : null), $cx, $in, false, function($cx, $in) {return ''.LCRun2::encq($in, $cx).'('.LCRun2::raw($in, $cx).') = '.LCRun2::encq($in, $cx).'('.LCRun2::raw($in, $cx).')';}).'
+Winners: '.LCRun3::sec($cx, ((is_array($in) && isset($in['winners'])) ? $in['winners'] : null), $in, false, function($cx, $in) {return ''.LCRun3::encq($cx, $in).'('.LCRun3::raw($cx, $in).') = '.LCRun3::encq($cx, $in).'('.LCRun3::raw($cx, $in).')';}).'
 
-Partial1:Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
-This is next line.'.LCRun2::encq(((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null), $cx).'中文
-Test \on \'spacing in mustache: Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
+Partial1:Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+This is next line.'.LCRun3::encq($cx, ((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null)).'中文
+Test \on \'spacing in mustache: Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
 
-Partial2:Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
-This is next line.'.LCRun2::encq(((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null), $cx).'中文
-Test \on \'spacing in mustache: Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
+Partial2:Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+This is next line.'.LCRun3::encq($cx, ((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null)).'中文
+Test \on \'spacing in mustache: Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
 
-Partial3:Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
-This is next line.'.LCRun2::encq(((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null), $cx).'中文
-Test \on \'spacing in mustache: Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
+Partial3:Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+This is next line.'.LCRun3::encq($cx, ((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null)).'中文
+Test \on \'spacing in mustache: Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
 
-Partial4:Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
-This is next line.'.LCRun2::encq(((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null), $cx).'中文
-Test \on \'spacing in mustache: Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
+Partial4:Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+This is next line.'.LCRun3::encq($cx, ((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null)).'中文
+Test \on \'spacing in mustache: Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
 
-Partial5:Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
-This is next line.'.LCRun2::encq(((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null), $cx).'中文
-Test \on \'spacing in mustache: Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
+Partial5:Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+This is next line.'.LCRun3::encq($cx, ((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null)).'中文
+Test \on \'spacing in mustache: Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
 
-Partial6:Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
-This is next line.'.LCRun2::encq(((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null), $cx).'中文
-Test \on \'spacing in mustache: Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
+Partial6:Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+This is next line.'.LCRun3::encq($cx, ((is_array($in) && isset($in['empty_var'])) ? $in['empty_var'] : null)).'中文
+Test \on \'spacing in mustache: Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
 
 ';
 }

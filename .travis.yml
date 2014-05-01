@@ -14,7 +14,7 @@ before_script:
   - bin/push-report
 script:
   - echo Tests based on this version... https://github.com/zordius/lightncandy/commit/`cat lightncandy`
-  - php bin/hbreport F 36 T
+  - php bin/hbreport F 54 T
 
 env:
   global:

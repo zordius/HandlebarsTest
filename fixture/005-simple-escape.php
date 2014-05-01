@@ -13,8 +13,8 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
-Hello original '.LCRun2::raw(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).' , the value is '.LCRun2::raw(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'
+    return 'Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+Hello original '.LCRun3::raw($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' , the value is '.LCRun3::raw($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'
 ';
 }
 ?>

@@ -13,13 +13,13 @@
         'path' => Array(),
 
     );
-    return 'Hello '.LCRun2::encq(((is_array($in) && isset($in['name'])) ? $in['name'] : null), $cx).', you have just won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!
+    return 'Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
 This is next line.
-'.LCRun2::sec(((is_array($in) && isset($in['test'])) ? $in['test'] : null), $cx, $in, false, function($cx, $in) {return '
-This is true! won $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!!
+'.LCRun3::sec($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null), $in, false, function($cx, $in) {return '
+This is true! won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!!
 ';}).'
-'.((LCRun2::isec(((is_array($in) && isset($in['test'])) ? $in['test'] : null))) ? '
-No, this is fake! not win $'.LCRun2::encq(((is_array($in) && isset($in['value'])) ? $in['value'] : null), $cx).'!!
+'.((LCRun3::isec($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null))) ? '
+No, this is fake! not win $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!!
 ' : '').'
 ';
 }

@@ -83,7 +83,16 @@ try {
                     return Array(1,3,5,7,9);
                 }
             }
-        )
+        ),
+        'hbhelpers' => Array(
+            'myeach' => function ($list, $options) {
+                $ret = '';
+                foreach ($list as $item) {
+                    $ret .= $options['fn']($item);
+                }
+                return $ret;
+            }
+        ),
     ));
 
     if ($argv[1] == 'lightncandy') {

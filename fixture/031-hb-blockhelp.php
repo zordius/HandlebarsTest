@@ -20,6 +20,7 @@
                 }
             },
 ),
+        'hbhelpers' => Array(),
         'scopes' => Array($in),
         'sp_vars' => Array(),
 

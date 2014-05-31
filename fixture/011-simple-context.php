@@ -8,6 +8,7 @@
         ),
         'helpers' => Array(),
         'blockhelpers' => Array(),
+        'hbhelpers' => Array(),
         'scopes' => Array($in),
         'sp_vars' => Array(),
 

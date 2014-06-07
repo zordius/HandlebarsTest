@@ -4,6 +4,8 @@
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
+            'prop' => true,
+            'method' => false,
             'debug' => $debugopt,
         ),
         'helpers' => Array(),
@@ -13,20 +15,20 @@
         'sp_vars' => Array(),
 
     );
-    return '<h1>'.LCRun3::encq($cx, ((is_array($in) && isset($in['header'])) ? $in['header'] : null)).'</h1>
-'.LCRun3::sec($cx, ((is_array($in) && isset($in['notEmpty'])) ? $in['notEmpty'] : null), $in, false, function($cx, $in) {return '
+    return '<h1>'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('header'))).'</h1>
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('notEmpty')), $in, false, function($cx, $in) {return '
 <ul>
-'.LCRun3::sec($cx, ((is_array($in) && isset($in['item'])) ? $in['item'] : null), $in, false, function($cx, $in) {return '
-'.LCRun3::sec($cx, ((is_array($in) && isset($in['current'])) ? $in['current'] : null), $in, false, function($cx, $in) {return '
-    <li><strong>'.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).'</strong></li>
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('item')), $in, false, function($cx, $in) {return '
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('current')), $in, false, function($cx, $in) {return '
+    <li><strong>'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).'</strong></li>
 ';}).'
-'.((LCRun3::isec($cx, ((is_array($in) && isset($in['current'])) ? $in['current'] : null))) ? '
-    <li><a href="'.LCRun3::encq($cx, ((is_array($in) && isset($in['url'])) ? $in['url'] : null)).'">'.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).'</a></li>
+'.((LCRun3::isec($cx, LCRun3::v($cx, $in, Array('current')))) ? '
+    <li><a href="'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('url'))).'">'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).'</a></li>
 ' : '').'
 ';}).'
 </ul>
 ';}).'
-'.LCRun3::sec($cx, ((is_array($in) && isset($in['isEmpty'])) ? $in['isEmpty'] : null), $in, false, function($cx, $in) {return '
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('isEmpty')), $in, false, function($cx, $in) {return '
 <p>The list is empty.</p>
 ';}).'
 ';

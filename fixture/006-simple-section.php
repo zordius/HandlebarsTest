@@ -4,6 +4,8 @@
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
+            'prop' => true,
+            'method' => false,
             'debug' => $debugopt,
         ),
         'helpers' => Array(),
@@ -13,13 +15,13 @@
         'sp_vars' => Array(),
 
     );
-    return 'Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+    return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).'!
 <ul>
-'.LCRun3::sec($cx, ((is_array($in) && isset($in['people'])) ? $in['people'] : null), $in, false, function($cx, $in) {return '
- <li>'.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' is a '.LCRun3::encq($cx, ((is_array($in) && isset($in['gender'])) ? $in['gender'] : null)).'</li>
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('people')), $in, false, function($cx, $in) {return '
+ <li>'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).' is a '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('gender'))).'</li>
 ';}).'
 </ul>
-'.LCRun3::encq($cx, ((is_array($in) && isset($in['end'])) ? $in['end'] : null)).'
+'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('end'))).'
 ';
 }
 ?>

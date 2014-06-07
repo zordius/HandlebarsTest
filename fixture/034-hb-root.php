@@ -4,6 +4,8 @@
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
+            'prop' => true,
+            'method' => false,
             'debug' => $debugopt,
         ),
         'helpers' => Array(),
@@ -14,8 +16,8 @@
 
     );
     return '<ul class="items">
-	'.LCRun3::sec($cx, ((is_array($in) && isset($in['items'])) ? $in['items'] : null), $in, true, function($cx, $in) {return '
-		<li>'.LCRun3::encq($cx, $in).' for '.LCRun3::encq($cx, ((is_array($cx['scopes'][0]) && isset($cx['scopes'][0]['user'])) ? $cx['scopes'][0]['user'] : null)).'</li>
+	'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('items')), $in, true, function($cx, $in) {return '
+		<li>'.LCRun3::encq($cx, $in).' for '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][0], Array('user'))).'</li>
 	';}).'
 </ul>
 ';

@@ -39,6 +39,13 @@ if ($times === 'T') {
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONE,
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONE,
         LightnCandy::FLAG_HANDLEBARSJS,
+
+        LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_RENDER_DEBUG,
+        LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_RENDER_DEBUG,
+        LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO,
+        LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONE,
+        LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONE,
+        LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS,
     );
     $err = Array();
     foreach (glob('fixture/*.json') as $test) {

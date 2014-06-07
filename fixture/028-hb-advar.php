@@ -4,6 +4,8 @@
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
+            'prop' => true,
+            'method' => false,
             'debug' => $debugopt,
         ),
         'helpers' => Array(),
@@ -13,14 +15,14 @@
         'sp_vars' => Array(),
 
     );
-    return 'Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+    return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).'!
 
-. '.LCRun3::encq($cx, ((is_array($in) && isset($in['!'])) ? $in['!'] : null)).' !!
-. KAKA '.LCRun3::encq($cx, ((is_array($in) && isset($in['! # % & ( ) * + , . / ; < = > @ [ \ ^ ` { | } ~'])) ? $in['! # % & ( ) * + , . / ; < = > @ [ \ ^ ` { | } ~'] : null)).'
-. K '.LCRun3::encq($cx, ((is_array($in) && isset($in['!['])) ? $in['!['] : null)).' X
-. Hello '.LCRun3::encq($cx, ((is_array($in['winners']['0']) && isset($in['winners']['0']['name'])) ? $in['winners']['0']['name'] : null)).' !! Won $'.LCRun3::encq($cx, ((is_array($in['winners']['0']) && isset($in['winners']['0']['value'])) ? $in['winners']['0']['value'] : null)).' now~~
-. Hello '.LCRun3::encq($cx, ((is_array($in['winners']['1']) && isset($in['winners']['1']['name'])) ? $in['winners']['1']['name'] : null)).' !! Won $'.LCRun3::encq($cx, ((is_array($in['winners']['1']) && isset($in['winners']['1']['value'])) ? $in['winners']['1']['value'] : null)).' later~~
-. No '.LCRun3::encq($cx, ((is_array($in['winners']['!']) && isset($in['winners']['!']['name'])) ? $in['winners']['!']['name'] : null)).' !!
+. '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('!'))).' !!
+. KAKA '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('! # % & ( ) * + , . / ; < = > @ [ \ ^ ` { | } ~'))).'
+. K '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('!['))).' X
+. Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winners','0','name'))).' !! Won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winners','0','value'))).' now~~
+. Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winners','1','name'))).' !! Won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winners','1','value'))).' later~~
+. No '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winners','!','name'))).' !!
 ';
 }
 ?>

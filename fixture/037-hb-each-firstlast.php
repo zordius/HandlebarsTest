@@ -4,6 +4,8 @@
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
+            'prop' => true,
+            'method' => false,
             'debug' => $debugopt,
         ),
         'helpers' => Array(),
@@ -14,8 +16,8 @@
 
     );
     return '<ul>
-'.LCRun3::sec($cx, ((is_array($in) && isset($in['people'])) ? $in['people'] : null), $in, true, function($cx, $in) {return '
- <li>'.LCRun3::encq($cx, $cx['sp_vars']['index']).', '.LCRun3::encq($cx, $cx['sp_vars']['key']).' : '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' [from '.LCRun3::encq($cx, $cx['sp_vars']['first']).' to '.LCRun3::encq($cx, $cx['sp_vars']['last']).']</li>
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('people')), $in, true, function($cx, $in) {return '
+ <li>'.LCRun3::encq($cx, $cx['sp_vars']['index']).', '.LCRun3::encq($cx, $cx['sp_vars']['key']).' : '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).' [from '.LCRun3::encq($cx, $cx['sp_vars']['first']).' to '.LCRun3::encq($cx, $cx['sp_vars']['last']).']</li>
 ';}).'
 </ul>
 ';

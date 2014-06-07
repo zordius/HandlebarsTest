@@ -4,6 +4,8 @@
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
+            'prop' => true,
+            'method' => false,
             'debug' => $debugopt,
         ),
         'helpers' => Array(),
@@ -13,8 +15,8 @@
         'sp_vars' => Array(),
 
     );
-    return 'Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
-Hello original '.LCRun3::raw($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' , the value is '.LCRun3::raw($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'
+    return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).'!
+Hello original '.LCRun3::raw($cx, LCRun3::v($cx, $in, Array('name'))).' , the value is '.LCRun3::raw($cx, LCRun3::v($cx, $in, Array('value'))).'
 ';
 }
 ?>

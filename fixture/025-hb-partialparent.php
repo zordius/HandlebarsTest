@@ -4,6 +4,8 @@
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
+            'prop' => true,
+            'method' => false,
             'debug' => $debugopt,
         ),
         'helpers' => Array(),
@@ -13,40 +15,40 @@
         'sp_vars' => Array(),
 
     );
-    return 'Hello '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).'!
+    return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).'!
 
 ##0 start section:
-'.LCRun3::sec($cx, ((is_array($in) && isset($in['winners'])) ? $in['winners'] : null), $in, false, function($cx, $in) {return '
-  - EACH 1 - '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' ~ '.LCRun3::encq($cx, ((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['name'])) ? $cx['scopes'][count($cx['scopes'])-1]['name'] : null)).'
-  Name:'.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', Value:'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).', This: '.LCRun3::encq($cx, $in).', Test: '.LCRun3::encq($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null)).'
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('winners')), $in, false, function($cx, $in) {return '
+  - EACH 1 - '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).' ~ '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], Array('name'))).'
+  Name:'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', Value:'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).', This: '.LCRun3::encq($cx, $in).', Test: '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('test'))).'
 
-  - EACH 2- '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' ~ '.LCRun3::encq($cx, ((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['name'])) ? $cx['scopes'][count($cx['scopes'])-1]['name'] : null)).'
+  - EACH 2- '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).' ~ '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], Array('name'))).'
 ';}).'
 end section.
 
 ##1 start each:
-'.LCRun3::sec($cx, ((is_array($in) && isset($in['winners'])) ? $in['winners'] : null), $in, true, function($cx, $in) {return '
-  - EACH 3 - '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' ~ '.LCRun3::encq($cx, ((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['name'])) ? $cx['scopes'][count($cx['scopes'])-1]['name'] : null)).'
-  Name:'.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', Value:'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).', This: '.LCRun3::encq($cx, $in).', Test: '.LCRun3::encq($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null)).'
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('winners')), $in, true, function($cx, $in) {return '
+  - EACH 3 - '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).' ~ '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], Array('name'))).'
+  Name:'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', Value:'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).', This: '.LCRun3::encq($cx, $in).', Test: '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('test'))).'
 
-  - EACH 4 - '.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).' ~ '.LCRun3::encq($cx, ((is_array($cx['scopes'][count($cx['scopes'])-1]) && isset($cx['scopes'][count($cx['scopes'])-1]['name'])) ? $cx['scopes'][count($cx['scopes'])-1]['name'] : null)).'
+  - EACH 4 - '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).' ~ '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], Array('name'))).'
 ';}).'
 end each.
 
 ##2 start each+if:
-'.LCRun3::sec($cx, ((is_array($in) && isset($in['winners'])) ? $in['winners'] : null), $in, true, function($cx, $in) {return '
- '.LCRun3::ifv($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null), $in, function($cx, $in) {return '
-  Name:'.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', Value:'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).', This: '.LCRun3::encq($cx, $in).', Test: '.LCRun3::encq($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null)).'
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('winners')), $in, true, function($cx, $in) {return '
+ '.LCRun3::ifv($cx, LCRun3::v($cx, $in, Array('test')), $in, function($cx, $in) {return '
+  Name:'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', Value:'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).', This: '.LCRun3::encq($cx, $in).', Test: '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('test'))).'
 
  ';}).'
 ';}).'
 end each+if.
 
 ##3 start each+if+with:
-'.LCRun3::sec($cx, ((is_array($in) && isset($in['winners'])) ? $in['winners'] : null), $in, true, function($cx, $in) {return '
- '.LCRun3::ifv($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null), $in, function($cx, $in) {return '
-  '.LCRun3::wi($cx, ((is_array($in) && isset($in['people'])) ? $in['people'] : null), $in, function($cx, $in) {return '
-   Name:'.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', Value:'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).', This: '.LCRun3::encq($cx, $in).', Test: '.LCRun3::encq($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null)).'
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('winners')), $in, true, function($cx, $in) {return '
+ '.LCRun3::ifv($cx, LCRun3::v($cx, $in, Array('test')), $in, function($cx, $in) {return '
+  '.LCRun3::wi($cx, LCRun3::v($cx, $in, Array('people')), $in, function($cx, $in) {return '
+   Name:'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', Value:'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).', This: '.LCRun3::encq($cx, $in).', Test: '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('test'))).'
 
   ';}).'
  ';}).'
@@ -54,10 +56,10 @@ end each+if.
 end each+if+with.
 
 ##4 start each+with+if:
-'.LCRun3::sec($cx, ((is_array($in) && isset($in['winners'])) ? $in['winners'] : null), $in, true, function($cx, $in) {return '
- '.LCRun3::wi($cx, ((is_array($in) && isset($in['people'])) ? $in['people'] : null), $in, function($cx, $in) {return '
-  '.LCRun3::ifv($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null), $in, function($cx, $in) {return '
-   Name:'.LCRun3::encq($cx, ((is_array($in) && isset($in['name'])) ? $in['name'] : null)).', Value:'.LCRun3::encq($cx, ((is_array($in) && isset($in['value'])) ? $in['value'] : null)).', This: '.LCRun3::encq($cx, $in).', Test: '.LCRun3::encq($cx, ((is_array($in) && isset($in['test'])) ? $in['test'] : null)).'
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('winners')), $in, true, function($cx, $in) {return '
+ '.LCRun3::wi($cx, LCRun3::v($cx, $in, Array('people')), $in, function($cx, $in) {return '
+  '.LCRun3::ifv($cx, LCRun3::v($cx, $in, Array('test')), $in, function($cx, $in) {return '
+   Name:'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', Value:'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).', This: '.LCRun3::encq($cx, $in).', Test: '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('test'))).'
 
   ';}).'
  ';}).'

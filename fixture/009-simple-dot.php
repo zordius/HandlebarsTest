@@ -4,6 +4,8 @@
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
+            'prop' => true,
+            'method' => false,
             'debug' => $debugopt,
         ),
         'helpers' => Array(),
@@ -13,9 +15,9 @@
         'sp_vars' => Array(),
 
     );
-    return 'Hello '.LCRun3::encq($cx, ((is_array($in['winner']) && isset($in['winner']['name'])) ? $in['winner']['name'] : null)).', you have just won $'.LCRun3::encq($cx, ((is_array($in['winner']) && isset($in['winner']['value'])) ? $in['winner']['value'] : null)).'!
-We have $'.LCRun3::encq($cx, ((is_array($in['award']['first']) && isset($in['award']['first']['value'])) ? $in['award']['first']['value'] : null)).' for '.LCRun3::encq($cx, ((is_array($in['award']['first']) && isset($in['award']['first']['name'])) ? $in['award']['first']['name'] : null)).' award!!
-Raw dot test: '.LCRun3::encq($cx, ((is_array($in['winner']) && isset($in['winner']['name'])) ? $in['winner']['name'] : null)).' '.LCRun3::raw($cx, ((is_array($in['award']['first']) && isset($in['award']['first']['value'])) ? $in['award']['first']['value'] : null)).' for '.LCRun3::raw($cx, ((is_array($in['award']['first']) && isset($in['award']['first']['name'])) ? $in['award']['first']['name'] : null)).'
+    return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winner','name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winner','value'))).'!
+We have $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('award','first','value'))).' for '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('award','first','name'))).' award!!
+Raw dot test: '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winner','name'))).' '.LCRun3::raw($cx, LCRun3::v($cx, $in, Array('award','first','value'))).' for '.LCRun3::raw($cx, LCRun3::v($cx, $in, Array('award','first','name'))).'
 ';
 }
 ?>

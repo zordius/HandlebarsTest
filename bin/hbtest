@@ -101,8 +101,15 @@ try {
     }
 
     // Execute template
-    @$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
+    if (isset($argv[4])) {
+        $result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
+    } else {
+        @$result = $test_tmpl ? $test_tmpl->$test_method($vars) : $test_method($vars);
+    }
 } catch (Excaption $e) {
+    if (isset($argv[4])) {
+        throw $e;
+    }
     $result = false;
 }
 

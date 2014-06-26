@@ -8,17 +8,17 @@
             'method' => false,
             'debug' => $debugopt,
         ),
-        'helpers' => Array(            'helper1' => function($url, $txt) {
-                $u = ($url !== null) ? $url : 'undefined';
-                $t = ($txt !== null) ? $txt : 'undefined';
-                return "<a href=\"{$u}\">{$t}</a>";
-            },
-            'helper2' => function($hash) {
-                $u = isset($hash['url']) ? $hash['url'] : 'undefined';
-                $t = isset($hash['text']) ? $hash['text'] : 'undefined';
-                $x = isset($hash['ur"l']) ? $hash['ur"l'] : 'undefined';
-                return "<a href=\"{$u}\">{$t}</a>({$x})";
-            },
+        'helpers' => Array(            'helper1' => function($args, $named) {
+    $u = (isset($args[0])) ? $args[0] : 'undefined';
+    $t = (isset($args[1])) ? $args[1] : 'undefined';
+    return "<a href=\"{$u}\">{$t}</a>";
+},
+            'helper2' => function($args, $named) {
+    $u = isset($named['url']) ? $named['url'] : 'undefined';
+    $t = isset($named['text']) ? $named['text'] : 'undefined';
+    $x = isset($named['ur"l']) ? $named['ur"l'] : 'undefined';
+    return "<a href=\"{$u}\">{$t}</a>({$x})";
+},
 ),
         'blockhelpers' => Array(),
         'hbhelpers' => Array(),
@@ -28,15 +28,15 @@
     );
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).'!
 
-. Test 1: '.LCRun3::ch($cx, 'helper1', Array(LCRun3::v($cx, $in, Array('url')),'this is a test & OK'), 'raw').' !!
-. Test 2: '.LCRun3::ch($cx, 'helper1', Array(LCRun3::v($cx, $in, Array('url')),'this is a test'), 'raw').' !!
-. Test 3: '.LCRun3::ch($cx, 'helper1', Array(LCRun3::v($cx, $in, Array('url')),'this is a test & OK'), 'encq').' !!
-. Test 3: '.LCRun3::ch($cx, 'helper1', Array(LCRun3::v($cx, $in, Array('url')),'string/arg.css'), 'encq').' !!
-. Test 4: '.LCRun3::ch($cx, 'helper1', Array(LCRun3::v($cx, $in, Array('url')),'this is a test'), 'encq').' !!
-. Test 5: '.LCRun3::ch($cx, 'helper2', Array('url'=>LCRun3::v($cx, $in, Array('url')),'text'=>'this is a test'), 'encq', true).' !!
-. Test 6: '.LCRun3::ch($cx, 'helper2', Array('ur"l'=>LCRun3::v($cx, $in, Array('url')),'text'=>'this is a test'), 'encq', true).' !!
-. Test 7: '.LCRun3::ch($cx, 'helper2', Array('url'=>'0','text'=>'10'), 'encq', true).' !!
-. Test 8: '.LCRun3::ch($cx, 'helper2', Array('url'=>'-1','text'=>'1.3'), 'encq', true).' !!
+. Test 1: '.LCRun3::ch($cx, 'helper1', Array(Array(LCRun3::v($cx, $in, Array('url')),'this is a test & OK'),Array()), 'raw').' !!
+. Test 2: '.LCRun3::ch($cx, 'helper1', Array(Array(LCRun3::v($cx, $in, Array('url')),'this is a test'),Array()), 'raw').' !!
+. Test 3: '.LCRun3::ch($cx, 'helper1', Array(Array(LCRun3::v($cx, $in, Array('url')),'this is a test & OK'),Array()), 'encq').' !!
+. Test 3: '.LCRun3::ch($cx, 'helper1', Array(Array(LCRun3::v($cx, $in, Array('url')),'string/arg.css'),Array()), 'encq').' !!
+. Test 4: '.LCRun3::ch($cx, 'helper1', Array(Array(LCRun3::v($cx, $in, Array('url')),'this is a test'),Array()), 'encq').' !!
+. Test 5: '.LCRun3::ch($cx, 'helper2', Array(Array(),Array('url'=>LCRun3::v($cx, $in, Array('url')),'text'=>'this is a test')), 'encq').' !!
+. Test 6: '.LCRun3::ch($cx, 'helper2', Array(Array(),Array('ur"l'=>LCRun3::v($cx, $in, Array('url')),'text'=>'this is a test')), 'encq').' !!
+. Test 7: '.LCRun3::ch($cx, 'helper2', Array(Array(),Array('url'=>'0','text'=>'10')), 'encq').' !!
+. Test 8: '.LCRun3::ch($cx, 'helper2', Array(Array(),Array('url'=>'-1','text'=>'1.3')), 'encq').' !!
 ';
 }
 ?>

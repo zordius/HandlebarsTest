@@ -14,8 +14,8 @@
     return "<a href=\"{$u}\">{$t}</a>";
 },
             'helper2' => function($args, $named) {
-    $u = isset($named['url']) ? $named['url'] : 'undefined';
-    $t = isset($named['text']) ? $named['text'] : 'undefined';
+    $u = isset($named['url']) ? jsraw($named['url']) : 'undefined';
+    $t = isset($named['text']) ? jsraw($named['text']) : 'undefined';
     $x = isset($named['ur"l']) ? $named['ur"l'] : 'undefined';
     return "<a href=\"{$u}\">{$t}</a>({$x})";
 },
@@ -37,6 +37,7 @@
 . Test 6: '.LCRun3::ch($cx, 'helper2', Array(Array(),Array('ur"l'=>LCRun3::v($cx, $in, Array('url')),'text'=>'this is a test')), 'encq').' !!
 . Test 7: '.LCRun3::ch($cx, 'helper2', Array(Array(),Array('url'=>'0','text'=>'10')), 'encq').' !!
 . Test 8: '.LCRun3::ch($cx, 'helper2', Array(Array(),Array('url'=>'-1','text'=>'1.3')), 'encq').' !!
+. Test 9: '.LCRun3::ch($cx, 'helper2', Array(Array(),Array('url'=>true,'text'=>false)), 'encq').' !!
 ';
 }
 ?>

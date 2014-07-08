@@ -1,0 +1,16 @@
+{
+    "notEmpty": true,
+    "item": [
+        {
+            "name": "OK!"
+        },
+        {
+            "current": [
+               "A", "B"
+            ]
+        },
+        {
+            "current": []
+        }
+    ]
+}

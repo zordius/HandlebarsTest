@@ -2,5 +2,5 @@ Hello John, you have just won $10000!
 
 . Test 1: <a href="undefined">undefined</a>
 . Test 2: &lt;a href=&quot;undefined&quot;&gt;undefined&lt;/a&gt;
-. Test 3: &lt;a href=&quot;undefined&quot;&gt;undefined&lt;/a&gt;
+. Test 3: &lt;a href=&quot;0&quot;&gt;0&lt;/a&gt;
 . Test 4: 

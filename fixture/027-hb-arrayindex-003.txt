@@ -8,7 +8,7 @@ Hello John, you have just won $10000!
 
   - EACH 1- 
 
-  - EACH 1- 0
+  - EACH 1- 
 
   - EACH 1- 
 
@@ -32,7 +32,7 @@ end section.
 
   - EACH 2 - 
 
-  - EACH 2 - 0
+  - EACH 2 - 
 
   - EACH 2 - 
 

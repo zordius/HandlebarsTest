@@ -13,13 +13,13 @@ Click on the chart for more details.
 Requirements
 ------------
 
-* php 5.3+ with json and mbstring suppport.
+* php 5.3+
 
 * [optional] nodejs04+ and handlebars for fixture generation.
-  ( npm install handlebars )
-
-* [optional] nodejs06+ and amanda for json schema validation.
-  ( npm install amanda )
+```
+wget http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-c90cfe2.js -O handlebars.js
+bin/generate-fixture
+```
 
 Quick Conclusion
 ----------------
@@ -71,8 +71,6 @@ Feature Comparison
 * CR/LF : Output more or less CR/LF (minor issue)
 * QUOTE : Encode ' to &amp;#039;, not to &amp;#x27; (minor issue)
 * SINGLEQUOTE : Do not encode ' to &amp;#x27;
-
-* SPECIAL NOTE: now (2014-02-11) case 003-simple-else-005 , 006-simple-section-003 , 018-hb-withwith-004 , 021-hb-manyparent-004 , 025-hb-particalparent-001, 025-hb-particalparent-002, 027-hb-arrayindex-003 results are not 'YES' but 'OUTPUT'. We can not ensure the handlebars.js 1.3.0+ behavior is correct or not. Now we open an issue to track this: https://github.com/wycats/handlebars.js/issues/731
 
 |       test case       | handlebars.php        |       lightncandy     |       mustache-php    |       mustache.php  |
 |-----------------------|-----------------------|-----------------------|-----------------------|---------------------|

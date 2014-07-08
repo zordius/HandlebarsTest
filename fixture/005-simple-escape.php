@@ -17,6 +17,7 @@
     );
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).'!
 Hello original '.LCRun3::raw($cx, LCRun3::v($cx, $in, Array('name'))).' , the value is '.LCRun3::raw($cx, LCRun3::v($cx, $in, Array('value'))).'
+Hello mustache '.LCRun3::raw($cx, LCRun3::v($cx, $in, Array('name'))).' , the value is '.LCRun3::raw($cx, LCRun3::v($cx, $in, Array('value'))).'
 ';
 }
 ?>

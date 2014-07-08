@@ -1,7 +1,7 @@
 Hello John, you have just won $10000!
 <ul>
 
- <li>0 is a 0</li>
+ <li> is a </li>
 
 </ul>
 

@@ -17,7 +17,7 @@
 
     );
     return '<ul>
-	
+	'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('!'))).'
 	Other content
 </ul>
 ';

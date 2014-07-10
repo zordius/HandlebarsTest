@@ -6,6 +6,7 @@
             'spvar' => true,
             'prop' => true,
             'method' => false,
+            'mustlok' => false,
             'debug' => $debugopt,
         ),
         'helpers' => Array(            'helper1' => function($args, $named) {

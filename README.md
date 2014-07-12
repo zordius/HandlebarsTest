@@ -15,11 +15,7 @@ Requirements
 
 * php 5.3+
 
-* [optional] nodejs04+ and handlebars for fixture generation.
-```
-wget http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-c90cfe2.js -O handlebars.js
-bin/generate-fixture
-```
+* [optional] nodejs04+ and handlebars for fixture generation. (See <a href="#how-to-test">How to test</a>)
 
 Quick Conclusion
 ----------------
@@ -37,18 +33,14 @@ Libraries
 Testing targets:
 
 * pure php template with logic commands.
-
 * Mustache.php https://github.com/bobthecow/mustache.php
-
 * mustache-php https://github.com/dingram/mustache-php
-
 * Handlebars.php https://github.com/XaminProject/handlebars.php
-
 * lightncandy https://github.com/zordius/lightncandy
 
 Testing data and templates:
 
-* some examples converted from https://github.com/bobthecow/mustache.php/tree/master/test/fixtures/examples
+* some fixtures are converted from https://github.com/bobthecow/mustache.php/tree/master/test/fixtures/examples
 
 Directories
 -----------
@@ -219,15 +211,16 @@ Feature Comparison
 
 How to Test
 -----------
-
 1. install nodejs04+
 2. install npm
-3. npm install handlebars
-4. bin/generate-fixture
+3. Now we lock the test to specific handlebars.js version.
+   * test most updated npm version: `npm install handlebars`
+   * download the specific version: `wget http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-c90cfe2.js -O handlebars.js`
+4. `bin/generate-fixture`
    * This will generate *.txt files under fixtures.
    * These files are generated with handlebars.js.
    * All tests will use these txt files as standard answers.
-5. bin/clone
+5. `bin/clone`
    * Get all handlebars PHP libraries
 
 * single lib test

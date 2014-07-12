@@ -224,8 +224,6 @@ How to Test
    * This will generate *.txt files under fixtures.
    * These files are generated with handlebars.js.
    * All tests will use these txt files as standard answers.
-5. `bin/clone`
-   * Get all handlebars PHP libraries
 
 * single lib test
    * bin/hbtest libName testFile [testTimes]

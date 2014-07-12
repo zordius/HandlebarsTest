@@ -7,9 +7,7 @@ php:
 
 before_script:
   - sudo apt-get install colordiff
-  - cd cloned
-  - git clone https://github.com/zordius/lightncandy
-  - cd lightncandy
+  - cd cloned/lightncandy
   - git checkout -qf `cat ../../lightncandy`
   - cd ../..
   - bin/push-report

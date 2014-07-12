@@ -3,6 +3,10 @@ HandlebarsTest
 
 Performance tests on Mustache and Handlebars php libs. Results can be found here: http://zordius.github.io/HandlebarsTest/ .
 
+Performance results done by others:
+
+* https://github.com/gwicke/TemplatePerf
+
 Current Result
 --------------
 

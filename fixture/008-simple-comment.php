@@ -12,12 +12,13 @@
         'helpers' => Array(),
         'blockhelpers' => Array(),
         'hbhelpers' => Array(),
+        'partials' => Array(),
         'scopes' => Array($in),
         'sp_vars' => Array(),
 
     );
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).'!
-'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('test')), $in, false, function($cx, $in) {return ''.'
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('test')), $in, false, function($cx, $in) {return '
 This is true! won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).'!!
 ';}).'
 ';

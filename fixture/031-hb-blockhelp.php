@@ -24,6 +24,7 @@
 },
 ),
         'hbhelpers' => Array(),
+        'partials' => Array(),
         'scopes' => Array($in),
         'sp_vars' => Array(),
 

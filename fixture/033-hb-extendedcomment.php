@@ -12,12 +12,13 @@
         'helpers' => Array(),
         'blockhelpers' => Array(),
         'hbhelpers' => Array(),
+        'partials' => Array(),
         'scopes' => Array($in),
         'sp_vars' => Array(),
 
     );
     return '<ul>
-	'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('!'))).'
+	
 	Other content
 </ul>
 ';

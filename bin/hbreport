@@ -79,7 +79,7 @@ if ($times === 'T') {
     $c = count($err);
     $kc = isset($argv[2]) ? $argv[2] : 0;
     echo "Know issues: $kc , detected issues: $c ...." . (($c > $kc) ? 'ERROR!!' : 'PASS') . "\n";
-    exit($c - $kc);
+    exit(max($c - $kc,0));
 } else {
     foreach (glob('fixture/*.json') as $test) {
       $report = Array();

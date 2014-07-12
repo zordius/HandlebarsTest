@@ -1,12 +1,12 @@
 [submodule "cloned/mustache.php"]
 	path = cloned/mustache.php
-	url = git@github.com:bobthecow/mustache.php.git
+	url = https://github.com/bobthecow/mustache.php.git
 [submodule "cloned/mustache-php"]
 	path = cloned/mustache-php
-	url = git@github.com:dingram/mustache-php.git
+	url = https://github.com/dingram/mustache-php.git
 [submodule "cloned/handlebars.php"]
 	path = cloned/handlebars.php
-	url = git@github.com:XaminProject/handlebars.php.git
+	url = https://github.com/XaminProject/handlebars.php.git
 [submodule "cloned/lightncandy"]
 	path = cloned/lightncandy
-	url = git@github.com:zordius/lightncandy.git
+	url = https://github.com/zordius/lightncandy.git

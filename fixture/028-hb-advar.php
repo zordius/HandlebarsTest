@@ -20,7 +20,7 @@
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('value'))).'!
 
 . '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('!'))).' !!
-. KAKA '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('! # % & ( ) * + , . / ; < = > @ [ \ ^ ` { | } ~'))).'
+. KAKA '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('! # % & ( ) * + , . / ; < = > @ [ \\ ^ ` { | } ~'))).'
 . K '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('!['))).' X
 . Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winners','0','name'))).' !! Won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winners','0','value'))).' now~~
 . Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winners','1','name'))).' !! Won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('winners','1','value'))).' later~~

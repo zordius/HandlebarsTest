@@ -7,6 +7,7 @@
             'prop' => true,
             'method' => false,
             'mustlok' => false,
+            'mustsec' => false,
             'debug' => $debugopt,
         ),
         'helpers' => Array(),

@@ -2,10 +2,10 @@ Hello John, you have just won $10000!
 
 ##0 start section:
 
-  - EACH 1 -  ~ 
+  - EACH 1 -  ~ John
   Name:, Value:, This: [object Object], Test: true
 
-  - EACH 2-  ~ 
+  - EACH 2-  ~ John
 
 end section.
 

@@ -1,6 +1,6 @@
 <?php return function ($in, $debugopt = 1) {
-    $cx = Array(
-        'flags' => Array(
+    $cx = array(
+        'flags' => array(
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
@@ -10,12 +10,12 @@
             'mustsec' => false,
             'debug' => $debugopt,
         ),
-        'helpers' => Array(),
-        'blockhelpers' => Array(),
-        'hbhelpers' => Array(),
-        'partials' => Array(),
-        'scopes' => Array($in),
-        'sp_vars' => Array(),
+        'helpers' => array(),
+        'blockhelpers' => array(),
+        'hbhelpers' => array(),
+        'partials' => array(),
+        'scopes' => array($in),
+        'sp_vars' => array(),
 
     );
     return '<ul>

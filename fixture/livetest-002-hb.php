@@ -1,6 +1,6 @@
 <?php return function ($in, $debugopt = 1) {
-    $cx = Array(
-        'flags' => Array(
+    $cx = array(
+        'flags' => array(
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
@@ -10,33 +10,33 @@
             'mustsec' => false,
             'debug' => $debugopt,
         ),
-        'helpers' => Array(),
-        'blockhelpers' => Array(),
-        'hbhelpers' => Array(),
-        'partials' => Array(),
-        'scopes' => Array($in),
-        'sp_vars' => Array(),
+        'helpers' => array(),
+        'blockhelpers' => array(),
+        'hbhelpers' => array(),
+        'partials' => array(),
+        'scopes' => array($in),
+        'sp_vars' => array(),
 
     );
-    return ''.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('specs')), $in, true, function($cx, $in) {return '
+    return ''.LCRun3::sec($cx, LCRun3::v($cx, $in, array('specs')), $in, true, function($cx, $in) {return '
    <div class="item-spec">
-    '.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('options')), $in, true, function($cx, $in) {return '
-        '.LCRun3::ifv($cx, LCRun3::v($cx, $in, Array('icon')), $in, function($cx, $in) {return '
+    '.LCRun3::sec($cx, LCRun3::v($cx, $in, array('options')), $in, true, function($cx, $in) {return '
+        '.LCRun3::ifv($cx, LCRun3::v($cx, $in, array('icon')), $in, function($cx, $in) {return '
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], Array('id'))).'-'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('id'))).'" value="'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('id'))).'" name="'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], Array('id'))).'" alt="'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).'" data-name="'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).'"/>
-            <label class="spec-label icon" for="spec-'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], Array('id'))).'-'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('id'))).'" style="background-image:url('.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('icon'))).');">
+            <input type="radio" id="spec-'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('id'))).'-'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('id'))).'" value="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('id'))).'" name="'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('id'))).'" alt="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'" data-name="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'"/>
+            <label class="spec-label icon" for="spec-'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('id'))).'-'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('id'))).'" style="background-image:url('.LCRun3::encq($cx, LCRun3::v($cx, $in, array('icon'))).');">
             </label>
         </div>
         ';}, function($cx, $in) {return '
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], Array('id'))).'-'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('id'))).'" value="'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('id'))).'" name="'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], Array('id'))).'" data-name="'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).'"/>
-            <label class="spec-label" for="spec-'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], Array('id'))).'-'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('id'))).'">'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('name'))).'</label>
+            <input type="radio" id="spec-'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('id'))).'-'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('id'))).'" value="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('id'))).'" name="'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('id'))).'" data-name="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'"/>
+            <label class="spec-label" for="spec-'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('id'))).'-'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('id'))).'">'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'</label>
         </div>
         ';}).'
         <script>
-            document.getElementById(\'spec-'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], Array('id'))).'-'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('id'))).'\').className += \'hidden\';
+            document.getElementById(\'spec-'.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('id'))).'-'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('id'))).'\').className += \'hidden\';
         </script>
     ';}).'
     </div>

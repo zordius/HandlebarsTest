@@ -1,2 +1,3 @@
 Hello John中文, you have just won $&lt;10000&gt;!
 Hello original } , the value is }
+Hello mustache John中文 , the value is <10000>

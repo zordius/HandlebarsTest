@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_1ec46778c2ee7ea578fd02e5f841f36e extends Mustache_Template
+class __Mustache_6a5bddd6d4552709e197b3686cdbda5c extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -17,32 +17,21 @@ class __Mustache_1ec46778c2ee7ea578fd02e5f841f36e extends Mustache_Template
         $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= '!
 ';
-        $buffer .= $indent . 'This is next line.
+        $buffer .= $indent . 'Winners: ';
+        // 'winners' section
+        $value = $context->find('winners');
+        $buffer .= $this->section05ab2510ea03dd60e28fee6476fe662e($context, $indent, $value);
+        $buffer .= '
 ';
-        // 'test' section
-        $value = $context->find('test');
-        $buffer .= $this->section364d5f021cd691fbea8663fa93d71f2e($context, $indent, $value);
-        // 'test' inverted section
-        $value = $context->find('test');
-        if (empty($value)) {
-            
-            $buffer .= $indent . 'No, this is fake! not win $';
-            $value = $this->resolveValue($context->find('value'), $context, $indent);
-            $buffer .= htmlspecialchars($value, 2, 'UTF-8');
-            $buffer .= '!!
-';
-        }
 
         return $buffer;
     }
 
-    private function section364d5f021cd691fbea8663fa93d71f2e(Mustache_Context $context, $indent, $value)
+    private function section05ab2510ea03dd60e28fee6476fe662e(Mustache_Context $context, $indent, $value)
     {
         $buffer = '';
         if (!is_string($value) && is_callable($value)) {
-            $source = '
-This is true! won ${{value}}!!
-';
+            $source = '{{this}}({{{this}}}) = {{.}}({{{.}}})';
             $result = call_user_func($value, $source, $this->lambdaHelper);
             if (strpos($result, '{{') === false) {
                 $buffer .= $result;
@@ -55,11 +44,18 @@ This is true! won ${{value}}!!
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
                 $context->push($value);
-                $buffer .= $indent . 'This is true! won $';
-                $value = $this->resolveValue($context->find('value'), $context, $indent);
+                $value = $this->resolveValue($context->find('this'), $context, $indent);
                 $buffer .= htmlspecialchars($value, 2, 'UTF-8');
-                $buffer .= '!!
-';
+                $buffer .= '(';
+                $value = $this->resolveValue($context->find('this'), $context, $indent);
+                $buffer .= $value;
+                $buffer .= ') = ';
+                $value = $this->resolveValue($context->last(), $context, $indent);
+                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+                $buffer .= '(';
+                $value = $this->resolveValue($context->last(), $context, $indent);
+                $buffer .= $value;
+                $buffer .= ')';
                 $context->pop();
             }
         }

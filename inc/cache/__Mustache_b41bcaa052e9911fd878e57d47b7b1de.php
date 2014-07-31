@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_df5cf00d106434bc407e123931b9ce07 extends Mustache_Template
+class __Mustache_b41bcaa052e9911fd878e57d47b7b1de extends Mustache_Template
 {
     public function renderInternal(Mustache_Context $context, $indent = '')
     {
@@ -15,6 +15,14 @@ class __Mustache_df5cf00d106434bc407e123931b9ce07 extends Mustache_Template
         $buffer .= '!
 ';
         $buffer .= $indent . 'Hello original ';
+        $value = $this->resolveValue($context->find('name'), $context, $indent);
+        $buffer .= $value;
+        $buffer .= ' , the value is ';
+        $value = $this->resolveValue($context->find('value'), $context, $indent);
+        $buffer .= $value;
+        $buffer .= '
+';
+        $buffer .= $indent . 'Hello mustache ';
         $value = $this->resolveValue($context->find('name'), $context, $indent);
         $buffer .= $value;
         $buffer .= ' , the value is ';

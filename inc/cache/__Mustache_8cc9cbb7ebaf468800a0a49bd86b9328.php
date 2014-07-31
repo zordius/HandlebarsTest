@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_cba94d1520dfd7e25328f60f40c16385 extends Mustache_Template
+class __Mustache_8cc9cbb7ebaf468800a0a49bd86b9328 extends Mustache_Template
 {
     public function renderInternal(Mustache_Context $context, $indent = '')
     {
@@ -58,6 +58,11 @@ class __Mustache_cba94d1520dfd7e25328f60f40c16385 extends Mustache_Template
 ';
         $buffer .= $indent . '. Test 8: ';
         $value = $this->resolveValue($context->findDot('helper2 url=-1 text=1.3'), $context, $indent);
+        $buffer .= htmlspecialchars($value, 2, 'UTF-8');
+        $buffer .= ' !!
+';
+        $buffer .= $indent . '. Test 9: ';
+        $value = $this->resolveValue($context->find('helper2 url=true text=false'), $context, $indent);
         $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= ' !!
 ';

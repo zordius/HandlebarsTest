@@ -1,6 +1,6 @@
 <?php return function ($in, $debugopt = 1) {
-    $cx = Array(
-        'flags' => Array(
+    $cx = array(
+        'flags' => array(
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
@@ -10,24 +10,24 @@
             'mustsec' => false,
             'debug' => $debugopt,
         ),
-        'helpers' => Array(),
-        'blockhelpers' => Array(),
-        'hbhelpers' => Array(),
-        'partials' => Array(),
-        'scopes' => Array($in),
-        'sp_vars' => Array(),
+        'helpers' => array(),
+        'blockhelpers' => array(),
+        'hbhelpers' => array(),
+        'partials' => array(),
+        'scopes' => array($in),
+        'sp_vars' => array(),
 
     );
     return '<div class="yui3-u-1-2 member-status">
  <ul class="h-list">
- '.LCRun3::wi($cx, LCRun3::v($cx, $in, Array('login_status')), $in, function($cx, $in) {return '
-  '.((LCRun3::ifvar($cx, LCRun3::v($cx, $in, Array('is_login')))) ? '
-   <li><a href="'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('edit_account_link'))).'">Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('username'))).'</a></li>
-   <li><a href="'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('logut_link'))).'">Logout</a></li>
+ '.LCRun3::wi($cx, LCRun3::v($cx, $in, array('login_status')), $in, function($cx, $in) {return '
+  '.((LCRun3::ifvar($cx, LCRun3::v($cx, $in, array('is_login')))) ? '
+   <li><a href="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('edit_account_link'))).'">Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('username'))).'</a></li>
+   <li><a href="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('logut_link'))).'">Logout</a></li>
   ' : '').'
-  '.((!LCRun3::ifvar($cx, LCRun3::v($cx, $in, Array('is_login')))) ? '
-   <li>New User? <a href="'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('register_link'))).'">Register Now</a></li>
-   <li><a href="'.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('login_link'))).'">Login</a></li>
+  '.((!LCRun3::ifvar($cx, LCRun3::v($cx, $in, array('is_login')))) ? '
+   <li>New User? <a href="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('register_link'))).'">Register Now</a></li>
+   <li><a href="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('login_link'))).'">Login</a></li>
   ' : '').'
  ';}).'
   <li><a>About Auction</a></li>

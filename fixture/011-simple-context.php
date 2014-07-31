@@ -1,6 +1,6 @@
 <?php return function ($in, $debugopt = 1) {
-    $cx = Array(
-        'flags' => Array(
+    $cx = array(
+        'flags' => array(
             'jstrue' => true,
             'jsobj' => true,
             'spvar' => true,
@@ -10,19 +10,19 @@
             'mustsec' => false,
             'debug' => $debugopt,
         ),
-        'helpers' => Array(),
-        'blockhelpers' => Array(),
-        'hbhelpers' => Array(),
-        'partials' => Array(),
-        'scopes' => Array($in),
-        'sp_vars' => Array(),
+        'helpers' => array(),
+        'blockhelpers' => array(),
+        'hbhelpers' => array(),
+        'partials' => array(),
+        'scopes' => array($in),
+        'sp_vars' => array(),
 
     );
-    return ''.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('grand_parent_id'))).'
-'.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('parent_contexts')), $in, false, function($cx, $in) {return '
-  '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('parent_id'))).' ('.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('grand_parent_id'))).')
-  '.LCRun3::sec($cx, LCRun3::v($cx, $in, Array('child_contexts')), $in, false, function($cx, $in) {return '
-    '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('child_id'))).' ('.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('parent_id'))).' << '.LCRun3::encq($cx, LCRun3::v($cx, $in, Array('grand_parent_id'))).')
+    return ''.LCRun3::encq($cx, LCRun3::v($cx, $in, array('grand_parent_id'))).'
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('parent_contexts')), $in, false, function($cx, $in) {return '
+  '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('parent_id'))).' ('.LCRun3::encq($cx, LCRun3::v($cx, $in, array('grand_parent_id'))).')
+  '.LCRun3::sec($cx, LCRun3::v($cx, $in, array('child_contexts')), $in, false, function($cx, $in) {return '
+    '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('child_id'))).' ('.LCRun3::encq($cx, LCRun3::v($cx, $in, array('parent_id'))).' << '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('grand_parent_id'))).')
   ';}).'
 ';}).'
 ';

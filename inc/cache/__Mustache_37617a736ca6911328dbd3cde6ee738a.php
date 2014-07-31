@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_b2f74864eed6e8fc34290eb50ae25e60 extends Mustache_Template
+class __Mustache_37617a736ca6911328dbd3cde6ee738a extends Mustache_Template
 {
     private $lambdaHelper;
 
@@ -17,27 +17,19 @@ class __Mustache_b2f74864eed6e8fc34290eb50ae25e60 extends Mustache_Template
         $buffer .= htmlspecialchars($value, 2, 'UTF-8');
         $buffer .= '!
 ';
-        $buffer .= $indent . '<ul>
-';
-        // 'people' section
-        $value = $context->find('people');
-        $buffer .= $this->sectionD344a5a328801db6f5d4db6332c1f2a7($context, $indent, $value);
-        $buffer .= $indent . '</ul>
-';
-        $value = $this->resolveValue($context->find('end'), $context, $indent);
-        $buffer .= $indent . htmlspecialchars($value, 2, 'UTF-8');
-        $buffer .= '
-';
+        // 'test' section
+        $value = $context->find('test');
+        $buffer .= $this->section1126f26395cf6acb5fe19d6643eec7b5($context, $indent, $value);
 
         return $buffer;
     }
 
-    private function sectionD344a5a328801db6f5d4db6332c1f2a7(Mustache_Context $context, $indent, $value)
+    private function section1126f26395cf6acb5fe19d6643eec7b5(Mustache_Context $context, $indent, $value)
     {
         $buffer = '';
         if (!is_string($value) && is_callable($value)) {
-            $source = '
- <li>{{name}} is a {{gender}}</li>
+            $source = '{{! when test is true, print one more line... }}
+This is true! won ${{value}}!!
 ';
             $result = call_user_func($value, $source, $this->lambdaHelper);
             if (strpos($result, '{{') === false) {
@@ -51,13 +43,10 @@ class __Mustache_b2f74864eed6e8fc34290eb50ae25e60 extends Mustache_Template
             $values = $this->isIterable($value) ? $value : array($value);
             foreach ($values as $value) {
                 $context->push($value);
-                $buffer .= $indent . ' <li>';
-                $value = $this->resolveValue($context->find('name'), $context, $indent);
+                $buffer .= $indent . 'This is true! won $';
+                $value = $this->resolveValue($context->find('value'), $context, $indent);
                 $buffer .= htmlspecialchars($value, 2, 'UTF-8');
-                $buffer .= ' is a ';
-                $value = $this->resolveValue($context->find('gender'), $context, $indent);
-                $buffer .= htmlspecialchars($value, 2, 'UTF-8');
-                $buffer .= '</li>
+                $buffer .= '!!
 ';
                 $context->pop();
             }

@@ -1,3 +1,5 @@
 Hello John
 &quot;中文&quot;, you have just won $&lt;&#039;10000&#039;&gt;&amp;?!
 Hello original } , the value is }
+Hello mustache John
+"中文" , the value is <'10000'>&?

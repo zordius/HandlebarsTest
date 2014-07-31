@@ -1,6 +1,6 @@
 <?php
 
-class __Mustache_a70a17b9c8206d8a6194bf4259506ff7 extends Mustache_Template
+class __Mustache_e764a429f3725d30935e3df979b01958 extends Mustache_Template
 {
     private $lambdaHelper;
 

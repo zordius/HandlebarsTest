@@ -12,7 +12,9 @@ git config --global user.email "zordius@yahoo-inc.com"
 
 php bin/hbreport R x x
 curl -O http://dynalon.github.io/mdwiki/index.html
+ls -al
 phantomjs --local-to-remote-url-access=true bin/save-features.js
+ls -al
 sudo apt-get install pngquant
 pngquant features0.png
 mv features0-fs8.png features.png
@@ -24,6 +26,7 @@ git push --quiet "https://${GHTK}@github.com/zordius/HandlebarsTest.git" tmp:mas
 
 cd report
 phantomjs --local-to-remote-url-access=true ../bin/save-chart.js index.html?`ls *.json |tail -n 1`
+ls -al
 mkdir build
 pngquant chart.png
 mv chart-fs8.png build/chart.png

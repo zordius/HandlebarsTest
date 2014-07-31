@@ -108,7 +108,7 @@ if ($times === 'T') {
 $meta = $report[0];
 
 $mode = 'In this test lightncandy is configured as HANDLEBARS'
-        . ((($times % 2) == 1) ? '+ JS COMPATIBLE' : '')
+        . (((($times % 2) == 1) || ($tmode === 'R')) ? '+ JS COMPATIBLE' : '')
         . ((($times % 3) == 1) ? '+ STANDALONE' : '')
         . ((($times % 5) == 1) ? '+ PERFORMANCE' : '');
 
@@ -141,7 +141,8 @@ print "*$mode*\n";
 foreach ($Dict as $k => $v) {
     print "* $k : $v\n";
 }
-print "|\ttest case\t\t| " . join("\t|\t", $libs) . "\t|\n";
+print "\n\n|\ttest case\t\t| " . join("\t|\t", $libs) . "\t|\n";
+print "|-------------------------------|-----------------------|-----------------------|-----------------------|-----------------------|\n";
 foreach ($reports as $name => $report) {
     $fn = substr('                        ' . basename($name, '.json'), -28);
     print "| $fn";

@@ -93,6 +93,9 @@ if ($times === 'T') {
     foreach (glob('fixture/*.json') as $test) {
       $report = Array();
       foreach ($libs as $lib) {
+        if ($tmode === 'R') {
+            echo '*';
+        }
         $result = system("bin/hbtest $lib $test $times$redir");
         $report[] = json_decode($result, true);
       }

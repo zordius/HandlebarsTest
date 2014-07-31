@@ -6,6 +6,7 @@
 * QUOTE : Encode ' to &amp;#039;, not to &amp;#x27; (minor issue)
 * SINGLEQUOTE : Do not encode ' to &amp;#x27;
 |	test case		| handlebars.php	|	lightncandy	|	mustache-php	|	mustache.php	|
+|-------------------------------|-----------------------|-----------------------|-----------------------|-----------------------|
 |          001-simple-vars-001	|	          YES	|	          YES	|	       OUTPUT	|	          YES |
 |          001-simple-vars-002	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |          001-simple-vars-003	|	          YES	|	          YES	|	       OUTPUT	|	          YES |

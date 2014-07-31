@@ -87,6 +87,7 @@ if ($times === 'T') {
         include_once('cloned/lightncandy/src/lightncandy.php');
         $times = - LightnCandy::FLAG_HANDLEBARSJS;
         $redir = ' 2>/dev/null';
+        ob_start();
     }
 
     foreach (glob('fixture/*.json') as $test) {
@@ -96,6 +97,10 @@ if ($times === 'T') {
         $report[] = json_decode($result, true);
       }
       $reports[$test] = $report;
+    }
+
+    if ($tmode === 'R') {
+        ob_end_clean();
     }
 }
 $meta = $report[0];

@@ -11,9 +11,10 @@ git config --global user.name "Travis-CI"
 git config --global user.email "zordius@yahoo-inc.com"
 
 php bin/hbreport R x x
+git checkout -b tmp
 git add FEATURES.md
 git commit -m "Auto commit generated feature list [ci skip]"
-git push --quiet "https://${GHTK}@github.com/zordius/HandlebarsTest.git" master > /dev/null 2>&1
+git push --quiet "https://${GHTK}@github.com/zordius/HandlebarsTest.git" tmp:master > /dev/null 2>&1
 
 cd report
 phantomjs --local-to-remote-url-access=true ../bin/save-chart.js index.html?`ls *.json |tail -n 1`

@@ -13,7 +13,7 @@ git config --global user.email "zordius@yahoo-inc.com"
 php bin/hbreport R x x
 curl -O http://dynalon.github.io/mdwiki/index.html
 phantomjs --local-to-remote-url-access=true bin/save-features.js
-apt-get insall pngquant
+sudo apt-get insall pngquant
 pngquant features0.png
 mv features0-fs8.png features.png
 git checkout -b tmp

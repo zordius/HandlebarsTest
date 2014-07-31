@@ -5,6 +5,7 @@
 * CR/LF : Output more or less CR/LF (minor issue)
 * QUOTE : Encode ' to &amp;#039;, not to &amp;#x27; (minor issue)
 * SINGLEQUOTE : Do not encode ' to &amp;#x27;
+
 |	test case		| handlebars.php	|	lightncandy	|	mustache-php	|	mustache.php	|
 |-------------------------------|-----------------------|-----------------------|-----------------------|-----------------------|
 |          001-simple-vars-001	|	          YES	|	          YES	|	       OUTPUT	|	          YES |

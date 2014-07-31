@@ -61,7 +61,7 @@ Directories
 
 Feature Comparison
 ------------------
-<img src="features.png">
+<a href="FEATURES.md"><img src="features.png"></a>
 
 How to Test
 -----------

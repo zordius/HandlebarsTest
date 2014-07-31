@@ -133,13 +133,14 @@ $Dict = Array(
 date_default_timezone_set('Asia/Taipei');
 $rt = date('Ymd.His');
 $rn  = "report/$rt";
+$dt = date('Y-m-d H:i:s');
 
 // output quick feature report
 print "\n";
 ob_start();
-print "*$mode*\n";
+print "*$mode* (test @ $dt)\n\n";
 foreach ($Dict as $k => $v) {
-    print "* $k : $v\n";
+    print "  * `$k` : $v\n";
 }
 print "\n\n|\ttest case\t\t| " . join("\t|\t", $libs) . "\t|\n";
 print "|-------------------------------|-----------------------|-----------------------|-----------------------|-----------------------|\n";

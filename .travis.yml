@@ -10,6 +10,7 @@ before_script:
   - cd cloned/lightncandy
   - git checkout -qf `cat ../../lightncandy`
   - cd ../..
+  - php bin/hbreport R x x
   - bin/push-report
 script:
   - echo Tests based on this version... https://github.com/zordius/lightncandy/commit/`cat lightncandy`

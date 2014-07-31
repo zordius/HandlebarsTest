@@ -4,6 +4,7 @@ $reports = Array();
 $libs = Array();
 $base = 'https://github.com/zordius/HandlebarsTest/blob/master/';
 $times = isset($argv[1]) ? $argv[1] : '';
+$tmode = $times;
 $php_cmd = isset($argv[3]) ? 'php ' : '';
 
 foreach (glob('cloned/*') as $file) {
@@ -81,10 +82,17 @@ if ($times === 'T') {
     echo "Know issues: $kc , detected issues: $c ...." . (($c > $kc) ? 'ERROR!!' : 'PASS') . "\n";
     exit(max($c - $kc,0));
 } else {
+    $redir = '';
+    if ($times === 'R') {
+        include_once('cloned/lightncandy/src/lightncandy.php');
+        $times = - LightnCandy::FLAG_HANDLEBARSJS;
+        $redir = ' 2>/dev/null';
+    }
+
     foreach (glob('fixture/*.json') as $test) {
       $report = Array();
       foreach ($libs as $lib) {
-        $result = system("bin/hbtest $lib $test $times");
+        $result = system("bin/hbtest $lib $test $times$redir");
         $report[] = json_decode($result, true);
       }
       $reports[$test] = $report;
@@ -126,19 +134,23 @@ print "*$mode*\n";
 foreach ($Dict as $k => $v) {
     print "* $k : $v\n";
 }
-print "|\ttest case\t| " . join("\t|\t", $libs) . "\t|\n";
+print "|\ttest case\t\t| " . join("\t|\t", $libs) . "\t|\n";
 foreach ($reports as $name => $report) {
-    $fn = substr('                ' . basename($name, '.json'), -20);
+    $fn = substr('                        ' . basename($name, '.json'), -28);
     print "| $fn";
     foreach ($report as $test) {
         print "\t|\t" . substr('                ' . ((is_array($test) && array_key_exists('match', $test)) ? $test['match'] : 'NO'), -13);
     }
     print " |\n";
 }
-if ($times && ($times <= 10)) {
+if ($times && ($times <= 10) && ($tmode !== 'R')) {
     ob_flush();
     exit;
 } else {
+    if ($tmode === 'R') {
+        file_put_contents("FEATURES.md", ob_get_clean());
+        exit;
+    }
     file_put_contents("$rn-features.txt", ob_get_clean());
 }
 

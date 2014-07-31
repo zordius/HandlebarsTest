@@ -87,7 +87,6 @@ if ($times === 'T') {
         include_once('cloned/lightncandy/src/lightncandy.php');
         $times = - LightnCandy::FLAG_HANDLEBARSJS;
         $redir = ' 2>/dev/null';
-        ob_start();
     }
 
     foreach (glob('fixture/*.json') as $test) {
@@ -95,15 +94,15 @@ if ($times === 'T') {
       foreach ($libs as $lib) {
         if ($tmode === 'R') {
             echo '*';
+            ob_start();
         }
         $result = system("bin/hbtest $lib $test $times$redir");
         $report[] = json_decode($result, true);
+        if ($tmode === 'R') {
+            ob_end_clean();
+        }
       }
       $reports[$test] = $report;
-    }
-
-    if ($tmode === 'R') {
-        ob_end_clean();
     }
 }
 $meta = $report[0];

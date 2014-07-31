@@ -1,10 +1,11 @@
-*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE*
-* YES : Exact same behavior with handlebars.js run in nodejs
-* NO : Do not support, can not parse the template
-* OUTPUT : Do not output for array value, object or true
-* CR/LF : Output more or less CR/LF (minor issue)
-* QUOTE : Encode ' to &amp;#039;, not to &amp;#x27; (minor issue)
-* SINGLEQUOTE : Do not encode ' to &amp;#x27;
+*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2014-07-31 18:00:23)
+
+  * `YES` : Exact same behavior with handlebars.js run in nodejs
+  * `NO` : Do not support, can not parse the template
+  * `OUTPUT` : Do not output for array value, object or true
+  * `CR/LF` : Output more or less CR/LF (minor issue)
+  * `QUOTE` : Encode ' to &amp;#039;, not to &amp;#x27; (minor issue)
+  * `SINGLEQUOTE` : Do not encode ' to &amp;#x27;
 
 
 |	test case		| handlebars.php	|	lightncandy	|	mustache-php	|	mustache.php	|

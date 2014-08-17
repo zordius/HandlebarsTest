@@ -1,40 +1,23 @@
 Hello , you have just won $!
 <ul>
-
  <li>John is a  (, , )</li>
-
  <li> is a  (, , )</li>
-
  <li> is a  (, , )</li>
-
  <li> is a  (, , )</li>
-
 </ul>
-
 
  THIS:John is a 
  PARENT: , ,  END  NAME John
-
  THIS: is a 
  PARENT: , ,  END  NAME 
-
  THIS: is a 
  PARENT: , ,  END  NAME 
-
  THIS: is a 
  PARENT: , ,  END  NAME 
-
 Section This:
-
  <li>X~John is a  (, , )</li>
-
  <li>X~ is a  (, , )</li>
-
  <li>X~ is a  (, , )</li>
-
  <li>X~ is a  (, , )</li>
-
 Section Var:
-
 Each Var:
-

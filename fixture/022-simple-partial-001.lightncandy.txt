@@ -1,17 +1,13 @@
 Hello John, you have just won $10000!
 include this:
     Hello John, you have just won $10000!
-This is next line.中文
-Test \on 'spacing in mustache: Hello John, you have just won $10000!
-
+    This is next line.中文
+    Test \on 'spacing in mustache: Hello John, you have just won $10000!
 end include.
 section partial....
-
   Hello , you have just won $!
-This is next line.中文
-Test \on 'spacing in mustache: Hello , you have just won $!
-
-
+  This is next line.中文
+  Test \on 'spacing in mustache: Hello , you have just won $!
 end section.
 
 Winners: [object Object]([object Object]) = [object Object]([object Object])

@@ -20,15 +20,11 @@
     );
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'!
 <ul>
-'.LCRun3::sec($cx, $in, $in, true, function($cx, $in) {return '
- <li>'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).' is a '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('gender'))).'</li>
-';}).'
-</ul>
+'.LCRun3::sec($cx, $in, $in, true, function($cx, $in) {return ' <li>'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).' is a '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('gender'))).'</li>
+';}).'</ul>
 - '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('end'))).' -
-'.LCRun3::sec($cx, $in, $in, true, function($cx, $in) {return '
- THIS:'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).' is a '.LCRun3::raw($cx, LCRun3::v($cx, $in, array('gender'))).'
-';}).'
-==
+'.LCRun3::sec($cx, $in, $in, true, function($cx, $in) {return ' THIS:'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).' is a '.LCRun3::raw($cx, LCRun3::v($cx, $in, array('gender'))).'
+';}).'==
 ';
 }
 ?>

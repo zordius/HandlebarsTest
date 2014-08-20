@@ -21,16 +21,12 @@
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'!
 
 ##0 start section:
-'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('winners')), $in, false, function($cx, $in) {return '
-  - EACH 1- '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'
-';}).'
-end section.
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('winners')), $in, false, function($cx, $in) {return '  - EACH 1- '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'
+';}).'end section.
 
 ##1 start each:
-'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('winners')), $in, true, function($cx, $in) {return '
-  - EACH 2 - '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'
-';}).'
-end each.
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('winners')), $in, true, function($cx, $in) {return '  - EACH 2 - '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'
+';}).'end each.
 
 ##3 Index
 Index ?: '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('winners','name'))).'

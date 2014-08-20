@@ -1,12 +1,7 @@
 <div class="yui3-u-1-2 member-status">
  <ul class="h-list">
- 
-  
-  
    <li>New User? <a href="">Register Now</a></li>
    <li><a href="">Login</a></li>
-  
- 
   <li><a>About Auction</a></li>
  </ul>
 </div>

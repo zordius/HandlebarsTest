@@ -19,7 +19,6 @@
 
     );
     return '<ul>
-	
 	Other content
 </ul>
 ';

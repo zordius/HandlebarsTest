@@ -20,12 +20,8 @@
     );
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'!
 This is next line.
-'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('test')), $in, false, function($cx, $in) {return '
-This is true! won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'!!
-';}).'
-'.((LCRun3::isec($cx, LCRun3::v($cx, $in, array('test')))) ? '
-No, this is fake! not win $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'!!
-' : '').'
-';
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('test')), $in, false, function($cx, $in) {return 'This is true! won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'!!
+';}).''.((LCRun3::isec($cx, LCRun3::v($cx, $in, array('test')))) ? 'No, this is fake! not win $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'!!
+' : '').'';
 }
 ?>

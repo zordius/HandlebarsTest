@@ -19,12 +19,8 @@
 
     );
     return ''.LCRun3::encq($cx, LCRun3::v($cx, $in, array('grand_parent_id'))).'
-'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('parent_contexts')), $in, false, function($cx, $in) {return '
-  '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('parent_id'))).' ('.LCRun3::encq($cx, LCRun3::v($cx, $in, array('grand_parent_id'))).')
-  '.LCRun3::sec($cx, LCRun3::v($cx, $in, array('child_contexts')), $in, false, function($cx, $in) {return '
-    '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('child_id'))).' ('.LCRun3::encq($cx, LCRun3::v($cx, $in, array('parent_id'))).' << '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('grand_parent_id'))).')
-  ';}).'
-';}).'
-';
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('parent_contexts')), $in, false, function($cx, $in) {return '  '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('parent_id'))).' ('.LCRun3::encq($cx, LCRun3::v($cx, $in, array('grand_parent_id'))).')
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('child_contexts')), $in, false, function($cx, $in) {return '    '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('child_id'))).' ('.LCRun3::encq($cx, LCRun3::v($cx, $in, array('parent_id'))).' << '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('grand_parent_id'))).')
+';}).'';}).'';
 }
 ?>

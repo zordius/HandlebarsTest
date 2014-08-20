@@ -19,10 +19,8 @@
 
     );
     return '<ul class="items">
-	'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('items')), $in, true, function($cx, $in) {return '
-		<li>'.LCRun3::encq($cx, $in).' for '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][0], array('user'))).'</li>
-	';}).'
-</ul>
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('items')), $in, true, function($cx, $in) {return '		<li>'.LCRun3::encq($cx, $in).' for '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][0], array('user'))).'</li>
+';}).'</ul>
 ';
 }
 ?>

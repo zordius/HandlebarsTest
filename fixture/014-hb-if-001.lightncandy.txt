@@ -1,10 +1,5 @@
 Hello John, you have just won $10000!
-
-
 Else test, John is Men
-
 -TEST PATH-
-
 No! 
-
 OK!

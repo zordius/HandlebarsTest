@@ -20,16 +20,14 @@
     );
     return '<div id="yauitqna">
     <table>
-        '.LCRun3::sec($cx, $in, $in, true, function($cx, $in) {return '
-        <tr>
+'.LCRun3::sec($cx, $in, $in, true, function($cx, $in) {return '        <tr>
             <td class="first" colspan="2">
             <h4><a name="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'"></a>問題 $p</h4>
             '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('yid'))).' 暱稱：'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('userName'))).' ( '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('recommend'))).' )<p>'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('comment'))).'</p>
             </td>
             <td class="asktime">$askTime</td>
         </tr>                               
-            '.LCRun3::sec($cx, LCRun3::v($cx, $in, array('replyer')), $in, true, function($cx, $in) {return '
-                <tr class="gray">
+'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('replyer')), $in, true, function($cx, $in) {return '                <tr class="gray">
                     <td class="first" colspan="2">
                         <h4><a name="579997583"></a>答覆</h4>
                         <p><a href="http://tw.user.bid.yahoo.com/tw/user/Y7379251092">EYESCREAM</a>
@@ -39,9 +37,7 @@
                     </td>
                     <td class="asktime">'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('replyTime'))).'</td>
                 </tr>
-            ';}).'
-        ';}).'
-    </table>
+';}).'';}).'    </table>
 </div>
 ';
 }

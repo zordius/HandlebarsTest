@@ -31,7 +31,6 @@
 . Test 4: '.LCRun3::sec($cx, LCRun3::v($cx, $in, array('people')), $in, true, function($cx, $in) {return '
   * '.LCRun3::ch($cx, 'helper1', array(array(LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('url')),LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('text'))),array()), 'encq').' <= '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('url'))).' , '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('text'))).', '.LCRun3::raw($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('url'))).', '.LCRun3::raw($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('text'))).' !!
   * '.LCRun3::ch($cx, 'helper1', array(array(LCRun3::v($cx, $in, array('url')),LCRun3::v($cx, $in, array('text'))),array()), 'encq').' <= '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('url'))).' , '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('text'))).' , '.LCRun3::raw($cx, LCRun3::v($cx, $in, array('url'))).', '.LCRun3::raw($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('text'))).' :D
-';}).'
-';
+';}).'';
 }
 ?>

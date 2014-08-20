@@ -1,17 +1,12 @@
 Hello John, you have just won $10000!
 
 ##0 start section:
-
   - EACH 1- 
-
 end section.
 
 ##1 start each:
-
   - EACH 2 - 
-
   - EACH 2 - 
-
 end each.
 
 ##3 Index

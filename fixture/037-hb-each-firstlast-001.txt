@@ -1,6 +1,6 @@
 <ul>
- <li>0,  : David [from true to ]</li>
- <li>1,  : John [from  to ]</li>
- <li>2,  : Peter [from  to ]</li>
- <li>3,  : Mary [from  to true]</li>
+ <li>0,  : David [from true to false]</li>
+ <li>1,  : John [from false to false]</li>
+ <li>2,  : Peter [from false to false]</li>
+ <li>3,  : Mary [from false to true]</li>
 </ul>

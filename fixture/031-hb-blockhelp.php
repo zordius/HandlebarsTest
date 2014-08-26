@@ -32,7 +32,7 @@
     );
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'!
 
-. Test 1: '.LCRun3::bch($cx, 'helper3', array(array(LCRun3::v($cx, $in, array('people'))),array()), $in, function($cx, $in) {return '  <li>'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).' -> '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'</li>';}).'
+. Test 1: '.LCRun3::bch($cx, 'helper3', array(array(LCRun3::v($cx, $in, array('people'))),array()), $in, function($cx, $in) {return '<li>'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).' -> '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'</li>';}).'
 . Test 2: '.LCRun3::bch($cx, 'helper4', array(array('people'),array()), $in, function($cx, $in) {return '
   <li>'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).' -> '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'</li>
 ';}).'

@@ -1,6 +1,6 @@
 Hello John, you have just won $10000!
 
-. Test 1:   <li> -> </li>
+. Test 1: <li> -> </li>
 . Test 2: 
 . Test 3: 
   NOTE A:  : test != [object Object]

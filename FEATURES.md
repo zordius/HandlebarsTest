@@ -1,4 +1,4 @@
-*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2014-08-21 16:26:26)
+*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2014-08-28 10:43:12)
 
   * `YES` : Exact same behavior with handlebars.js run in nodejs
   * `NO` : Do not support, can not parse the template
@@ -14,7 +14,7 @@
 |          001-simple-vars-002	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |          001-simple-vars-003	|	          YES	|	          YES	|	       OUTPUT	|	          YES |
 |          001-simple-vars-004	|	          YES	|	          YES	|	       OUTPUT	|	          YES |
-|          001-simple-vars-005	|	          YES	|	          YES	|	       OUTPUT	|	          YES |
+|          001-simple-vars-005	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |          001-simple-vars-006	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |            002-simple-if-001	|	          YES	|	          YES	|	        CR/LF	|	          YES |
 |            002-simple-if-002	|	          YES	|	          YES	|	        CR/LF	|	          YES |
@@ -49,7 +49,7 @@
 |       006-simple-section-009	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |       006-simple-section-010	|	          YES	|	          YES	|	        CR/LF	|	          YES |
 |       006-simple-section-011	|	       OUTPUT	|	       OUTPUT	|	       OUTPUT	|	       OUTPUT |
-|      007-simple-sections-001	|	           NO	|	          YES	|	        CR/LF	|	          YES |
+|      007-simple-sections-001	|	           NO	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |      007-simple-sections-002	|	          YES	|	          YES	|	        CR/LF	|	          YES |
 |      007-simple-sections-003	|	           NO	|	          YES	|	        CR/LF	|	          YES |
 |      007-simple-sections-004	|	          YES	|	          YES	|	        CR/LF	|	          YES |

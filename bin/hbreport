@@ -6,12 +6,25 @@ $base = 'https://github.com/zordius/HandlebarsTest/blob/master/';
 $times = isset($argv[1]) ? $argv[1] : '';
 $tmode = $times;
 $php_cmd = isset($argv[3]) ? 'php ' : '';
+$pwd = getcwd();
 
 foreach (glob('cloned/*') as $file) {
     $libs[] = preg_replace('/cloned\//', '', $file);
 }
 
-if ($times === 'T') {
+if ($times === 'L') {
+    exec('pushd cloned/lightncandy >/dev/null;git tag;popd >/dev/null', $versions);
+    foreach ($versions as $version) {
+        $reports[$version] = Array();
+        echo system("pushd cloned/lightncandy >/dev/null;git checkout $version;popd >/dev/null");
+        foreach (glob('fixture/*.json') as $test) {
+          $report = Array();
+          $result = system("bin/hbtest lightncandy $test 10000");
+          $report[] = json_decode($result, true);
+          $reports[$version][$test] = $report;
+        }
+    }
+} else if ($times === 'T') {
     $times = '';
     for ($i=1;$i<100;$i++) {
       if ($i>10) {$i+=9;}

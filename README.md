@@ -99,3 +99,7 @@ How to Test
    * bin/hbreport
       * This will generate report files under report/
       * default test 100000 times on every cases and libs, takes very long time.
+   * bin/hbreport L
+      * This will generate report files under report/
+      * Tests on every release/version of lightncandy.
+      * test 10000 times on every cases.

@@ -29,7 +29,7 @@ if ($times === 'T') {
       unlink($json);
       $reports[$json] = $report;
     }
-} if ($times === 'F') {
+} else if ($times === 'F') {
     include_once('cloned/lightncandy/src/lightncandy.php');
     $flags = Array(
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_RENDER_DEBUG,

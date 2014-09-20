@@ -37,19 +37,23 @@ debugp(print_r($vars, true));
 
 // Prepare template
 require_once('cloned/lightncandy/src/lightncandy.php');
-$flag = LightnCandy::FLAG_HANDLEBARS | LightnCandy::FLAG_ERROR_LOG;
-if ($argv[1] == 'lightncandy') {
-    if (($test_times % 2) == 1) {
-        $flag = $flag | LightnCandy::FLAG_JS;
-    }
-    if (($test_times % 3) == 1) {
-        $flag = $flag | LightnCandy::FLAG_STANDALONE;
-    }
-    if (($test_times % 5) == 1) {
-        $flag = $flag | LightnCandy::FLAG_BESTPERFORMANCE;
-    }
-    if ($test_times < 0) {
-        $flag = - $test_times;
+if (!defined('LightnCandy::FLAG_HANDLEBARS')) {
+    $flag = LightnCandy::FLAG_HANDLEBARSJS;
+} else {
+    $flag = LightnCandy::FLAG_HANDLEBARS | LightnCandy::FLAG_ERROR_LOG;
+    if ($argv[1] == 'lightncandy') {
+        if (($test_times % 2) == 1) {
+            $flag = $flag | LightnCandy::FLAG_JS;
+        }
+        if (($test_times % 3) == 1) {
+            $flag = $flag | LightnCandy::FLAG_STANDALONE;
+        }
+        if (($test_times % 5) == 1) {
+            $flag = $flag | LightnCandy::FLAG_BESTPERFORMANCE;
+        }
+        if ($test_times < 0) {
+            $flag = - $test_times;
+        }
     }
 }
 

@@ -7,6 +7,7 @@ $times = isset($argv[1]) ? $argv[1] : '';
 $tmode = $times;
 $php_cmd = isset($argv[3]) ? 'php ' : '';
 $pwd = getcwd();
+$rex = '';
 
 foreach (glob('cloned/*') as $file) {
     $libs[] = preg_replace('/cloned\//', '', $file);
@@ -24,6 +25,7 @@ if ($times === 'L') {
           $reports[$version][$test] = $report;
         }
     }
+    $rex = 'versions-';
 } else if ($times === 'T') {
     $times = '';
     for ($i=1;$i<100;$i++) {
@@ -145,7 +147,7 @@ $Dict = Array(
 
 date_default_timezone_set('Asia/Taipei');
 $rt = date('Ymd.His');
-$rn  = "report/$rt";
+$rn  = "report/$rex$rt";
 $dt = date('Y-m-d H:i:s');
 
 // output quick feature report

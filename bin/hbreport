@@ -21,7 +21,7 @@ if ($times === 'L') {
         echo system("pushd cloned/lightncandy >/dev/null;git checkout $version;popd >/dev/null");
         foreach (glob('fixture/*.json') as $test) {
           $report = Array();
-          $result = system("bin/hbtest lightncandy $test 10000");
+          $result = system("bin/hbtest lightncandy $test 10000 2>/dev/null");
           $report[] = json_decode($result, true);
           $reports[$version][$test] = $report;
         }

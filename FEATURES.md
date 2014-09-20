@@ -1,4 +1,4 @@
-*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2014-09-19 22:11:44)
+*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2014-09-21 07:41:31)
 
   * `YES` : Exact same behavior with handlebars.js run in nodejs
   * `NO` : Do not support, can not parse the template
@@ -171,6 +171,6 @@
 |    037-hb-each-firstlast-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |    037-hb-each-firstlast-002	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |    037-hb-each-firstlast-003	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
-|     038-hb-subexpression-001	|	          YES	|	          YES	|	       OUTPUT	|	       OUTPUT |
+|     038-hb-subexpression-001	|	           NO	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |          livetest-001-hb-001	|	          YES	|	          YES	|	           NO	|	           NO |
 |          livetest-002-hb-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |

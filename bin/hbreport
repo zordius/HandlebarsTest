@@ -15,6 +15,7 @@ foreach (glob('cloned/*') as $file) {
 
 if ($times === 'L') {
     exec('pushd cloned/lightncandy >/dev/null;git tag;popd >/dev/null', $versions);
+    $versions[] = 'master';
     foreach ($versions as $version) {
         $reports[$version] = Array();
         echo system("pushd cloned/lightncandy >/dev/null;git checkout $version;popd >/dev/null");
@@ -167,7 +168,8 @@ foreach ($reports as $name => $report) {
     }
     print " |\n";
 }
-if ($times && ($times <= 10) && ($tmode !== 'R')) {
+
+if ($times && ($times <= 10) && ($tmode !== 'R') && ($tmode !== 'L')) {
     ob_flush();
     exit;
 } else {
@@ -186,6 +188,10 @@ file_put_contents("$rn.json", json_encode(Array(
     ),
     'reports' => $reports,
 )));
+
+if ($tmode === 'L') {
+    exit;
+}
 
 // output text report
 print "\n";

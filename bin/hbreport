@@ -177,7 +177,11 @@ if ($times && ($times <= 10) && ($tmode !== 'R') && ($tmode !== 'L')) {
         file_put_contents("FEATURES.md", ob_get_clean());
         exit;
     }
-    file_put_contents("$rn-features.txt", ob_get_clean());
+    if ($tmode === 'L') {
+        ob_get_clean();
+    } else {
+        file_put_contents("$rn-features.txt", ob_get_clean());
+    }
 }
 
 // output json report

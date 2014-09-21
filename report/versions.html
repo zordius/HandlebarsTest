@@ -1,6 +1,6 @@
 <html>
 <head>
- <title>HandlebarsTest Report: Execution Time of Handlebars PHP Libraries</title>
+ <title>HandlebarsTest Report: Execution Time of LightnCandy versions</title>
  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
  <meta http-equiv="keyword" content="mustache, handlebars, lightncandy, performance" />
  <meta name="description" content="Shows handlebars library performance comparison chart" />
@@ -22,18 +22,18 @@ google.setOnLoadCallback(function () {
         reports = $.ajax({url: 'versions', async: false, dataType: 'json'}).responseText.split(/\r|\n/).reverse(),
         M = location.href.match(/\?(.+)/),
         isPhantom = window.navigator.userAgent.match(/PhantomJS/),
-        jsonData, I, J, colOK = false, nums, L, url, opt,
+        jsonData, I, J, nums, url, opt,
         chartOpt = {
             title: document.title,
             vAxis: {logScale: isPhantom ? false : true, minValue: 0},
-            legend: {position: 'in', textStyle: {fontSize: 9}},
-            chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
-            bar: {groupWidth: '75%'},
-            seriesType: 'bars',
-            series: {4: {type: "line"}, 5: {type: "line"}, 6: {type: "line"}},
+            legend: {textStyle: {fontSize: 9}},
+         //   chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
+          //  bar: {groupWidth: '75%'},
+            seriesType: 'line',
             focusTarget: 'category'
         };
 
+    reports.shift();
     url = M ? M[1] : reports[0];
 
     for (I in reports) {
@@ -61,44 +61,21 @@ google.setOnLoadCallback(function () {
     data.addColumn('string', 'Testcase');
 
     for (I in jsonData.reports) {
-        nums = [I];
-        for (J in jsonData.reports[I]) {
-            if (!jsonData.reports[I][J]) {
-                L = 0;
-                break;
-            }
-            if (jsonData.reports[I][J].lib === 'lightncandy') {
-                L = jsonData.reports[I][J].time;
-            }
-            if (!colOK) {
-                data.addColumn('number', jsonData.reports[I][J].lib + ' (seconds)');
-            }
-            nums.push(jsonData.reports[I][J].time);
-        }
+        data.addColumn('number', I + ' (seconds)');
+    }
 
-        if (L === 0) {
-            continue;
-        }
-
-        for (J in jsonData.reports[I]) {
-            if (jsonData.reports[I][J].lib != 'lightncandy') {
-                if (!colOK) {
-                    data.addColumn('number', 'lightncandy VS ' + jsonData.reports[I][J].lib + ' (times)');
-                }
-                if (jsonData.reports[I][J].time) {
-                    nums.push(Math.floor(100 * jsonData.reports[I][J].time / L) / 100);
-                } else {
-                    L = 0;
-                    continue;
-                }
+    for (J in jsonData.reports['master']) {
+        nums = [J];
+        for (I in jsonData.reports) {
+console.log(jsonData.reports[I][J]);
+            if (jsonData.reports[I][J][0]) {
+                nums.push(jsonData.reports[I][J][0].time);
+            } else {
+                nums.push(0);
             }
         }
 
-        if (L > 0) {
-            data.addRow(nums);
-        }
-
-        colOK = true;
+        data.addRow(nums);
     }
 
     if (isPhantom) {

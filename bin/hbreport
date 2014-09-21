@@ -16,14 +16,17 @@ foreach (glob('cloned/*') as $file) {
 if ($times === 'L') {
     exec('pushd cloned/lightncandy >/dev/null;git tag;popd >/dev/null', $versions);
     $versions[] = 'master';
+    copy('cloned/lightncandy/tests/example_helpers.php', 'example_helpers.php');
     foreach ($versions as $version) {
         $reports[$version] = Array();
+        copy('example_helpers.php', 'cloned/lightncandy/tests/example_helpers.php', 'example_helpers.php');
         echo system("pushd cloned/lightncandy >/dev/null;git checkout $version;popd >/dev/null");
         foreach (glob('fixture/*.json') as $test) {
           $result = system("bin/hbtest lightncandy $test 10000 2>/dev/null");
           $reports[$version][$test] = json_decode($result, true);
         }
     }
+    unlink('example_helpers.php');
     $rex = 'versions-';
 } else if ($times === 'T') {
     $times = '';

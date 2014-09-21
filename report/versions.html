@@ -1,0 +1,112 @@
+<html>
+<head>
+ <title>HandlebarsTest Report: Execution Time of Handlebars PHP Libraries</title>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <meta http-equiv="keyword" content="mustache, handlebars, lightncandy, performance" />
+ <meta name="description" content="Shows handlebars library performance comparison chart" />
+<style>
+html,body,body>div{margin:0;height:100%;overflow:hidden}
+select{position:absolute;top:0;right:0}
+body.phantom select{top:-100px}
+</style>
+</head>
+<body><div></div><select></select></body>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+google.load('visualization', '1.0', {'packages':['corechart']});
+google.setOnLoadCallback(function () {
+    var data = new google.visualization.DataTable(),
+        chart = new google.visualization.ComboChart(document.body.childNodes[0]),
+        sel = document.body.childNodes[1],
+        reports = $.ajax({url: 'versions', async: false, dataType: 'json'}).responseText.split(/\r|\n/).reverse(),
+        M = location.href.match(/\?(.+)/),
+        isPhantom = window.navigator.userAgent.match(/PhantomJS/),
+        jsonData, I, J, colOK = false, nums, L, url, opt,
+        chartOpt = {
+            title: document.title,
+            vAxis: {logScale: isPhantom ? false : true, minValue: 0},
+            legend: {position: 'in', textStyle: {fontSize: 9}},
+            chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
+            bar: {groupWidth: '75%'},
+            seriesType: 'bars',
+            series: {4: {type: "line"}, 5: {type: "line"}, 6: {type: "line"}},
+            focusTarget: 'category'
+        };
+
+    url = M ? M[1] : reports[0];
+
+    for (I in reports) {
+        opt = document.createElement('option');
+        opt.text = reports[I];
+        if (url == reports[I]) {
+            opt.selected = true;
+        }
+        sel.add(opt);
+    }
+
+    sel.onchange = function () {
+        location.href = '?' + reports[sel.selectedIndex];
+    };
+
+    window.onresize = function () {
+        location.reload();
+    };
+
+    try {
+        jsonData = JSON.parse($.ajax({url: url, async: false, dataType: 'json'}).responseText);
+    } catch (e) {
+    }
+
+    data.addColumn('string', 'Testcase');
+
+    for (I in jsonData.reports) {
+        nums = [I];
+        for (J in jsonData.reports[I]) {
+            if (!jsonData.reports[I][J]) {
+                L = 0;
+                break;
+            }
+            if (jsonData.reports[I][J].lib === 'lightncandy') {
+                L = jsonData.reports[I][J].time;
+            }
+            if (!colOK) {
+                data.addColumn('number', jsonData.reports[I][J].lib + ' (seconds)');
+            }
+            nums.push(jsonData.reports[I][J].time);
+        }
+
+        if (L === 0) {
+            continue;
+        }
+
+        for (J in jsonData.reports[I]) {
+            if (jsonData.reports[I][J].lib != 'lightncandy') {
+                if (!colOK) {
+                    data.addColumn('number', 'lightncandy VS ' + jsonData.reports[I][J].lib + ' (times)');
+                }
+                if (jsonData.reports[I][J].time) {
+                    nums.push(Math.floor(100 * jsonData.reports[I][J].time / L) / 100);
+                } else {
+                    L = 0;
+                    continue;
+                }
+            }
+        }
+
+        if (L > 0) {
+            data.addRow(nums);
+        }
+
+        colOK = true;
+    }
+
+    if (isPhantom) {
+        document.body.className = 'phantom';
+        data.removeColumns(5, 3);
+    }
+
+    chart.draw(data, chartOpt);
+});
+</script>
+</html>

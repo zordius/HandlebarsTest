@@ -67,9 +67,8 @@ google.setOnLoadCallback(function () {
     for (J in jsonData.reports['master']) {
         nums = [J];
         for (I in jsonData.reports) {
-console.log(jsonData.reports[I][J]);
-            if (jsonData.reports[I][J][0]) {
-                nums.push(jsonData.reports[I][J][0].time);
+            if (jsonData.reports[I][J]) {
+                nums.push(jsonData.reports[I][J].time);
             } else {
                 nums.push(0);
             }

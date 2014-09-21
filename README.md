@@ -100,6 +100,7 @@ How to Test
       * This will generate report files under report/
       * default test 100000 times on every cases and libs, takes very long time.
    * bin/hbreport L
-      * This will generate report files under report/
+      * This will generate report files under report/versions*.json
       * Tests on every release/version of lightncandy.
       * test 10000 times on every cases.
+      * Go http://zordius.github.io/HandlebarsTest/versions.html to see results as chart.

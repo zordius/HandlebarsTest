@@ -19,7 +19,6 @@ if ($times === 'L') {
     copy('cloned/lightncandy/tests/example_helpers.php', 'example_helpers.php');
     foreach ($versions as $version) {
         $reports[$version] = Array();
-        copy('example_helpers.php', 'cloned/lightncandy/tests/example_helpers.php', 'example_helpers.php');
         echo system("pushd cloned/lightncandy >/dev/null;git checkout $version;popd >/dev/null");
         foreach (glob('fixture/*.json') as $test) {
           $result = system("bin/hbtest lightncandy $test 10000 2>/dev/null");

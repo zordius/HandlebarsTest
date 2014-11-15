@@ -23,7 +23,7 @@ git commit -m "Auto commit generated feature list [ci skip]"
 git push --quiet "https://${GHTK}@github.com/zordius/HandlebarsTest.git" tmp:master > /dev/null 2>&1
 
 cd report
-phantomjs --local-to-remote-url-access=true ../bin/save-chart.js index.html?`ls *.json |tail -n 1`
+phantomjs --local-to-remote-url-access=true ../bin/save-chart.js index.html?`ls 20*.json |tail -n 1`
 mkdir build
 pngquant 32 chart.png
 mv chart-fs8.png build/chart.png

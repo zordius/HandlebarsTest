@@ -1,0 +1,7 @@
+A
+=>  , [object Object] , 0, true, false , , , ,  #  -  .
+ =>> a , b , 0, true, false , 0, , true, false #  -  .
+=>  , [object Object] , 1, false, false , , , ,  #  -  .
+ =>> c , d , 0, true, false , 1, , false, false #  -  .
+=>  , [object Object] , 2, false, true , , , ,  #  -  .
+ =>> e , f , 0, true, true , 2, , false, true #  -  .

@@ -1,0 +1,10 @@
+A
+{{#each .}}
+=> {{@key}} , {{.}} , {{@index}}, {{@first}}, {{@last}} , {{@../index}}, {{@../key}}, {{@../first}}, {{@../last}} # {{@../../index}} - {{@../../key}} .
+ {{#each .}}
+ =>> {{@key}} , {{.}} , {{@index}}, {{@first}}, {{@last}} , {{@../index}}, {{@../key}}, {{@../first}}, {{@../last}} # {{@../../index}} - {{@../../key}} .
+  {{#each .}}
+  =>>> {{@key}} , {{.}} , {{@index}}, {{@first}}, {{@last}} , {{@../index}}, {{@../key}}, {{@../first}}, {{@../last}} # {{@../../index}} - {{@../../key}} .
+  {{/each}}
+ {{/each}}
+{{/each}}

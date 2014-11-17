@@ -8,6 +8,7 @@
             'method' => false,
             'mustlok' => false,
             'mustsec' => false,
+            'echo' => false,
             'debug' => $debugopt,
         ),
         'helpers' => array(),
@@ -15,7 +16,7 @@
         'hbhelpers' => array(),
         'partials' => array(),
         'scopes' => array($in),
-        'sp_vars' => array(),
+        'sp_vars' => array('root' => $in),
 
     );
     return ''.LCRun3::sec($cx, LCRun3::v($cx, $in, array('specs')), $in, true, function($cx, $in) {return '   <div class="item-spec">

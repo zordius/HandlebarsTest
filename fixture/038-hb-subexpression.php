@@ -8,6 +8,7 @@
             'method' => false,
             'mustlok' => false,
             'mustsec' => false,
+            'echo' => false,
             'debug' => $debugopt,
         ),
         'helpers' => array(            'helper1' => function($args, $named) {
@@ -20,7 +21,7 @@
         'hbhelpers' => array(),
         'partials' => array(),
         'scopes' => array($in),
-        'sp_vars' => array(),
+        'sp_vars' => array('root' => $in),
 
     );
     return ''.LCRun3::ch($cx, 'helper1', array(array(LCRun3::v($cx, $in, array('url')),LCRun3::ch($cx, 'helper1', array(array(LCRun3::v($cx, $in, array('url2')),LCRun3::v($cx, $in, array('text'))),array()), 'raw')),array()), 'raw').'

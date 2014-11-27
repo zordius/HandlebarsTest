@@ -1,3 +1,3 @@
 <ul>
- <li>0,  : David [from true to true]</li>
+ <li>0, 0 : David [from true to true]</li>
 </ul>

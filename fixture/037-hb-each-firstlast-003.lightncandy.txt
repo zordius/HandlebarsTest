@@ -1,4 +1,4 @@
 <ul>
- <li>0, test1 : David [from true to ]</li>
- <li>1, test2 : John [from false to ]</li>
+ <li>0, test1 : David [from true to false]</li>
+ <li>1, test2 : John [from false to true]</li>
 </ul>

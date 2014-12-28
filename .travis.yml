@@ -6,7 +6,6 @@ php:
   - hhvm
 
 before_script:
-  - sudo apt-get install colordiff
   - cd cloned/lightncandy
   - git checkout -qf `cat ../../lightncandy`
   - cd ../..

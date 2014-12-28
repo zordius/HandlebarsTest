@@ -15,6 +15,8 @@ script:
   - echo Tests based on this version... https://github.com/zordius/lightncandy/commit/`cat lightncandy`
   - php bin/hbreport F 24 T
 
+sudo: false
+
 env:
   global:
     secure: "Zed2cf/LuMUvaG33waSLDULC8J4SyWv0sT8I39wxVxOXUu8SkjrTiDK3k/kJo9NXyJOOrL+Wj1RdBDQzxaQDp6lMAcHHRl/JQk7SY/W1TJyp4STMlayrxlPM2rmFbB0Bz/3lB4CEZq7tzwKttGN80usBjkR9zLCFhNNFqklCAG8="

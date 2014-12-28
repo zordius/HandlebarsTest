@@ -11,6 +11,7 @@
             'echo' => false,
             'debug' => $debugopt,
         ),
+        'constants' => array(),
         'helpers' => array(),
         'blockhelpers' => array(),
         'hbhelpers' => array(),
@@ -19,6 +20,7 @@
         'sp_vars' => array('root' => $in),
 
     );
+    
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'!
 Hello original '.LCRun3::raw($cx, LCRun3::v($cx, $in, array('name'))).' , the value is '.LCRun3::raw($cx, LCRun3::v($cx, $in, array('value'))).'
 Hello mustache '.LCRun3::raw($cx, LCRun3::v($cx, $in, array('name'))).' , the value is '.LCRun3::raw($cx, LCRun3::v($cx, $in, array('value'))).'

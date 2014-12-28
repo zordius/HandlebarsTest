@@ -11,6 +11,7 @@
             'echo' => false,
             'debug' => $debugopt,
         ),
+        'constants' => array(),
         'helpers' => array(),
         'blockhelpers' => array(),
         'hbhelpers' => array(),
@@ -19,6 +20,7 @@
         'sp_vars' => array('root' => $in),
 
     );
+    
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('winner','name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('winner','value'))).'!
 We have $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('award','first','value'))).' for '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('award','first','name'))).' award!!
 Raw dot test: '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('winner','name'))).' '.LCRun3::raw($cx, LCRun3::v($cx, $in, array('award','first','value'))).' for '.LCRun3::raw($cx, LCRun3::v($cx, $in, array('award','first','name'))).'

@@ -11,6 +11,7 @@
             'echo' => false,
             'debug' => $debugopt,
         ),
+        'constants' => array(),
         'helpers' => array(),
         'blockhelpers' => array(),
         'hbhelpers' => array(),
@@ -19,6 +20,7 @@
         'sp_vars' => array('root' => $in),
 
     );
+    
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'!
 '.((LCRun3::ifvar($cx, LCRun3::v($cx, $in, array('test')))) ? 'Yes! '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).' is '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('gender'))).'
 ' : '').''.((LCRun3::ifvar($cx, LCRun3::v($cx, $in, array('test')))) ? '2nd If, '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).' is '.LCRun3::raw($cx, LCRun3::v($cx, $in, array('gender'))).'

@@ -11,6 +11,7 @@
             'echo' => false,
             'debug' => $debugopt,
         ),
+        'constants' => array(),
         'helpers' => array(),
         'blockhelpers' => array(),
         'hbhelpers' => array(),
@@ -19,6 +20,7 @@
         'sp_vars' => array('root' => $in),
 
     );
+    
     return '<div id="yauitqna">
     <table>
 '.LCRun3::sec($cx, $in, $in, true, function($cx, $in) {return '        <tr>

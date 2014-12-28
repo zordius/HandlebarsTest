@@ -11,6 +11,7 @@
             'echo' => false,
             'debug' => $debugopt,
         ),
+        'constants' => array(),
         'helpers' => array(),
         'blockhelpers' => array(),
         'hbhelpers' => array(),
@@ -19,6 +20,7 @@
         'sp_vars' => array('root' => $in),
 
     );
+    
     return '<div class="yui3-u-1-2 member-status">
  <ul class="h-list">
 '.LCRun3::wi($cx, LCRun3::v($cx, $in, array('login_status')), $in, function($cx, $in) {return ''.((LCRun3::ifvar($cx, LCRun3::v($cx, $in, array('is_login')))) ? '   <li><a href="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('edit_account_link'))).'">Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('username'))).'</a></li>

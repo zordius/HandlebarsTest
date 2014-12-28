@@ -11,6 +11,7 @@
             'echo' => false,
             'debug' => $debugopt,
         ),
+        'constants' => array(),
         'helpers' => array(),
         'blockhelpers' => array(),
         'hbhelpers' => array(),
@@ -19,6 +20,7 @@
         'sp_vars' => array('root' => $in),
 
     );
+    
     return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('winner','name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('winner','value'))).'!
 '.LCRun3::sec($cx, LCRun3::v($cx, $in, array('test')), $in, false, function($cx, $in) {return 'Line 1
 ';}).'This is a test, test = '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('test'))).'

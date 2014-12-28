@@ -11,6 +11,7 @@
             'echo' => false,
             'debug' => $debugopt,
         ),
+        'constants' => array(),
         'helpers' => array(),
         'blockhelpers' => array(),
         'hbhelpers' => array(),
@@ -19,6 +20,7 @@
         'sp_vars' => array('root' => $in),
 
     );
+    
     return '<h1>'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('header'))).'</h1>
 '.LCRun3::sec($cx, LCRun3::v($cx, $in, array('notEmpty')), $in, false, function($cx, $in) {return '<ul>
 '.LCRun3::sec($cx, LCRun3::v($cx, $in, array('item')), $in, false, function($cx, $in) {return ''.LCRun3::sec($cx, LCRun3::v($cx, $in, array('current')), $in, false, function($cx, $in) {return '    <li><strong>'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'</strong></li>

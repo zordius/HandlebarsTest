@@ -11,6 +11,7 @@
             'echo' => false,
             'debug' => $debugopt,
         ),
+        'constants' => array(),
         'helpers' => array(),
         'blockhelpers' => array(),
         'hbhelpers' => array(),
@@ -19,6 +20,7 @@
         'sp_vars' => array('root' => $in),
 
     );
+    
     return ''.LCRun3::sec($cx, LCRun3::v($cx, $in, array('specs')), $in, true, function($cx, $in) {return '   <div class="item-spec">
 '.LCRun3::sec($cx, LCRun3::v($cx, $in, array('options')), $in, true, function($cx, $in) {return ''.LCRun3::ifv($cx, LCRun3::v($cx, $in, array('icon')), $in, function($cx, $in) {return '        <div class="spec">
             <div class="spec-overlay"></div>

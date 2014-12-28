@@ -11,6 +11,7 @@
             'echo' => false,
             'debug' => $debugopt,
         ),
+        'constants' => array(),
         'helpers' => array(),
         'blockhelpers' => array(),
         'hbhelpers' => array(),
@@ -19,6 +20,7 @@
         'sp_vars' => array('root' => $in),
 
     );
+    
     return ''.LCRun3::ifv($cx, LCRun3::v($cx, $in, array('empty')), $in, function($cx, $in) {return '
 ';}, function($cx, $in) {return ''.LCRun3::sec($cx, LCRun3::v($cx, $in, array('data')), $in, true, function($cx, $in) {return '
 '.LCRun3::sec($cx, LCRun3::v($cx, $in, array('child')), $in, true, function($cx, $in) {return ''.LCRun3::ifv($cx, LCRun3::v($cx, $in, array('key')), $in, function($cx, $in) {return '       The value is = '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('key'))).' !!

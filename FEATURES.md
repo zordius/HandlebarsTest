@@ -1,4 +1,4 @@
-*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2015-03-21 11:59:16)
+*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2015-03-24 11:34:36)
 
   * `YES` : Exact same behavior with handlebars.js run in nodejs
   * `NO` : Do not support, can not parse the template
@@ -156,7 +156,7 @@
 |            032-hb-helper-004	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |            032-hb-helper-005	|	          YES	|	          YES	|	           NO	|	           NO |
 |   033-hb-extendedcomment-001	|	           NO	|	          YES	|	           NO	|	           NO |
-|              034-hb-root-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
+|              034-hb-root-001	|	          YES	|	          YES	|	           NO	|	           NO |
 |          035-hb-eachelse-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |          035-hb-eachelse-002	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |          035-hb-eachelse-003	|	       OUTPUT	|	          YES	|	           NO	|	           NO |

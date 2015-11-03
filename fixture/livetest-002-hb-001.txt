@@ -1,8 +1,8 @@
    <div class="item-spec">
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-c1-c1" value="c1" name="c1" alt="test" data-name="test"/>
-            <label class="spec-label icon" for="spec-c1-c1" style="background-image:url(true);">
+            <input type="radio" id="spec-s1-c1" value="c1" name="s1" alt="test" data-name="test"/>
+            <label class="spec-label icon" for="spec-s1-c1" style="background-image:url(true);">
             </label>
         </div>
         <script>
@@ -10,8 +10,8 @@
         </script>
         <div class="spec">
             <div class="spec-overlay"></div>
-            <input type="radio" id="spec-c2-c2" value="c2" name="c2" alt="test" data-name="test"/>
-            <label class="spec-label icon" for="spec-c2-c2" style="background-image:url(true);">
+            <input type="radio" id="spec-s1-c2" value="c2" name="s1" alt="test" data-name="test"/>
+            <label class="spec-label icon" for="spec-s1-c2" style="background-image:url(true);">
             </label>
         </div>
         <script>

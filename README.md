@@ -69,7 +69,7 @@ How to Test
 2. install npm
 3. Now we lock the test to specific handlebars.js version.
    * test most updated npm version: `npm install handlebars`
-   * download the specific version: `wget http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-3a9440f.js -O handlebars.js`
+   * download the specific version: `wget http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-b7c95e9.js -O handlebars.js` (4.0.4)
 4. `bin/generate-fixture`
    * This will generate *.txt files under fixtures.
    * These files are generated with handlebars.js.

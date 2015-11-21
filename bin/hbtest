@@ -36,7 +36,7 @@ debugp("### Input:\n$input\n### as PHP:");
 debugp(print_r($vars, true));
 
 // Prepare template
-require_once('cloned/lightncandy/src/lightncandy.php');
+require_once(__DIR__ . '/../inc/loader.inc');
 if (!defined('LightnCandy::FLAG_HANDLEBARS')) {
     $flag = LightnCandy::FLAG_HANDLEBARSJS;
 } else {

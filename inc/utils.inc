@@ -67,7 +67,7 @@ function prepare_tmpl($name, $file, $flag) {
         $test_method = 'render';
         break;
     case 'lightncandy':
-        require_once('cloned/lightncandy/src/lightncandy.php');
+        require_once(__DIR__ . '/loader.inc');
         if (file_exists('cloned/lightncandy/tests/example_helpers.php')) {
             include_once('cloned/lightncandy/tests/example_helpers.php');
         } else {

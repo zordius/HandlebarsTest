@@ -46,7 +46,8 @@ if ($times === 'L') {
       $reports[$json] = $report;
     }
 } else if ($times === 'F') {
-    include_once('cloned/lightncandy/src/lightncandy.php');
+    require __DIR__ . '/../inc/loader.inc';
+
     $flags = Array(
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_RENDER_DEBUG,
 //        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONE | LightnCandy::FLAG_RENDER_DEBUG,

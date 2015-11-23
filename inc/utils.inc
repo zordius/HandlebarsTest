@@ -68,11 +68,6 @@ function prepare_tmpl($name, $file, $flag) {
         break;
     case 'lightncandy':
         require_once(__DIR__ . '/loader.inc');
-        if (file_exists('cloned/lightncandy/tests/example_helpers.php')) {
-            include_once('cloned/lightncandy/tests/example_helpers.php');
-        } else {
-            include_once('example_helpers.php');
-        }
         $php = LightnCandy::compile($tmpl_txt, $flag);
         $inc = preg_replace('/\.tmpl/', '.php', $file);
         file_put_contents($inc, $php);

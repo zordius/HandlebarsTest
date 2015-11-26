@@ -20,7 +20,7 @@ if ($times === 'L') {
         $reports[$version] = Array();
         echo system("pushd cloned/lightncandy >/dev/null;git checkout $version;popd >/dev/null");
         foreach (glob('fixture/*.json') as $test) {
-          $result = system("bin/hbtest lightncandy $test 10000 2>/dev/null");
+          $result = system("bin/hbtest lightncandy $test 10020 2>/dev/null");
           $reports[$version][$test] = json_decode($result, true);
         }
     }
@@ -49,19 +49,19 @@ if ($times === 'L') {
 
     $flags = Array(
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_RENDER_DEBUG,
-//        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONE | LightnCandy::FLAG_RENDER_DEBUG,
-//        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONE | LightnCandy::FLAG_RENDER_DEBUG,
+//        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONEPHP | LightnCandy::FLAG_RENDER_DEBUG,
+//        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONEPHP | LightnCandy::FLAG_RENDER_DEBUG,
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_RENDER_DEBUG,
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO,
-        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONE,
-        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONE,
+        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONEPHP,
+        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONEPHP,
         LightnCandy::FLAG_HANDLEBARSJS,
 
         LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_RENDER_DEBUG,
         LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_RENDER_DEBUG,
         LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO,
-        LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONE,
-        LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONE,
+        LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONEPHP,
+        LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONEPHP,
         LightnCandy::FLAG_PROPERTY | LightnCandy::FLAG_HANDLEBARSJS,
     );
     $err = Array();

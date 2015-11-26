@@ -16,6 +16,7 @@ foreach (glob('cloned/*') as $file) {
 if ($times === 'L') {
     exec('pushd cloned/lightncandy >/dev/null;git tag;popd >/dev/null', $versions);
     $versions[] = 'master';
+    $versions[] = 'v0.89-develop';
     foreach ($versions as $version) {
         $reports[$version] = Array();
         echo system("pushd cloned/lightncandy >/dev/null;git checkout $version;popd >/dev/null");
@@ -24,7 +25,6 @@ if ($times === 'L') {
           $reports[$version][$test] = json_decode($result, true);
         }
     }
-    unlink('example_helpers.php');
     $rex = 'versions-';
 } else if ($times === 'T') {
     $times = '';

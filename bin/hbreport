@@ -14,7 +14,7 @@ foreach (glob('cloned/*') as $file) {
 }
 
 if ($times === 'L') {
-    exec('pushd cloned/lightncandy >/dev/null;git tag;popd >/dev/null', $versions);
+    exec('pushd cloned/lightncandy >/dev/null;git tag --list --sort version:refname;popd >/dev/null', $versions);
     $versions[] = 'master';
     foreach ($versions as $version) {
         $reports[$version] = Array();

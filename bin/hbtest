@@ -41,6 +41,9 @@ if (!defined('LightnCandy::FLAG_HANDLEBARS')) {
     $flag = LightnCandy::FLAG_HANDLEBARSJS;
 } else {
     $flag = LightnCandy::FLAG_HANDLEBARS | LightnCandy::FLAG_ERROR_LOG;
+    if (defined('LightnCandy::FLAG_HBESCAPE')) {
+        $flag = $flag - ($flag & LightnCandy::FLAG_HBESCAPE);
+    }
     if ($argv[1] == 'lightncandy') {
         if (($test_times % 2) == 1) {
             $flag = $flag | LightnCandy::FLAG_JS;

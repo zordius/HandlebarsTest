@@ -70,7 +70,7 @@ function prepare_tmpl($name, $file, $flag) {
         require_once(__DIR__ . '/loader.inc');
         $php = LightnCandy::compile($tmpl_txt, $flag);
         $inc = preg_replace('/\.tmpl/', '.php', $file);
-        file_put_contents($inc, $php);
+        file_put_contents($inc, (substr($php, 0, 5) === '<?php') ? $php : "<?php $php ?>");
         $js = preg_replace('/\.tmpl/', '.jsonschema', $file);
         $level = 0;
         $test_method = include($inc);

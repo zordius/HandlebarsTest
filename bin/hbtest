@@ -64,26 +64,24 @@ try {
     prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), Array(
         'flags' => $flag,
         'basedir' => './fixture',
-        'helpers' => Array(
-            'helper1' => function ($args, $named) {
-                $u = (isset($args[0])) ? $args[0] : 'undefined';
-                $t = (isset($args[1])) ? $args[1] : 'undefined';
+        'hbhelpers' => Array(
+            'helper1' => function ($arg0 = null, $arg1 = null) {
+                $u = ($arg0 !== null) ? $arg0 : 'undefined';
+                $t = ($arg1 !== null) ? $arg1 : 'undefined';
                 return "<a href=\"{$u}\">{$t}</a>";
             },
-
-            'helper2' => function ($args, $named) {
+            'helper2' => function ($options) {
+                $named = $options['hash'];
                 $u = isset($named['url']) ? jsraw($named['url']) : 'undefined';
                 $t = isset($named['text']) ? jsraw($named['text']) : 'undefined';
                 $x = isset($named['ur"l']) ? $named['ur"l'] : 'undefined';
                 return "<a href=\"{$u}\">{$t}</a>({$x})";
             },
-        ),
-        'blockhelpers' => Array(
-            'helper3' => function ($cx, $args, $named) {
-                return Array('test1', 'test2', 'test3');
-            }
-        ),
-        'hbhelpers' => Array(
+            'helper3' => function () {
+                $args = func_get_args();
+                $options = array_pop($args);
+                return $options['fn'](array('test1', 'test2', 'test3'));
+            },
             'helper4' => function ($options) {
                 if (isset($options['hash']['val'])) {
                     $options['_this']['helper4_value'] = $options['hash']['val'] % 2;

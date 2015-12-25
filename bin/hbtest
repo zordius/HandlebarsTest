@@ -64,7 +64,7 @@ try {
     prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), Array(
         'flags' => $flag,
         'basedir' => './fixture',
-        'hbhelpers' => Array(
+        'helpers' => Array(
             'helper1' => function ($arg0 = null, $arg1 = null) {
                 $u = ($arg0 !== null) ? $arg0 : 'undefined';
                 $t = ($arg1 !== null) ? $arg1 : 'undefined';

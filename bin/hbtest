@@ -37,6 +37,7 @@ debugp(print_r($vars, true));
 
 // Prepare template
 require_once(__DIR__ . '/../inc/loader.inc');
+debugp("### LC VERSION: $lc_version");
 if (!defined('LightnCandy::FLAG_HANDLEBARS')) {
     $flag = LightnCandy::FLAG_HANDLEBARSJS;
 } else {
@@ -60,47 +61,50 @@ if (!defined('LightnCandy::FLAG_HANDLEBARS')) {
     }
 }
 
+$options = Array(
+    'flags' => $flag,
+    'basedir' => './fixture',
+);
+
+$options[($lc_version === '>=89') ? 'helpers' : 'hbhelpers'] = Array(
+    'helper1' => function ($arg0 = null, $arg1 = null) {
+        $u = ($arg0 !== null) ? $arg0 : 'undefined';
+        $t = ($arg1 !== null) ? $arg1 : 'undefined';
+        return "<a href=\"{$u}\">{$t}</a>";
+    },
+    'helper2' => function ($options) {
+        $named = $options['hash'];
+        $u = isset($named['url']) ? jsraw($named['url']) : 'undefined';
+        $t = isset($named['text']) ? jsraw($named['text']) : 'undefined';
+        $x = isset($named['ur"l']) ? $named['ur"l'] : 'undefined';
+        return "<a href=\"{$u}\">{$t}</a>({$x})";
+    },
+    'helper3' => function () {
+        $args = func_get_args();
+        $options = array_pop($args);
+        return $options['fn'](array('test1', 'test2', 'test3'));
+    },
+    'helper4' => function ($options) {
+        if (isset($options['hash']['val'])) {
+            $options['_this']['helper4_value'] = $options['hash']['val'] % 2;
+            return $options['fn']($options['_this']);
+        }
+        if (isset($options['hash']['odd'])) {
+            return $options['fn'](array(1,3,5,7,9));
+        }
+        return '';
+    },
+    'myeach' => function ($context, $options) {
+        $ret = '';
+        foreach ($context as $cx) {
+            $ret .= $options['fn']($cx);
+        }
+        return $ret;
+    }
+);
+
 try {
-    prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), Array(
-        'flags' => $flag,
-        'basedir' => './fixture',
-        'helpers' => Array(
-            'helper1' => function ($arg0 = null, $arg1 = null) {
-                $u = ($arg0 !== null) ? $arg0 : 'undefined';
-                $t = ($arg1 !== null) ? $arg1 : 'undefined';
-                return "<a href=\"{$u}\">{$t}</a>";
-            },
-            'helper2' => function ($options) {
-                $named = $options['hash'];
-                $u = isset($named['url']) ? jsraw($named['url']) : 'undefined';
-                $t = isset($named['text']) ? jsraw($named['text']) : 'undefined';
-                $x = isset($named['ur"l']) ? $named['ur"l'] : 'undefined';
-                return "<a href=\"{$u}\">{$t}</a>({$x})";
-            },
-            'helper3' => function () {
-                $args = func_get_args();
-                $options = array_pop($args);
-                return $options['fn'](array('test1', 'test2', 'test3'));
-            },
-            'helper4' => function ($options) {
-                if (isset($options['hash']['val'])) {
-                    $options['_this']['helper4_value'] = $options['hash']['val'] % 2;
-                    return $options['fn']($options['_this']);
-                }
-                if (isset($options['hash']['odd'])) {
-                    return $options['fn'](array(1,3,5,7,9));
-                }
-                return '';
-            },
-            'myeach' => function ($context, $options) {
-                $ret = '';
-                foreach ($context as $cx) {
-                    $ret .= $options['fn']($cx);
-                }
-                return $ret;
-            },
-        ),
-    ));
+    prepare_tmpl($argv[1], preg_replace('/(-\d+)*\.json/', '.tmpl', $argv[2]), $options);
 
     if ($argv[1] == 'lightncandy') {
         debugp("### Handlebar usage:\n");

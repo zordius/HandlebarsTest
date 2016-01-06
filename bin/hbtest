@@ -53,7 +53,7 @@ if (!defined('LightnCandy::FLAG_HANDLEBARS')) {
             $flag = $flag | LightnCandy::FLAG_STANDALONEPHP;
         }
         if (($test_times % 5) == 1) {
-            $flag = $flag | LightnCandy::FLAG_BESTPERFORMANCE;
+            $flag = $flag | LightnCandy::FLAG_ECHO;
         }
         if ($test_times < 0) {
             $flag = - $test_times;

@@ -90,7 +90,7 @@ How to Test
    * bin/hbreport 7
       * lightncandy will be executed with FLAG_JS and FLAG_STANDALONE enabled.
    * bin/hbreport 1
-      * lightncandy will be executed with FLAG_JS, FLAG_STANDALONE and FLAG_BESTPERFORMANCE enabled (to know more about FLAG_BESTPERFORMANCE, read lightncandy document please)
+      * lightncandy will be executed with FLAG_JS, FLAG_STANDALONE and FLAG_ECHO enabled (to know more about FLAG_BESTPERFORMANCE, read lightncandy document please)
    * bin/hbreport F num_of_know_issue
       * only test on lightncandy
       * exit with (number of detected issues - number of know issues)

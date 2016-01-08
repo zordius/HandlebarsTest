@@ -68,7 +68,9 @@ function prepare_tmpl($name, $file, $flag) {
         break;
     case 'lightncandy':
         require_once(__DIR__ . '/loader.inc');
-        $php = LightnCandy::compile($tmpl_txt, $flag);
+        $php = LightnCandy::compile($tmpl_txt, array_merge($flag, array(
+            'partials' => getPartials()
+        )));
         $inc = preg_replace('/\.tmpl/', '.php', $file);
         file_put_contents($inc, (substr($php, 0, 5) === '<?php') ? $php : "<?php $php ?>");
         $js = preg_replace('/\.tmpl/', '.jsonschema', $file);

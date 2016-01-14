@@ -99,8 +99,8 @@ if ($times === 'L') {
 } else {
     $redir = '';
     if ($times === 'R') {
-        include_once('cloned/lightncandy/src/lightncandy.php');
-        $times = - LightnCandy::FLAG_HANDLEBARSJS;
+        include_once('cloned/lightncandy/src/loader.php');
+        $times = - \LightnCandy\LightnCandy::FLAG_HANDLEBARSJS;
         $redir = ' 2>/dev/null';
     }
 

@@ -21,7 +21,9 @@ var fs = require('fs'),
                 fs.readFile(dir + file, 'utf8', function (err, data) {
                     var json;
                     try {
-                        json = JSON.parse(data);
+                        json = JSON.parse(data, function (k, v) {
+                            return (v === '__EMPTY__OBJECT__{}') ? {} : v;
+                        });
                     } catch (E) {
                         console.log('ERROR parsing ' + file + ' !!!!!:' + E);
                     }

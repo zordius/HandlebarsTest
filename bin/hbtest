@@ -32,6 +32,12 @@ $debug = (($test_times < 0) && !isset($argv[4])) ? false : true;
 $tokenTest = preg_match('/token/', $argv[2]);
 $input = file_get_contents($argv[2]);
 $vars = json_decode($input, true);
+array_walk_recursive($vars, function (&$v, $k) {
+    if ($v === '__EMPTY__OBJECT__{}') {
+        $v = new stdClass;
+    }
+});
+
 debugp("### Input:\n$input\n### as PHP:");
 debugp(print_r($vars, true));
 

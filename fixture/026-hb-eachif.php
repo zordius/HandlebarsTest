@@ -1,4 +1,6 @@
-<?php return function ($in, $debugopt = 1) {
+<?php use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return function ($in = null, $options = null) {
+    $helpers = array();
+    $partials = array();
     $cx = array(
         'flags' => array(
             'jstrue' => true,
@@ -6,29 +8,31 @@
             'spvar' => true,
             'prop' => true,
             'method' => false,
+            'lambda' => false,
             'mustlok' => false,
-            'mustsec' => false,
+            'mustlam' => false,
             'echo' => false,
-            'debug' => $debugopt,
+            'partnc' => false,
+            'knohlp' => false,
+            'debug' => isset($options['debug']) ? $options['debug'] : 1,
         ),
         'constants' => array(),
-        'helpers' => array(),
-        'blockhelpers' => array(),
-        'hbhelpers' => array(),
-        'partials' => array(),
-        'scopes' => array($in),
-        'sp_vars' => array('root' => $in),
-
+        'helpers' => isset($options['helpers']) ? array_merge($helpers, $options['helpers']) : $helpers,
+        'partials' => isset($options['partials']) ? array_merge($partials, $options['partials']) : $partials,
+        'scopes' => array(),
+        'sp_vars' => isset($options['data']) ? array_merge(array('root' => $in), $options['data']) : array('root' => $in),
+        'blparam' => array(),
+        'partialid' => 0,
+        'runtime' => '\LightnCandy\Runtime',
     );
     
-    return ''.LCRun3::ifv($cx, LCRun3::v($cx, $in, array('empty')), $in, function($cx, $in) {return '
-';}, function($cx, $in) {return ''.LCRun3::sec($cx, LCRun3::v($cx, $in, array('data')), $in, true, function($cx, $in) {return '
-'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('child')), $in, true, function($cx, $in) {return ''.LCRun3::ifv($cx, LCRun3::v($cx, $in, array('key')), $in, function($cx, $in) {return '       The value is = '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('key'))).' !!
-';}, function($cx, $in) {return '        key is empty or null
-';}).'
-    '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('fake'))).'
+    return ''.((LR::ifvar($cx, LR::v($cx, $in, isset($in) ? $in : null, array('empty')), false)) ? '
+' : ''.LR::sec($cx, LR::v($cx, $in, isset($in) ? $in : null, array('data')), null, $in, true, function($cx, $in) {return '
+'.LR::sec($cx, LR::v($cx, $in, isset($in) ? $in : null, array('child')), null, $in, true, function($cx, $in) {return ''.((LR::ifvar($cx, LR::v($cx, $in, isset($in) ? $in : null, array('key')), false)) ? '       The value is = '.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('key'))).' !!
+' : '        key is empty or null
+').'
+    '.LR::encq($cx, LR::v($cx, $in, isset($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1] : null, array('fake'))).'
 
 ';}).'';}).'
-';}).'';
-}
-?>
+').'';
+}; ?>

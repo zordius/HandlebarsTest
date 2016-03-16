@@ -1,4 +1,11 @@
-<?php return function ($in, $debugopt = 1) {
+<?php use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return function ($in = null, $options = null) {
+    $helpers = array(            'helper1' => function($arg0 = null, $arg1 = null) {
+        $u = ($arg0 !== null) ? $arg0 : 'undefined';
+        $t = ($arg1 !== null) ? $arg1 : 'undefined';
+        return "<a href=\"{$u}\">{$t}</a>";
+    },
+);
+    $partials = array();
     $cx = array(
         'flags' => array(
             'jstrue' => true,
@@ -6,34 +13,31 @@
             'spvar' => true,
             'prop' => true,
             'method' => false,
+            'lambda' => false,
             'mustlok' => false,
-            'mustsec' => false,
+            'mustlam' => false,
             'echo' => false,
-            'debug' => $debugopt,
+            'partnc' => false,
+            'knohlp' => false,
+            'debug' => isset($options['debug']) ? $options['debug'] : 1,
         ),
         'constants' => array(),
-        'helpers' => array(            'helper1' => function($args, $named) {
-    $u = (isset($args[0])) ? $args[0] : 'undefined';
-    $t = (isset($args[1])) ? $args[1] : 'undefined';
-    return "<a href=\"{$u}\">{$t}</a>";
-},
-),
-        'blockhelpers' => array(),
-        'hbhelpers' => array(),
-        'partials' => array(),
-        'scopes' => array($in),
-        'sp_vars' => array('root' => $in),
-
+        'helpers' => isset($options['helpers']) ? array_merge($helpers, $options['helpers']) : $helpers,
+        'partials' => isset($options['partials']) ? array_merge($partials, $options['partials']) : $partials,
+        'scopes' => array(),
+        'sp_vars' => isset($options['data']) ? array_merge(array('root' => $in), $options['data']) : array('root' => $in),
+        'blparam' => array(),
+        'partialid' => 0,
+        'runtime' => '\LightnCandy\Runtime',
     );
     
-    return 'Hello '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).', you have just won $'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('value'))).'!
+    return 'Hello '.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('name'))).', you have just won $'.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('value'))).'!
 
-. Test 1: '.LCRun3::ch($cx, 'helper1', array(array(LCRun3::v($cx, $in, array('url')),LCRun3::v($cx, $in, array('text'))),array()), 'raw').'
-. Test 2: '.LCRun3::ch($cx, 'helper1', array(array(LCRun3::v($cx, $in, array('url')),LCRun3::v($cx, $in, array('text'))),array()), 'encq').'
-. Test 3: '.LCRun3::ch($cx, 'helper1', array(array(LCRun3::v($cx, $in, array('test','url')),LCRun3::v($cx, $in, array('test','text'))),array()), 'encq').'
-. Test 4: '.LCRun3::sec($cx, LCRun3::v($cx, $in, array('people')), $in, true, function($cx, $in) {return '
-  * '.LCRun3::ch($cx, 'helper1', array(array(LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('url')),LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('text'))),array()), 'encq').' <= '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('url'))).' , '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('text'))).', '.LCRun3::raw($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('url'))).', '.LCRun3::raw($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('text'))).' !!
-  * '.LCRun3::ch($cx, 'helper1', array(array(LCRun3::v($cx, $in, array('url')),LCRun3::v($cx, $in, array('text'))),array()), 'encq').' <= '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('url'))).' , '.LCRun3::encq($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('text'))).' , '.LCRun3::raw($cx, LCRun3::v($cx, $in, array('url'))).', '.LCRun3::raw($cx, LCRun3::v($cx, $cx['scopes'][count($cx['scopes'])-1], array('text'))).' :D
+. Test 1: '.LR::raw($cx, LR::hbch($cx, 'helper1', array(array(LR::v($cx, $in, isset($in) ? $in : null, array('url')),LR::v($cx, $in, isset($in) ? $in : null, array('text'))),array()), 'raw', $in)).'
+. Test 2: '.LR::encq($cx, LR::hbch($cx, 'helper1', array(array(LR::v($cx, $in, isset($in) ? $in : null, array('url')),LR::v($cx, $in, isset($in) ? $in : null, array('text'))),array()), 'encq', $in)).'
+. Test 3: '.LR::encq($cx, LR::hbch($cx, 'helper1', array(array(LR::v($cx, $in, isset($in) ? $in : null, array('test','url')),LR::v($cx, $in, isset($in) ? $in : null, array('test','text'))),array()), 'encq', $in)).'
+. Test 4: '.LR::sec($cx, LR::v($cx, $in, isset($in) ? $in : null, array('people')), null, $in, true, function($cx, $in) {return '
+  * '.LR::encq($cx, LR::hbch($cx, 'helper1', array(array(LR::v($cx, $in, isset($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1] : null, array('url')),LR::v($cx, $in, isset($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1] : null, array('text'))),array()), 'encq', $in)).' <= '.LR::encq($cx, LR::v($cx, $in, isset($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1] : null, array('url'))).' , '.LR::encq($cx, LR::v($cx, $in, isset($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1] : null, array('text'))).', '.LR::raw($cx, LR::v($cx, $in, isset($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1] : null, array('url'))).', '.LR::raw($cx, LR::v($cx, $in, isset($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1] : null, array('text'))).' !!
+  * '.LR::encq($cx, LR::hbch($cx, 'helper1', array(array(LR::v($cx, $in, isset($in) ? $in : null, array('url')),LR::v($cx, $in, isset($in) ? $in : null, array('text'))),array()), 'encq', $in)).' <= '.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('url'))).' , '.LR::encq($cx, LR::v($cx, $in, isset($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1] : null, array('text'))).' , '.LR::raw($cx, LR::v($cx, $in, isset($in) ? $in : null, array('url'))).', '.LR::raw($cx, LR::v($cx, $in, isset($cx['scopes'][count($cx['scopes'])-1]) ? $cx['scopes'][count($cx['scopes'])-1] : null, array('text'))).' :D
 ';}).'';
-}
-?>
+}; ?>

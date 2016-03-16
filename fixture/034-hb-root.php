@@ -1,4 +1,6 @@
-<?php return function ($in, $debugopt = 1) {
+<?php use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return function ($in = null, $options = null) {
+    $helpers = array();
+    $partials = array();
     $cx = array(
         'flags' => array(
             'jstrue' => true,
@@ -6,24 +8,26 @@
             'spvar' => true,
             'prop' => true,
             'method' => false,
+            'lambda' => false,
             'mustlok' => false,
-            'mustsec' => false,
+            'mustlam' => false,
             'echo' => false,
-            'debug' => $debugopt,
+            'partnc' => false,
+            'knohlp' => false,
+            'debug' => isset($options['debug']) ? $options['debug'] : 1,
         ),
         'constants' => array(),
-        'helpers' => array(),
-        'blockhelpers' => array(),
-        'hbhelpers' => array(),
-        'partials' => array(),
-        'scopes' => array($in),
-        'sp_vars' => array('root' => $in),
-
+        'helpers' => isset($options['helpers']) ? array_merge($helpers, $options['helpers']) : $helpers,
+        'partials' => isset($options['partials']) ? array_merge($partials, $options['partials']) : $partials,
+        'scopes' => array(),
+        'sp_vars' => isset($options['data']) ? array_merge(array('root' => $in), $options['data']) : array('root' => $in),
+        'blparam' => array(),
+        'partialid' => 0,
+        'runtime' => '\LightnCandy\Runtime',
     );
     
     return '<ul class="items">
-'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('items')), $in, true, function($cx, $in) {return '		<li>'.LCRun3::encq($cx, $in).' for '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('root','user'))).'</li>
+'.LR::sec($cx, LR::v($cx, $in, isset($in) ? $in : null, array('items')), null, $in, true, function($cx, $in) {return '		<li>'.LR::encq($cx, $in).' for '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('root','user'))).'</li>
 ';}).'</ul>
 ';
-}
-?>
+}; ?>

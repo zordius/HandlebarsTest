@@ -1,11 +1,11 @@
 Hello John, you have just won $10000!
 
 . Test 1: <a href="this url">that text</a>
-. Test 2: &lt;a href=&quot;this url&quot;&gt;that text&lt;/a&gt;
-. Test 3: &lt;a href=&quot;test url&quot;&gt;test text&lt;/a&gt;
+. Test 2: &lt;a href&#x3D;&quot;this url&quot;&gt;that text&lt;/a&gt;
+. Test 3: &lt;a href&#x3D;&quot;test url&quot;&gt;test text&lt;/a&gt;
 . Test 4: 
-  * &lt;a href=&quot;this url&quot;&gt;that text&lt;/a&gt; <= this url , that text, this url, that text !!
-  * &lt;a href=&quot;undefined&quot;&gt;undefined&lt;/a&gt; <=  , that text , , that text :D
+  * &lt;a href&#x3D;&quot;this url&quot;&gt;that text&lt;/a&gt; <= this url , that text, this url, that text !!
+  * &lt;a href&#x3D;&quot;undefined&quot;&gt;undefined&lt;/a&gt; <=  , that text , , that text :D
 
-  * &lt;a href=&quot;this url&quot;&gt;that text&lt;/a&gt; <= this url , that text, this url, that text !!
-  * &lt;a href=&quot;undefined&quot;&gt;undefined&lt;/a&gt; <=  , that text , , that text :D
+  * &lt;a href&#x3D;&quot;this url&quot;&gt;that text&lt;/a&gt; <= this url , that text, this url, that text !!
+  * &lt;a href&#x3D;&quot;undefined&quot;&gt;undefined&lt;/a&gt; <=  , that text , , that text :D

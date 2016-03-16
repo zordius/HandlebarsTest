@@ -49,8 +49,6 @@ var fs = require('fs'),
         });
     };
 
-console.log(handlebars);
-
 handlebars.registerHelper('helper1', function (url, text) {
     return '<a href="' + url + '">' + text + '</a>';
 });

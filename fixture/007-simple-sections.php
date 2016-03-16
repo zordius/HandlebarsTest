@@ -1,4 +1,6 @@
-<?php return function ($in, $debugopt = 1) {
+<?php use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return function ($in = null, $options = null) {
+    $helpers = array();
+    $partials = array();
     $cx = array(
         'flags' => array(
             'jstrue' => true,
@@ -6,27 +8,29 @@
             'spvar' => true,
             'prop' => true,
             'method' => false,
+            'lambda' => false,
             'mustlok' => false,
-            'mustsec' => false,
+            'mustlam' => false,
             'echo' => false,
-            'debug' => $debugopt,
+            'partnc' => false,
+            'knohlp' => false,
+            'debug' => isset($options['debug']) ? $options['debug'] : 1,
         ),
         'constants' => array(),
-        'helpers' => array(),
-        'blockhelpers' => array(),
-        'hbhelpers' => array(),
-        'partials' => array(),
-        'scopes' => array($in),
-        'sp_vars' => array('root' => $in),
-
+        'helpers' => isset($options['helpers']) ? array_merge($helpers, $options['helpers']) : $helpers,
+        'partials' => isset($options['partials']) ? array_merge($partials, $options['partials']) : $partials,
+        'scopes' => array(),
+        'sp_vars' => isset($options['data']) ? array_merge(array('root' => $in), $options['data']) : array('root' => $in),
+        'blparam' => array(),
+        'partialid' => 0,
+        'runtime' => '\LightnCandy\Runtime',
     );
     
-    return '<h1>'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('header'))).'</h1>
-'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('notEmpty')), $in, false, function($cx, $in) {return '<ul>
-'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('item')), $in, false, function($cx, $in) {return ''.LCRun3::sec($cx, LCRun3::v($cx, $in, array('current')), $in, false, function($cx, $in) {return '    <li><strong>'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'</strong></li>
-';}).''.((LCRun3::isec($cx, LCRun3::v($cx, $in, array('current')))) ? '    <li><a href="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('url'))).'">'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'</a></li>
+    return '<h1>'.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('header'))).'</h1>
+'.LR::sec($cx, LR::v($cx, $in, isset($in) ? $in : null, array('notEmpty')), null, $in, false, function($cx, $in) {return '<ul>
+'.LR::sec($cx, LR::v($cx, $in, isset($in) ? $in : null, array('item')), null, $in, false, function($cx, $in) {return ''.LR::sec($cx, LR::v($cx, $in, isset($in) ? $in : null, array('current')), null, $in, false, function($cx, $in) {return '    <li><strong>'.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('name'))).'</strong></li>
+';}).''.((LR::isec($cx, LR::v($cx, $in, isset($in) ? $in : null, array('current')))) ? '    <li><a href="'.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('url'))).'">'.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('name'))).'</a></li>
 ' : '').'';}).'</ul>
-';}).''.LCRun3::sec($cx, LCRun3::v($cx, $in, array('isEmpty')), $in, false, function($cx, $in) {return '<p>The list is empty.</p>
+';}).''.LR::sec($cx, LR::v($cx, $in, isset($in) ? $in : null, array('isEmpty')), null, $in, false, function($cx, $in) {return '<p>The list is empty.</p>
 ';}).'';
-}
-?>
+}; ?>

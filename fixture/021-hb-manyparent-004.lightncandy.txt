@@ -12,22 +12,22 @@ Hello , you have just won $!
  <li> is a 0 (, , )</li>
  simple if~
  if-else
-  BAD!  0 - 0 Y  = 
+  BAD!   -  Y  = 
  with
  simple unless
-   UNLESS good = bad -> 0 , 
+   UNLESS good = bad ->  , 
  unless else
-   UNLESS good = bad -> 0 , 
+   UNLESS good = bad ->  , 
  <li> is a 3th (, , )</li>
  simple if~
-  simple GOOD!  3th - 3th X  ~ 
+  simple GOOD!   -  X  ~ 
  if-else
-  GOOD!  3th - 3th X  ~ 
+  GOOD!   -  X  ~ 
  with
     WITH: , 3th ,  , 
  simple unless
  unless else
-   UNLESS bad = good -> 3th , 
+   UNLESS bad = good ->  , 
  <li> is a  (, , )</li>
  simple if~
  if-else
@@ -68,9 +68,9 @@ Hello , you have just won $!
  <li>John is a  (, , )</li>
   BAD!   -  Y  = 
  <li> is a 0 (, , )</li>
-  BAD!  0 - 0 Y  = 
+  BAD!   -  Y  = 
  <li> is a 3th (, , )</li>
-  GOOD!  3th - 3th X  ~ 
+  GOOD!   -  X  ~ 
     WITH: 3th ,  , 
  <li> is a  (, , )</li>
   BAD!   -  Y  = 
@@ -84,9 +84,9 @@ Hello , you have just won $!
  <li>John is a  (, , )</li>
   BAD!   -  Y  = 
  <li> is a 0 (, , )</li>
-  BAD!  0 - 0 Y  = 
+  BAD!   -  Y  = 
  <li> is a 3th (, , )</li>
-  GOOD!  3th - 3th X  ~ 
+  GOOD!   -  X  ~ 
     WITH: 3th ,  , 
  <li> is a  (, , )</li>
   BAD!   -  Y  = 
@@ -100,9 +100,9 @@ Hello , you have just won $!
  <li>John is a  (, , )</li>
   BAD!   -  Y  = 
  <li> is a 0 (, , )</li>
-  BAD!  0 - 0 Y  = 
+  BAD!   -  Y  = 
  <li> is a 3th (, , )</li>
-  GOOD!  3th - 3th X  ~ 
+  GOOD!   -  X  ~ 
     WITH: 3th ,  , 
  <li> is a  (, , )</li>
   BAD!   -  Y  = 

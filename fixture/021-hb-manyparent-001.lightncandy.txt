@@ -3,54 +3,54 @@ Hello John, you have just won $10000!
  <li> is a  (John, 10000, OK!)</li>
  simple if~
  if-else
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  with
  simple unless
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  unless else
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  <li> is a  (John, 10000, OK!)</li>
  simple if~
  if-else
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  with
  simple unless
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  unless else
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  <li> is a  (John, 10000, OK!)</li>
  simple if~
  if-else
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  with
  simple unless
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  unless else
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  <li> is a  (John, 10000, OK!)</li>
  simple if~
  if-else
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  with
  simple unless
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
  unless else
-   UNLESS good = bad ->  , John
+   UNLESS good = bad ->  , 
 ----------THIS
  <li> is a  (John, 10000, OK!)</li>
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  <li> is a  (John, 10000, OK!)</li>
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  <li> is a  (John, 10000, OK!)</li>
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
  <li> is a  (John, 10000, OK!)</li>
-  BAD!   -  Y John = OK!
+  BAD!   -  Y  = 
 ----------SECTION THIS
- <li>John is a  (John, 10000, OK!)</li>
-  BAD!   -  Y John = OK!
+ <li>John is a  (, , )</li>
+  BAD!   -  Y  = 
 ----------SECTION .
- <li>John is a  (John, 10000, OK!)</li>
-  BAD!   -  Y John = OK!
+ <li>John is a  (, , )</li>
+  BAD!   -  Y  = 
 </ul>
 WITH TEST>
  single: ,  , p -> John

@@ -1,4 +1,6 @@
-<?php return function ($in, $debugopt = 1) {
+<?php use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return function ($in = null, $options = null) {
+    $helpers = array();
+    $partials = array();
     $cx = array(
         'flags' => array(
             'jstrue' => true,
@@ -6,25 +8,27 @@
             'spvar' => true,
             'prop' => true,
             'method' => false,
+            'lambda' => false,
             'mustlok' => false,
-            'mustsec' => false,
+            'mustlam' => false,
             'echo' => false,
-            'debug' => $debugopt,
+            'partnc' => false,
+            'knohlp' => false,
+            'debug' => isset($options['debug']) ? $options['debug'] : 1,
         ),
         'constants' => array(),
-        'helpers' => array(),
-        'blockhelpers' => array(),
-        'hbhelpers' => array(),
-        'partials' => array(),
-        'scopes' => array($in),
-        'sp_vars' => array('root' => $in),
-
+        'helpers' => isset($options['helpers']) ? array_merge($helpers, $options['helpers']) : $helpers,
+        'partials' => isset($options['partials']) ? array_merge($partials, $options['partials']) : $partials,
+        'scopes' => array(),
+        'sp_vars' => isset($options['data']) ? array_merge(array('root' => $in), $options['data']) : array('root' => $in),
+        'blparam' => array(),
+        'partialid' => 0,
+        'runtime' => '\LightnCandy\Runtime',
     );
     
     return 'A
-'.LCRun3::sec($cx, $in, $in, true, function($cx, $in) {return '=> '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('key'))).' , '.LCRun3::encq($cx, $in).' , '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('index'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('first'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('last'))).' , '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('index'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('key'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('first'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('last'))).' # '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent']['_parent'], array('index'))).' - '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent']['_parent'], array('key'))).' .
-'.LCRun3::sec($cx, $in, $in, true, function($cx, $in) {return ' =>> '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('key'))).' , '.LCRun3::encq($cx, $in).' , '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('index'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('first'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('last'))).' , '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('index'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('key'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('first'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('last'))).' # '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent']['_parent'], array('index'))).' - '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent']['_parent'], array('key'))).' .
-'.LCRun3::sec($cx, $in, $in, true, function($cx, $in) {return '  =>>> '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('key'))).' , '.LCRun3::encq($cx, $in).' , '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('index'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('first'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars'], array('last'))).' , '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('index'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('key'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('first'))).', '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent'], array('last'))).' # '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent']['_parent'], array('index'))).' - '.LCRun3::encq($cx, LCRun3::v($cx, $cx['sp_vars']['_parent']['_parent'], array('key'))).' .
+'.LR::sec($cx, $in, null, $in, true, function($cx, $in) {return '=> '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('key'))).' , '.LR::encq($cx, $in).' , '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('index'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('first'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('last'))).' , '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('index'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('key'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('first'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('last'))).' # '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']['_parent']) ? $cx['sp_vars']['_parent']['_parent'] : null, array('index'))).' - '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']['_parent']) ? $cx['sp_vars']['_parent']['_parent'] : null, array('key'))).' .
+'.LR::sec($cx, $in, null, $in, true, function($cx, $in) {return ' =>> '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('key'))).' , '.LR::encq($cx, $in).' , '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('index'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('first'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('last'))).' , '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('index'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('key'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('first'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('last'))).' # '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']['_parent']) ? $cx['sp_vars']['_parent']['_parent'] : null, array('index'))).' - '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']['_parent']) ? $cx['sp_vars']['_parent']['_parent'] : null, array('key'))).' .
+'.LR::sec($cx, $in, null, $in, true, function($cx, $in) {return '  =>>> '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('key'))).' , '.LR::encq($cx, $in).' , '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('index'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('first'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']) ? $cx['sp_vars'] : null, array('last'))).' , '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('index'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('key'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('first'))).', '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']) ? $cx['sp_vars']['_parent'] : null, array('last'))).' # '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']['_parent']) ? $cx['sp_vars']['_parent']['_parent'] : null, array('index'))).' - '.LR::encq($cx, LR::v($cx, $in, isset($cx['sp_vars']['_parent']['_parent']) ? $cx['sp_vars']['_parent']['_parent'] : null, array('key'))).' .
 ';}).'';}).'';}).'';
-}
-?>
+}; ?>

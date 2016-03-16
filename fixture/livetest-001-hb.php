@@ -1,4 +1,6 @@
-<?php return function ($in, $debugopt = 1) {
+<?php use \LightnCandy\SafeString as SafeString;use \LightnCandy\Runtime as LR;return function ($in = null, $options = null) {
+    $helpers = array();
+    $partials = array();
     $cx = array(
         'flags' => array(
             'jstrue' => true,
@@ -6,42 +8,44 @@
             'spvar' => true,
             'prop' => true,
             'method' => false,
+            'lambda' => false,
             'mustlok' => false,
-            'mustsec' => false,
+            'mustlam' => false,
             'echo' => false,
-            'debug' => $debugopt,
+            'partnc' => false,
+            'knohlp' => false,
+            'debug' => isset($options['debug']) ? $options['debug'] : 1,
         ),
         'constants' => array(),
-        'helpers' => array(),
-        'blockhelpers' => array(),
-        'hbhelpers' => array(),
-        'partials' => array(),
-        'scopes' => array($in),
-        'sp_vars' => array('root' => $in),
-
+        'helpers' => isset($options['helpers']) ? array_merge($helpers, $options['helpers']) : $helpers,
+        'partials' => isset($options['partials']) ? array_merge($partials, $options['partials']) : $partials,
+        'scopes' => array(),
+        'sp_vars' => isset($options['data']) ? array_merge(array('root' => $in), $options['data']) : array('root' => $in),
+        'blparam' => array(),
+        'partialid' => 0,
+        'runtime' => '\LightnCandy\Runtime',
     );
     
     return '<div id="yauitqna">
     <table>
-'.LCRun3::sec($cx, $in, $in, true, function($cx, $in) {return '        <tr>
+'.LR::sec($cx, $in, null, $in, true, function($cx, $in) {return '        <tr>
             <td class="first" colspan="2">
-            <h4><a name="'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('name'))).'"></a>問題 $p</h4>
-            '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('yid'))).' 暱稱：'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('userName'))).' ( '.LCRun3::encq($cx, LCRun3::v($cx, $in, array('recommend'))).' )<p>'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('comment'))).'</p>
+            <h4><a name="'.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('name'))).'"></a>問題 $p</h4>
+            '.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('yid'))).' 暱稱：'.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('userName'))).' ( '.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('recommend'))).' )<p>'.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('comment'))).'</p>
             </td>
             <td class="asktime">$askTime</td>
         </tr>                               
-'.LCRun3::sec($cx, LCRun3::v($cx, $in, array('replyer')), $in, true, function($cx, $in) {return '                <tr class="gray">
+'.LR::sec($cx, LR::v($cx, $in, isset($in) ? $in : null, array('replyer')), null, $in, true, function($cx, $in) {return '                <tr class="gray">
                     <td class="first" colspan="2">
                         <h4><a name="579997583"></a>答覆</h4>
                         <p><a href="http://tw.user.bid.yahoo.com/tw/user/Y7379251092">EYESCREAM</a>
                         ( <a href="http://tw.user.bid.yahoo.com/tw/show/rating?userID=Y7379251092">56141</a>
                         )</p>
-                        <p>Lady您好：'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('comment'))).'</p>
+                        <p>Lady您好：'.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('comment'))).'</p>
                     </td>
-                    <td class="asktime">'.LCRun3::encq($cx, LCRun3::v($cx, $in, array('replyTime'))).'</td>
+                    <td class="asktime">'.LR::encq($cx, LR::v($cx, $in, isset($in) ? $in : null, array('replyTime'))).'</td>
                 </tr>
 ';}).'';}).'    </table>
 </div>
 ';
-}
-?>
+}; ?>

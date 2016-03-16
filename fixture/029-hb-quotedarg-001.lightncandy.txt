@@ -6,6 +6,6 @@ Hello John, you have just won $10000!
 . Test 4:  !!
 . Test 5: <a href="undefined">this is a test & OK</a> !!
 . Test 6: <a href="undefined">this is a test</a> !!
-. Test 7: &lt;a href=&quot;undefined&quot;&gt;this is a test &amp; OK&lt;/a&gt; !!
-. Test 8: &lt;a href=&quot;undefined&quot;&gt;this is a test&lt;/a&gt; !!
-. Test 9: &lt;a href=&quot;undefined&quot;&gt;this.is.atest&lt;/a&gt; !!
+. Test 7: &lt;a href&#x3D;&quot;undefined&quot;&gt;this is a test &amp; OK&lt;/a&gt; !!
+. Test 8: &lt;a href&#x3D;&quot;undefined&quot;&gt;this is a test&lt;/a&gt; !!
+. Test 9: &lt;a href&#x3D;&quot;undefined&quot;&gt;this.is.atest&lt;/a&gt; !!

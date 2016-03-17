@@ -1,4 +1,4 @@
-*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2016-03-17 11:23:59)
+*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2016-03-17 14:15:45)
 
   * `YES` : Exact same behavior with handlebars.js run in nodejs
   * `NO` : Do not support, can not parse the template
@@ -48,7 +48,7 @@
 |       006-simple-section-008	|	          YES	|	          YES	|	        CR/LF	|	          YES |
 |       006-simple-section-009	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |       006-simple-section-010	|	          YES	|	          YES	|	        CR/LF	|	          YES |
-|       006-simple-section-011	|	       OUTPUT	|	       OUTPUT	|	       OUTPUT	|	       OUTPUT |
+|       006-simple-section-011	|	          YES	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |      007-simple-sections-001	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |      007-simple-sections-002	|	          YES	|	          YES	|	        CR/LF	|	          YES |
 |      007-simple-sections-003	|	          YES	|	          YES	|	        CR/LF	|	          YES |
@@ -161,12 +161,12 @@
 |          035-hb-eachelse-002	|	        CR/LF	|	          YES	|	           NO	|	           NO |
 |          035-hb-eachelse-003	|	        CR/LF	|	          YES	|	           NO	|	           NO |
 |          035-hb-eachelse-004	|	        CR/LF	|	          YES	|	           NO	|	           NO |
-|          035-hb-eachelse-005	|	        CR/LF	|	          YES	|	           NO	|	           NO |
+|          035-hb-eachelse-005	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |       036-hb-sectionelse-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |       036-hb-sectionelse-002	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |       036-hb-sectionelse-003	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |       036-hb-sectionelse-004	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
-|       036-hb-sectionelse-005	|	       OUTPUT	|	       OUTPUT	|	           NO	|	           NO |
+|       036-hb-sectionelse-005	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |       036-hb-sectionelse-006	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |    037-hb-each-firstlast-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |    037-hb-each-firstlast-002	|	       OUTPUT	|	          YES	|	           NO	|	           NO |

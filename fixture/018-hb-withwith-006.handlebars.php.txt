@@ -1,0 +1,23 @@
+<div class="yui3-u-1-2 member-status">
+ <ul class="h-list">
+   <li>New User? <a href="http://tw.yahoo.com/?reg">Register Now</a></li>
+   <li><a href="http://tw.yahoo.com/?login">Login</a></li>
+~WITH
+~TEST~
+   
+   
+~IF~
+   
+   NO
+~SEC~
+~EACH~
+~END~
+WITH~
+_WITH PATH_
+XTEST:  - 
+IF: NO!
+SECTION::
+EACH::
+END!
+ </ul>
+</div>

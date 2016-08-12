@@ -1,4 +1,4 @@
-*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2016-08-12 15:58:16)
+*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2016-08-12 17:07:42)
 
   * `YES` : Exact same behavior with handlebars.js run in nodejs
   * `NO` : Do not support, can not parse the template
@@ -97,8 +97,8 @@
 |            015-hb-unless-004	|	          YES	|	          YES	|	           NO	|	           NO |
 |            015-hb-unless-005	|	        CR/LF	|	          YES	|	           NO	|	           NO |
 |            015-hb-unless-006	|	          YES	|	          YES	|	           NO	|	           NO |
-|          016-hb-eachthis-001	|	          YES	|	          YES	|	           NO	|	           NO |
-|          016-hb-eachthis-002	|	          YES	|	          YES	|	           NO	|	           NO |
+|          016-hb-eachthis-001	|	           NO	|	          YES	|	           NO	|	           NO |
+|          016-hb-eachthis-002	|	           NO	|	          YES	|	           NO	|	           NO |
 |              017-hb-with-001	|	          YES	|	          YES	|	           NO	|	           NO |
 |              017-hb-with-002	|	          YES	|	          YES	|	           NO	|	           NO |
 |              017-hb-with-003	|	          YES	|	          YES	|	           NO	|	           NO |
@@ -109,14 +109,14 @@
 |          018-hb-withwith-005	|	          YES	|	          YES	|	           NO	|	           NO |
 |          018-hb-withwith-006	|	          YES	|	          YES	|	           NO	|	           NO |
 |          018-hb-withwith-007	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
-|        019-hb-eachparent-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
-|        019-hb-eachparent-002	|	          YES	|	          YES	|	           NO	|	           NO |
+|        019-hb-eachparent-001	|	           NO	|	          YES	|	           NO	|	           NO |
+|        019-hb-eachparent-002	|	           NO	|	          YES	|	           NO	|	           NO |
 |           020-hb-doteach-001	|	          YES	|	          YES	|	           NO	|	           NO |
 |           020-hb-doteach-002	|	          YES	|	          YES	|	           NO	|	           NO |
-|        021-hb-manyparent-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
-|        021-hb-manyparent-002	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
-|        021-hb-manyparent-003	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
-|        021-hb-manyparent-004	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
+|        021-hb-manyparent-001	|	           NO	|	          YES	|	           NO	|	           NO |
+|        021-hb-manyparent-002	|	           NO	|	          YES	|	           NO	|	           NO |
+|        021-hb-manyparent-003	|	           NO	|	          YES	|	           NO	|	           NO |
+|        021-hb-manyparent-004	|	           NO	|	          YES	|	           NO	|	           NO |
 |       022-simple-partial-001	|	       OUTPUT	|	          YES	|	           NO	|	       OUTPUT |
 |           023-hb-partial-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |           023-hb-partial-002	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
@@ -172,7 +172,7 @@
 |    037-hb-each-firstlast-002	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |    037-hb-each-firstlast-003	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |     038-hb-subexpression-001	|	          YES	|	          YES	|	       OUTPUT	|	       OUTPUT |
-|        039-hb-parenteach-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
-|        039-hb-parenteach-002	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
-|          livetest-001-hb-001	|	          YES	|	          YES	|	           NO	|	           NO |
+|        039-hb-parenteach-001	|	           NO	|	          YES	|	           NO	|	           NO |
+|        039-hb-parenteach-002	|	           NO	|	          YES	|	           NO	|	           NO |
+|          livetest-001-hb-001	|	           NO	|	          YES	|	           NO	|	           NO |
 |          livetest-002-hb-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |

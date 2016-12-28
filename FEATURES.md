@@ -1,4 +1,4 @@
-*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2016-12-26 18:47:36)
+*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2016-12-28 11:28:40)
 
   * `YES` : Exact same behavior with handlebars.js run in nodejs
   * `NO` : Do not support, can not parse the template
@@ -48,7 +48,7 @@
 |       006-simple-section-008	|	          YES	|	          YES	|	        CR/LF	|	          YES |
 |       006-simple-section-009	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |       006-simple-section-010	|	          YES	|	          YES	|	        CR/LF	|	          YES |
-|       006-simple-section-011	|	          YES	|	          YES	|	       OUTPUT	|	       OUTPUT |
+|       006-simple-section-011	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |      007-simple-sections-001	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |      007-simple-sections-002	|	          YES	|	          YES	|	        CR/LF	|	          YES |
 |      007-simple-sections-003	|	          YES	|	          YES	|	        CR/LF	|	          YES |
@@ -64,8 +64,8 @@
 | 010-simple-doublesection-003	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 | 010-simple-doublesection-004	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 | 010-simple-doublesection-005	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
-|       011-simple-context-001	|	          YES	|	          YES	|	       OUTPUT	|	       OUTPUT |
-|       011-simple-context-002	|	          YES	|	          YES	|	       OUTPUT	|	       OUTPUT |
+|       011-simple-context-001	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
+|       011-simple-context-002	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |          012-simple-this-001	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |          012-simple-this-002	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |          012-simple-this-003	|	       OUTPUT	|	          YES	|	       OUTPUT	|	       OUTPUT |
@@ -101,7 +101,7 @@
 |          016-hb-eachthis-002	|	           NO	|	          YES	|	           NO	|	           NO |
 |              017-hb-with-001	|	          YES	|	          YES	|	           NO	|	           NO |
 |              017-hb-with-002	|	          YES	|	          YES	|	           NO	|	           NO |
-|              017-hb-with-003	|	          YES	|	          YES	|	           NO	|	           NO |
+|              017-hb-with-003	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |          018-hb-withwith-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |          018-hb-withwith-002	|	          YES	|	          YES	|	           NO	|	           NO |
 |          018-hb-withwith-003	|	          YES	|	          YES	|	           NO	|	           NO |
@@ -112,7 +112,7 @@
 |        019-hb-eachparent-001	|	           NO	|	          YES	|	           NO	|	           NO |
 |        019-hb-eachparent-002	|	           NO	|	          YES	|	           NO	|	           NO |
 |           020-hb-doteach-001	|	          YES	|	          YES	|	           NO	|	           NO |
-|           020-hb-doteach-002	|	          YES	|	          YES	|	           NO	|	           NO |
+|           020-hb-doteach-002	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |        021-hb-manyparent-001	|	           NO	|	          YES	|	           NO	|	           NO |
 |        021-hb-manyparent-002	|	           NO	|	          YES	|	           NO	|	           NO |
 |        021-hb-manyparent-003	|	           NO	|	          YES	|	           NO	|	           NO |
@@ -139,7 +139,7 @@
 |            026-hb-eachif-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |        027-hb-arrayindex-001	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |        027-hb-arrayindex-002	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
-|        027-hb-arrayindex-003	|	          YES	|	          YES	|	           NO	|	           NO |
+|        027-hb-arrayindex-003	|	       OUTPUT	|	          YES	|	           NO	|	           NO |
 |             028-hb-advar-001	|	          YES	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |             028-hb-advar-002	|	          YES	|	          YES	|	       OUTPUT	|	       OUTPUT |
 |             028-hb-advar-003	|	          YES	|	          YES	|	       OUTPUT	|	       OUTPUT |

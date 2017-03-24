@@ -25,9 +25,9 @@ Quick Conclusion
 ----------------
 <b>Use https://github.com/zordius/lightncandy to compile handlebars in php, because:</b>
 
-* it runs 2~6 times faster than https://github.com/bobthecow/mustache.php
-* it runs 2.5~7.5 times faster than https://github.com/dingram/mustache-php
-* it runs 12~47 times faster than https://github.com/XaminProject/handlebars.php
+* it runs 2~7 times faster than https://github.com/bobthecow/mustache.php
+* it runs 2~7 times faster than https://github.com/dingram/mustache-php
+* it runs 10~50 times faster than https://github.com/XaminProject/handlebars.php
 
 Detail reports please browse the 'report' directory.
 

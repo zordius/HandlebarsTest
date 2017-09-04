@@ -101,7 +101,7 @@ if ($times === 'L') {
     if ($times === 'R') {
         include_once('cloned/lightncandy/src/loader.php');
         $times = - \LightnCandy\LightnCandy::FLAG_HANDLEBARSJS;
-        $redir = ' 2>/dev/null';
+     //   $redir = ' 2>/dev/null';
     }
 
     foreach (glob('fixture/*.json') as $test) {

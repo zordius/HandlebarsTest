@@ -112,9 +112,13 @@ if ($times === 'L') {
             ob_start();
         }
         $result = system("bin/hbtest $lib $test $times$redir");
-        $report[] = json_decode($result, true);
+        $R = json_decode($result, true);
+        $report[] = $R;
         if ($tmode === 'R') {
             ob_end_clean();
+        }
+        if (!$R) {
+            error_log('ERROR! ' . $result);
         }
       }
       $reports[$test] = $report;

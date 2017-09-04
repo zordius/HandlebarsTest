@@ -118,7 +118,7 @@ if ($times === 'L') {
             ob_end_clean();
         }
         if (!$R) {
-            error_log('ERROR! ' . $result);
+            error_log("ERROR! bin/hbtest $lib $test $times$redir ... result: $result");
         }
       }
       $reports[$test] = $report;

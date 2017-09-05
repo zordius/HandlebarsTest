@@ -101,7 +101,7 @@ if ($times === 'L') {
     if ($times === 'R') {
         include_once('cloned/lightncandy/src/loader.php');
         $times = - \LightnCandy\LightnCandy::FLAG_HANDLEBARSJS;
-     //   $redir = ' 2>/dev/null';
+        $redir = ' 2>/dev/null';
     }
 
     foreach (glob('fixture/*.json') as $test) {
@@ -111,7 +111,7 @@ if ($times === 'L') {
             echo '*';
             ob_start();
         }
-        $result = system("bin/hbtest $lib $test $times$redir");
+        $result = system(__DIR__ . "/hbtest $lib $test $times$redir");
         $R = json_decode($result, true);
         $report[] = $R;
         if ($tmode === 'R') {

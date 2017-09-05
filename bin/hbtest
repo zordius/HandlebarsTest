@@ -1,4 +1,4 @@
-#!/usr/bin/env php -dopen_basedir=.
+#!/usr/bin/php -dopen_basedir=.
 <?php
 
 require_once('inc/utils.inc');

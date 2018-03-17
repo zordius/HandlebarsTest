@@ -1,4 +1,4 @@
-*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2017-10-13 17:09:19)
+*In this test lightncandy is configured as HANDLEBARS+ JS COMPATIBLE* (test @ 2018-03-17 15:34:22)
 
   * `YES` : Exact same behavior with handlebars.js run in nodejs
   * `NO` : Do not support, can not parse the template

@@ -26,6 +26,8 @@ git add features.png
 git commit -m "Auto commit generated feature list [ci skip]"
 git push --quiet "https://${GHTK}@github.com/zordius/HandlebarsTest.git" tmp:master > /dev/null 2>&1
 
+echo Master pushed OK, will generate document....
+
 cd report
 phantomjs --local-to-remote-url-access=true ../bin/save-chart.js index.html?`ls 20*.json |tail -n 1`
 mkdir build

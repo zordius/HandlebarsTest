@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 var fs = require('fs'),
-    handlebars = require('../handlebars.js'),
+    handlebars = require('handlebars'),
     dir = 'fixture/',
     partial_total = 0,
     partial_ok = 0,

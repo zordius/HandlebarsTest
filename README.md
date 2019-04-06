@@ -65,11 +65,16 @@ Feature Comparison
 
 How to Test
 -----------
+
+* Prepare:
+```sh
+git submodule init
+git submodule update
+```
+
 1. install nodejs04+
 2. install npm
-3. Now we lock the test to specific handlebars.js version.
-   * test most updated npm version: `npm install handlebars`
-   * download the specific version: `wget http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v4.0.10.js -O handlebars.js`
+3. install handlebars: `npm install handlebars`
 4. `bin/generate-fixture`
    * This will generate *.txt files under fixtures.
    * These files are generated with handlebars.js.

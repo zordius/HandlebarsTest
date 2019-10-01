@@ -13,10 +13,7 @@ const height = 1 * (process.argv[4] || 768)
 console.log(file, width, height)
 
 const job = async () => {
-  const browser = await puppeteer.launch({
-headless: false,
-        slowMo: 3000,
-        devtools: true})
+  const browser = await puppeteer.launch()
   const page = await browser.newPage()
 
   page.on('console', msg => console.log(msg))

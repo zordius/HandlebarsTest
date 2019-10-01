@@ -20,12 +20,11 @@ google.setOnLoadCallback(function () {
         chart = new google.visualization.ComboChart(document.body.childNodes[0]),
         sel = document.body.childNodes[1],
         reports = $.ajax({url: 'reports', async: false, dataType: 'json'}).responseText.split(/\r|\n/).reverse(),
-        M = location.href.match(/\?(.+)/),
-        isPhantom = window.navigator.userAgent.match(/PhantomJS/),
+        isSnapshot = location.href.match(/SNAP/),
         jsonData, I, J, colOK = false, nums, L, url, opt,
         chartOpt = {
             title: document.title,
-            vAxis: {logScale: isPhantom ? false : true, minValue: 0},
+            vAxis: {logScale: isSnapshot ? false : true, minValue: 0},
             legend: {position: 'in', textStyle: {fontSize: 9}},
             chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
             bar: {groupWidth: '75%'},
@@ -35,7 +34,7 @@ google.setOnLoadCallback(function () {
         };
 
     reports.shift();
-    url = M ? M[1] : reports[0];
+    url = location.search || reports[0];
 
     for (I in reports) {
         opt = document.createElement('option');
@@ -102,7 +101,7 @@ google.setOnLoadCallback(function () {
         colOK = true;
     }
 
-    if (isPhantom) {
+    if (isSnapshot) {
         document.body.className = 'phantom';
         data.removeColumns(5, 3);
     }

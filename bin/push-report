@@ -12,7 +12,9 @@ git config --global user.email "zordius@users.noreply.gihub.com"
 
 php bin/hbreport R x x
 curl -O http://dynalon.github.io/mdwiki/index.html
-phantomjs --local-to-remote-url-access=true bin/save-features.js
+npm i express puppeteer
+node bin/htmlToPng.js 'index.html#!FEATURES.md' 720 6400
+mv screenshot.png features0.png
 
 sudo add-apt-repository -y ppa:danmbox/ppa
 sudo apt-get update
@@ -29,7 +31,8 @@ git push --quiet "https://${GHTK}@github.com/zordius/HandlebarsTest.git" tmp:mas
 echo Master pushed OK, will generate document....
 
 cd report
-phantomjs --local-to-remote-url-access=true ../bin/save-chart.js index.html?`ls 20*.json |tail -n 1`
+node ../bin/htmlToPng.js 'report/index.html?'`ls 20*.json |tail -n 1`'#SNAP'
+mv screenshot.png chart.png
 mkdir build
 pngquant 32 chart.png
 mv chart-fs8.png build/chart.png

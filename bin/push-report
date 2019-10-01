@@ -31,7 +31,7 @@ git push --quiet "https://${GHTK}@github.com/zordius/HandlebarsTest.git" tmp:mas
 echo Master pushed OK, will generate document....
 
 cd report
-node ../bin/htmlToPng.js 'report/index.html?'`ls 20*.json |tail -n 1`'#SNAP'
+node ../bin/htmlToPng.js 'index.html?'`ls 20*.json |tail -n 1`'#SNAP'
 mv screenshot.png chart.png
 mkdir build
 pngquant 32 chart.png

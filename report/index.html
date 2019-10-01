@@ -34,7 +34,7 @@ google.setOnLoadCallback(function () {
         };
 
     reports.shift();
-    url = location.search || reports[0];
+    url = location.search.replace('?', '') || reports[0];
 
     for (I in reports) {
         opt = document.createElement('option');

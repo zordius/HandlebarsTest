@@ -24,8 +24,6 @@ git push --quiet "https://${GHTK}@github.com/zordius/HandlebarsTest.git" tmp:mas
 echo Master pushed OK, will generate document....
 
 cd report
-ls 20*.json > reports
-ls versions*.json > versions
 node ../bin/htmlToPng.js 'index.html?'`ls 20*.json |tail -n 1`'#SNAP'
 mv screenshot.png chart.png
 mkdir build
@@ -37,6 +35,8 @@ cp *.json build
 rm build/20130110*
 rm build/*xdebug.json
 cd build
+ls 20*.json > reports
+ls versions*.json > versions
 git init -b master
 git add .
 git commit -m "Auto deployed to Github Pages from branch ${BRANCH} @${GITHUB_SHA} [ci skip]"

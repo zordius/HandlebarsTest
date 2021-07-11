@@ -1,6 +1,8 @@
 HandlebarsTest
 ==============
 
+[![Regression testing](https://github.com//zordius/HandlebarsTest/actions/workflows/php.yml/badge.svg?branch=master)](https://github.com/zordius/HandlebarsTest/actions/workflows/php.yml) tested PHP: 5.3, 5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0
+
 Performance tests on Mustache and Handlebars php libs. Results can be found here: http://zordius.github.io/HandlebarsTest/ .
 
 Performance results done by others:

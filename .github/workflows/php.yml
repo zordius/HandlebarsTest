@@ -1,0 +1,41 @@
+name: handlebars tests
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: ['ubuntu-latest']
+        php-versions: ['5.4', '5.5', '5.6', '7.0', '7.1', '7.2', '7.3', '7.4', '8.0']
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v2
+      with:
+      node-version: '14'
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-versions }}
+        extensions: mbstring, intl
+        ini-values: post_max_size=256M, max_execution_time=180
+        tools: phpunit:${{ matrix.phpunit-versions }}
+    - name: settle lightncandy
+      run: |
+        cd cloned/lightncandy
+        git checkout -qf `cat ../../lightncandy`
+    - name: Run handlebars tests
+      run: php bin/hbreport F 0 T
+    - name: Extract branch name
+      shell: bash
+      run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
+      id: extract_branch
+    - name: push handlebars test report to git
+      if: ${{ matrix.php-versions == '7.4' }}
+      run: bin/push-report
+      env:
+        BRANCH: ${{steps.extract_branch.outputs.branch}}
+        GHTK: ${{ secrets.GHTK }}

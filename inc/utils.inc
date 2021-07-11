@@ -53,7 +53,6 @@ function prepare_tmpl($name, $file, $flag) {
         $h->add('helper4', function($tmpl, $cx, $args, $src) {
             $args = $tmpl->parseTagAttributes($args);
             if (isset($args['val'])) {
-                $cx->set('helper4_value', $args['val'] % 2);
                 return $template->render($cx);
             }
             if (isset($args['odd'])) {

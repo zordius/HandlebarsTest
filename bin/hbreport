@@ -48,8 +48,8 @@ if ($times === 'L') {
 
     $flags = Array(
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_RENDER_DEBUG,
-//        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONEPHP | LightnCandy::FLAG_RENDER_DEBUG,
-//        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONEPHP | LightnCandy::FLAG_RENDER_DEBUG,
+        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONEPHP | LightnCandy::FLAG_RENDER_DEBUG,
+        LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO | LightnCandy::FLAG_STANDALONEPHP | LightnCandy::FLAG_RENDER_DEBUG,
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_RENDER_DEBUG,
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_ECHO,
         LightnCandy::FLAG_HANDLEBARSJS | LightnCandy::FLAG_STANDALONEPHP,

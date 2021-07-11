@@ -92,7 +92,6 @@ $options[($lc_version === '>=89') ? 'helpers' : 'hbhelpers'] = Array(
     },
     'helper4' => function ($options) {
         if (isset($options['hash']['val'])) {
-            $options['_this']['helper4_value'] = $options['hash']['val'] % 2;
             return $options['fn']($options['_this']);
         }
         if (isset($options['hash']['odd'])) {

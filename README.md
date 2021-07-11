@@ -12,9 +12,7 @@ Performance results done by others:
 Current Result
 --------------
 
-<a href="http://zordius.github.io/HandlebarsTest/"><img src="http://zordius.github.io/HandlebarsTest/chart.png"></a>
-
-Click on the chart for more details.
+Check the live chart (performance comparison) for more details: http://zordius.github.io/HandlebarsTest/
 
 Requirements
 ------------

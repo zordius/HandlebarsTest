@@ -10,18 +10,15 @@ select{position:absolute;top:0;right:0}
 body.headless select{top:-100px}
 </style>
 </head>
-<body><div></div><select></select></body>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<body><div id="main"></div><select></select></body>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-console.log('Will load google visualization lib...');
-
-google.load('visualization', '1.0', {'packages':['corechart']});
-google.setOnLoadCallback(async () => {
+const drawChart = async () => {
     console.log('google visualization ready!', location.href);
 
     const data = new google.visualization.DataTable();
-    const chart = new google.visualization.ComboChart(document.body.childNodes[0]);
-    const sel = document.body.childNodes[1];
+    const chart = new google.visualization.ComboChart(document.querySelector('#main'));
+    const sel = document.querySelector('select');
 
     console.log('will fetch reports...');
     const reports = await fetch('reports').then(R => R.text()).then(D => D.split(/\r|\n/).reverse());
@@ -50,7 +47,7 @@ google.setOnLoadCallback(async () => {
         if (url == reports[I]) {
             opt.selected = true;
         }
-        sel.add(opt);
+        sel.appendChild(opt);
     }
 
     sel.onchange = function () {
@@ -111,13 +108,19 @@ google.setOnLoadCallback(async () => {
     console.log('report chart is ready!');
 
     if (isSnapshot) {
-        document.body.className = 'headless';
-        data.removeColumns(5, 3);
+       document.body.className = 'headless';
+       data.removeColumns(5, 3);
     }
 
     console.log('Start to paint chart!');
     chart.draw(data, chartOpt);
     console.log('chart painted!');
-});
+};
+
+console.log('Will load google visualization lib...', document.body.offsetWidth, document.body.offsetHeight);
+google.charts
+  .load('current', {'packages':['corechart']})
+  .then(drawChart)
+  .catch(E => console.error(E.message));
 </script>
 </html>

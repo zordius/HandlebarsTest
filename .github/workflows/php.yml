@@ -25,6 +25,8 @@ jobs:
         tools: phpunit:${{ matrix.phpunit-versions }}
     - name: settle lightncandy
       run: |
+        git submodule init
+        git submodule update
         cd cloned/lightncandy
         git checkout -qf `cat ../../lightncandy`
     - name: Run handlebars tests

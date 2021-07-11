@@ -1,0 +1,88 @@
+<html>
+<head>
+ <title>HandlebarsTest Report: Execution Time of LightnCandy versions</title>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <meta http-equiv="keyword" content="mustache, handlebars, lightncandy, performance" />
+ <meta name="description" content="Shows handlebars library performance comparison chart" />
+<style>
+html,body,body>div{margin:0;height:100%;overflow:hidden}
+select{position:absolute;top:0;right:0}
+body.headless select{top:-100px}
+</style>
+</head>
+<body><div></div><select></select></body>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script type="text/javascript">
+google.load('visualization', '1.0', {'packages':['corechart']});
+google.setOnLoadCallback(function () {
+    var data = new google.visualization.DataTable(),
+        chart = new google.visualization.ComboChart(document.body.childNodes[0]),
+        sel = document.body.childNodes[1],
+        reports = $.ajax({url: 'versions', async: false, dataType: 'json'}).responseText.split(/\r|\n/).reverse(),
+        M = location.href.match(/\?(.+)/),
+        isHeadless = window.navigator.userAgent.match(/HeadlessChrome/),
+        jsonData, I, J, nums, url, opt,
+        chartOpt = {
+            title: document.title,
+            vAxis: {logScale: isHeadless ? false : true, minValue: 0},
+            legend: {textStyle: {fontSize: 9}},
+         //   chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
+          //  bar: {groupWidth: '75%'},
+            seriesType: 'line',
+            focusTarget: 'category'
+        };
+
+    reports.shift();
+    url = M ? M[1] : reports[0];
+
+    for (I in reports) {
+        opt = document.createElement('option');
+        opt.text = reports[I];
+        if (url == reports[I]) {
+            opt.selected = true;
+        }
+        sel.add(opt);
+    }
+
+    sel.onchange = function () {
+        location.href = '?' + reports[sel.selectedIndex];
+    };
+
+    window.onresize = function () {
+        location.reload();
+    };
+
+    try {
+        jsonData = JSON.parse($.ajax({url: url, async: false, dataType: 'json'}).responseText);
+    } catch (e) {
+    }
+
+    data.addColumn('string', 'Testcase');
+
+    for (I in jsonData.reports) {
+        data.addColumn('number', I + ' (seconds)');
+    }
+
+    for (J in jsonData.reports['master']) {
+        nums = [J];
+        for (I in jsonData.reports) {
+            if (jsonData.reports[I][J]) {
+                nums.push(jsonData.reports[I][J].time);
+            } else {
+                nums.push(0);
+            }
+        }
+
+        data.addRow(nums);
+    }
+
+    if (isHeadless) {
+        document.body.className = 'headless';
+        data.removeColumns(5, 3);
+    }
+
+    chart.draw(data, chartOpt);
+});
+</script>
+</html>

@@ -1,0 +1,126 @@
+<html>
+<head>
+ <title>HandlebarsTest Report: Execution Time of Handlebars PHP Libraries</title>
+ <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+ <meta http-equiv="keyword" content="mustache, handlebars, lightncandy, performance" />
+ <meta name="description" content="Shows handlebars library performance comparison chart" />
+<style>
+html,body,body>div{margin:0;height:100%;overflow:hidden}
+select{position:absolute;top:0;right:0}
+body.headless select{top:-100px}
+</style>
+</head>
+<body><div id="main"></div><select></select></body>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+const drawChart = async () => {
+    console.log('google visualization ready!', location.href);
+
+    const data = new google.visualization.DataTable();
+    const chart = new google.visualization.ComboChart(document.querySelector('#main'));
+    const sel = document.querySelector('select');
+
+    console.log('will fetch reports...');
+    const reports = await fetch('reports').then(R => R.text()).then(D => D.split(/\r|\n/).reverse());
+    const isSnapshot = location.href.match(/SNAP/);
+    const chartOpt = {
+        title: document.title,
+        vAxis: {logScale: isSnapshot ? false : true, minValue: 0},
+        legend: {position: 'in', textStyle: {fontSize: 9}},
+        chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
+        bar: {groupWidth: '75%'},
+        seriesType: 'bars',
+        series: {4: {type: "line"}, 5: {type: "line"}, 6: {type: "line"}},
+        focusTarget: 'category'
+    };
+
+    var I, J, colOK = false, nums, L, url, opt;
+
+    reports.shift();
+    console.log('reports:', JSON.stringify(reports));
+    url = location.search.replace('?', '') || reports[0];
+    console.log('current report:', url);
+
+    for (I in reports) {
+        opt = document.createElement('option');
+        opt.text = reports[I];
+        if (url == reports[I]) {
+            opt.selected = true;
+        }
+        sel.appendChild(opt);
+    }
+
+    sel.onchange = function () {
+        location.href = '?' + reports[sel.selectedIndex];
+    };
+
+    window.onresize = function () {
+        location.reload();
+    };
+
+    console.log('will fetch report json:', url);
+    const jsonData = await fetch(url).then(R => R.json());
+    console.log('report json data received!');
+
+    data.addColumn('string', 'Testcase');
+
+    console.log('generating reports!:', url);
+    for (I in jsonData.reports) {
+        nums = [I];
+        for (J in jsonData.reports[I]) {
+            if (!jsonData.reports[I][J]) {
+                L = 0;
+                break;
+            }
+            if (jsonData.reports[I][J].lib === 'lightncandy') {
+                L = jsonData.reports[I][J].time;
+            }
+            if (!colOK) {
+                data.addColumn('number', jsonData.reports[I][J].lib + ' (seconds)');
+            }
+            nums.push(jsonData.reports[I][J].time);
+        }
+
+        if (L === 0) {
+            continue;
+        }
+
+        for (J in jsonData.reports[I]) {
+            if (jsonData.reports[I][J].lib != 'lightncandy') {
+                if (!colOK) {
+                    data.addColumn('number', 'lightncandy VS ' + jsonData.reports[I][J].lib + ' (times)');
+                }
+                if (jsonData.reports[I][J].time) {
+                    nums.push(Math.floor(100 * jsonData.reports[I][J].time / L) / 100);
+                } else {
+                    L = 0;
+                    continue;
+                }
+            }
+        }
+
+        if (L > 0) {
+            data.addRow(nums);
+        }
+
+        colOK = true;
+    }
+    console.log('report chart is ready!');
+
+    if (isSnapshot) {
+       document.body.className = 'headless';
+       data.removeColumns(5, 3);
+    }
+
+    console.log('Start to paint chart!');
+    chart.draw(data, chartOpt);
+    console.log('chart painted!');
+};
+
+console.log('Will load google visualization lib...', document.body.offsetWidth, document.body.offsetHeight);
+google.charts
+  .load('current', {'packages':['corechart']})
+  .then(drawChart)
+  .catch(E => console.error(E.message));
+</script>
+</html>

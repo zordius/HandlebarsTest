@@ -12,10 +12,11 @@ if (process.argv[2] !== 'server') {
   const height = 1 * (process.argv[4] || 768)
 
   console.log(file, width, height)
+  let browser
 
   const job = async () => {
     try {
-      const browser = await puppeteer.launch()
+      browser = await puppeteer.launch()
       const page = await browser.newPage()
 
       page.on('console', msg => console.log(msg))

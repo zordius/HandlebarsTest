@@ -7,7 +7,7 @@
 <style>
 html,body,body>div{margin:0;height:100%;overflow:hidden}
 select{position:absolute;top:0;right:0}
-body.phantom select{top:-100px}
+body.headless select{top:-100px}
 </style>
 </head>
 <body><div></div><select></select></body>
@@ -21,11 +21,11 @@ google.setOnLoadCallback(function () {
         sel = document.body.childNodes[1],
         reports = $.ajax({url: 'versions', async: false, dataType: 'json'}).responseText.split(/\r|\n/).reverse(),
         M = location.href.match(/\?(.+)/),
-        isPhantom = window.navigator.userAgent.match(/PhantomJS/),
+        isHeadless = window.navigator.userAgent.match(/HeadlessChrome/),
         jsonData, I, J, nums, url, opt,
         chartOpt = {
             title: document.title,
-            vAxis: {logScale: isPhantom ? false : true, minValue: 0},
+            vAxis: {logScale: isHeadless ? false : true, minValue: 0},
             legend: {textStyle: {fontSize: 9}},
          //   chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
           //  bar: {groupWidth: '75%'},
@@ -77,8 +77,8 @@ google.setOnLoadCallback(function () {
         data.addRow(nums);
     }
 
-    if (isPhantom) {
-        document.body.className = 'phantom';
+    if (isHeadless) {
+        document.body.className = 'headless';
         data.removeColumns(5, 3);
     }
 

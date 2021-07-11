@@ -7,34 +7,42 @@
 <style>
 html,body,body>div{margin:0;height:100%;overflow:hidden}
 select{position:absolute;top:0;right:0}
-body.phantom select{top:-100px}
+body.headless select{top:-100px}
 </style>
 </head>
 <body><div></div><select></select></body>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script type="text/javascript">
+console.log('Will load google visualization lib...');
+
 google.load('visualization', '1.0', {'packages':['corechart']});
-google.setOnLoadCallback(function () {
-    var data = new google.visualization.DataTable(),
-        chart = new google.visualization.ComboChart(document.body.childNodes[0]),
-        sel = document.body.childNodes[1],
-        reports = $.ajax({url: 'reports', async: false, dataType: 'json'}).responseText.split(/\r|\n/).reverse(),
-        isSnapshot = location.href.match(/SNAP/),
-        jsonData, I, J, colOK = false, nums, L, url, opt,
-        chartOpt = {
-            title: document.title,
-            vAxis: {logScale: isSnapshot ? false : true, minValue: 0},
-            legend: {position: 'in', textStyle: {fontSize: 9}},
-            chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
-            bar: {groupWidth: '75%'},
-            seriesType: 'bars',
-            series: {4: {type: "line"}, 5: {type: "line"}, 6: {type: "line"}},
-            focusTarget: 'category'
-        };
+google.setOnLoadCallback(async () => {
+    console.log('google visualization ready!', location.href);
+
+    const data = new google.visualization.DataTable();
+    const chart = new google.visualization.ComboChart(document.body.childNodes[0]);
+    const sel = document.body.childNodes[1];
+
+    console.log('will fetch reports...');
+    const reports = await fetch('reports').then(R => R.text()).then(D => D.split(/\r|\n/).reverse());
+    const isSnapshot = location.href.match(/SNAP/);
+    const chartOpt = {
+        title: document.title,
+        vAxis: {logScale: isSnapshot ? false : true, minValue: 0},
+        legend: {position: 'in', textStyle: {fontSize: 9}},
+        chartArea: {width: document.body.offsetWidth - 150, left: 150, height: document.body.offsetHeight - 200, top: 50},
+        bar: {groupWidth: '75%'},
+        seriesType: 'bars',
+        series: {4: {type: "line"}, 5: {type: "line"}, 6: {type: "line"}},
+        focusTarget: 'category'
+    };
+
+    var I, J, colOK = false, nums, L, url, opt;
 
     reports.shift();
+    console.log('reports:', JSON.stringify(reports));
     url = location.search.replace('?', '') || reports[0];
+    console.log('current report:', url);
 
     for (I in reports) {
         opt = document.createElement('option');
@@ -53,13 +61,13 @@ google.setOnLoadCallback(function () {
         location.reload();
     };
 
-    try {
-        jsonData = JSON.parse($.ajax({url: url, async: false, dataType: 'json'}).responseText);
-    } catch (e) {
-    }
+    console.log('will fetch report json:', url);
+    const jsonData = await fetch(url).then(R => R.json());
+    console.log('report json data received!');
 
     data.addColumn('string', 'Testcase');
 
+    console.log('generating reports!:', url);
     for (I in jsonData.reports) {
         nums = [I];
         for (J in jsonData.reports[I]) {
@@ -100,13 +108,16 @@ google.setOnLoadCallback(function () {
 
         colOK = true;
     }
+    console.log('report chart is ready!');
 
     if (isSnapshot) {
-        document.body.className = 'phantom';
+        document.body.className = 'headless';
         data.removeColumns(5, 3);
     }
 
+    console.log('Start to paint chart!');
     chart.draw(data, chartOpt);
+    console.log('chart painted!');
 });
 </script>
 </html>
